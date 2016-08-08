@@ -813,7 +813,7 @@ public class ChromeTabbedActivity
                     // we're launching into VR.
                     && !VrModuleProvider.getIntentDelegate().isLaunchingIntoVr(this, getIntent())
                     && !isLegacyMultiWindow) {
-                isShowingPromo = maybeShowPromo();
+                //isShowingPromo = maybeShowPromo();
             } else {
                 preferenceManager.writeBoolean(
                         ChromePreferenceManager.PROMOS_SKIPPED_ON_FIRST_START, true);
