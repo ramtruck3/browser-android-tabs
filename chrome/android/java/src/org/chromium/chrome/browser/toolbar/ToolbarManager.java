@@ -939,13 +939,14 @@ public class ToolbarManager implements ScrimObserver, ToolbarTabController, UrlF
             FindToolbarManager findToolbarManager, OverviewModeBehavior overviewModeBehavior,
             LayoutManager layoutManager, OnClickListener tabSwitcherClickHandler,
             OnClickListener newTabClickHandler, OnClickListener bookmarkClickHandler,
+            OnClickListener braveShieldsClickHandler,
             OnClickListener customTabsBackClickHandler) {
         assert !mInitializedWithNative;
 
         mTabModelSelector = tabModelSelector;
 
         mToolbar.initializeWithNative(tabModelSelector, controlsVisibilityDelegate, layoutManager,
-                tabSwitcherClickHandler, newTabClickHandler, bookmarkClickHandler,
+                tabSwitcherClickHandler, newTabClickHandler, bookmarkClickHandler, braveShieldsClickHandler,
                 customTabsBackClickHandler);
 
         mToolbar.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
