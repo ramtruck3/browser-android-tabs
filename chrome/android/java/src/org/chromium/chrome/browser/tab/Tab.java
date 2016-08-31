@@ -249,6 +249,9 @@ public class Tab
      */
     private boolean mIsNativePageCommitPending;
 
+    private int mAdsAndTrackers;
+    private int mHttpsUpgrades;
+
     private TabDelegateFactory mDelegateFactory;
 
     /** Listens for views related to the tab to be attached or detached. */
@@ -336,6 +339,9 @@ public class Tab
                 updateInteractableState();
             }
         };
+
+        mAdsAndTrackers = 0;
+        mHttpsUpgrades = 0;
     }
 
     /**
@@ -1939,6 +1945,24 @@ public class Tab
      */
     public boolean areRendererInputEventsIgnored() {
         return nativeAreRendererInputEventsIgnored(mNativeTabAndroid);
+    }
+
+    public void braveShieldsCountUpdate(int adsAndTrackers, int httpsUpgrades) {
+        mAdsAndTrackers += adsAndTrackers;
+        mHttpsUpgrades += httpsUpgrades;
+    }
+
+    public int getAdsAndTrackers() {
+        return mAdsAndTrackers;
+    }
+
+    public int getHttpsUpgrades() {
+        return mHttpsUpgrades;
+    }
+
+    public void clearBraveShieldsCount() {
+        mAdsAndTrackers = 0;
+        mHttpsUpgrades = 0;
     }
 
     private native void nativeInit();
