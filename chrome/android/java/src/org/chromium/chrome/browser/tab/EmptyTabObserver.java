@@ -171,5 +171,6 @@ public class EmptyTabObserver implements TabObserver {
     public void onRootIdChanged(Tab tab, int newRootId) {}
 
     @Override
-    public void onBraveShieldsCountUpdate(String url, int adsAndTrackers, int httpsUpgrades) {}
+    public void onBraveShieldsCountUpdate(String url, int adsAndTrackers, int httpsUpgrades,
+            int scriptsBlocked) {}
 }
