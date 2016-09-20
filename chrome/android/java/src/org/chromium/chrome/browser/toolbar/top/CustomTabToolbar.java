@@ -35,6 +35,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chromium.base.ApiCompatibilityUtils;
@@ -72,6 +73,7 @@ import org.chromium.ui.base.WindowAndroid;
 import org.chromium.ui.interpolators.BakedBezierInterpolator;
 import org.chromium.ui.text.SpanApplier;
 import org.chromium.ui.text.SpanApplier.SpanInfo;
+import org.chromium.base.Log;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -152,6 +154,8 @@ public class CustomTabToolbar extends ToolbarLayout implements View.OnLongClickL
 
     protected ToolbarDataProvider mToolbarDataProvider;
     private LocationBar mLocationBar;
+    private OnClickListener mBraveShieldsListener;
+    private ImageView mBraveShieldsButton;
 
     private Runnable mTitleAnimationStarter = new Runnable() {
         @Override
@@ -194,6 +198,15 @@ public class CustomTabToolbar extends ToolbarLayout implements View.OnLongClickL
         mCloseButton = findViewById(R.id.close_button);
         mCloseButton.setOnLongClickListener(this);
         mMenuButton = findViewById(R.id.menu_button);
+        mBraveShieldsButton = (ImageView) findViewById(R.id.brave_shields_button);
+        mBraveShieldsButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (null != mBraveShieldsButton && null != mBraveShieldsListener) {
+                    mBraveShieldsListener.onClick(mBraveShieldsButton);
+                }
+            }
+        });
         mAnimDelegate = new CustomTabToolbarAnimationDelegate(mSecurityButton, mTitleUrlContainer);
     }
 
@@ -240,6 +253,11 @@ public class CustomTabToolbar extends ToolbarLayout implements View.OnLongClickL
                 mCustomActionButtons.getChildCount() - 1 - index);
         assert button != null;
         updateCustomActionButtonVisuals(button, drawable, description);
+    }
+
+    @Override
+    public void setBraveShieldsClickHandler(OnClickListener listener) {
+        mBraveShieldsListener = listener;
     }
 
     private void updateCustomActionButtonVisuals(
