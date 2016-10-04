@@ -37,6 +37,7 @@ import org.chromium.chrome.browser.ChromeSwitches;
 import org.chromium.chrome.browser.FileProviderHelper;
 import org.chromium.chrome.browser.crash.LogcatExtractionRunnable;
 import org.chromium.chrome.browser.download.DownloadManagerService;
+import org.chromium.chrome.browser.preferences.PrefServiceBridge;
 import org.chromium.chrome.browser.services.GoogleServicesManager;
 import org.chromium.chrome.browser.webapps.ActivityAssigner;
 import org.chromium.chrome.browser.webapps.ChromeWebApkHost;
@@ -118,6 +119,7 @@ public class ChromeBrowserInitializer {
       new DownloadTrackingProtectionDataAsyncTask().execute();
       new DownloadAdBlockDataAsyncTask().execute();
       new DownloadHTTPSDataAsyncTask().execute();
+      PrefServiceBridge.getInstance().setBlockThirdPartyCookiesEnabled(true);
     }
 
     // Tracking ptotection data download
