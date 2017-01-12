@@ -164,6 +164,7 @@ extern const char kFingerprintingProtectionEnabled[];
 extern const char kHTTPSEEnabled[];
 extern const char kTrackingProtectionEnabled[];
 extern const char kAdBlockEnabled[];
+extern const char kAdBlockRegionalEnabled[];
 extern const char kSSLErrorOverrideAllowed[];
 extern const char kIncognitoModeAvailability[];
 extern const char kSearchSuggestEnabled[];
