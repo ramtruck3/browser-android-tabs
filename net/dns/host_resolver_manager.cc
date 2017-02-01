@@ -2424,20 +2424,20 @@ HostResolverManager::CreateMdnsListener(const HostPortPair& host,
 void HostResolverManager::SetDnsClientEnabled(bool enabled) {
   DCHECK_CALLED_ON_VALID_THREAD(thread_checker_);
 
-  if (enabled && !dns_client_) {
-    if (dns_client_factory_for_testing_) {
-      SetDnsClient(dns_client_factory_for_testing_.Run(net_log_));
-    } else {
-#if defined(ENABLE_BUILT_IN_DNS)
-      SetDnsClient(DnsClient::CreateClient(net_log_));
-#endif
-    }
-    return;
-  }
+//   if (enabled && !dns_client_) {
+//     if (dns_client_factory_for_testing_) {
+//       SetDnsClient(dns_client_factory_for_testing_.Run(net_log_));
+//     } else {
+// #if defined(ENABLE_BUILT_IN_DNS)
+//       SetDnsClient(DnsClient::CreateClient(net_log_));
+// #endif
+//     }
+//     return;
+//   }
 
-  if (!enabled && dns_client_) {
-    SetDnsClient(nullptr);
-  }
+//   if (!enabled && dns_client_) {
+//     SetDnsClient(nullptr);
+//   }
 }
 
 std::unique_ptr<base::Value> HostResolverManager::GetDnsConfigAsValue() const {
