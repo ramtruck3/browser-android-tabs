@@ -323,7 +323,7 @@ bool LocalFrameClientImpl::AllowFingerprinting()
 
 void LocalFrameClientImpl::DeniedFingerprinting()
 {
-  GetContentSettingsClient->DeniedFingerprinting();
+  GetContentSettingsClient()->DeniedFingerprinting();
 }
 
 bool LocalFrameClientImpl::InShadowTree() const {
