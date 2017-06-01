@@ -92,7 +92,7 @@ public class OAuthTokenFetcher {
 
     /** Begins fetching a token. Should be called on the main thread. */
     public void fetch() {
-        fetchImpl(null);
+        //fetchImpl(null);
     }
 
     /**
@@ -101,7 +101,7 @@ public class OAuthTokenFetcher {
      * @param expiredToken A previously-fetched token which has expired.
      */
     public void clearAndFetch(String expiredToken) {
-        fetchImpl(expiredToken);
+        //fetchImpl(expiredToken);
     }
 
     private void fetchImpl(final String expiredToken) {
