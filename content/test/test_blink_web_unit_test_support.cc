@@ -230,7 +230,7 @@ TestBlinkWebUnitTestSupport::CreateDefaultURLLoaderFactory() {
       weak_factory_.GetWeakPtr());
 }
 
-blink::WebString TestBlinkWebUnitTestSupport::UserAgent() {
+blink::WebString TestBlinkWebUnitTestSupport::UserAgent(const std::string& strHost) {
   return blink::WebString::FromUTF8("test_runner/0.0.0.0");
 }
 
