@@ -133,7 +133,7 @@ std::unique_ptr<KeyedService> PrefetchServiceFactory::BuildServiceInstanceFor(
 
   auto prefetch_network_request_factory =
       std::make_unique<PrefetchNetworkRequestFactoryImpl>(
-          url_loader_factory, chrome::GetChannel(), GetUserAgent(),
+          url_loader_factory, chrome::GetChannel(), GetUserAgent(""),
           profile_key->GetPrefs());
 
   scoped_refptr<base::SequencedTaskRunner> background_task_runner =
