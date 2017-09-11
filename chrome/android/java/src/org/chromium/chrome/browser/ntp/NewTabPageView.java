@@ -45,6 +45,8 @@ public class NewTabPageView extends HistoryNavigationLayout {
     private NewTabPageRecyclerView mRecyclerView;
 
     private NewTabPageLayout mNewTabPageLayout;
+    private ViewGroup mBraveStatsView;
+    private ImageView mBraveStatsShadow;
 
     private NewTabPageManager mManager;
     private Tab mTab;

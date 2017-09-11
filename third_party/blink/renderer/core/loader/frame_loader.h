@@ -204,6 +204,9 @@ class CORE_EXPORT FrameLoader final {
   void CancelClientNavigation();
   void DetachProvisionalDocumentLoader();
 
+  // We need it public for fingerprinting protection
+  LocalFrameClient* Client() const;
+
   void Trace(blink::Visitor*);
 
   void DidDropNavigation();
@@ -247,8 +250,6 @@ class CORE_EXPORT FrameLoader final {
 
   std::unique_ptr<TracedValue> ToTracedValue() const;
   void TakeObjectSnapshot() const;
-
-  LocalFrameClient* Client() const;
 
   Member<LocalFrame> frame_;
   AtomicString required_csp_;
