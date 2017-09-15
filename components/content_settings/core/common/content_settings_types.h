@@ -153,6 +153,9 @@ enum ContentSettingsType {
   CONTENT_SETTINGS_TYPE_HID_GUARD,
   CONTENT_SETTINGS_TYPE_HID_CHOOSER_DATA,
 
+  // This content setting type is for displaying desktop version of the website
+  CONTENT_SETTINGS_TYPE_DESKTOP_VIEW,
+
   CONTENT_SETTINGS_NUM_TYPES,
 };
 
