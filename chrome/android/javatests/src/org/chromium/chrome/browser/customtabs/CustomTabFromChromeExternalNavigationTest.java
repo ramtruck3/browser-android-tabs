@@ -100,7 +100,7 @@ public class CustomTabFromChromeExternalNavigationTest {
     }
 
     @Test
-    @Feature("CustomTabFromChrome")
+    @Feature({"CustomTabFromChrome", "ApplyLater"})
     @LargeTest
     @DisableIf.Build(message = "Flaky on K, https://crbug.com/962974",
             sdk_is_less_than = Build.VERSION_CODES.LOLLIPOP)
