@@ -201,7 +201,7 @@ public class PaymentRequestMetricsTest implements MainActivityStartCallback {
      */
     @Test
     @MediumTest
-    @Feature({"Payments"})
+    @Feature({"Payments", "ApplyLater"})
     @RetryOnFailure
     @DisabledTest(message = "Test is flaky, see crbug.com/968797")
     public void testAbortMetrics_OtherAborted_TabClosed()
