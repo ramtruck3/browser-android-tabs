@@ -618,7 +618,7 @@ public class ChromeTabbedActivity
                     try {
                         URL url = new URL(tab.getUrl());
 
-                        setBraveShieldsColor(url.getHost());
+                        setBraveShieldsColor(tab.isIncognito(), url.getHost());
                     } catch (Exception e) {
                         setBraveShieldsBlackAndWhite();
                     }
@@ -755,8 +755,9 @@ public class ChromeTabbedActivity
                     try {
                         URL url = new URL(currentTab.getUrl());
 
-                        setBraveShieldsColor(url.getHost());
+                        setBraveShieldsColor(currentTab.isIncognito(), url.getHost());
                         getBraveShieldsMenuHandler().show((View)findViewById(R.id.brave_shields_button)
+                          , currentTab.isIncognito()
                           , url.getHost()
                           , currentTab.getAdsAndTrackers()
                           , currentTab.getHttpsUpgrades()
@@ -1826,10 +1827,10 @@ public class ChromeTabbedActivity
         });
     }
 
-    protected void setBraveShieldsColor(String url) {
+    protected void setBraveShieldsColor(boolean incognitoTab, String url) {
         ChromeApplication app = (ChromeApplication)ContextUtils.getApplicationContext();
         if (null != app) {
-            if (app.getShieldsConfig().isTopShieldsEnabled(url)) {
+            if (app.getShieldsConfig().isTopShieldsEnabled(incognitoTab, url)) {
                 // Set Brave Shields button in color if we have a valid URL
                 setBraveShieldsColored();
             } else {
