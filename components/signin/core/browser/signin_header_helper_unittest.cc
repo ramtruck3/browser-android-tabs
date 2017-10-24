@@ -44,7 +44,7 @@ class SigninHeaderHelperTest : public testing::Test {
         &prefs_, false /* is_off_the_record */, false /* store_last_modified */,
         false /* migrate_requesting_and_top_level_origin_settings */);
     cookie_settings_ =
-        new content_settings::CookieSettings(settings_map_.get(), &prefs_, "");
+        new content_settings::CookieSettings(settings_map_.get(), &prefs_, "", false);
   }
 
   void TearDown() override { settings_map_->ShutdownOnUIThread(); }

@@ -39,7 +39,7 @@ class CookieSettingsTest : public testing::Test {
         &prefs_, false /* is_off_the_record */, false /* store_last_modified */,
         false /* migrate_requesting_and_top_level_origin_settings */);
     cookie_settings_ =
-        new CookieSettings(settings_map_.get(), &prefs_, "chrome-extension");
+        new CookieSettings(settings_map_.get(), &prefs_, "chrome-extension", false);
   }
 
   ~CookieSettingsTest() override { settings_map_->ShutdownOnUIThread(); }
