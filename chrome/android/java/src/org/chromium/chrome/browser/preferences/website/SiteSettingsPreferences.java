@@ -95,7 +95,7 @@ public class SiteSettingsPreferences extends PreferenceFragment
             if (!SiteSettingsCategory.adsCategoryEnabled()) {
                 getPreferenceScreen().removePreference(findPreference(Type.ADS));
             }
-            getPreferenceScreen().removePreference(findPreference(TRANSLATE_KEY));
+            //getPreferenceScreen().removePreference(findPreference(TRANSLATE_KEY));
             if (!ChromeFeatureList.isEnabled(ChromeFeatureList.SENSOR_CONTENT_SETTING)) {
                 getPreferenceScreen().removePreference(findPreference(Type.SENSORS));
             }
