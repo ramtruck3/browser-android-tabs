@@ -585,7 +585,9 @@ public class CustomTabActivity extends ChromeActivity<CustomTabActivityComponent
     public void initializeCompositor() {
         super.initializeCompositor();
         getTabModelSelector().onNativeLibraryReady(getTabContentManager());
-        mBottomBarDelegate.addOverlayPanelManagerObserver();
+        if (mBottomBarDelegate != null) {
+            mBottomBarDelegate.addOverlayPanelManagerObserver();
+        }
     }
 
     @Override
