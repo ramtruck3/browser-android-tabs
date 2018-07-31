@@ -67,9 +67,6 @@ public class NewTabPageScrollView extends ScrollView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (mNewTabPageLayout != null) {
-            mNewTabPageLayout.setParentViewportHeight(MeasureSpec.getSize(heightMeasureSpec));
-        }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
