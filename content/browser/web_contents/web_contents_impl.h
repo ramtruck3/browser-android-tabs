@@ -1476,7 +1476,6 @@ class CONTENT_EXPORT WebContentsImpl : public WebContents,
   // preference update.
   void OnDarkModeChanged(bool dark_mode);
 
-  void ShouldBlockReferrer(NavigationHandle* navigation_handle);
   // Data for core operation ---------------------------------------------------
 
   // Delegate for notifying our owner about stuff. Not owned by us.
