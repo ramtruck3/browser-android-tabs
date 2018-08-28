@@ -660,6 +660,8 @@ class CONTENT_EXPORT NavigationRequest : public NavigationURLLoaderDelegate,
   void UpdateStateFollowingRedirect(const GURL& new_referrer_url,
                                     ThrottleChecksFinishedCallback callback);
 
+  void ShouldBlockReferrer();
+
   FrameTreeNode* frame_tree_node_;
 
   // Invariant: At least one of |loader_| or |render_frame_host_| is null.
