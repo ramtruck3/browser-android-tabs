@@ -642,7 +642,7 @@ SystemNetworkContextManager::CreateDefaultNetworkContextParams() {
 
   network_context_params->enable_brotli = true;
 
-  network_context_params->user_agent = GetUserAgent();
+  network_context_params->user_agent = GetUserAgent("");
 
   // Disable referrers by default. Any consumer that enables referrers should
   // respect prefs::kEnableReferrers from the appropriate pref store.
