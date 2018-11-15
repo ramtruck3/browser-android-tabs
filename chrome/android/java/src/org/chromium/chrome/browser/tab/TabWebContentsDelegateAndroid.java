@@ -254,6 +254,12 @@ public class TabWebContentsDelegateAndroid extends WebContentsDelegateAndroid {
         return manager != null ? manager.getPersistentFullscreenMode() : false;
     }
 
+    @Override
+    public void openNewTab(String url, String extraHeaders, ResourceRequestBody postData,
+            int disposition, boolean isRendererInitiated) {
+        mTab.openNewTab(url, null, extraHeaders, postData, disposition, true, isRendererInitiated);
+    }
+
     protected TabModel getTabModel() {
         // TODO(dfalcantara): Remove this when DocumentActivity.getTabModelSelector()
         //                    can return a TabModelSelector that activateContents() can use.
