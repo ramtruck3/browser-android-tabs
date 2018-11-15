@@ -2439,8 +2439,6 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
             DomDistillerUIUtils.openSettings(currentTab.getWebContents());
         } else if (id == R.id.brave_set_default_browser) {
           handleBraveSetDefaultBrowserDialog();
-        } else if (id == R.id.brave_rewards_button) {
-            showBraveRewardsPanel();
         } else if (id == R.id.exit_id) {
             ApplicationLifetime.terminate(false);
         } else {
@@ -2513,10 +2511,6 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
                 return;
             }
         }
-    }
-
-    private void showBraveRewardsPanel() {
-        PopupActivity.show(this);
     }
 
     /**
