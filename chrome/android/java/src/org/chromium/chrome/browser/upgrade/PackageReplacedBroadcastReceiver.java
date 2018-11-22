@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import org.chromium.base.Log;
 import org.chromium.base.task.AsyncTask;
 import org.chromium.base.task.BackgroundOnlyAsyncTask;
 import org.chromium.chrome.browser.notifications.channels.ChannelsUpdater;
@@ -30,9 +31,17 @@ import org.chromium.chrome.browser.vr.VrModuleProvider;
 public final class PackageReplacedBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
+        Log.i("TAG", "!!!onReceive");
         if (!Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) return;
+        Log.i("TAG", "!!!afterReceive");
         updateChannelsIfNecessary();
         VrModuleProvider.maybeRequestModuleIfDaydreamReady();
+        try {
+            NotificationIntent.fireNotificationIfNecessary(context);
+        } catch (Exception exc) {
+            // Just ignore if we could not send a notification
+            Log.i("TAG", "!!!notification error " + exc.getMessage());
+        }
     }
 
     private void updateChannelsIfNecessary() {
