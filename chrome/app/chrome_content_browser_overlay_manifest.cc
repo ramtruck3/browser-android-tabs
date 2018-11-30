@@ -120,6 +120,7 @@ const service_manager::Manifest& GetChromeContentBrowserOverlayManifest() {
                               rappor::mojom::RapporRecorder,
                               safe_browsing::mojom::SafeBrowsing>())
         .RequireCapability("apps", "app_service")
+        .RequireCapability("bat_ads", "bat_ads")
         .RequireCapability("ash", "system_ui")
         // Used by ShelfTestApi and ShelfIntegrationTestApi
         .RequireCapability("ash", "test")
