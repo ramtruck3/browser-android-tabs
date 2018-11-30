@@ -32,6 +32,7 @@
 #include "base/threading/sequenced_task_runner_handle.h"
 #include "base/threading/thread_task_runner_handle.h"
 #include "brave_src/browser/brave_tab_url_web_contents_observer.h"
+#include "brave/components/brave_ads/browser/buildflags/buildflags.h"
 #include "build/build_config.h"
 #include "chrome/app/builtin_service_manifests.h"
 #include "chrome/app/chrome_content_browser_overlay_manifest.h"
@@ -658,6 +659,10 @@
 
 #if defined(ENABLE_SPATIAL_NAVIGATION_HOST)
 #include "third_party/blink/public/mojom/page/spatial_navigation.mojom.h"
+#endif
+
+#if BUILDFLAG(BRAVE_ADS_ENABLED)
+#include "brave/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
 #endif
 
 using base::FileDescriptor;
