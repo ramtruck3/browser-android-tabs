@@ -55,7 +55,6 @@ import org.chromium.base.metrics.RecordHistogram;
 import org.chromium.base.metrics.RecordUserAction;
 import org.chromium.base.task.PostTask;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
 import org.chromium.chrome.browser.init.StatsUpdater;
 import org.chromium.chrome.browser.IntentHandler.IntentHandlerDelegate;
 import org.chromium.chrome.browser.IntentHandler.TabOpenType;
@@ -531,11 +530,6 @@ public class ChromeTabbedActivity
         mActivityStopMetrics = new ActivityStopMetrics();
         mMainIntentMetrics = new MainIntentBehaviorMetrics(this);
         mAppIndexingUtil = new AppIndexingUtil();
-    }
-
-    public BraveRewardsNativeWorker getBraveRewardsNativeWorker() {
-        assert mBraveRewardsNativeWorker != null;
-        return mBraveRewardsNativeWorker;
     }
 
     @Override
@@ -1709,7 +1703,6 @@ public class ChromeTabbedActivity
 
         mUndoBarPopupController =
                 new UndoBarController(this, mTabModelSelectorImpl, this::getSnackbarManager);
-        mBraveRewardsNativeWorker = new BraveRewardsNativeWorker();
     }
 
     @Override
@@ -2310,11 +2303,6 @@ public class ChromeTabbedActivity
         }
 
         IncognitoTabHostRegistry.getInstance().unregister(mIncognitoTabHost);
-
-        if (mBraveRewardsNativeWorker != null) {
-            mBraveRewardsNativeWorker.Destroy();
-            mBraveRewardsNativeWorker = null;
-        }
         super.onDestroyInternal();
     }
 
