@@ -4294,6 +4294,10 @@ The site does NOT gain access to the camera. The camera images are only visible 
       <message name="IDS_TAB_GRID_DIALOG_REMOVE_FROM_GROUP" desc="This text shows on the ungroup bar in TabGridDialog. When user drags a tab and drops it on the ungroup bar, this tab will be moved out of the group.">
         Remove from group
       </message>
+      <message name="IDS_BRAVE_UI_ERROR_INIT_WALLET" desc="">
+        Please try again later.
+      </message>
+
 
       <message name="IDS_AUTOFILL_ASSISTANT_MODULE_TITLE"
   desc="Text shown when the Foo module is referenced in install start, success,
