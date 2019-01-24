@@ -374,6 +374,7 @@
 #include "components/nacl/broker/nacl_broker_manifest.h"
 #endif
 #endif
+#include "brave/components/services/bat_ledger/public/interfaces/bat_ledger.mojom.h"
 
 #if defined(OS_WIN)
 #include "base/strings/string_tokenizer.h"
