@@ -576,6 +576,7 @@ source_set("builtin_service_manifests") {
     "//components/services/quarantine",
     "//components/services/quarantine/public/cpp:manifest",
     "//components/services/unzip/public/cpp:manifest",
+    "//brave/components/services/bat_ledger:manifest",
     "//components/spellcheck/common:interfaces",
     "//components/startup_metric_utils/common:interfaces",
     "//device/vr/buildflags",
