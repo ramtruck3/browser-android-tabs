@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 package org.chromium.chrome.browser.toolbar;
+import android.util.Log;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -228,7 +229,7 @@ public class ToolbarManager implements ScrimObserver, ToolbarTabController, UrlF
     private boolean mInitializedWithNative;
     private Runnable mOnInitializedRunnable;
 
-    private boolean mShouldUpdateToolbarPrimaryColor = false;
+    private boolean mShouldUpdateToolbarPrimaryColor = true;
     private int mCurrentThemeColor;
 
     private OmniboxStartupMetrics mOmniboxStartupMetrics;
