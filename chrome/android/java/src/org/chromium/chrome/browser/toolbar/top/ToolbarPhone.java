@@ -559,7 +559,6 @@ public class ToolbarPhone extends ToolbarLayout implements Invalidator.Client, O
         } else if (mBraveShieldsButton == v) {
             if (null != mBraveShieldsButton) {
                 mBraveShieldsListener.onClick(mBraveShieldsButton);
-                RecordUserAction.record("MobileToolbarShowBraveShields");
             }
         }
     }
