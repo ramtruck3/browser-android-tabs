@@ -120,6 +120,7 @@ public class TopToolbarCoordinator implements Toolbar {
             BrowserStateBrowserControlsVisibilityDelegate controlsVisibilityDelegate,
             LayoutManager layoutManager, OnClickListener tabSwitcherClickHandler,
             OnClickListener newTabClickHandler, OnClickListener bookmarkClickHandler,
+            OnClickListener braveShieldsClickHandler,
             OnClickListener customTabsBackClickHandler) {
         if (mTabSwitcherModeCoordinatorPhone != null) {
             mTabSwitcherModeCoordinatorPhone.setOnTabSwitcherClickHandler(tabSwitcherClickHandler);
@@ -133,6 +134,7 @@ public class TopToolbarCoordinator implements Toolbar {
         mToolbarLayout.setBrowserControlsVisibilityDelegate(controlsVisibilityDelegate);
         mToolbarLayout.setOnTabSwitcherClickHandler(tabSwitcherClickHandler);
         mToolbarLayout.setBookmarkClickHandler(bookmarkClickHandler);
+        mToolbarLayout.setCustomTabCloseClickHandler(braveShieldsClickHandler);
         mToolbarLayout.setCustomTabCloseClickHandler(customTabsBackClickHandler);
         mToolbarLayout.setLayoutUpdateHost(layoutManager);
 
