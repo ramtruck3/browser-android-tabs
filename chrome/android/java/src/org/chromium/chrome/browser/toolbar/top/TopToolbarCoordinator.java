@@ -134,7 +134,7 @@ public class TopToolbarCoordinator implements Toolbar {
         mToolbarLayout.setBrowserControlsVisibilityDelegate(controlsVisibilityDelegate);
         mToolbarLayout.setOnTabSwitcherClickHandler(tabSwitcherClickHandler);
         mToolbarLayout.setBookmarkClickHandler(bookmarkClickHandler);
-        mToolbarLayout.setCustomTabCloseClickHandler(braveShieldsClickHandler);
+        mToolbarLayout.setBraveShieldsClickHandler(braveShieldsClickHandler);
         mToolbarLayout.setCustomTabCloseClickHandler(customTabsBackClickHandler);
         mToolbarLayout.setLayoutUpdateHost(layoutManager);
 
