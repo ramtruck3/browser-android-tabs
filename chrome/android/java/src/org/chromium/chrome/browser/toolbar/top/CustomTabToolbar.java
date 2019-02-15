@@ -857,10 +857,10 @@ public class CustomTabToolbar extends ToolbarLayout implements View.OnLongClickL
         @Override
         public void setUnfocusedWidth(int unfocusedWidth) {}
 
-        @Override
-        public  void onRewardsPanelDismiss() {}
+        // @Override
+        // public  void onRewardsPanelDismiss() {}
 
-        @Override
-        public  void dismissRewardsPanel() {}
+        // @Override
+        // public  void dismissRewardsPanel() {}
     }
 }
