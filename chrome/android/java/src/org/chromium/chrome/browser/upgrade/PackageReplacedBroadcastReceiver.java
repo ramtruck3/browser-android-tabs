@@ -45,12 +45,12 @@ public final class PackageReplacedBroadcastReceiver extends BroadcastReceiver {
 
     private void updateChannelsIfNecessary(final Context context) {
         if (!ChannelsUpdater.getInstance().shouldUpdateChannels()) {
-            StatTask(context);
+            //StatTask(context);
 
             return;
         }
 
-        final PendingResult result = goAsync();
+        /*final PendingResult result = goAsync();
         new BackgroundOnlyAsyncTask<Void>() {
             @Override
             protected Void doInBackground() {
@@ -59,13 +59,15 @@ public final class PackageReplacedBroadcastReceiver extends BroadcastReceiver {
                     StatsUpdater.UpdateStats(context);
                 } catch (Exception exc) {
                     // Just ignore if we could not update stats
-                    Log.i("TAG", "update stats error " + exc.getMessage());
+                    Log.e("TAG", "update stats error " + exc.getMessage());
+                } catch (UnsatisfiedLinkError exc) {
+                    // Just ignore if we could not update stats
+                    Log.e("TAG", "update stats error " + exc.getMessage());
                 }
                 result.finish();
                 return null;
             }
-        }
-                .executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
+        }.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);*/
     }
 
     private void StatTask(final Context context) {
@@ -77,7 +79,10 @@ public final class PackageReplacedBroadcastReceiver extends BroadcastReceiver {
                     StatsUpdater.UpdateStats(context);
                 } catch (Exception exc) {
                     // Just ignore if we could not update stats
-                    Log.i("TAG", "update stats error " + exc.getMessage());
+                    Log.e("TAG", "update stats error " + exc.getMessage());
+                } catch (UnsatisfiedLinkError exc) {
+                    // Just ignore if we could not update stats
+                    Log.e("TAG", "update stats error " + exc.getMessage());
                 }
                 result.finish();
                 return null;
