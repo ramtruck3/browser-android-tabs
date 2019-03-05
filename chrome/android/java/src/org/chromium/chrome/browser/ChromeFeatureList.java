@@ -345,6 +345,7 @@ public abstract class ChromeFeatureList {
     public static final String OFFER_WIPE_DATA_ON_SIGNOUT = "OfferWipeDataOnSignout";
     public static final String SERVICE_MANAGER_FOR_BACKGROUND_PREFETCH =
             "ServiceManagerForBackgroundPrefetch";
+    public static final String BRAVE_REWARDS = "BraveRewards";
 
     private static native boolean nativeIsInitialized();
     private static native boolean nativeIsEnabled(String featureName);
