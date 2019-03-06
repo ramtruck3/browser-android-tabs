@@ -2075,6 +2075,9 @@ public class ToolbarPhone extends ToolbarLayout implements Invalidator.Client, O
     @Override
     public void OnGetRewardsMainEnabled(boolean enabled) {}
 
+    @Override
+    public void OnGetAutoContributeProps() {}
+
 
     @Override
     public void setOnTabSwitcherClickHandler(OnClickListener listener) {
