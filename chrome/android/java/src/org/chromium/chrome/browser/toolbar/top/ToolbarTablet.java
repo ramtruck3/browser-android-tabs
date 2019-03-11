@@ -531,7 +531,9 @@ public class ToolbarTablet extends ToolbarLayout
 
     @Override
     public void OnGetAutoContributeProps() {}
-    
+
+    @Override
+    public void OnGetReconcileStamp(long timestamp){}
 
     /**
      * Called when the currently visible New Tab Page changes.
