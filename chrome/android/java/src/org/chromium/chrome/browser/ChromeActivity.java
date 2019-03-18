@@ -37,7 +37,9 @@ import android.util.Pair;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.support.v4.app.NotificationCompat;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -210,8 +212,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import javax.annotation.Nullable;
 
 /**
  * A {@link AsyncInitializationActivity} that builds and manages a {@link CompositorViewHolder}
