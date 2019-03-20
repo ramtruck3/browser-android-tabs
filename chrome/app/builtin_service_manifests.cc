@@ -140,6 +140,7 @@ GetChromeBuiltinServiceManifests() {
       GetNoopManifest(),
       patch::GetManifest(),
       unzip::GetManifest(),
+      bat_ledger::GetManifest(),
       proxy_resolver::GetManifest(),
       prefs::GetLocalStateManifest(),
       quarantine::GetQuarantineManifest(),
