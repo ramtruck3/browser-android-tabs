@@ -2048,7 +2048,7 @@ public class ToolbarPhone extends ToolbarLayout implements Invalidator.Client, O
                 mRewardsLayout.setVisibility(View.GONE);
             }
             // Show message
-            AlertDialog.Builder alert = new AlertDialog.Builder(getContext(), R.style.AlertDialogTheme);
+            AlertDialog.Builder alert = new AlertDialog.Builder(getContext(), R.style.Theme_Chromium_AlertDialog);
             AlertDialog alertDialog = alert.setMessage(getResources().getString(R.string.brave_rewards_not_available))
                                            .setPositiveButton(R.string.ok, null)
                                            .create();
