@@ -736,7 +736,7 @@ public class NewTabPageLayout extends LinearLayout implements TileGroup.Observer
     }
 
     void setSearchProviderTopMargin(int topMargin) {
-        ((MarginLayoutParams) mSearchProviderLogoView.getLayoutParams()).topMargin = topMargin;
+        //((MarginLayoutParams) mSearchProviderLogoView.getLayoutParams()).topMargin = topMargin;
     }
     /**
      * @return Whether the search box view is scrolled off the screen.
