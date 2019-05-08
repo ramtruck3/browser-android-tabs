@@ -568,6 +568,7 @@ source_set("builtin_service_manifests") {
 
   deps = [
     "//base",
+    "//brave/components/services/bat_ledger/public/cpp:manifest",
     "//chrome/common:buildflags",
     "//chrome/common:mojo_bindings",
     "//chrome/services/file_util/public/cpp:manifest",
@@ -576,7 +577,6 @@ source_set("builtin_service_manifests") {
     "//components/services/quarantine",
     "//components/services/quarantine/public/cpp:manifest",
     "//components/services/unzip/public/cpp:manifest",
-    "//brave/components/services/bat_ledger:manifest",
     "//components/spellcheck/common:interfaces",
     "//components/startup_metric_utils/common:interfaces",
     "//device/vr/buildflags",
