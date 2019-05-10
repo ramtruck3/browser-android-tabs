@@ -49,7 +49,7 @@ public class TabListFaviconProvider {
         }
         if (sRoundedChromeDrawable == null) {
             Bitmap chromeBitmap =
-                    BitmapFactory.decodeResource(context.getResources(), R.drawable.brave_logo_19);
+                    BitmapFactory.decodeResource(context.getResources(), R.drawable.lion);
             sRoundedChromeDrawable = processBitmap(chromeBitmap);
         }
     }
