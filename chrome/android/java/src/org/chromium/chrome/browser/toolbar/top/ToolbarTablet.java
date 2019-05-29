@@ -194,7 +194,8 @@ public class ToolbarTablet extends ToolbarLayout
     @Override
     void destroy() {
         super.destroy();
-        mHomeButton.destroy();
+        if (mHomeButton != null) mHomeButton.destroy();
+        if (mBraveRewardsNativeWorker != null) mBraveRewardsNativeWorker.RemoveObserver(this);
     }
 
     /**
@@ -492,13 +493,6 @@ public class ToolbarTablet extends ToolbarLayout
         mRewardsLayout.getBackground().setColorFilter(textBoxColor, PorterDuff.Mode.SRC_IN);
 
         mLocationBar.updateVisualsForState();
-    }
-
-    @Override
-    public void destroy() {
-        if (mBraveRewardsNativeWorker != null) {
-            mBraveRewardsNativeWorker.RemoveObserver(this);
-        }
     }
 
     @Override
