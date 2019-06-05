@@ -50,7 +50,7 @@ import org.chromium.chrome.browser.omnibox.LocationBarTablet;
 import org.chromium.chrome.browser.partnercustomizations.HomepageManager;
 import org.chromium.chrome.browser.preferences.ChromePreferenceManager;
 import org.chromium.chrome.browser.preferences.PrefServiceBridge;
-import org.chromium.chrome.browser.preferences.website.SingleCategoryPreferences;
+import org.chromium.chrome.browser.RestartWorker;
 import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.chrome.browser.toolbar.HomeButton;
 import org.chromium.chrome.browser.toolbar.KeyboardNavigationListener;
@@ -528,7 +528,7 @@ public class ToolbarTablet extends ToolbarLayout
             if (sharedPreferences.getBoolean(PREF_HIDE_BRAVE_ICON, false)) {
                 sharedPreferencesEditor.putBoolean(PREF_HIDE_BRAVE_ICON, false);
                 sharedPreferencesEditor.apply();
-                SingleCategoryPreferences.AskForRelaunch((ChromeActivity)getContext());
+                RestartWorker.AskForRelaunch((ChromeActivity)getContext());
             }
             sharedPreferencesEditor.apply();
         }
