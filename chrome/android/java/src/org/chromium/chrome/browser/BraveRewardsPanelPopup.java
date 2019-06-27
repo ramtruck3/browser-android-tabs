@@ -296,7 +296,6 @@ public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveReward
                     startJoinRewardsAnimation();
                     if (PackageUtils.isFirstInstall(context)) {
                         BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
-                        BraveAdsSignupDialog.enqueueOobeNotification(context);
                     }
                 }
             }
