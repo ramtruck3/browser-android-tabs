@@ -172,10 +172,6 @@ public class ChromeBrowserInitializer {
       new SwitchSearchSuggestAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    private void NotifyOnFirstRun(){
-        BraveSetDefaultBrowserNotificationService.NotifyRewardsLive();
-    }
-
     // ADBlock update
     class UpdateADBlockAsyncTask extends AsyncTask<Long> {
         @Override
@@ -595,7 +591,6 @@ public class ChromeBrowserInitializer {
         UpdateStats();
         CheckInstallationSource();
         SwitchSearchSuggestEnabled();
-        NotifyOnFirstRun();
     }
 
     private ActivityStateListener createActivityStateListener() {
