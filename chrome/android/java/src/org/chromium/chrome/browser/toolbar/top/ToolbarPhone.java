@@ -633,16 +633,18 @@ public class ToolbarPhone extends ToolbarLayout implements Invalidator.Client, O
 
     private boolean mayShowBraveAdsOobeDialog() {
         Context context = getContext();
+
         if (BraveAdsSignupDialog.shouldShowNewUserDialog(context)) {
+            BraveAdsSignupDialog.showNewUserDialog(getContext());
+            return true;
+        } else if (BraveAdsSignupDialog.shouldShowNewUserDialogIfRewardsIsSwitchedOff(context)) {
             BraveAdsSignupDialog.showNewUserDialog(getContext());
             return true;
         } else if (BraveAdsSignupDialog.shouldShowExistingUserDialog(context)) {
             BraveAdsSignupDialog.showExistingUserDialog(getContext());
             return true;
-        } else if (BraveAdsSignupDialog.shouldShowForUserWhoNeverTurnedOnRewards(context)) {
-            BraveAdsSignupDialog.showNewUserDialog(getContext());
-            return true;
         }
+
         return false;
     }
 
@@ -2154,8 +2156,7 @@ public class ToolbarPhone extends ToolbarLayout implements Invalidator.Client, O
         boolean shouldShow =
           PackageUtils.isFirstInstall(getContext())
           && !shownBefore
-          && !rewardsEnabled
-          && !BraveRewardsPanelPopup.wasBraveRewardsExplicitlyTurnedOff();
+          && !rewardsEnabled;
 
         if (!shouldShow) return;
 
