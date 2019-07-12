@@ -722,39 +722,6 @@ CHAR-LIMIT guidelines:
       <message name="IDS_SAFE_BROWSING_SCOUT_REPORTING_SUMMARY" desc="Body text for Chrome setting under 'Help Improve Safe Browsing'. This feature sends small amounts of data to Google about potentially-dangerous pages to help Safe Browsing improve Chrome's protection against malware and phishing.">
         To detect dangerous apps and sites, Chrome sends URLs of some pages you visit, limited system information, and some page content to Google
       </message>
-      <message name="IDS_HTTPSE_TITLE" desc="Title for HTTPS Everywhere.">
-        HTTPS Everywhere
-      </message>
-      <message name="IDS_HTTPSE_SUMMARY" desc="Summary for HTTPS Everywhere.">
-        Opens supported sites using HTTPS instead of HTTP when possible
-      </message>
-      <message name="IDS_TRACKING_PROTECTION_TITLE" desc="Title for tracking protection.">
-        Tracking Protection Mode
-      </message>
-      <message name="IDS_TRACKING_PROTECTION_SUMMARY" desc="Summary for tracking protection.">
-        Prevents resources that track you from loading
-      </message>
-      <message name="IDS_AD_BLOCK_TITLE" desc="Title for ad block.">
-        Ad Block
-      </message>
-      <message name="IDS_AD_BLOCK_SUMMARY" desc="Summary for ad block.">
-        Prevents ads from loading
-      </message>
-      <message name="IDS_AD_BLOCK_REGIONAL_TITLE" desc="Title for regional ad block.">
-        Regional Ad Block
-      </message>
-      <message name="IDS_AD_BLOCK_REGIONAL_SUMMARY" desc="Summary for regional ad block.">
-        Prevents regional ads from loading
-      </message>
-      <message name="IDS_AD_BLOCK_REGIONAL_SUMMARY_NO_LIST" desc="Summary for regional ad block when no lists available.">
-        No additional lists available for your locale
-      </message>
-      <message name="IDS_FINGERPRINTING_PROTECTION_TITLE" desc="Title for fingerprinting protection.">
-        Fingerprinting Protection
-      </message>
-      <message name="IDS_FINGERPRINTING_PROTECTION_SUMMARY" desc="Summary for fingerprinting protection.">
-        Prevents browser from fingerprinting
-      </message>
       <message name="IDS_SAFE_BROWSING_TITLE" desc="Title for safe browsing.">
         Safe Browsing (protects you and your device from dangerous sites)
       </message>
@@ -898,11 +865,6 @@ Your Google account may have other forms of browsing history like searches and a
         Automatically send usage statistics and crash reports to Google
       </message>
 
-      <!-- Sync preferences -->
-      <message name="IDS_PREFS_SYNC" desc="Title for the Sync preferences. [CHAR-LIMIT=32]">
-        Sync
-      </message>
-
       <!-- Accessibility preferences -->
       <message name="IDS_PREFS_ACCESSIBILITY" desc="Title of Accessibility settings, which allows the user to change webpage font sizes. [CHAR-LIMIT=32]">
         Accessibility
@@ -950,6 +912,12 @@ Your Google account may have other forms of browsing history like searches and a
       </message>
       <message name="IDS_COOKIES_TITLE" desc="Title for the Cookies settings screen [CHAR-LIMIT=32]">
         Cookies
+      </message>
+      <message name="IDS_BLOCK_THIRD_PARTY_COOKIES_TITLE" desc="Title for Block Third Party Cookies preference">
+        Block third-party cookies
+      </message>
+      <message name="IDS_BLOCK_THIRD_PARTY_COOKIES_SUMMARY" desc="Summary text for Block Third Party Cookies preference">
+        Prevent third-party websites from saving and reading cookie data
       </message>
       <message name="IDS_JAVASCRIPT_PERMISSION_TITLE" desc="Title of the permission to run javascript [CHAR-LIMIT=32]">
         JavaScript
@@ -1031,24 +999,6 @@ Your Google account may have other forms of browsing history like searches and a
       </message>
       <message name="IDS_WEBSITE_SETTINGS_ADD_SITE_SITE_URL" desc="The label for the input field where the user can type a website URL.">
         Site URL
-      </message>
-      <message name="IDS_SYNC_SETTINGS_ADD_DEVICE_NAME_LABEL" desc="The label for the input field where the user can type a sync device name.">
-        Enter an optional name for this device
-      </message>
-      <message name="IDS_SYNC_SETTINGS_ADD_DEVICE_NAME_TITLE" desc="The title for the dialog where the user can type a sync device name.">
-        Add device name
-      </message>
-      <message name="IDS_SYNC_EXAMPLE_DEVICE_NAME" desc="The hint for a sync device name field, showing an example device name.">
-        Android device
-      </message>
-      <message name="IDS_SYNC_DEVICE" desc="The title for the dialog where the user notified about sync setup result.">
-        Sync device
-      </message>
-      <message name="IDS_SYNC_DEVICE_SUCCESS" desc="The message for the dialog where the user notified about sync setup success.">
-        The sync setup has completed successfully
-      </message>
-      <message name="IDS_SYNC_DEVICE_FAILURE" desc="The message for the dialog where the user notified about sync setup failure.">
-        Sync could not be setup
       </message>
       <message name="IDS_EXAMPLE_URL" desc="The hint for a website url field, showing an example url.">
         www.example.com
@@ -1551,9 +1501,6 @@ Your Google account may have other forms of browsing history like searches and a
       <message name="IDS_VERSION_WITH_UPDATE_TIME" desc="Message showing Chrome's version and the time it was last updated">
         <ph name="VERSION">%1$s<ex>Chrome 40.0.2214.67</ex></ph> (Updated <ph name="TIME_SINCE_UPDATE">%2$s<ex>5 minutes ago</ex></ph>)
       </message>
-      <message name="IDS_BRAVE_VERSION_NUMBER" desc="Message showing Brave's version and chromium version">
-        Brave <ph name="VERSION">%1$s<ex>1.0.0</ex></ph>, Chromium <ph name="VERSION_CHROMIUM">%2$s<ex>40.0.2214.67</ex></ph>
-      </message>
       <message name="IDS_OS_VERSION_TITLE" desc="Title for operating system version">
         Operating system
       </message>
@@ -1754,41 +1701,6 @@ Your Google account may have other forms of browsing history like searches and a
       </message>
       <message name="IDS_SYNC_BOOKMARKS" desc="Title for preference which enables sync'ing of bookmarks. [CHAR-LIMT=32]">
         Bookmarks
-      </message>
-      <message name="IDS_BRAVE_SYNC" desc="Brave sync main screen message title.">
-        Brave Sync
-      </message>
-      <message name="IDS_BRAVE_SYNC_MESSAGE" desc="Brave sync main screen message.">
-        Sync browser data between your devices
-securely using Brave Sync, no account
-creation required. Tap below to get started.
-      </message>
-      <message name="IDS_BRAVE_SYNC_QRCODE" desc="Brave sync main screen QRCode message title.">
-        Sync to device
-      </message>
-      <message name="IDS_BRAVE_SYNC_QRCODE_MESSAGE" desc="Brave sync main screen QRCode message.">
-        Using existing synced device open Brave
-Settings and navigate to "Device &amp;
-Settings", tap `+` to add a new device and
-reveal sync code.
-      </message>
-      <message name="IDS_RESET_SYNC" desc="Button for reset sync. [CHAR-LIMT=32]">
-        Reset Sync...
-      </message>
-      <message name="IDS_RESETTING_SYNC" desc="Question about restting sync.">
-        Are you sure you want to reset this device Sync settings?
-      </message>
-      <message name="IDS_NEW_TO_SYNC" desc="Button for new to sync button. [CHAR-LIMT=32]">
-        I am new to sync
-      </message>
-      <message name="IDS_HAVE_EXISTING_SYNC_CODE" desc="Button for have existing sync code button. [CHAR-LIMT=32]">
-        I have an existing sync code
-      </message>
-      <message name="IDS_ENTER_CODE_WORDS_SYNC" desc="Button for enter code words. [CHAR-LIMT=32]">
-        Enter code words
-      </message>
-      <message name="IDS_ENTER_CODE_WORDS_BELOW_SYNC" desc="Message for enter code words. [CHAR-LIMT=32]">
-        Enter code words below.
       </message>
       <message name="IDS_SYNC_HISTORY" desc="Title for preference which enables sync'ing of history data. [CHAR-LIMT=32]">
         History
@@ -2167,9 +2079,6 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       <message name="IDS_ACCESSIBILITY_MENU_INFO" desc="Content description for the button which opens the page info popup, which displays security information and permissions for the current page">
         View site information
       </message>
-      <message name="IDS_ACCESSIBILITY_MENU_SHARE" desc="Content description for the button which opens the window to share the website.">
-        Share
-      </message>
       <message name="IDS_ACCESSIBILITY_CONTENT_VIEW" desc="Content description for the content view that holds the web contents [CHAR-LIMIT=30]">
         Web View
       </message>
@@ -2184,40 +2093,10 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       <message name="IDS_PASSWORD_GENERATION_DIALOG_USE_PASSWORD_BUTTON" desc="Text for a button belonging to the modal dialog that displayes a generated password. Can be used by the user to accept the generated password.">
         Use password
       </message>
-      <message name="IDS_BRAVE_SHIELDS_ADS_TRACKERS" desc="Ads and Trackers blocked count.">
-        Ads and Trackers Blocked
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_HTTPS_UPGRADES" desc="HTTPS Upgrades.">
-        HTTPS Upgrades
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_SCRIPTS_BLOCKED" desc="Scripts Blocked.">
-        Scripts Blocked
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_FINGERPRINTS_BLOCKED" desc="Fingerprints Blocked.">
-        Fingerprinting Methods Blocked
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_ADS_TRACKING_SWITCH" desc="Switch for Block Ads and Tracking.">
-        Block Ads and Tracking
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_HTTPS_EVERYWHERE_SWITCH" desc="Switch for HTTPS Everywhere.">
-        HTTPS Everywhere
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_BLOCK_SCRIPTS_SWITCH" desc="Switch for Block Scripts.">
-        Block Scripts
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_BLOCK_3RD_PARTY_COOKIES_SWITCH" desc="Switch for Block Scripts.">
-        Block 3rd party cookies
-      </message>
-      <message name="IDS_BRAVE_SHIELDS_BLOCK_FINGERPRINTS_SWITCH" desc="Switch for Block Fingerprints.">
-        Fingerprinting Protection
-      </message>
 
       <!-- Runtime permission strings -->
       <message name="IDS_INFOBAR_MISSING_CAMERA_PERMISSION_TEXT" desc="Text shown in an infobar when a website has requested access to the camera capabilities, but Chrome is missing the Android camera permission.">
         Chrome needs permission to access your camera for this site.
-      </message>
-      <message name="IDS_NO_CAMERA_PERMISSION" desc="Text shown when Brave cannot get camera permissions.">
-        Brave sync cannot get camera access permissions.
       </message>
       <message name="IDS_INFOBAR_MISSING_MICROPHONE_PERMISSION_TEXT" desc="Text shown in an infobar when a website has requested access to the microphone capabilities, but Chrome is missing the Android microphone permission.">
         Chrome needs permission to access your microphone for this site.
@@ -2804,12 +2683,12 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       </message>
 
       <!-- Document mode messages -->
-      <!--<message name="IDS_CLOSE_ALL_INCOGNITO_NOTIFICATION" desc="Message on the notification that closes all incognito tabs in document mode">
+      <message name="IDS_CLOSE_ALL_INCOGNITO_NOTIFICATION" desc="Message on the notification that closes all incognito tabs in document mode">
         Close all incognito tabs
       </message>
       <message name="IDS_CLOSE_ALL_PRIVATE_NOTIFICATION" desc="Message on the notification that closes all private tabs in document mode">
         Close all private tabs
-      </message>-->
+      </message>
 
       <!-- Autofill/Wallet integration prompt -->
       <message name="IDS_CARD_UNMASK_INPUT_HINT" desc="Hint text for an input field containing the user's credit card CVC (card verification code).">
@@ -2857,29 +2736,6 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       </message>
       <message name="IDS_FRE_WELCOME" desc="Text for greeting the user on Chrome First Run">
         Welcome to Chrome
-      </message>
-
-      <!-- Brave as default browser strings -->
-      <message name="IDS_BRAVE_ALREADY_SET_AS_DEFAULT_BROWSER" desc="Toast message for those whom have already set Brave as default browser">
-        Brave is already set\nas your default browser.
-      </message>
-      <message name="IDS_BRAVE_DEFAULT_BROWSER_GO_TO_SETTINGS" desc="Toast message for those without 7.0 to go to settings to change default browser">
-        You've already set a default browser.\nYou may change default browser in your app settings.
-      </message>
-      <message name="IDS_BRAVE_DEFAULT_BROWSER_NOTIFICATION_ACTION_SETTINGS" desc="Notification action with payload to take users to default app settings">
-        Settings
-      </message>
-      <message name="IDS_BRAVE_DEFAULT_BROWSER_NOTIFICATION_TITLE" desc="Default browser notification title for users with an existing browser">
-        Set as Default Browser
-      </message>
-      <message name="IDS_BRAVE_DEFAULT_BROWSER_NOTIFICATION_BODY" desc="Default browser notification body">
-        Enjoying Brave Browser' speed? You may set Brave as the default browser by clicking on the triple dot settings.
-      </message>
-      <message name="IDS_BRAVE_DEFAULT_BROWSER_EXISTING_NOTIFICATION_TITLE" desc="Default browser notification title for users with an existing browser">
-        Set as Default Browser
-      </message>
-      <message name="IDS_BRAVE_DEFAULT_BROWSER_EXISTING_NOTIFICATION_BODY" desc="Default browser notification body">
-        In the Default apps menu on your device, select Brave for Browser App.
       </message>
 
       <!-- Account Signin Strings -->
@@ -3128,12 +2984,12 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       <message name="IDS_BUTTON_NEW_TAB" desc="Button name for opening a new tab.">
         New tab
       </message>
-      <!--<message name="IDS_BUTTON_NEW_INCOGNITO_TAB" desc="Tooltip for the button to open a new incognito browser tab.">
+      <message name="IDS_BUTTON_NEW_INCOGNITO_TAB" desc="Tooltip for the button to open a new incognito browser tab.">
         New incognito tab
       </message>
       <message name="IDS_BUTTON_NEW_PRIVATE_TAB" desc="Tooltip for the button to open a new private browser tab.">
         New private tab
-      </message>-->
+      </message>
       <message name="IDS_CUSTOM_TAB_AMP_PUBLISHER_URL" desc="Text shown in a Custom Tab toolbar for a web page that is hosted by the Google content delivery network but was originally published by someone else.">
         From <ph name="PUBLISHER_ORIGIN">&lt;pub&gt;%1$s&lt;/pub&gt;<ex>example.com</ex></ph> – <ph name="BEGIN_DEEMPHASIZED">&lt;bg&gt;</ph>delivered by Google<ph name="END_DEEMPHASIZED">&lt;/bg&gt;</ph>
       </message>
@@ -3223,9 +3079,6 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       <message name="IDS_MENU_PREFERENCES" desc="Menu item for opening browser preferences. [CHAR-LIMIT=27]">
         Settings
       </message>
-      <message name="IDS_MENU_EXIT" desc="Menu item for exit browser. [CHAR-LIMIT=27]">
-        Exit
-      </message>
       <message name="IDS_MENU_CLOSE_ALL_TABS" desc="Menu item for closing all open tabs. [CHAR-LIMIT=27]">
         Close all tabs
       </message>
@@ -3238,12 +3091,7 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       <message name="IDS_MENU_GROUP_TABS" desc="Menu item for grouping tabs. [CHAR-LIMIT=27]">
         Group tabs...
       </message>
-      <message name="IDS_BRAVE_SET_DEFAULT_BROWSER" desc="Menu item for opening the 'Setting default browser' page.">
-        Set as default browser
-      </message>
-      <message name="IDS_BRAVE_SET_DEFAULT_BROWSER_DIALOG_TEXT" desc="Dialog for setting default browser">
-        Select Brave Browser from the list and tap 'Always'
-      </message>
+
       <!-- Bookmarks strings -->
       <message name="IDS_BOOKMARKS" desc="Title of the bookmarks page, which shows a list of the user's bookmarks. [CHAR-LIMIT=18]">
         Bookmarks
@@ -4297,10 +4145,6 @@ The site does NOT gain access to the camera. The camera images are only visible 
       <message name="IDS_TAB_GRID_DIALOG_REMOVE_FROM_GROUP" desc="This text shows on the ungroup bar in TabGridDialog. When user drags a tab and drops it on the ungroup bar, this tab will be moved out of the group.">
         Remove from group
       </message>
-      <message name="IDS_BRAVE_UI_ERROR_INIT_WALLET" desc="">
-        Please try again later.
-      </message>
-
 
       <message name="IDS_AUTOFILL_ASSISTANT_MODULE_TITLE"
   desc="Text shown when the Foo module is referenced in install start, success,
@@ -4311,6 +4155,719 @@ The site does NOT gain access to the camera. The camera images are only visible 
 
       <message name="IDS_DEVTOOLS_MODULE_TITLE" desc="Text shown when the Developer Tools module is referenced in install start, success, failure UI (e.g. in IDS_MODULE_INSTALL_START_TEXT, which will expand to 'Installing Developer Tools for Chrome…').">
         Developer Tools
+      </message>
+
+      <!-- Add Brave strings below -->
+      <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_BRAVE_SHIELDS" desc="Content description for the button that is enable, disable Brave Shields.">
+        Enable/Disable Brave Shields
+      </message>
+      <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_BRAVE_REWARDS" desc="Content description for the button that is enable, disable Brave Rewards.">
+        Manage Brave Rewards
+      </message>
+      <message name="IDS_HTTPSE_TITLE" desc="Title for HTTPS Everywhere.">
+        HTTPS Everywhere
+      </message>
+      <message name="IDS_BRAVE_VERSION_NUMBER" desc="Message showing Brave's version and chromium version">
+        Brave <ph name="VERSION">%1$s<ex>1.0.0</ex></ph>, Chromium <ph name="VERSION_CHROMIUM">%2$s<ex>40.0.2214.67</ex></ph>
+      </message>
+      <!-- Brave panel strings -->
+      <!--<message name="IDS_BRAVE_SETTINGS_TITLE" desc="Title for Brave's settings.">
+        Brave site shield settings for
+    </message>
+      <message name="IDS_BRAVE_SHIELDS_DOWN" desc="Down Brave Shields.">
+        Down
+    </message>
+      <message name="IDS_BRAVE_SHIELDS_UP" desc="Up Brave Shields.">
+        Up
+    </message>
+      <message name="IDS_BRAVE_SHIELDS_ADS_TRACKERS" desc="Ads and Trackers blocked count.">
+        Ads and Trackers Blocked
+    </message>-->
+      <message name="IDS_BRAVE_SHIELDS_HTTPS_UPGRADES" desc="HTTPS Upgrades.">
+        HTTPS Upgrades
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_SCRIPTS_BLOCKED" desc="Scripts Blocked.">
+        Scripts Blocked
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_ADS_TRACKING_SWITCH" desc="Switch for Block Ads and Tracking.">
+        Block Ads and Tracking
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_HTTPS_EVERYWHERE_SWITCH" desc="Switch for HTTPS Everywhere.">
+        HTTPS Everywhere
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_BLOCKS_SCRIPTS_SWITCH" desc="Switch for Block Scripts.">
+        Block Scripts
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_BLOCK_3RD_PARTY_COOKIES_SWITCH" desc="Switch for Block Scripts.">
+        Block 3rd party cookies
+      </message>
+
+      <message name="IDS_HTTPSE_SUMMARY" desc="Summary for HTTPS Everywhere.">
+        Opens supported sites using HTTPS instead of HTTP when possible
+      </message>
+      <message name="IDS_TRACKING_PROTECTION_TITLE" desc="Title for tracking protection.">
+        Tracking Protection Mode
+      </message>
+      <message name="IDS_TRACKING_PROTECTION_SUMMARY" desc="Summary for tracking protection.">
+        Prevents resources that track you from loading
+      </message>
+      <message name="IDS_AD_BLOCK_TITLE" desc="Title for ad block.">
+        Ad Block
+      </message>
+      <message name="IDS_AD_BLOCK_SUMMARY" desc="Summary for ad block.">
+        Prevents ads from loading
+      </message>
+
+      <message name="IDS_FINGERPRINTING_PROTECTION_TITLE" desc="Title for fingerprinting protection.">
+        Fingerprinting Protection
+      </message>
+      <message name="IDS_FINGERPRINTING_PROTECTION_SUMMARY" desc="Summary for fingerprinting protection.">
+        Prevents browser from fingerprinting
+      </message>
+      <!--<message name="IDS_BRAVE_SHIELDS_FINGERPRINTS_BLOCKED" desc="Fingerprints Blocked.">
+        Fingerprinting Methods Blocked
+    </message>-->
+      <message name="IDS_BRAVE_SHIELDS_BLOCK_FINGERPRINTS_SWITCH" desc="Switch for Block Fingerprints.">
+        Fingerprinting Protection
+      </message>
+
+      <message name="IDS_AD_BLOCK_REGIONAL_TITLE" desc="Title for regional ad block.">
+        Regional Ad Block
+      </message>
+      <message name="IDS_AD_BLOCK_REGIONAL_SUMMARY" desc="Summary for regional ad block.">
+        Prevents regional ads from loading
+      </message>
+
+      <message name="IDS_AD_BLOCK_REGIONAL_SUMMARY_NO_LIST" desc="Summary for regional ad block when no lists available.">
+        No additional lists available for your locale
+      </message>
+
+      <message name="IDS_MENU_EXIT" desc="Menu item for exit browser. [CHAR-LIMIT=27]">
+        Exit
+      </message>
+
+      <!--<message name="IDS_BRAVE_SYNC" desc="Brave sync main screen message title.">
+        Brave Sync (beta)
+      </message>-->
+      <message name="IDS_BRAVE_SYNC_OFFICIAL" desc="Brave sync main screen message title.">
+        Brave Sync
+      </message>
+      <message name="IDS_SYNC_SETTINGS_ADD_DEVICE_NAME_TITLE" desc="The title for the dialog where the user can type a sync device name.">
+        Add device name
+      </message>
+      <message name="IDS_SYNC_SETTINGS_ADD_DEVICE_NAME_LABEL" desc="The label for the input field where the user can type a sync device name.">
+        Enter an optional name for this device
+      </message>
+      <message name="IDS_SYNC_EXAMPLE_DEVICE_NAME" desc="The hint for a sync device name field, showing an example device name.">
+        Android device
+      </message>
+      <message name="IDS_ENTER_CODE_WORDS_SYNC" desc="Button for enter code words. [CHAR-LIMT=32]">
+        Enter code words
+      </message>
+      <message name="IDS_SYNC_DEVICE" desc="The title for the dialog where the user notified about sync setup result.">
+        Sync device
+      </message>
+      <message name="IDS_SYNC_DEVICE_FAILURE" desc="The message for the dialog where the user notified about sync setup failure.">
+        Sync could not be setup
+      </message>
+      <message name="IDS_SYNC_REQUIRES_CORRECT_TIME" desc="The message for the dialog where the user notified about sync setup failure.">
+        Your computer's clock may be set to the wrong time, or to the wrong time-zone. Check your clock settings
+      </message>
+
+      <!-- Brave stats -->
+      <message name="IDS_BRAVE_STATS_TEXT_TRACKERS" desc="Text for blocked trackers stats on new tab page.">
+        Trackers
+Blocked
+      </message>
+      <message name="IDS_BRAVE_STATS_TEXT_ADS" desc="Text for blocked ads stats on new tab page.">
+        Ads
+Blocked
+      </message>
+      <message name="IDS_BRAVE_STATS_TEXT_HTTPS" desc="Text for upgraded HTTPS stats on new tab page.">
+        HTTPS
+Upgrades
+      </message>
+      <message name="IDS_BRAVE_STATS_TEXT_TIME" desc="Text for extimated saved time stats on new tab page.">
+        Est. Time
+Saved
+      </message>
+      <!--<message name="IDS_SEND_METRICS_TITLE" desc="Text for 'Send metrics' menu item.">
+        Send metrics
+      </message>-->
+      <message name="IDS_DESKTOP_MODE_TITLE" desc="Title of the setting for enabling Desktop View [CHAR-LIMIT=32]">
+        Desktop Mode
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_DESKTOP_VIEW_ENABLED_SUMMARY" desc="Summary text for Desktop View preferences mode enabled">
+        Prefer desktop version of sites
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_DESKTOP_VIEW_DISABLED_SUMMARY" desc="Summary text for Desktop View preferences mode enabled">
+        Prefer mobile version of sites
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_DESKTOP_VIEW_ENABLED" desc="Summary text explaining that sites will use Desktop Mode.">
+        Enable Desktop View for new tabs
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_DESKTOP_VIEW_DISABLED" desc="Summary text explaining that browser  will use mobile version of sites and that it is the recommended setting.">
+        Use mobile versions of sites for new tabs (recommended)
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_FIRST_GROUP_TITLE" desc="Title for the first group of Brave's shields panel.">
+        Blocking Monitor
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_SECOND_GROUP_TITLE" desc="Title for the second group of Brave's shields panel.">
+        Individual Controls
+      </message>
+      <message name="IDS_BRAVE_SHIELDS" desc="Brave Shields title.">
+        Shields
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_ADS_AND_TRACKERS" desc="Ads and Trackers blocked.">
+        Ads and Trackers
+      </message>
+      <message name="IDS_BRAVE_SHIELDS_FINGERPRINT_METHODS" desc="Fingerprint methods blocked.">
+        Fingerprint Methods
+      </message>
+      <!--<message name="IDS_BRAVE_SHIELDS_BLOCK_PHISHING_SWITCH" desc="Switch for Block Scripts.">
+        Block Phishing
+      </message>-->
+
+      <message name="IDS_PLAY_VIDEO_IN_BACKGROUND_TITLE" desc="Title of the setting for enabling background video playback [CHAR-LIMIT=32]">
+        Background video playback
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_PLAY_VIDEO_IN_BACKGROUND_ENABLED_SUMMARY" desc="Summary text for 'Background video playback' preference mode enabled">
+        Enabled
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_PLAY_VIDEO_IN_BACKGROUND_DISABLED_SUMMARY" desc="Summary text for 'Background video playback' preference mode disabled">
+        Disabled
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_PLAY_VIDEO_IN_BACKGROUND_ENABLED" desc="Summary text describing what 'Background video playback' preference does.">
+        Experimental. Enables play audio from video in background when tab is not active or device screen is turned off. Try to switch to desktop mode if this feature is not working.
+      </message>
+      <message name="IDS_SETTINGS_REQUIRE_RELAUNCH_NOTICE" desc="Text for message asked about browser relaunch to apply new settings">
+        Your changes will take effect the next time you relaunch Brave
+      </message>
+      <message name="IDS_SETTINGS_REQUIRE_RELAUNCH_NOW" desc="Text on the button causes relaunch browser now">
+        RELAUNCH NOW
+      </message>
+      <message name="IDS_SETTINGS_REQUIRE_RELAUNCH_LATER" desc="Text on the button allows to relaunch browser later">
+        LATER
+      </message>
+
+      <message name="IDS_PLAY_YT_VIDEO_IN_BROWSER_TITLE" desc="Title of the setting for enabling keeping play video in Brave [CHAR-LIMIT=32]">
+        Video playback in Brave
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_PLAY_YT_VIDEO_IN_BROWSER_ENABLED_SUMMARY" desc="Summary text for 'Video playback in Brave' preference mode enabled">
+        Enabled
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_PLAY_YT_VIDEO_IN_BROWSER_DISABLED_SUMMARY" desc="Summary text for 'Video playback in Brave' preference mode disabled">
+        Disabled
+      </message>
+      <message name="IDS_WEBSITE_SETTINGS_CATEGORY_PLAY_YT_VIDEO_IN_BROWSER_ENABLED" desc="Summary text describing what 'Video playback in Brave' preference does.">
+        If enabled, videos will be played in Brave instead of corresponding app
+      </message>
+      <message name="IDS_CLOSE_TABS_ON_EXIT_TITLE" desc="Text for 'Close tabs on exit' settings-privacy option.">
+        Close tabs on exit
+      </message>
+      <message name="IDS_CLOSE_TABS_ON_EXIT_SUMMARY" desc="Summary text for 'Close tabs on exit' settings-privacy option.">
+        Don't persist tabs between browsing sessions
+      </message>
+      <message name="IDS_DDG_OFFER_TITLE" desc="Title for DDG offer.">
+        Private search with DuckDuckGo?
+      </message>
+      <message name="IDS_DDG_OFFER_TEXT" desc="Text for DDG offer.">
+        With private search, Brave will use DuckDuckGo to answer your searches while you are in this private tab. DuckDuckGo is a search engine that does not track your search history, enabling you to search privately.
+      </message>
+      <message name="IDS_DDG_OFFER_POSITIVE" desc="Positive button text for DDG offer.">
+        Yes
+      </message>
+      <message name="IDS_DDG_OFFER_NEGATIVE" desc="Negative button text for DDG offer.">
+        No
+      </message>
+      <message name="IDS_DDG_OFFER_LINK" desc="Text for DDG offer link.">
+        Learn about private search with DuckDuckGo
+      </message>
+      <message name="IDS_BRAVE_ADS_EXISTING_USER_OFFER_TITLE" desc="Title for Brave Ads offer.">
+        Brave Ads are here!
+      </message>
+      <message name="IDS_BRAVE_ADS_OOBE_EDUCATION_NOTIFICATION_TITLE" desc="Positive button text for Brave Ads offer.">
+        This is your first Brave ad
+      </message>
+      <message name="IDS_BRAVE_ADS_OOBE_EDUCATION_NOTIFICATION_BODY" desc="Title for Brave Ads offer.">
+        Tap here to learn more
+      </message>
+      <message name="IDS_BRAVE_ADS_NEW_USER_OFFER_TITLE" desc="Title for Brave Ads offer.">
+        Enable Brave Rewards
+      </message>
+      <message name="IDS_BRAVE_ADS_OFFER_POSITIVE" desc="Positive button text for Brave Ads offer.">
+        I'm in!
+      </message>
+      <message name="IDS_BRAVE_ADS_OFFER_TEXT" desc="Text for Brave Ads offer.">
+        Earn Basic Attention Token for viewing privacy preserving ads in Brave Rewards.
+      </message>
+      <message name="IDS_PREFS_STANDARD_SEARCH_ENGINE" desc="Text for 'Standard Tab' search engine preference.">
+        Standard Tab
+      </message>
+      <message name="IDS_PREFS_PRIVATE_SEARCH_ENGINE" desc="Text for 'Private Tab' search engine preference.">
+        Private Tab
+      </message>
+      <message name="IDS_BRAVE_OPEN_IN_PRIVATE_TAB" desc="'Open in private tab' text">
+        Open in private tab
+      </message>
+      <message name="IDS_BRAVE_CLOSE_ALL_PRIVATE_TABS" desc="Text for 'Close all private tabs'">
+        Close private tabs
+      </message>
+      <message name="IDS_BRAVE_NEW_PRIVATE_TAB" desc="Text for 'New private tab'">
+        New private tab
+      </message>
+      <message name="IDS_BRAVE_NEW_TAB_PRIVATE_HEADER" desc="Header shown when a user opens a private tab explaining private mode">
+        This is a Private Tab
+      </message>
+      <message name="IDS_BRAVE_NEW_TAB_PRIVATE_MESSAGE" desc="Message shown when a user opens a private tab explaining private mode">
+        Even though sites you visit in private tabs are not saved locally, they do not make you anonymous or invisible to your ISP, your employer, or to the sites you are visiting.
+      </message>
+      <message name="IDS_OPEN_PAGES_IN_CUSTOM_TABS_TITLE" desc="Title of preference that allows the user to open pages in a full mode always.">
+        Open tabs in Custom Tabs
+      </message>
+      <message name="IDS_OPEN_PAGES_IN_CUSTOM_TABS_SUMMARY" desc="Summary of preference that allows the user to open pages in a full mode always.">
+        Offer to open tabs in Custom Tabs
+      </message>
+      <message name="IDS_UPDATE_NOTIFICATION_TITLE" desc="Title of notification on application update.">
+        Brave update
+      </message>
+      <message name="IDS_UPDATE_NOTIFICATION_TEXT" desc="Text of notification on application update.">
+        The new Brave browser is 22% faster
+      </message>
+
+      <!-- Sync preferences -->
+      <!--<message name="IDS_PREFS_SYNC" desc="Title for the Sync preferences. [CHAR-LIMIT=32]">
+        Sync (beta)
+      </message>-->
+      <message name="IDS_PREFS_SYNC_OFFICIAL" desc="Title for the Sync preferences. [CHAR-LIMIT=32]">
+        Sync
+      </message>
+      <message name="IDS_BRAVE_SYNC_DESCRIPTION_PAGE_1_PART_1" desc="Brave sync main screen message (part 1).">
+        Brave Sync allows you to sync bookmarks data privately between your Brave Browsers on your various devices.
+      </message>
+      <message name="IDS_BRAVE_SYNC_DESCRIPTION_PAGE_1_PART_2" desc="Brave sync main screen message (part 2).">
+        Simply scan the code from your sync chain that you created on another device. Or start a new sync chain.
+      </message>
+      <message name="IDS_BRAVE_SYNC_SCAN_CHAIN_CODE" desc="Scan chain code button title.">
+        Scan or enter sync code
+      </message>
+      <message name="IDS_BRAVE_SYNC_START_NEW_CHAIN" desc="Start new chain button title.">
+        Start a new sync chain
+      </message>
+      <message name="IDS_BRAVE_SYNC_QRCODE_MESSAGE_V2" desc="Brave sync main screen QRCode message.">
+        Using existing synced device, open Brave Settings and navigate to Settings > Sync. Choose "Add Device" and scan the QR Code displayed on the screen.
+      </message>
+      <message name="IDS_BRAVE_SYNC_CODEWORDS_MESSAGE" desc="Brave sync hint for code words edit box.">
+        Using existing synced device, open Brave Settings and navigate to Settings > Sync. Choose "Add Device" then "Display code words instead".
+      </message>
+      <message name="IDS_BRAVE_SYNC_BTN_MOBILE" desc="Brave sync button mobile text.">
+        Add a Mobile Device
+      </message>
+      <message name="IDS_BRAVE_SYNC_BTN_LAPTOP" desc="Brave sync button laptop text.">
+        Add a Computer
+      </message>
+      <message name="IDS_BRAVE_SYNC_SCAN_SYNC_CODE" desc="Description title for 'Add a mobile device' page.">
+        Scan this sync code
+      </message>
+      <message name="IDS_BRAVE_SYNC_ADD_MOBILE_DEVICE_TEXT_PART_1" desc="Description for 'Add a mobile device' page (part 1).">
+        Using a second phone or tablet, navigate to Brave Settings > Sync > Scan.
+      </message>
+      <message name="IDS_BRAVE_SYNC_ADD_MOBILE_DEVICE_TEXT_PART_2" desc="Description for 'Add a mobile device' page (part 2).">
+        On your mobile device, navigate to Brave Sync in the Settings panel and click the button "Scan Sync Code". Use your camera to scan the QR Code below.
+      </message>
+      <message name="IDS_BRAVE_SYNC_BTN_DONE" desc="Title for 'Done' button.">
+        Done
+      </message>
+      <message name="IDS_BRAVE_SYNC_TABS_TEXT" desc="Title for 'Tabs' switch.">
+        Tabs
+      </message>
+      <message name="IDS_BRAVE_SYNC_HISTORY_TEXT" desc="Title for 'History' switch.">
+        History
+      </message>
+      <message name="IDS_BRAVE_SYNC_AUTOFILL_PASSWORDS_TEXT" desc="Title for 'Autofill/Passwords' switch.">
+        Autofill/Passwords
+      </message>
+      <message name="IDS_BRAVE_SYNC_PAYMENT_SETTINGS_TEXT" desc="Title for 'Brave Payment Settings' switch.">
+        Brave Payment Settings
+      </message>
+      <message name="IDS_BRAVE_SYNC_SETTINGS_TITLE" desc="Title for 'Sync Settings'.">
+        SYNC ON THIS DEVICE
+      </message>
+      <message name="IDS_BRAVE_SYNC_SETTINGS_DESCRIPTION" desc="Description for 'Sync Settings'.">
+        Changing settings will only affect data that this device shares with others.
+      </message>
+      <message name="IDS_BRAVE_SYNC_DEVICES_TITLE" desc="Title for 'Devices List'.">
+        OTHER DEVICES ON CHAIN
+      </message>
+      <message name="IDS_BRAVE_SYNC_LOADING_DEVICES_TITLE" desc="Title for 'Loading Devices List'.">
+        LOADING DEVICES...
+      </message>
+      <message name="IDS_BRAVE_SYNC_ADD_DEVICE_TEXT" desc="Text for 'Add Another Device' button.">
+        Add another device
+      </message>
+      <message name="IDS_BRAVE_SYNC_REMOVE_DEVICE_TEXT" desc="Text for 'Remove My Device' button.">
+        Remove this device
+      </message>
+      <message name="IDS_BRAVE_SYNC_CODE_WORDS_TITLE" desc="Title for 'Code Words' Brave sync settings page.">
+        Pair
+      </message>
+      <message name="IDS_BRAVE_SYNC_ADD_LAPTOP_TEXT_TITLE" desc="Title for text on 'Add Laptop' page.">
+        Enter the sync chain code
+      </message>
+      <message name="IDS_BRAVE_SYNC_ADD_LAPTOP_TEXT_PART_1" desc="Part 1 of the text on 'Add Laptop' page.">
+        On your computer, navigate to Brave Settings > Sync. Choose "Enter a Sync Chain Code".
+      </message>
+      <!--<message name="IDS_BRAVE_SYNC_ADD_LAPTOP_TEXT_PART_2" desc="Part 2 of the text on 'Add Laptop' page.">
+        Enter the code words above, including spaces.
+      </message>-->
+      <message name="IDS_BRAVE_SYNC_ADD_LAPTOP_TEXT_PART_2_NEW" desc="Part 2 of the text on 'Add Laptop' page.">
+        On your target computer, navigate to Brave Sync in settings and click the button "I have a Sync Code".\nEnter the sync chain code words shown below.
+      </message>
+      <message name="IDS_BRAVE_SYNC_DELETE_DEVICE" desc="Delete device message.">
+        Are you sure you want to delete device '<ph name="DEVICE_NAME">%1$s</ph>'?
+      </message>
+      <message name="IDS_BRAVE_SYNC_DELETE_SENT" desc="Delete request sent message.">
+        Delete request has been sent. Device will be removed shortly.
+      </message>
+      <message name="IDS_BRAVE_SYNC_LOADING_DATA_TITLE" desc="Title for 'Loading data...'.">
+        Loading data...
+      </message>
+      <message name="IDS_BRAVE_SYNC_TIME_OUT_MESSAGE" desc="Time out message.">
+        Something went wrong, looks like your request timed out.
+      </message>
+      <message name="IDS_BRAVE_SYNC_USE_CAMERA_TEXT" desc="Text for 'Use camera' button.">
+        I'll use my camera...
+      </message>
+      <message name="IDS_BRAVE_SYNC_CONFIRM_CODE_WORDS_TEXT" desc="Text for 'Confirm code words' button.">
+        Confirm
+      </message>
+      <message name="IDS_BRAVE_SYNC_WORD_COUNT_TEXT" desc="Text for 'Word count' label.">
+        Word count: <ph name="WORD_COUNT">%1$d</ph>
+      </message>
+      <message name="IDS_BRAVE_SYNC_WORD_COUNT_ERROR" desc="Text for error on incorrect number of words.">
+        Incorrect number of words
+      </message>
+      <message name="IDS_BRAVE_SYNC_QR_CODE" desc="Text for 'QR Code' button.">
+        QR Code
+      </message>
+      <message name="IDS_BRAVE_SYNC_CODE_WORDS" desc="Text for 'Code Words' button.">
+        Code Words
+      </message>
+      <message name="IDS_BRAVE_SYNC_COPY_BUTTON_TEXT" desc="Text for 'Copy to Clipboard' button.">
+        Copy to Clipboard
+      </message>
+      <message name="IDS_BRAVE_SYNC_COPIED_TEXT" desc="Text for Toast when data is copied to clipboard.">
+        Copied to Clipboard
+      </message>
+      <message name="IDS_BRAVE_SYNC_THIS_DEVICE_TEXT" desc="Text to mark current device.">
+        (this device)
+      </message>
+
+      <!-- Brave as default browser strings -->
+      <message name="IDS_BRAVE_ALREADY_SET_AS_DEFAULT_BROWSER" desc="Toast message for those whom have already set Brave as default browser">
+        Brave is already set
+as your default browser.
+      </message>
+      <message name="IDS_BRAVE_DEFAULT_BROWSER_GO_TO_SETTINGS" desc="Toast message for those without 7.0 to go to settings to change default browser">
+        You've already set a default browser.
+You may change default browser in your app settings.
+      </message>
+      <!--<message name="IDS_BRAVE_DEFAULT_BROWSER_NOTIFICATION_BODY" desc="Default browser notification body">
+        Save battery and load web pages faster. Make Brave your default Browser. From the Brave menu tap "Set as default browser"
+      </message>
+      <message name="IDS_BRAVE_DEFAULT_BROWSER_EXISTING_NOTIFICATION_BODY" desc="Default browser notification body">
+        Make Brave your default web browser
+Save battery and load web pages faster
+      </message>-->
+      <message name="IDS_BRAVE_SET_DEFAULT_BROWSER" desc="Menu item for opening the 'Setting default browser' page.">
+        Set as default browser
+      </message>
+      <message name="IDS_BRAVE_SET_DEFAULT_BROWSER_DIALOG_TEXT" desc="Dialog for setting default browser">
+        Select Brave from the list and tap "Always"
+      </message>
+
+      <!--It's just temporary. We will need to pull rewards strings from brave-core-->
+      <message name="IDS_BRAVE_UI_WELCOME_HEADER_TWO" desc="Get ready to experience the next Internet.">
+        Get ready to experience
+the next Internet.
+      </message>
+      <message name="IDS_BRAVE_UI_WELCOME_DESC_TWO" desc="Get paid for viewing ads and pay it forward to support your favorite content creators.">
+        You can now earn tokens for
+watching privacy-respecting ads.
+      </message>
+      <message name="IDS_BRAVE_UI_WELCOME_BUTTON_TEXT_TWO" desc="Button to join Brave Rewards">
+        JOIN REWARDS
+      </message>
+      <message name="IDS_BRAVE_UI_WELCOME_FOOTER_TEXT_TWO" desc="Learn more hyperlink">
+        LEARN MORE
+      </message>
+      <message name="IDS_BRAVE_UI_REWARDS_CREATING_TEXT" desc="Creating a wallet button message">
+        Creating wallet
+      </message>
+      <message name="IDS_BRAVE_UI_YOUR_WALLET" desc="Your wallet title">
+        Your wallet
+      </message>
+      <message name="IDS_BRAVE_UI_BAT_TEXT" desc="A token name">
+        BAT
+      </message>
+      <message name="IDS_BRAVE_UI_USD" desc="USD value of tokens">
+        <ph name="VALUE">%1$s<ex>0.0</ex></ph> USD
+      </message>
+      <message name="IDS_BRAVE_REWARDS_LOCAL_PANEL_ADD_FUNDS" desc="Add Funds button text">
+        Add Funds
+      </message>
+      <message name="IDS_BRAVE_UI_SETTINGS" desc="Settings button text">
+        Settings
+      </message>
+      <message name="IDS_BRAVE_UI_REWARDS_SUMMARY" desc="Rewards Summary section title">
+        REWARDS SUMMARY
+      </message>
+      <message name="IDS_BRAVE_UI_SITE_BANNER_WELCOME" desc="Tipping page title">
+        Thanks for stopping by!
+      </message>
+      <message name="IDS_BRAVE_UI_REWARDS_BANNER_TEXT1" desc="Tipping page description">
+        You can support this site by sending a tip. It's a way of thanking them for making great content. Verified content creators get paid for their tips during the first week of each calendar month.
+      </message>
+      <message name="IDS_BRAVE_UI_REWARDS_BANNER_TEXT2" desc="Tipping page description 2">
+        If you like, you can schedule monthly tips to support this site on a continuous basis.
+      </message>
+      <message name="IDS_BRAVE_UI_DONATION_AMOUNT" desc="Tipping amount screen title">
+        Tip amount
+      </message>
+      <message name="IDS_BRAVE_UI_WALLET_BALANCE" desc="Wallet balance on tipping screen">
+        wallet balance:
+      </message>
+      <message name="IDS_BRAVE_UI_MAKE_MONTHLY" desc="A button to make monthly tipping">
+        Make this monthly
+      </message>
+      <message name="IDS_BRAVE_UI_SEND_TIP" desc="Send my tip button text">
+        send my tip
+      </message>
+      <message name="IDS_BRAVE_UI_DO_MONTHLY" desc="Set monthly tip button text">
+        set monthly tip
+      </message>
+      <message name="IDS_BRAVE_UI_NOT_ENOUGH_TOKENS" desc="Message if not enough tokens to make a tip">
+        not enough tokens
+      </message>
+      <message name="IDS_BRAVE_UI_SITE_BANNER_NOTICE_TEXT" desc="A message on tipping page when a creator is not verified yet">
+        NOTE: This creator has not yet signed up to receive contributions from Brave users. We'll keep trying to contribute until they verify, or until 90 days have passed.
+      </message>
+      <message name="IDS_BRAVE_UI_PLEASE" desc="Part of a message about not enough tokens to pay">
+        please
+      </message>
+      <message name="IDS_BRAVE_UI_ADD_FUNDS" desc="Part of a message about not enough tokens to pay">
+        add funds
+      </message>
+      <message name="IDS_BRAVE_UI_THANK_YOU" desc="A message that appears after tipping">
+        Thank you
+      </message>
+      <message name="IDS_BRAVE_UI_ERROR_INIT_WALLET" desc="An error which appear on wallet creation with no connection to the rewards service">
+        Please try again later.
+      </message>
+
+
+
+      <message name="IDS_BRAVE_UI_MONTH_JAN" desc="Name of a month">JANUARY</message>
+      <message name="IDS_BRAVE_UI_MONTH_FEB" desc="Name of a month">FEBRUARY</message>
+      <message name="IDS_BRAVE_UI_MONTH_MAR" desc="Name of a month">MARCH</message>
+      <message name="IDS_BRAVE_UI_MONTH_APR" desc="Name of a month">APRIL</message>
+      <message name="IDS_BRAVE_UI_MONTH_MAY" desc="Name of a month">MAY</message>
+      <message name="IDS_BRAVE_UI_MONTH_JUN" desc="Name of a month">JUNE</message>
+      <message name="IDS_BRAVE_UI_MONTH_JUL" desc="Name of a month">JULY</message>
+      <message name="IDS_BRAVE_UI_MONTH_AUG" desc="Name of a month">AUGUST</message>
+      <message name="IDS_BRAVE_UI_MONTH_SEP" desc="Name of a month">SEPTEMBER</message>
+      <message name="IDS_BRAVE_UI_MONTH_OCT" desc="Name of a month">OCTOBER</message>
+      <message name="IDS_BRAVE_UI_MONTH_NOV" desc="Name of a month">NOVEMBER</message>
+      <message name="IDS_BRAVE_UI_MONTH_DEC" desc="Name of a month">DECEMBER</message>
+      <message name="IDS_BRAVE_UI_MONTH_YEAR" desc="Current year">
+        <ph name="MONTH">%1$s<ex>DECEMBER</ex></ph> <ph name="YEAR">%2$s<ex>2018</ex></ph>
+      </message>
+      <message name="IDS_BRAVE_UI_REWARDS_CONTRIBUTE_ATTENTION" desc="A message about user's attantion on a particular website">
+        Attention
+      </message>
+      <message name="IDS_BRAVE_UI_INCLUDE_IN_AUTO" desc="A switch to include a particular website in auto contribution or not">
+        Include in Auto-Contribute
+      </message>
+      <message name="IDS_BRAVE_UI_DONATE_NOW" desc="Send a tip button text">
+        Send a tip...
+      </message>
+      <message name="IDS_BRAVE_UI_NO_ACTIVITY" desc="A message that appears when no activity was done yet related to payments">
+        No activities yet this
+month...
+      </message>
+      <message name="IDS_BRAVE_UI_TOKEN_GRANT_CLAIMED" desc="A message about tokens being claimed">
+        Token Grants Claimed
+      </message>
+      <message name="IDS_BRAVE_UI_EARNINGS_ADS" desc="A message about earning from ads">
+        Earnings from Ads
+      </message>
+      <message name="IDS_BRAVE_UI_REWARDS_CONTRIBUTE" desc="A message about auto-contribute">
+        Auto-Contribute
+      </message>
+      <message name="IDS_BRAVE_UI_REWARDS_CONTRIBUTE_DESCRIPTION" desc="A notication message description about auto-contribute">
+        You've contributed <ph name="BAT_VALUE">%1$s<ex>50</ex></ph> BAT.
+      </message>
+      <message name="IDS_BRAVE_UI_ONE_TIME_DONATION" desc="A message about one time tips">
+        One-time Tips
+      </message>
+      <message name="IDS_BRAVE_UI_RECURRING_DONATION" desc="A message about monthly tips">
+        Monthly Tips
+      </message>
+      <message name="IDS_BRAVE_UI_VERIFIED_PUBLISHER" desc="A message that a particular publisher is verified">
+        Brave Verified Publisher
+      </message>
+      <message name="IDS_BRAVE_UI_NOT_VERIFIED_PUBLISHER" desc="A message that a particular publisher is not verified">
+        Not yet verified
+      </message>
+      <message name="IDS_BRAVE_UI_NOT_VERIFIED_PUBLISHER_DESCRIPTION" desc="A message that appear when a particular publisher is not verified">
+        This creator has not yet signed up to receive contributions from Brave users.
+        Any tips you send will remain in your wallet until they verify.
+      </message>
+      <message name="IDS_BRAVE_UI_ON_YOUTUBE" desc="A suffix to YouTube channel creator">
+        on YouTube
+      </message>
+      <message name="IDS_BRAVE_UI_ON_TWITCH" desc="A suffix to Twitch channel creator">
+        on Twitch
+      </message>
+      <message name="IDS_BRAVE_UI_NEW_GRANT" desc="A notification about free token grant">
+        A free token grant is available.
+      </message>
+      <message name="IDS_BRAVE_UI_NEW_TOKEN_GRANT" desc="A notification about free token grant">
+        Free Token Grant
+      </message>
+      <message name="IDS_BRAVE_UI_CLAIM" desc="A claim grant button text">
+        Claim
+      </message>
+      <message name="IDS_BRAVE_UI_RESERVED_AMOUNT_TEXT" desc="A message that some amount of tokens reserved for non verified publishers">
+        You've designated <ph name="BAT_VALUE">%1$s<ex>50</ex></ph> BAT for creators who haven't
+yet signed up to receive contributions. Your browser will keep trying to contribute
+until they verify, or until 90 days have passed.
+      </message>
+      <message name="IDS_BRAVE_UI_NOTIFICATION_DESC_NO_FUNDS" desc="A notification about not enough funds">
+        Your scheduled monthly payment for Auto-Contribute and monthly tips could not be completed due to insufficient funds. We'll try again in 30 days.
+      </message>
+      <message name="IDS_BRAVE_UI_NOTIFICATION_DESC_TIP_ERROR" desc="A notification about tip processing problem">
+        There was a problem processing your tip, please try again.
+      </message>
+      <message name="IDS_BRAVE_UI_NOTIFICATION_DESC_CONTR_ERROR" desc="A notification about contribution processing problem">
+        There was a problem processing your contribution.
+      </message>
+      <message name="IDS_BRAVE_REWARDS_LOCAL_UH_OH" desc="A prefix to a message about a problem">
+        Uh oh!
+      </message>
+      <message name="IDS_BRAVE_REWARDS_LOCAL_SERVER_NOT_RESPONDING" desc="A message that appears when no connection to rewards server">
+        The Brave Rewards server is not responding. We will fix this as soon as possible.
+      </message>
+      <message name="IDS_BRAVE_UI_GRANTS" desc="Grants button text">
+        Grants
+      </message>
+      <message name="IDS_BRAVE_UI_EXPIRES_ON" desc="A message about grants expiration date">
+        expires on <ph name="DATE">%1$s<ex>4/14/2019</ex></ph>
+      </message>
+      <message name="IDS_BRAVE_UI_INSUFFICIENT_FUNDS_MSG" desc="A message about not enough funds">
+        Insufficient Funds
+      </message>
+      <message name="IDS_BRAVE_UI_INSUFFICIENT_FUNDS_DESC" desc="A notification message about not enough funds">
+        Your Brave Rewards account is waiting for a deposit.
+      </message>
+      <message name="IDS_BRAVE_UI_BACKUP_WALLET_MSG" desc="A notification message title about backing up the wallet">
+        Backup Wallet
+      </message>
+      <message name="IDS_BRAVE_UI_BACKUP_WALLET_DESC" desc="A notification message description about backing up the wallet">
+        Please backup your Brave wallet.
+      </message>
+      <message name="IDS_BRAVE_UI_BRAVE_REWARDS" desc="Menu item and title for Brave Rewards Settings. [CHAR-LIMIT=27]">
+        Brave Rewards
+      </message>
+      <message name="IDS_BRAVE_UI_WELCOME_BACK_MESSAGE" desc="Welcome back title">
+        Welcome back!
+      </message>
+      <message name="IDS_BRAVE_UI_GET_REWARDED" desc="Welcome back first description">
+        Get rewarded for browsing.
+      </message>
+      <message name="IDS_BRAVE_UI_BRAVE_REWARDS_DESC" desc="Welcome back second description">
+        Earn by viewing privacy-respecting
+ads, and pay it forward to support
+content creators you love.
+      </message>
+      <message name="IDS_BRAVE_WELCOME_PAGE_REWARDS_TITLE" desc="Enable Rewards button">
+        ENABLE BRAVE REWARDS
+      </message>
+      <message name="IDS_BRAVE_UI_FIRST_TIP_TEXT" desc="string from Thank you screen">
+        Your first monthly tip will be sent on:
+      </message>
+      <message name="IDS_BRAVE_UI_TIP_TEXT" desc="string from Thank you screen">
+        You've just sent a tip to:
+      </message>
+      <message name="IDS_BRAVE_UI_AUTO_TIP_TEXT" desc="string from Thank you screen">
+        You are automatically sending a tip to:
+      </message>
+      <message name="IDS_BRAVE_UI_MONTHLY_TEXT" desc="string from Thank you screen">
+        Monthly
+      </message>
+      <message name="IDS_BRAVE_UI_DONATE_MONTHLY" desc="">
+        Tip this site monthly
+      </message>
+      <!--End of rewards temporary section.-->
+      <message name="IDS_BOTTOM_TOOLBAR_ENABLE" desc="Menu item for enabling the bottom toolbar.">
+        Enable bottom toolbar
+      </message>
+      <!--<message name="IDS_BOTTOM_TOOLBAR_DISABLE" desc="Menu item for disabling the bottom toolbar.">
+        Disable bottom toolbar
+      </message>-->
+      <message name="IDS_SEARCH_OR_URL" desc="Prompt to enter text into the text field that will either perform web searches or navigate to a website. [CHAR-LIMIT=38]" formatter_data="android_java">
+        Search or URL
+      </message>
+      <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_BOOKMARK" desc="Content description for the bookmark button.">
+        Create a bookmark
+      </message>
+      <message name="IDS_BRAVE_REWARDS_NOT_AVAILABLE" desc="The message for the dialog when Brave Rewards is not available on the device.">
+        We're sorry it appears Brave Rewards is not available on your device
+      </message>
+      <message name="IDS_PREFS_SECTION_DISPLAY" desc='Title of "Display" section of preferences. [CHAR-LIMIT=32]'>
+        Display
+      </message>
+      <message name="IDS_PREFS_SECTION_CONTROLS" desc='Title of "Controls" section of preferences. [CHAR-LIMIT=32]'>
+        Controls
+      </message>
+      <message name="IDS_PREFS_APPEARANCE" desc="Title of Appearance settings, which allows the user to change display settings. [CHAR-LIMIT=32]">
+        Appearance
+      </message>
+      <message name="IDS_HIDE_BRAVE_REWARDS_ICON_TITLE" desc="Title for preference that hides or shows Brave Rewards icon.">
+        Hide Brave Rewards Icon
+      </message>
+      <message name="IDS_HIDE_BRAVE_REWARDS_ICON_DESCRIPTION" desc="Description for preference that hides or shows Brave Rewards icon.">
+        Hides the Brave Rewards Icon when Brave Rewards is not enabled
+      </message>
+      <message name="IDS_BRAVE_UI_PRE_GRANT_MESSAGE" desc="A message that appears before grant notification is received">
+        Check back soon for a free token grant
+      </message>
+      <message name="IDS_RESET_BRAVE_REWARDS_OPTION" desc="Title for preference to reset Brave Rewards.">
+        Reset Brave Rewards
+      </message>
+      <message name="IDS_RESET_BRAVE_REWARDS_OPTION_DESCRIPTION" desc="Description for preference to reset Brave Rewards.">
+        This will delete your Brave wallet and reset all of your Brave Rewards data
+      </message>
+      <message name="IDS_RESET_BRAVE_REWARDS_ERROR_TITLE" desc="Title for Brave Rewards reset error dialog.">
+        Reset Error
+      </message>
+      <message name="IDS_RESET_BRAVE_REWARDS_ERROR_DESCRIPTION" desc="Description for Brave Rewards reset error dialog.">
+        There was an error resetting Brave Rewards.  Please relaunch Brave and try again
+      </message>
+      <message name="IDS_BRAVE_SYNC_CODE_WARNING" desc="Warning text for code words adn QR code.">
+        Treat this code like a password. If someone gets hold of it, they can read and modify your synced data.
+      </message>
+      <message name="IDS_BRAVE_ADS_YOU_EARNED" desc='Brave Ads "You earned" text'>
+        You've earned
+      </message>
+      <message name="IDS_BRAVE_DEFAULT_BROWSER_TITLE" desc="Title for default browser notification.">
+        Brave is lightning fast
+      </message>
+      <message name="IDS_BRAVE_DEFAULT_BROWSER_BODY" desc="Body for default browser notification.">
+        Make Brave your default browser!
+      </message>
+      <message name="IDS_BRAVE_MAKE_DEFAULT_TEXT" desc="Text for positive default browser notification button.">
+        Make default
       </message>
     </messages>
   </release>
