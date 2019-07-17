@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
+import android.content.SharedPreferences;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.VisibleForTesting;
@@ -48,6 +49,7 @@ public class MainPreferences extends PreferenceFragment
     public static final String PREF_SAVED_PASSWORDS = "saved_passwords";
     public static final String PREF_CONTEXTUAL_SUGGESTIONS = "contextual_suggestions";
     public static final String PREF_HOMEPAGE = "homepage";
+    public static final String PREF_CLOSING_TABS = "closing_tabs";
     public static final String PREF_UI_THEME = "ui_theme";
     //public static final String PREF_DATA_REDUCTION = "data_reduction";
     public static final String PREF_NOTIFICATIONS = "notifications";
@@ -221,6 +223,12 @@ public class MainPreferences extends PreferenceFragment
         } else {
             removePreferenceIfPresent(PREF_HOMEPAGE);
         }
+
+        Preference closingTabsPref = addPreferenceIfAbsent(PREF_CLOSING_TABS);
+
+        SharedPreferences mSharedPreferences = ContextUtils.getAppSharedPreferences();
+        setOnOffSummary(closingTabsPref, mSharedPreferences.getBoolean("closing_tabs_switch", false));
+
 
         if (!ChromeFeatureList.isEnabled(ChromeFeatureList.UNIFIED_CONSENT)
                 && FeatureUtilities.areContextualSuggestionsEnabled(getActivity())

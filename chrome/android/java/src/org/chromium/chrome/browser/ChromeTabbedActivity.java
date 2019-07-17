@@ -117,6 +117,7 @@ import org.chromium.chrome.browser.ntp.NewTabPageUma;
 import org.chromium.chrome.browser.omaha.OmahaBase;
 import org.chromium.chrome.browser.omnibox.suggestions.AutocompleteController;
 import org.chromium.chrome.browser.partnercustomizations.HomepageManager;
+import org.chromium.chrome.browser.partnercustomizations.ClosingTabsManager;
 import org.chromium.chrome.browser.partnercustomizations.PartnerBrowserCustomizations;
 import org.chromium.chrome.browser.preferences.ChromePreferenceManager;
 import org.chromium.chrome.browser.preferences.PrefServiceBridge;
@@ -668,7 +669,7 @@ public class ChromeTabbedActivity
                         //   2. If TabGroupsAndroid is enabled, and isPendingClosure is true.
                         //      isPendingClosure is used to avoid calling finish() when closing all
                         //      tabs in tab switcher.
-                        if (HomepageManager.shouldCloseAppWithZeroTabs()
+                        if (ClosingTabsManager.shouldCloseAppWithZeroTabs()
                                 || (FeatureUtilities.isTabGroupsAndroidEnabled()
                                         && isPendingClosure)) {
                             finish();
