@@ -296,4 +296,8 @@ content creators you love.</string>
     <string name="search_bing">search_bing</string>
     <string name="search_start_page">search_start_page</string>
 
+    <string name="block">Block</string>
+    <string name="brave_shields_onboarding_title">Brave Shields</string>
+    <string name="brave_shields_onboarding_text">privacy-invading ads and trackers so you can browse without being followed around the web.</string>
+
 </resources>

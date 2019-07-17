@@ -1929,5 +1929,6 @@ chrome_java_sources = [
   "java/src/org/chromium/chrome/browser/onboarding/OnboardingViewPagerAdapter.java",
   "java/src/org/chromium/chrome/browser/onboarding/OnViewPagerAction.java",
   "java/src/org/chromium/chrome/browser/onboarding/SearchEngineEnum.java",
-  "java/src/org/chromium/chrome/browser/onboarding/SearchEngineOnboardingFragment.java"
+  "java/src/org/chromium/chrome/browser/onboarding/SearchEngineOnboardingFragment.java",
+  "java/src/org/chromium/chrome/browser/onboarding/BraveShieldsOnboardingFragment.java"
 ]

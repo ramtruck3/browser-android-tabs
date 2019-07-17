@@ -4913,6 +4913,10 @@ content creators you love.
       <message name="IDS_SEARCH_BING">search_bing</message>
       <message name="IDS_SEARCH_START_PAGE">search_start_page</message>
 
+      <message name="IDS_BLOCK">Block</message>
+      <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TITLE">Brave Shields</message>
+      <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TEXT">privacy-invading ads and trackers so you can browse without being followed around the web.</message>
+
     </messages>
   </release>
 </grit>
