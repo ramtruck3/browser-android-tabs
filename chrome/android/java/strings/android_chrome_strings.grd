@@ -4891,6 +4891,28 @@ content creators you love.
       <message name="IDS_BRAVE_MAKE_DEFAULT_TEXT" desc="Text for positive default browser notification button.">
         Make default
       </message>
+
+      <!-- Onboarding strings -->
+
+      <message name="IDS_TITLE_ONBOARDING_ACTIVITY">OnboardingActivity</message>
+
+      <message name="IDS_SKIP">Skip</message>
+
+      <message name="IDS_WELCOME_TO_BRAVE_BROWSER">Welcome to Brave Browser</message>
+      <message name="IDS_SELECT_YOUR_DEFAULT_SEARCH_ENGINE">Select your default search engine</message>
+      
+      <message name="IDS_DUCKDUCKGO">DuckDuckGo</message>
+      <message name="IDS_GOOGLE">Google</message>
+      <message name="IDS_QWANT">Qwant</message>
+      <message name="IDS_BING">Bing!</message>
+      <message name="IDS_START_PAGE">StartPage</message>
+
+      <message name="IDS_SEARCH_GOOGLE">search_google</message>
+      <message name="IDS_SEARCH_DUCKDUCKGO">search_duckduckgo</message>
+      <message name="IDS_SEARCH_QWANT">search_qwant</message>
+      <message name="IDS_SEARCH_BING">search_bing</message>
+      <message name="IDS_SEARCH_START_PAGE">search_start_page</message>
+
     </messages>
   </release>
 </grit>
