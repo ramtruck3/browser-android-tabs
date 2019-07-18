@@ -10,4 +10,4 @@ gclient sync
 sh . build/android/envsetup.sh
 sh scripts/postThirdPartiesSetup.js
 npm install
-scripts/install-rust-deps.sh
+brave/script/download_rust_deps.py --platform android

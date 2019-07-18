@@ -16,8 +16,7 @@
 #include "../../../../third_party/re2/src/re2/re2.h"
 #include "../../../../url/gurl.h"
 #include "brave/vendor/tracking-protection/TPParser.h"
-#include "brave/vendor/ad-block/ad_block_client.h"
-#include "brave/vendor/ad-block/data_file_version.h"
+#include "brave/vendor/adblock_rust_ffi/src/wrapper.hpp"
 #include "base/strings/pattern.h"
 #include "net/base/registry_controlled_domains/registry_controlled_domain.h"
 
@@ -31,57 +30,59 @@
 #define HTTPSE_URL_MAX_REDIRECTS_COUNT      5
 #define HTTPSE_VERSION                      "6.0"
 
+static constexpr int DATA_FILE_VERSION = 4;
+
 namespace net {
 namespace blockers {
 
     namespace {
 
-        FilterOption ResourceTypeToFilterOption(content::ResourceType resource_type) {
-          FilterOption filter_option = FONoFilterOption;
+        std::string ResourceTypeToString(content::ResourceType resource_type) {
+          std::string filter_option = "";
           switch(resource_type) {
             // top level page
             case content::ResourceType::kMainFrame:
-              filter_option = FODocument;
+              filter_option = "document";
               break;
             // frame or iframe
             case content::ResourceType::kSubFrame:
-              filter_option = FOSubdocument;
+              filter_option = "sub_frame";
               break;
             // a CSS stylesheet
             case content::ResourceType::kStylesheet:
-              filter_option = FOStylesheet;
+              filter_option = "stylesheet";
               break;
             // an external script
             case content::ResourceType::kScript:
-              filter_option = FOScript;
+              filter_option = "script";
               break;
             // an image (jpg/gif/png/etc)
             case content::ResourceType::kImage:
-              filter_option = FOImage;
+              filter_option = "image";
               break;
             // a font
             case content::ResourceType::kFontResource:
-              filter_option = FOFont;
+              filter_option = "font";
               break;
             // an "other" subresource.
             case content::ResourceType::kSubResource:
-              filter_option = FOOther;
+              filter_option = "other";
               break;
             // an object (or embed) tag for a plugin.
             case content::ResourceType::kObject:
-              filter_option = FOObject;
+              filter_option = "object";
               break;
             // a media resource.
             case content::ResourceType::kMedia:
-              filter_option = FOMedia;
+              filter_option = "media";
               break;
             // a XMLHttpRequest
             case content::ResourceType::kXhr:
-              filter_option = FOXmlHttpRequest;
+              filter_option = "xmlhttprequest";
               break;
             // a ping request for <a ping>/sendBeacon.
             case content::ResourceType::kPing:
-              filter_option = FOPing;
+              filter_option = "ping";
               break;
             // the main resource of a dedicated
             case content::ResourceType::kWorker:
@@ -193,8 +194,8 @@ namespace blockers {
             return false;
         }
 
-        adblock_parser_ = new AdBlockClient();
-        if (!adblock_parser_->deserialize((char*)&adblock_buffer_.front())) {
+        adblock_parser_ = new adblock::Engine();
+        if (!adblock_parser_->deserialize((char*)&adblock_buffer_.front(), adblock_buffer_.size())) {
             delete adblock_parser_;
             adblock_parser_ = nullptr;
             LOG(ERROR) << "adblock deserialize failed";
@@ -229,12 +230,13 @@ namespace blockers {
                 continue;
             }
 
-            AdBlockClient* parser = new AdBlockClient();
+            adblock::Engine* parser = new adblock::Engine();
             if (!parser) {
                 adblock_regional_buffer_.erase(adblock_regional_buffer_.begin() + adblock_regional_buffer_.size() - 1);
                 continue;
             }
-            if (!parser->deserialize((char*)&adblock_regional_buffer_[adblock_regional_buffer_.size() - 1].front())) {
+            if (!parser->deserialize((char*)&adblock_regional_buffer_[adblock_regional_buffer_.size() - 1].front(),
+                    adblock_regional_buffer_[adblock_regional_buffer_.size() - 1].size())) {
                 delete parser;
                 adblock_regional_buffer_.erase(adblock_regional_buffer_.begin() + adblock_regional_buffer_.size() - 1);
                 LOG(ERROR) << "adblock_regional deserialize failed";
@@ -391,11 +393,16 @@ namespace blockers {
           return false;
         }
 
-        std::string base_host = GURL(tab_url).host();
-
-        FilterOption currentOption = ResourceTypeToFilterOption((content::ResourceType)resource_type);
-
-        if (adblock_parser_->matches(url.c_str(), currentOption, base_host.c_str())) {
+        std::string host = GURL(url).host();
+        std::string tab_host = GURL(tab_url).host();
+        bool is_third_party = !base::StringPiece(host).ends_with(tab_host);
+        std::string string_resource_type = ResourceTypeToString((content::ResourceType)resource_type);
+        bool cancel;
+        bool saved_from_exception;
+        std::string redirect;
+        // TODO (samartnik): check if it properly works
+        if (adblock_parser_->matches(url, host, tab_host, is_third_party, string_resource_type,
+                &cancel, &saved_from_exception, &redirect)) {
             return true;
         }
 
@@ -404,7 +411,8 @@ namespace blockers {
             return false;
         }
         for (size_t i = 0; i < adblock_regional_parsers_.size(); i++) {
-            if (adblock_regional_parsers_[i]->matches(url.c_str(), currentOption, base_host.c_str())) {
+            if (adblock_regional_parsers_[i]->matches(url, host, tab_host, is_third_party, string_resource_type,
+                    &cancel, &saved_from_exception, &redirect)) {
                 return true;
             }
         }
