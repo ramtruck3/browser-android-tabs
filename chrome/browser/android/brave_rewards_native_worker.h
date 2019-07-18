@@ -10,6 +10,7 @@
 #include <map>
 #include "base/android/jni_weak_ref.h"
 #include "base/memory/weak_ptr.h"
+#include "brave/components/brave_rewards/browser/balance.h"
 #include "brave/components/brave_rewards/browser/balance_report.h"
 #include "brave/components/brave_rewards/browser/rewards_service_observer.h"
 #include "brave/components/brave_rewards/browser/rewards_notification_service_observer.h"
@@ -193,9 +194,11 @@ public:
 
 private:
     void OnGetAddresses(const std::map<std::string, std::string>& addresses);
+    void OnBalance(int32_t result, std::unique_ptr<::brave_rewards::Balance> balance);
     JavaObjectWeakGlobalRef weak_java_brave_rewards_native_worker_;
     brave_rewards::RewardsService* brave_rewards_service_;
     brave_rewards::WalletProperties wallet_properties_;
+    brave_rewards::Balance balance_;
     brave_rewards::AutoContributeProps auto_contrib_properties_;
     PublishersInfoMap map_publishers_info_; // <tabId, PublisherInfoPtr>
     std::map<std::string, brave_rewards::ContentSite> map_recurrent_publishers_;      // <publisher, reconcile_stampt>
