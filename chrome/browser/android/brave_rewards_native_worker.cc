@@ -214,27 +214,45 @@ void BraveRewardsNativeWorker::OnWalletProperties(brave_rewards::RewardsService*
   if (wallet_properties) {
     wallet_properties_ = *wallet_properties;
   }
+  if (error_code != 0) {
+    rewards_service->FetchBalance(
+        base::Bind(
+            &BraveRewardsNativeWorker::OnBalance,
+            weak_factory_.GetWeakPtr()));
+  } else {
+    JNIEnv* env = base::android::AttachCurrentThread();
+    Java_BraveRewardsNativeWorker_OnWalletProperties(env,
+          weak_java_brave_rewards_native_worker_.get(env), error_code);
+  }
+}
+
+void BraveRewardsNativeWorker::OnBalance(
+    int32_t result,
+    std::unique_ptr<brave_rewards::Balance> balance) {
+  if (result == 0 && balance) {
+    balance_ = *balance;
+  }
 
   JNIEnv* env = base::android::AttachCurrentThread();
-  Java_BraveRewardsNativeWorker_OnWalletProperties(env, 
-        weak_java_brave_rewards_native_worker_.get(env), error_code);
+  Java_BraveRewardsNativeWorker_OnWalletProperties(env,
+        weak_java_brave_rewards_native_worker_.get(env), 0);
 }
 
 double BraveRewardsNativeWorker::GetWalletBalance(JNIEnv* env, 
     const base::android::JavaParamRef<jobject>& obj) {
-  // TODO (samartnik): find proper balance
-  return /*wallet_properties_.balance*/0;
+  // TODO (samartnik): check if it properly works
+  return balance_.total;
 }
 
 double BraveRewardsNativeWorker::GetWalletRate(JNIEnv* env, 
     const base::android::JavaParamRef<jobject>& obj,
     const base::android::JavaParamRef<jstring>& rate) {
-  // TODO (samartnik): find proper rates
-  /*std::map<std::string, double>::const_iterator iter = wallet_properties_.rates.find(
+  // TODO (samartnik): check if it properly works
+  std::map<std::string, double>::const_iterator iter = balance_.rates.find(
     base::android::ConvertJavaStringToUTF8(env, rate));
-  if (iter != wallet_properties_.rates.end()) {
+  if (iter != balance_.rates.end()) {
     return iter->second;
-  }*/
+  }
 
   return 0.0;
 }
