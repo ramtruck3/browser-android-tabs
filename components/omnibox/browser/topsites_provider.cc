@@ -33,7 +33,7 @@ void TopSitesProvider::Start(const AutocompleteInput& input,
   const std::string input_text = base::ToLowerASCII(base::UTF16ToASCII(input.text()));
 
   for (std::vector<std::string>::const_iterator i = top_sites_.begin();
-    (i != top_sites_.end()) && (matches_.size() < kMaxMatches); ++i) {
+    (i != top_sites_.end()) && (matches_.size() < provider_max_matches()); ++i) {
 
     const std::string &current_site = *i;
     size_t foundPos = current_site.find(input_text);

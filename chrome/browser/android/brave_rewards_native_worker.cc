@@ -222,17 +222,19 @@ void BraveRewardsNativeWorker::OnWalletProperties(brave_rewards::RewardsService*
 
 double BraveRewardsNativeWorker::GetWalletBalance(JNIEnv* env, 
     const base::android::JavaParamRef<jobject>& obj) {
-  return wallet_properties_.balance;
+  // TODO (samartnik): find proper balance
+  return /*wallet_properties_.balance*/0;
 }
 
 double BraveRewardsNativeWorker::GetWalletRate(JNIEnv* env, 
     const base::android::JavaParamRef<jobject>& obj,
     const base::android::JavaParamRef<jstring>& rate) {
-  std::map<std::string, double>::const_iterator iter = wallet_properties_.rates.find(
+  // TODO (samartnik): find proper rates
+  /*std::map<std::string, double>::const_iterator iter = wallet_properties_.rates.find(
     base::android::ConvertJavaStringToUTF8(env, rate));
   if (iter != wallet_properties_.rates.end()) {
     return iter->second;
-  }
+  }*/
 
   return 0.0;
 }
@@ -345,7 +347,7 @@ base::android::ScopedJavaLocalRef<jobjectArray> BraveRewardsNativeWorker::GetCur
 void BraveRewardsNativeWorker::GetPendingContributionsTotal(JNIEnv* env, 
         const base::android::JavaParamRef<jobject>& obj) {
   if (brave_rewards_service_) {
-    brave_rewards_service_->GetPendingContributionsTotal(base::Bind(
+    brave_rewards_service_->GetPendingContributionsTotalUI(base::Bind(
           &BraveRewardsNativeWorker::OnGetPendingContributionsTotal,
           weak_factory_.GetWeakPtr()));
   }
