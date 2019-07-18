@@ -413,9 +413,10 @@ public class ShieldsConfig {
 
     public boolean isJavaScriptEnabled(boolean incognitoTab, String host) {
         host = CutWwwPrefix(host);
+        WebsitePreferenceBridge wpb = new WebsitePreferenceBridge();
         List<ContentSettingException> exceptions = (incognitoTab)?
-            WebsitePreferenceBridge.getContentSettingsExceptionsIncognito(ContentSettingsType.CONTENT_SETTINGS_TYPE_JAVASCRIPT):
-            WebsitePreferenceBridge.getContentSettingsExceptions(ContentSettingsType.CONTENT_SETTINGS_TYPE_JAVASCRIPT);
+            wpb.getContentSettingsExceptionsIncognito(ContentSettingsType.CONTENT_SETTINGS_TYPE_JAVASCRIPT):
+            wpb.getContentSettingsExceptions(ContentSettingsType.CONTENT_SETTINGS_TYPE_JAVASCRIPT);
 
         for (ContentSettingException exception : exceptions) {
             String pattern = exception.getPattern();

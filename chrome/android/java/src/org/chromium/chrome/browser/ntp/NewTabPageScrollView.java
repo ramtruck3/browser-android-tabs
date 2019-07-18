@@ -15,6 +15,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.ScrollView;
 
+import org.chromium.chrome.R;
+
 /**
  * Simple wrapper on top of a ScrollView that will acquire focus when tapped.  Ensures the
  * New Tab page receives focus when clicked. This is only used in the Incognito NTP.

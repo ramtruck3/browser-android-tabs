@@ -1861,7 +1861,7 @@ jumbo_split_static_library("browser") {
     ":active_use_util",
     ":ntp_background_proto",
     ":resource_prefetch_predictor_proto",
-    "//brave/vendor/ad-block/brave:ad-block",
+    "//brave/vendor/adblock_rust_ffi:adblock_ffi",
     "//brave/vendor/bat-native-ledger",
     "//base:i18n",
     "//base/allocator:buildflags",

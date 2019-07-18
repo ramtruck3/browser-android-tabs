@@ -107,7 +107,7 @@
     <!-- NTP and Home sheet colors. Also used on the bookmarks and recent tabs pages. -->
     <color name="ntp_bg_incognito">@color/incognito_modern_primary_color</color>
     <color name="suggestions_modern_bg">@color/modern_primary_color</color>
-    <color name="google_logo_tint">@android:color/transparent</color>
+    <!--<color name="google_logo_tint">@android:color/transparent</color>-->
 
     <!-- Incognito NTP Colors. -->
     <color name="incognito_emphasis">@android:color/white</color>

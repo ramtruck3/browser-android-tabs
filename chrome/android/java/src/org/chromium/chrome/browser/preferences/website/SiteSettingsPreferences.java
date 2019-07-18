@@ -118,7 +118,7 @@ public class SiteSettingsPreferences extends PreferenceFragment
         // Preferences that navigate to Website Settings.
         List<Integer> websitePrefs = new ArrayList<Integer>();
         if (mMediaSubMenu) {
-            if (mProtectedContentMenuAvailable) {websitePrefs.add(Type.PROTECTED_MEDIA);}
+            websitePrefs.add(Type.PROTECTED_MEDIA);
             websitePrefs.add(Type.AUTOPLAY);
             websitePrefs.add(Type.PLAY_YT_VIDEO_IN_BROWSER);
         } else {
