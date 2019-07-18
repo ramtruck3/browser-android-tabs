@@ -161,7 +161,7 @@ public class WebsitePreferenceBridge {
         return managedExceptions;
     }
 
-    public static List<ContentSettingException> getContentSettingsExceptionsIncognito(
+    public List<ContentSettingException> getContentSettingsExceptionsIncognito(
             int contentSettingsType) {
         List<ContentSettingException> exceptions =
                 PrefServiceBridge.getInstance().getContentSettingsExceptionsIncognito(

@@ -14,8 +14,11 @@
 #include "content/public/common/referrer.h"
 
 class CTPParser;
-class AdBlockClient;
 class GURL;
+
+namespace adblock {
+    class Engine;
+}
 
 namespace leveldb {
     class DB;
@@ -86,8 +89,8 @@ private:
     // We use that to cache httpse requests (do not use it directly, only covered with httpse_recently_used_cache_mutex_)
     RecentlyUsedCache<std::string> recently_used_cache_;
     CTPParser* tp_parser_;
-    AdBlockClient* adblock_parser_;
-    std::vector<AdBlockClient*> adblock_regional_parsers_;
+    adblock::Engine* adblock_parser_;
+    std::vector<adblock::Engine*> adblock_regional_parsers_;
 
     std::vector<HTTPSE_REDIRECTS_COUNT_ST> httpse_urls_redirects_count_;
     std::map<std::string, std::vector<std::string>> tp_third_party_hosts_;
