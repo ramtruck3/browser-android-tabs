@@ -71,8 +71,8 @@ public class ADBlockUpdater {
 
     // Adblock data download
     private static void DownloadAdBlockData(Context context) {
-        String verNumber = ADBlockUtils.getDataVerNumber(
-            ADBlockUtils.ADBLOCK_URL, false);
+        // No more version number for adblock
+        String verNumber = "";
         if (ADBlockUtils.readData(context,
             ADBlockUtils.ADBLOCK_LOCALFILENAME,
             ADBlockUtils.ADBLOCK_URL,
