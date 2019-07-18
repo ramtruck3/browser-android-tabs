@@ -207,4 +207,7 @@
     <color name="radio_button_active">#f0f1ff</color>
     <color name="disable_text_color">#ffb8a6</color>
 
+    <color name="blue">#4f30ab</color>
+    <color name="progressbar_secondary_bg">#ced4da</color>
+
 </resources>

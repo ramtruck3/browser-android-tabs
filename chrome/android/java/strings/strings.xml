@@ -311,4 +311,13 @@ content creators you love.</string>
     <string name="agree">Agree</string>
     <string name="join">Join</string>
 
+     <string name="start_browsing">Start browsing</string>
+    <string name="i_didnt_see">I didn&apos;t see an ad</string>
+
+    <string name="brave_ads_onboarding_title">Brave will show your first ad in</string>
+    <string name="brave_ads_onboarding_text">To see ads from Brave Rewards, make sure Brave is allowed to show you notifications.</string>
+
+    <string name="this_is_your_first_ad">This is your first Brave ad</string>
+    <string name="tap_here_to_learn_more">Tap here to learn more.</string>
+
 </resources>

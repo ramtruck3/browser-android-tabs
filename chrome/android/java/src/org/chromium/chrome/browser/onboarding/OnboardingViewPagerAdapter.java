@@ -33,6 +33,14 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
                 BraveRewardsOnboardingFragment braveRewardsOnboardingFragment = new BraveRewardsOnboardingFragment();
                 braveRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
                 return braveRewardsOnboardingFragment;
+            case 3:
+                BraveAdsOnboardingFragment braveAdsOnboardingFragment = new BraveAdsOnboardingFragment();
+                braveAdsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                return braveAdsOnboardingFragment;
+            case 4:
+                TroubleshootingOnboardingFragment troubleshootingOnboardingFragment = new TroubleshootingOnboardingFragment();
+                troubleshootingOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                return troubleshootingOnboardingFragment;
             default:
                 return null;
         }
@@ -41,6 +49,6 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 5;
     }
 }
