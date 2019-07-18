@@ -205,5 +205,6 @@
     <color name="gray">#84889c</color>
     <color name="black">#1e2029</color>
     <color name="radio_button_active">#f0f1ff</color>
+    <color name="disable_text_color">#ffb8a6</color>
 
 </resources>

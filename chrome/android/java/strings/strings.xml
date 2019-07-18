@@ -300,4 +300,15 @@ content creators you love.</string>
     <string name="brave_shields_onboarding_title">Brave Shields</string>
     <string name="brave_shields_onboarding_text">privacy-invading ads and trackers so you can browse without being followed around the web.</string>
 
+    <string name="earn_tokens">Earn tokens</string>
+    <string name="brave_rewards_onboarding_title">Brave Rewards</string>
+    <string name="brave_rewards_onboarding_text">for seeing privacy-respecting ads. Use them to support your favorite sites and creators.</string>
+
+    <string name="terms_title">Agree to the Terms to use Brave Rewards</string>
+    <string name="terms_text">I agree to Brave Rewards</string>
+    <string name="terms_of_service">Terms of Service</string>
+
+    <string name="agree">Agree</string>
+    <string name="join">Join</string>
+
 </resources>

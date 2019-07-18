@@ -7,6 +7,7 @@ import android.support.v13.app.FragmentPagerAdapter;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.SearchEngineOnboardingFragment;
 import org.chromium.chrome.browser.onboarding.BraveShieldsOnboardingFragment;
+import org.chromium.chrome.browser.onboarding.BraveRewardsOnboardingFragment;
 
 public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
@@ -29,9 +30,9 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
                 braveShieldsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
                 return braveShieldsOnboardingFragment;
             case 2:
-                SearchEngineOnboardingFragment searchEngineOnboardingFragment2 = new SearchEngineOnboardingFragment();
-                searchEngineOnboardingFragment2.setOnViewPagerAction(onViewPagerAction);
-                return searchEngineOnboardingFragment2;
+                BraveRewardsOnboardingFragment braveRewardsOnboardingFragment = new BraveRewardsOnboardingFragment();
+                braveRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                return braveRewardsOnboardingFragment;
             default:
                 return null;
         }
