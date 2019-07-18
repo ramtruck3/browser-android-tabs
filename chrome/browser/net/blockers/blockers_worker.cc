@@ -30,8 +30,6 @@
 #define HTTPSE_URL_MAX_REDIRECTS_COUNT      5
 #define HTTPSE_VERSION                      "6.0"
 
-static constexpr int DATA_FILE_VERSION = 4;
-
 namespace net {
 namespace blockers {
 
@@ -190,7 +188,7 @@ namespace blockers {
             return true;
         }
 
-        if (!GetData(std::to_string(DATA_FILE_VERSION), ADBLOCK_DATA_FILE, adblock_buffer_)) {
+        if (!GetData("", ADBLOCK_DATA_FILE, adblock_buffer_)) {
             return false;
         }
 
@@ -216,7 +214,7 @@ namespace blockers {
         }
 
         std::vector<unsigned char> db_file_name;
-        if (!GetData(std::to_string(DATA_FILE_VERSION), ADBLOCK_REGIONAL_DATA_FILE, db_file_name, true)) {
+        if (!GetData("", ADBLOCK_REGIONAL_DATA_FILE, db_file_name, true)) {
             return false;
         }
         std::vector<std::string> files = split((char*)&db_file_name.front(), ';');
@@ -225,7 +223,7 @@ namespace blockers {
             if (!adblock_regional_buffer_.size()) {
                 continue;
             }
-            if (!GetBufferData(std::to_string(DATA_FILE_VERSION), files[i].c_str(), adblock_regional_buffer_[adblock_regional_buffer_.size() - 1])) {
+            if (!GetBufferData("", files[i].c_str(), adblock_regional_buffer_[adblock_regional_buffer_.size() - 1])) {
                 adblock_regional_buffer_.erase(adblock_regional_buffer_.begin() + adblock_regional_buffer_.size() - 1);
                 continue;
             }
@@ -354,7 +352,7 @@ namespace blockers {
     }
 
     bool BlockersWorker::GetBufferData(const std::string& version, const std::string& fileName, std::vector<unsigned char>& buffer) {
-        if (fileName.find(version) != 0) {
+        if (version.length() && fileName.find(version) != 0) {
             LOG(ERROR) << "BlockersWorker::GetBufferData: incorrect version for " << fileName;
             // Don't read data from file of other version
             return false;
