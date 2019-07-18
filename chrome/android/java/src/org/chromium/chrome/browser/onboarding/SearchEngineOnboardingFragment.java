@@ -57,7 +57,7 @@ public class SearchEngineOnboardingFragment extends Fragment {
         btnSkip = root.findViewById(R.id.btn_skip);
         btnNext = root.findViewById(R.id.btn_next);
 
-        Locale locale = getResources().getConfiguration().locale;
+        Locale locale = Locale.getDefault();
         Map<Integer, SearchEngineEnum> searchEngineEnumMap;
         if (locale.equals(Locale.GERMANY)) {
             searchEngineEnumMap = Constants.franceSearchEngineMap;

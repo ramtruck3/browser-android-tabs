@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
+import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.R;
 
 import static org.chromium.chrome.browser.onboarding.Constants.fadeInView;
@@ -163,9 +164,12 @@ public class BraveAdsOnboardingFragment extends Fragment {
             notificationManager.createNotificationChannel(channel);
         }
 
-        Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRAVE_MY_FIRST_AD_URL));
+        // Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRAVE_MY_FIRST_AD_URL));
+        // PendingIntent pendingIntent = PendingIntent.getActivities(getActivity(), 0, new Intent[]{notificationIntent}, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        PendingIntent pendingIntent = PendingIntent.getActivities(getActivity(), 0, new Intent[]{notificationIntent}, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(getActivity(), ChromeTabbedActivity.class);
+        intent.putExtra("url",BRAVE_MY_FIRST_AD_URL);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getActivity(),CHANNEL_ID)
                 .setSmallIcon(R.mipmap.app_icon)

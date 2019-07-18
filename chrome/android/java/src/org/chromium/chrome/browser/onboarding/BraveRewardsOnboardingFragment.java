@@ -160,8 +160,6 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     bgImage.setVisibility(View.VISIBLE);
                     termAndAgreeLayout.setVisibility(View.VISIBLE);
 
-                    tvAgree.setMovementMethod(LinkMovementMethod.getInstance());
-
                     if (!chkAgreeTerms.isChecked()) {
                         btnNext.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chevron_right_inactive, 0);
                         btnNext.setTextColor(getResources().getColor(R.color.disable_text_color));
@@ -173,9 +171,13 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     if (!chkAgreeTerms.isChecked()) {
                         chkAgreeTerms.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.shake));
                     } else {
-                        onViewPagerAction.onNext();
-                        if (isAgree)
-                            isAgree = false;
+                        if (!Constants.isAdsAvailable()) {
+                            getActivity().finish();
+                        } else {
+                            onViewPagerAction.onNext();
+                            if (isAgree)
+                                isAgree = false;
+                        }
                     }
                 }
             }

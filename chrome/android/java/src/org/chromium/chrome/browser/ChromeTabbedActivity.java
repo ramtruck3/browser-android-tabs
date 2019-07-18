@@ -158,6 +158,7 @@ import org.chromium.chrome.browser.toolbar.top.ToolbarLayout;
 import org.chromium.chrome.browser.util.AccessibilityUtil;
 import org.chromium.chrome.browser.util.FeatureUtilities;
 import org.chromium.chrome.browser.util.IntentUtils;
+import org.chromium.chrome.browser.util.PackageUtils;
 import org.chromium.chrome.browser.vr.VrModuleProvider;
 import org.chromium.chrome.browser.widget.OverviewListLayout;
 import org.chromium.chrome.browser.widget.emptybackground.EmptyBackgroundViewWrapper;
@@ -722,6 +723,19 @@ public class ChromeTabbedActivity
             moveTaskToBack(true);
             // Intent was dispatched to CustomTabActivity, consume it.
             return;
+        }
+
+        if(intent !=null && intent.getStringExtra("url")!=null){
+
+            OnboardingActivity onboardingActivity;
+            for (Activity ref : ApplicationStatus.getRunningActivities()) {
+              if (!(ref instanceof OnboardingActivity)) continue;
+
+              onboardingActivity = (OnboardingActivity)ref;
+              onboardingActivity.finish();
+            }
+
+            openNewOrSelectExistingTab(intent.getStringExtra("url"));
         }
 
         mIntentHandlingTimeMs = SystemClock.uptimeMillis();
@@ -1616,9 +1630,10 @@ public class ChromeTabbedActivity
         // that uninitialized native library is an indication of an application start that is
         // followed by navigation immediately without user input.
 
-
-        Intent intent = new Intent(this, OnboardingActivity.class);
-        startActivity(intent);
+        if(PackageUtils.isFirstInstall(this)){
+            Intent intent = new Intent(this, OnboardingActivity.class);
+            startActivity(intent);
+        }
 
         if (!LibraryLoader.getInstance().isInitialized()) {
             getActivityTabStartupMetricsTracker().trackStartupMetrics(STARTUP_UMA_HISTOGRAM_SUFFIX);

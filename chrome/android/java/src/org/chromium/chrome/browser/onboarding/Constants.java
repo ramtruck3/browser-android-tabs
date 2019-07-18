@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Locale;
 
 public class Constants {
     public static Map<Integer,SearchEngineEnum> germanySearchEngineMap = new HashMap<Integer, SearchEngineEnum>() {{
@@ -100,4 +101,18 @@ public class Constants {
             return Html.fromHtml(string);
         }
     }
+
+    public static boolean isAdsAvailable() {
+        Locale locale = Locale.getDefault();
+        return locale.toString().equals("en_US")
+                || locale.toString().equals("en_CA")
+                || locale.toString().equals("en_NZ")
+                || locale.toString().equals("en_IE")
+                || locale.toString().equals("en_AU")
+                || locale.toString().equals("fr_CA")
+                || locale.toString().equals("fr_FR")
+                || locale.toString().equals("en_GB")
+                || locale.toString().equals("de_DE");
+    }
+
 }
