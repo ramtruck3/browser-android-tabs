@@ -19,6 +19,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.SpannableString;
+import android.text.TextPaint;
+import android.content.Intent;
+import android.graphics.Color;
+
+import android.support.annotation.NonNull;
+
 import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.R;
@@ -95,9 +104,29 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
         final Spanned textToInsert = Constants.spannedFromHtmlString(braveRewardsText);
         tvText.setText(textToInsert);
 
-        String termsText = getResources().getString(R.string.terms_text) + "<br/><font color=#fb542b><a href='https://basicattentiontoken.org/user-terms-of-service'>" + getResources().getString(R.string.terms_of_service) + "</a></font>" + ".";
+        String termsText = getResources().getString(R.string.terms_text) + "<br/>" + getResources().getString(R.string.terms_of_service)+ ".";
         Spanned textToAgree = Constants.spannedFromHtmlString(termsText);
-        tvAgree.setText(textToAgree);
+        SpannableString ss = new SpannableString(textToAgree.toString());
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View textView) {
+                Intent webViewIntent = new Intent(getActivity(), OnboardingWebviewActivity.class);
+                startActivity(webViewIntent);
+            }
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+
+        ss.setSpan(clickableSpan, 24, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        ForegroundColorSpan foregroundSpan = new ForegroundColorSpan(getResources().getColor(R.color.orange));
+        ss.setSpan(foregroundSpan, 24, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tvAgree.setMovementMethod(LinkMovementMethod.getInstance());
+        tvAgree.setText(ss);
 
         chkAgreeTerms.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
