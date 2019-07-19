@@ -11,3 +11,5 @@ sh . build/android/envsetup.sh
 sh scripts/postThirdPartiesSetup.js
 npm install
 brave/script/download_rust_deps.py --platform android
+cd brave
+npm install
