@@ -13,6 +13,7 @@ import org.chromium.chrome.R;
 
 import org.chromium.chrome.browser.onboarding.NonSwipeableViewPager;
 import org.chromium.chrome.browser.onboarding.OnboardingViewPagerAdapter;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 public class OnboardingActivity extends AppCompatActivity implements OnViewPagerAction {
 
@@ -30,6 +31,7 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
     @Override
     public void onSkip() {
         // Toast.makeText(this, "On Skip", Toast.LENGTH_SHORT).show();
+        OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         finish();
     }
 
@@ -41,6 +43,7 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
     @Override
     public void onStartBrowsing() {
         // Toast.makeText(this, "On Start browser", Toast.LENGTH_SHORT).show();
+        OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         finish();
     }
 
@@ -56,7 +59,5 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
         } else if (viewPager.getCurrentItem() > 0)
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-        else
-            super.onBackPressed();
     }
 }

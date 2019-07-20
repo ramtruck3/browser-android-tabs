@@ -30,6 +30,7 @@ import android.support.annotation.NonNull;
 
 import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.R;
 
 import static org.chromium.chrome.browser.onboarding.Constants.fadeInView;
@@ -201,11 +202,10 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                         chkAgreeTerms.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.shake));
                     } else {
                         if (!Constants.isAdsAvailable()) {
+                            OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
                             getActivity().finish();
                         } else {
                             onViewPagerAction.onNext();
-                            if (isAgree)
-                                isAgree = false;
                         }
                     }
                 }

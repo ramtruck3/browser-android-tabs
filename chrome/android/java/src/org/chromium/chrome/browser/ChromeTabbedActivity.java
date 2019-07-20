@@ -179,6 +179,7 @@ import org.chromium.ui.widget.Toast;
 import org.chromium.chrome.browser.toolbar.top.Toolbar;
 import org.chromium.chrome.browser.notifications.BraveSetDefaultBrowserNotificationService;
 import org.chromium.chrome.browser.onboarding.OnboardingActivity;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -736,6 +737,7 @@ public class ChromeTabbedActivity
             }
 
             openNewOrSelectExistingTab(intent.getStringExtra("url"));
+            OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         }
 
         mIntentHandlingTimeMs = SystemClock.uptimeMillis();
@@ -1630,7 +1632,7 @@ public class ChromeTabbedActivity
         // that uninitialized native library is an indication of an application start that is
         // followed by navigation immediately without user input.
 
-        if(PackageUtils.isFirstInstall(this)){
+        if(PackageUtils.isFirstInstall(this) && OnboardingPrefManager.getInstance().getPrefOnboardingEnabled()){
             Intent intent = new Intent(this, OnboardingActivity.class);
             startActivity(intent);
         }
