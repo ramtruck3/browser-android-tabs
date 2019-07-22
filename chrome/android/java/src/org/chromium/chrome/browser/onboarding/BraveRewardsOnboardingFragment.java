@@ -31,10 +31,15 @@ import android.support.annotation.NonNull;
 import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
+import org.chromium.chrome.browser.BraveAdsNativeHelper;
+import org.chromium.chrome.browser.BraveRewardsNativeWorker;
+import org.chromium.chrome.browser.BraveRewardsPanelPopup;
+import org.chromium.chrome.browser.profiles.Profile;
+import org.chromium.chrome.browser.util.PackageUtils;
 import org.chromium.chrome.R;
 
-import static org.chromium.chrome.browser.onboarding.Constants.fadeInView;
-import static org.chromium.chrome.browser.onboarding.Constants.fadeOutView;
+import static org.chromium.chrome.browser.util.AnimationUtil.fadeInView;
+import static org.chromium.chrome.browser.util.AnimationUtil.fadeOutView;
 
 public class BraveRewardsOnboardingFragment extends Fragment implements View.OnTouchListener {
 
@@ -153,7 +158,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     chkAgreeTerms.setChecked(false);
 
                     btnSkip.setText(getResources().getString(R.string.skip));
-                    btnNext.setText(getResources().getString(R.string.next));
+                    btnNext.setText(getResources().getString(R.string.join));
                     btnNext.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chevron_right, 0);
                     btnNext.setTextColor(getResources().getColor(R.color.orange));
 
@@ -201,10 +206,16 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     if (!chkAgreeTerms.isChecked()) {
                         chkAgreeTerms.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.shake));
                     } else {
-                        if (!Constants.isAdsAvailable()) {
+                        if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
                             OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
                             getActivity().finish();
                         } else {
+                            BraveRewardsNativeWorker braveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();
+                            braveRewardsNativeWorker.GetRewardsMainEnabled();
+                            braveRewardsNativeWorker.CreateWallet();
+
+                            // Enable ads
+                            BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
                             onViewPagerAction.onNext();
                         }
                     }

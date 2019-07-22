@@ -174,6 +174,11 @@ by a child template that "extends" this file.
             android:exported="false">
         </receiver>
 
+        <!-- Onboarding notification -->
+        <receiver android:name="org.chromium.chrome.browser.notifications.BraveOnboardingNotification"
+            android:exported="false">
+        </receiver>
+
         <!-- MixPanel proxy server -->
         <!--<meta-data android:name="com.mixpanel.android.MPConfig.EventsEndpoint"
               android:value="https://metric-proxy.brave.com/track" />-->

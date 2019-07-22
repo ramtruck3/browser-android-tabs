@@ -317,7 +317,6 @@ content creators you love.</string>
     <string name="brave_ads_onboarding_title">Brave will show your first ad in</string>
     <string name="brave_ads_onboarding_text">To see ads from Brave Rewards, make sure Brave is allowed to show you notifications.</string>
 
-    <string name="this_is_your_first_ad">This is your first Brave ad</string>
-    <string name="tap_here_to_learn_more">Tap here to learn more.</string>
+    <string name="this_is_your_first_ad">This is your first Brave ad. Tap to learn more.</string>
 
 </resources>

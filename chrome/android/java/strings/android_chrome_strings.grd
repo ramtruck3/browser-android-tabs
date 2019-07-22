@@ -4929,13 +4929,12 @@ content creators you love.
       <message name="IDS_JOIN">Join</message>
 
       <message name="IDS_START_BROWSING">Start browsing</message>
-    <message name="IDS_I_DIDNT_SEE">I didn&apos;t see an ad</message>
+      <message name="IDS_I_DIDNT_SEE">I didn&apos;t see an ad</message>
 
-    <message name="IDS_BRAVE_ADS_ONBOARDING_TITLE">Brave will show your first ad in</message>
-    <message name="IDS_BRAVE_ADS_ONBOARDING_TEXT">To see ads from Brave Rewards, make sure Brave is allowed to show you notifications.</message>
+      <message name="IDS_BRAVE_ADS_ONBOARDING_TITLE">Brave will show your first ad in</message>
+      <message name="IDS_BRAVE_ADS_ONBOARDING_TEXT">To see ads from Brave Rewards, make sure Brave is allowed to show you notifications.</message>
 
-    <message name="IDS_THIS_IS_YOUR_FIRST_AD">This is your first Brave ad</message>
-    <message name="IDS_TAP_HERE_TO_LEARN_MORE">Tap here to learn more.</message>
+      <message name="IDS_THIS_IS_YOUR_FIRST_AD">This is your first Brave ad. Tap to learn more.</message>
 
     </messages>
   </release>

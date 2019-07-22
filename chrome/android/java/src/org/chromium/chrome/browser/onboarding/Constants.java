@@ -5,14 +5,9 @@ import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.TypedValue;
-import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Locale;
 
 public class Constants {
     public static Map<Integer,SearchEngineEnum> germanySearchEngineMap = new HashMap<Integer, SearchEngineEnum>() {{
@@ -46,52 +41,6 @@ public class Constants {
 
     public static boolean isNotification;
 
-    public static void fadeOutView(final View view) {
-        Animation fadeOut = new AlphaAnimation(1, 0);
-        fadeOut.setInterpolator(new AccelerateInterpolator());
-        fadeOut.setDuration(1000);
-
-        fadeOut.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                view.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-        });
-
-        view.startAnimation(fadeOut);
-    }
-
-    public static void fadeInView(final View view) {
-        Animation fadeIn = new AlphaAnimation(0, 1);
-        fadeIn.setInterpolator(new AccelerateInterpolator());
-        fadeIn.setDuration(1000);
-
-        fadeIn.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                view.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-        });
-
-        view.startAnimation(fadeIn);
-    }
-
 
     // Use it from BraveRewardsHelper
     public static Spanned spannedFromHtmlString(String string) {
@@ -101,18 +50,4 @@ public class Constants {
             return Html.fromHtml(string);
         }
     }
-
-    public static boolean isAdsAvailable() {
-        Locale locale = Locale.getDefault();
-        return locale.toString().equals("en_US")
-                || locale.toString().equals("en_CA")
-                || locale.toString().equals("en_NZ")
-                || locale.toString().equals("en_IE")
-                || locale.toString().equals("en_AU")
-                || locale.toString().equals("fr_CA")
-                || locale.toString().equals("fr_FR")
-                || locale.toString().equals("en_GB")
-                || locale.toString().equals("de_DE");
-    }
-
 }

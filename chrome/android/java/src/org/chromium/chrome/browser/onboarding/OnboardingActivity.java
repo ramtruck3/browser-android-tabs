@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Toast;
+import android.content.Intent;
 
 import org.chromium.chrome.R;
 
@@ -18,12 +19,20 @@ import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 public class OnboardingActivity extends AppCompatActivity implements OnViewPagerAction {
 
     private NonSwipeableViewPager viewPager;
+    private int onboardingType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
-        OnboardingViewPagerAdapter onboardingViewPagerAdapter = new OnboardingViewPagerAdapter(getFragmentManager(), this);
+
+
+        Intent intent = getIntent();
+        if(intent!=null){
+            onboardingType = intent.getIntExtra("onboarding_type",OnboardingPrefManager.NEW_USER_ONBOARDING);
+        }
+
+        OnboardingViewPagerAdapter onboardingViewPagerAdapter = new OnboardingViewPagerAdapter(getFragmentManager(), this, onboardingType);
         viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(onboardingViewPagerAdapter);
     }

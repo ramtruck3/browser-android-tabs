@@ -1632,10 +1632,7 @@ public class ChromeTabbedActivity
         // that uninitialized native library is an indication of an application start that is
         // followed by navigation immediately without user input.
 
-        if(PackageUtils.isFirstInstall(this) && OnboardingPrefManager.getInstance().getPrefOnboardingEnabled()){
-            Intent intent = new Intent(this, OnboardingActivity.class);
-            startActivity(intent);
-        }
+        OnboardingPrefManager.getInstance().showOnboarding(this);
 
         if (!LibraryLoader.getInstance().isInitialized()) {
             getActivityTabStartupMetricsTracker().trackStartupMetrics(STARTUP_UMA_HISTOGRAM_SUFFIX);

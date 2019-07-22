@@ -2,10 +2,6 @@ package org.chromium.chrome.browser.onboarding;
 
 
 import android.app.Fragment;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,17 +19,14 @@ import android.widget.TextView;
 
 import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.R;
 
-import static org.chromium.chrome.browser.onboarding.Constants.fadeInView;
-import static org.chromium.chrome.browser.onboarding.Constants.fadeOutView;
+import static org.chromium.chrome.browser.util.AnimationUtil.fadeInView;
+import static org.chromium.chrome.browser.util.AnimationUtil.fadeOutView;
 
 public class BraveAdsOnboardingFragment extends Fragment {
-
-    private static final String CHANNEL_ID = "channel01";
-    private static final int NOTIFICATION_ID = 0;
-    private static final String BRAVE_MY_FIRST_AD_URL = "http://www.brave.com/my-first-ad/";
 
     private OnViewPagerAction onViewPagerAction;
 
@@ -134,7 +126,7 @@ public class BraveAdsOnboardingFragment extends Fragment {
                 setProgress(progress, endTime);
                 tvTimer.setText("0");
 
-                sendLocalNotification();
+                OnboardingPrefManager.getInstance().onboardingNotification(getActivity());
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -150,38 +142,6 @@ public class BraveAdsOnboardingFragment extends Fragment {
             }
         };
         countDownTimer.start();
-    }
-
-    private void sendLocalNotification() {
-
-        NotificationManager notificationManager =  (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Brave Browser";
-            String description = "Notification channel for Brave Browser";
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name,
-                    NotificationManager.IMPORTANCE_HIGH);
-            channel.setDescription(description);
-            notificationManager.createNotificationChannel(channel);
-        }
-
-        // Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRAVE_MY_FIRST_AD_URL));
-        // PendingIntent pendingIntent = PendingIntent.getActivities(getActivity(), 0, new Intent[]{notificationIntent}, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Intent intent = new Intent(getActivity(), ChromeTabbedActivity.class);
-        intent.putExtra("url",BRAVE_MY_FIRST_AD_URL);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getActivity(),CHANNEL_ID)
-                .setSmallIcon(R.mipmap.app_icon)
-                .setContentTitle(getResources().getString(R.string.this_is_your_first_ad))
-                .setContentText(getResources().getString(R.string.tap_here_to_learn_more))
-                .setDefaults(Notification.DEFAULT_ALL)
-                .setPriority(Notification.PRIORITY_HIGH)   // heads-up
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
-
-        notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
-
     }
 
     private void setProgress(int startTime, int endTime) {
