@@ -595,7 +595,7 @@ public class ToolbarTablet extends ToolbarLayout
         }
 
         updateNotificationBadgeForNewInstall(rewardsEnabled);
-        mayShowBraveAdsOobeDialog();
+        // mayShowBraveAdsOobeDialog();
     }
 
     private void updateNotificationBadgeForNewInstall(boolean rewardsEnabled) {

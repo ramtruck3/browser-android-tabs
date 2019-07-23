@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
+import org.chromium.chrome.browser.search_engines.TemplateUrl;
+import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 
 import org.chromium.chrome.R;
 
@@ -20,9 +23,17 @@ import org.chromium.chrome.browser.onboarding.SearchEngineEnum;
 import java.util.Locale;
 import java.util.Map;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import static org.chromium.chrome.browser.onboarding.Constants.dpToPx;
 
-public class SearchEngineOnboardingFragment extends Fragment {
+public class SearchEngineOnboardingFragment extends Fragment{
+
+    private RadioGroup radioGroup;
 
     private Button btnSkip, btnNext;
 
@@ -43,31 +54,20 @@ public class SearchEngineOnboardingFragment extends Fragment {
 
         setActions();
 
+        refreshData();
+
         return root;
     }
 
-    public void setOnViewPagerAction(OnViewPagerAction onViewPagerAction) {
-        this.onViewPagerAction = onViewPagerAction;
-    }
+    private void refreshData() {
+        TemplateUrlService templateUrlService = TemplateUrlService.getInstance();
+        List<TemplateUrl> templateUrls = templateUrlService.getTemplateUrls();
+        TemplateUrl defaultSearchEngineTemplateUrl = templateUrlService.getDefaultSearchEngineTemplateUrl();
 
-    private void initializeViews(View root) {
+        for(TemplateUrl templateUrl : templateUrls){
 
-        RadioGroup radioGroup = root.findViewById(R.id.radio_group);
+            SearchEngineEnum searchEngineEnum = Constants.defaultSearchEngineMap.get(templateUrl.getShortName());
 
-        btnSkip = root.findViewById(R.id.btn_skip);
-        btnNext = root.findViewById(R.id.btn_next);
-
-        Locale locale = Locale.getDefault();
-        Map<Integer, SearchEngineEnum> searchEngineEnumMap;
-        if (locale.equals(Locale.GERMANY)) {
-            searchEngineEnumMap = Constants.franceSearchEngineMap;
-        } else if (locale.equals(Locale.FRANCE)) {
-            searchEngineEnumMap = Constants.germanySearchEngineMap;
-        } else {
-            searchEngineEnumMap = Constants.defaultSearchEngineMap;
-        }
-
-        for (SearchEngineEnum searchEngineEnum : searchEngineEnumMap.values()) {
             RadioButton rdBtn = new RadioButton(getActivity());
             rdBtn.setId(searchEngineEnum.getId());
             RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT, dpToPx(56, getActivity()));
@@ -83,7 +83,27 @@ public class SearchEngineOnboardingFragment extends Fragment {
             radioGroup.addView(rdBtn);
         }
 
-        radioGroup.check(((SearchEngineEnum) searchEngineEnumMap.values().toArray()[0]).getId());
+        radioGroup.check(Constants.defaultSearchEngineMap.get(defaultSearchEngineTemplateUrl.getShortName()).getId());
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                View radioButton = radioGroup.findViewById(i);
+                int index = radioGroup.indexOfChild(radioButton);
+                searchEngineSelected(index, templateUrls);
+            }
+        });
+    }
+
+    public void setOnViewPagerAction(OnViewPagerAction onViewPagerAction) {
+        this.onViewPagerAction = onViewPagerAction;
+    }
+
+    private void initializeViews(View root) {
+
+        radioGroup = root.findViewById(R.id.radio_group);
+
+        btnSkip = root.findViewById(R.id.btn_skip);
+        btnNext = root.findViewById(R.id.btn_next);
     }
 
     private void setActions() {
@@ -100,5 +120,11 @@ public class SearchEngineOnboardingFragment extends Fragment {
                 onViewPagerAction.onNext();
             }
         });
+    }
+
+    private void searchEngineSelected(int position, List<TemplateUrl> templateUrls) {
+        String keyword = templateUrls.get(position).getKeyword();
+        String name = templateUrls.get(position).getShortName();
+        TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
     }
 }

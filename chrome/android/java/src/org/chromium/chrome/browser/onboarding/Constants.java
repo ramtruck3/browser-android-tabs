@@ -10,29 +10,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Constants {
-    public static Map<Integer,SearchEngineEnum> germanySearchEngineMap = new HashMap<Integer, SearchEngineEnum>() {{
-        put(0, SearchEngineEnum.QWANT);
-        put(1, SearchEngineEnum.GOOGLE);
-        put(2, SearchEngineEnum.DUCKDUCKGO);
-        put(3, SearchEngineEnum.BING);
-        put(4, SearchEngineEnum.STARTPAGE);
-    }};
+    // public static Map<Integer,SearchEngineEnum> germanySearchEngineMap = new HashMap<Integer, SearchEngineEnum>() {{
+    //     put(0, SearchEngineEnum.QWANT);
+    //     put(1, SearchEngineEnum.GOOGLE);
+    //     put(2, SearchEngineEnum.DUCKDUCKGO);
+    //     put(3, SearchEngineEnum.BING);
+    //     put(4, SearchEngineEnum.STARTPAGE);
+    // }};
 
-    public static Map<Integer,SearchEngineEnum> franceSearchEngineMap = new HashMap<Integer, SearchEngineEnum>() {{
-        put(0, SearchEngineEnum.QWANT);
-        put(1, SearchEngineEnum.GOOGLE);
-        put(2, SearchEngineEnum.DUCKDUCKGO);
-        put(3, SearchEngineEnum.BING);
-        put(4, SearchEngineEnum.STARTPAGE);
-    }};
+    // public static Map<Integer,SearchEngineEnum> franceSearchEngineMap = new HashMap<Integer, SearchEngineEnum>() {{
+    //     put(0, SearchEngineEnum.QWANT);
+    //     put(1, SearchEngineEnum.GOOGLE);
+    //     put(2, SearchEngineEnum.DUCKDUCKGO);
+    //     put(3, SearchEngineEnum.BING);
+    //     put(4, SearchEngineEnum.STARTPAGE);
+    // }};
 
 
-    public static Map<Integer,SearchEngineEnum> defaultSearchEngineMap = new HashMap<Integer, SearchEngineEnum>() {{
-        put(0, SearchEngineEnum.GOOGLE);
-        put(1, SearchEngineEnum.DUCKDUCKGO);
-        put(2, SearchEngineEnum.QWANT);
-        put(3, SearchEngineEnum.BING);
-        put(4, SearchEngineEnum.STARTPAGE);
+    public static Map<String,SearchEngineEnum> defaultSearchEngineMap = new HashMap<String, SearchEngineEnum>() {{
+        put("Google", SearchEngineEnum.GOOGLE);
+        put("DuckDuckGo", SearchEngineEnum.DUCKDUCKGO);
+        put("DuckDuckGo Light", SearchEngineEnum.DUCKDUCKGOLIGHT);
+        put("Qwant", SearchEngineEnum.QWANT);
+        put("Bing", SearchEngineEnum.BING);
+        put("StartPage", SearchEngineEnum.STARTPAGE);
+        put("Yandex", SearchEngineEnum.YANDEX);
     }};
 
     public static int dpToPx(float dp, Context context) {

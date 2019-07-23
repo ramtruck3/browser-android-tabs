@@ -22,6 +22,7 @@ import org.chromium.chrome.browser.notifications.NotificationBuilderBase;
 import org.chromium.chrome.browser.notifications.NotificationManagerProxyImpl;
 import org.chromium.chrome.browser.notifications.NotificationMetadata;
 import org.chromium.chrome.browser.notifications.NotificationUmaTracker;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 public class BraveOnboardingNotification extends BroadcastReceiver {
     public Context mContext;
@@ -55,7 +56,7 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
     }
 
     private PendingIntentProvider getDeepLinkIntent(Context context) {
-        Intent intent = new Intent(context, BraveAdsOobeEducationNotification.class);
+        Intent intent = new Intent(context, BraveOnboardingNotification.class);
         intent.setAction(DEEP_LINK);
         return new PendingIntentProvider(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT), 0);
     }

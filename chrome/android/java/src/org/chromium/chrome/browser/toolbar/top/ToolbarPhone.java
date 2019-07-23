@@ -2109,7 +2109,7 @@ public class ToolbarPhone extends ToolbarLayout implements Invalidator.Client, O
         }
 
         updateNotificationBadgeForNewInstall(rewardsEnabled);
-        mayShowBraveAdsOobeDialog();
+        // mayShowBraveAdsOobeDialog();
     }
 
     private void updateNotificationBadgeForNewInstall(boolean rewardsEnabled) {

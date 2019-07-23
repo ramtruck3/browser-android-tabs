@@ -45,13 +45,19 @@
             android:textColor="@color/black"
             android:textSize="@dimen/onboarding_text_size" />
 
-        <RadioGroup
-            android:id="@+id/radio_group"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp"/>
+            android:paddingEnd="16dp">
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </ScrollView>
 
     </LinearLayout>
 

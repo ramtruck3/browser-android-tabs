@@ -4408,12 +4408,6 @@ Saved
       <message name="IDS_BRAVE_ADS_EXISTING_USER_OFFER_TITLE" desc="Title for Brave Ads offer.">
         Brave Ads are here!
       </message>
-      <message name="IDS_BRAVE_ADS_OOBE_EDUCATION_NOTIFICATION_TITLE" desc="Positive button text for Brave Ads offer.">
-        This is your first Brave ad
-      </message>
-      <message name="IDS_BRAVE_ADS_OOBE_EDUCATION_NOTIFICATION_BODY" desc="Title for Brave Ads offer.">
-        Tap here to learn more
-      </message>
       <message name="IDS_BRAVE_ADS_NEW_USER_OFFER_TITLE" desc="Title for Brave Ads offer.">
         Enable Brave Rewards
       </message>
@@ -4902,6 +4896,8 @@ content creators you love.
       <message name="IDS_SELECT_YOUR_DEFAULT_SEARCH_ENGINE">Select your default search engine</message>
       
       <message name="IDS_DUCKDUCKGO">DuckDuckGo</message>
+      <message name="IDS_DUCKDUCKGO_LIGHT">DuckDuckGo Lite</message>
+      <message name="IDS_YANDEX">Yandex</message>
       <message name="IDS_GOOGLE">Google</message>
       <message name="IDS_QWANT">Qwant</message>
       <message name="IDS_BING">Bing!</message>
@@ -4909,6 +4905,8 @@ content creators you love.
 
       <message name="IDS_SEARCH_GOOGLE">search_google</message>
       <message name="IDS_SEARCH_DUCKDUCKGO">search_duckduckgo</message>
+      <message name="IDS_SEARCH_DUCKDUCKGO_LIGHT">search_duckduckgo_light</message>
+      <message name="IDS_SEARCH_YANDEX">search_yandex</message>
       <message name="IDS_SEARCH_QWANT">search_qwant</message>
       <message name="IDS_SEARCH_BING">search_bing</message>
       <message name="IDS_SEARCH_START_PAGE">search_start_page</message>

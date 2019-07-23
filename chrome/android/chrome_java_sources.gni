@@ -1922,7 +1922,6 @@ chrome_java_sources = [
   "java/src/org/chromium/chrome/browser/BraveAdsNativeHelper.java",
   "java/src/org/chromium/chrome/browser/dialogs/BraveAdsSignupDialog.java",
   "java/src/org/chromium/chrome/browser/notifications/BraveAds.java",
-  "java/src/org/chromium/chrome/browser/notifications/BraveAdsOobeEducationNotification.java",
   "java/src/org/chromium/chrome/browser/notifications/BraveOnboardingNotification.java",
   "java/src/org/chromium/chrome/browser/notifications/BraveAdsNotificationBuilder.java",
   "java/src/org/chromium/chrome/browser/onboarding/Constants.java",
