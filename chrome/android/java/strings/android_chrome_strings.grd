@@ -4920,6 +4920,7 @@ content creators you love.
       <message name="IDS_EARN_TOKENS">Earn tokens</message>
       <message name="IDS_BRAVE_REWARDS_ONBOARDING_TITLE">Brave Rewards</message>
       <message name="IDS_BRAVE_REWARDS_ONBOARDING_TEXT">for seeing privacy-respecting ads. Use them to support your favorite sites and creators.</message>
+      <message name="IDS_BRAVE_REWARDS_ONBOARDING_TEXT2">for seeing privacy-respecting ads.</message>
 
       <message name="IDS_TERMS_TITLE">Agree to the Terms to use Brave Rewards</message>
       <message name="IDS_TERMS_TEXT">I agree to Brave Rewards</message>
@@ -4935,6 +4936,8 @@ content creators you love.
       <message name="IDS_BRAVE_ADS_ONBOARDING_TEXT">To see ads from Brave Rewards, make sure Brave is allowed to show you notifications.</message>
 
       <message name="IDS_THIS_IS_YOUR_FIRST_AD">This is your first Brave ad. Tap to learn more.</message>
+
+      <message name="IDS_TURN_ON">Turn On</message>
 
     </messages>
   </release>

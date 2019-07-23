@@ -178,8 +178,6 @@ import org.chromium.ui.modaldialog.ModalDialogManager;
 import org.chromium.ui.widget.Toast;
 import org.chromium.chrome.browser.toolbar.top.Toolbar;
 import org.chromium.chrome.browser.notifications.BraveSetDefaultBrowserNotificationService;
-import org.chromium.chrome.browser.onboarding.OnboardingActivity;
-import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -724,20 +722,6 @@ public class ChromeTabbedActivity
             moveTaskToBack(true);
             // Intent was dispatched to CustomTabActivity, consume it.
             return;
-        }
-
-        if(intent !=null && intent.getStringExtra("url")!=null){
-
-            OnboardingActivity onboardingActivity;
-            for (Activity ref : ApplicationStatus.getRunningActivities()) {
-              if (!(ref instanceof OnboardingActivity)) continue;
-
-              onboardingActivity = (OnboardingActivity)ref;
-              onboardingActivity.finish();
-            }
-
-            openNewOrSelectExistingTab(intent.getStringExtra("url"));
-            OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         }
 
         mIntentHandlingTimeMs = SystemClock.uptimeMillis();
@@ -1631,8 +1615,6 @@ public class ChromeTabbedActivity
         // and triggers initialization of the native library. At the moment it seems safe to assume
         // that uninitialized native library is an indication of an application start that is
         // followed by navigation immediately without user input.
-
-        OnboardingPrefManager.getInstance().showOnboarding(this);
 
         if (!LibraryLoader.getInstance().isInitialized()) {
             getActivityTabStartupMetricsTracker().trackStartupMetrics(STARTUP_UMA_HISTOGRAM_SUFFIX);

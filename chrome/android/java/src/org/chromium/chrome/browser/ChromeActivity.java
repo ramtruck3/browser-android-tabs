@@ -211,6 +211,8 @@ import org.chromium.ui.modaldialog.ModalDialogManager;
 import org.chromium.ui.widget.Toast;
 import org.chromium.webapk.lib.client.WebApkNavigationClient;
 import org.chromium.webapk.lib.client.WebApkValidator;
+import org.chromium.chrome.browser.onboarding.OnboardingActivity;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -1712,6 +1714,8 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
                 app.mStatsUpdaterWorker = new StatsUpdaterWorker(app);
             }
         }
+
+        OnboardingPrefManager.getInstance().showOnboarding(this);
     }
 
     /**

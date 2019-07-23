@@ -28,7 +28,7 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
     private Intent mIntent;
 
     private static final int BRAVE_ONBOARDING_NOTIFICATION_ID = -2;
-    private static String BRAVE_ONBOARDING_NOTIFICATION_TAG = "brave_ads_oobe_notification_tag";
+    private static String BRAVE_ONBOARDING_NOTIFICATION_TAG = "brave_onboarding_notification_tag";
     private static String BRAVE_ONBOARDING_ORIGIN = "https://www.brave.com/my-first-ad";
     private static final String DEEP_LINK = "deep_link";
 
@@ -64,6 +64,9 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action != null && action.equals(DEEP_LINK)) {
+
+            OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
+
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRAVE_ONBOARDING_ORIGIN));
             webIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             webIntent.setPackage(context.getPackageName());

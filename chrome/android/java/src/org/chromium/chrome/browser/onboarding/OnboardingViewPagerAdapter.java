@@ -74,6 +74,7 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 BraveRewardsOnboardingFragment braveRewardsOnboardingFragment = new BraveRewardsOnboardingFragment();
                 braveRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                braveRewardsOnboardingFragment.setOnboardingType(onboardingType);
                 return braveRewardsOnboardingFragment;
             case 1:
                 BraveAdsOnboardingFragment braveAdsOnboardingFragment = new BraveAdsOnboardingFragment();
@@ -93,6 +94,7 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 BraveRewardsOnboardingFragment braveRewardsOnboardingFragment = new BraveRewardsOnboardingFragment();
                 braveRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                braveRewardsOnboardingFragment.setOnboardingType(onboardingType);
                 return braveRewardsOnboardingFragment;
             case 1:
                 BraveAdsOnboardingFragment braveAdsOnboardingFragment = new BraveAdsOnboardingFragment();

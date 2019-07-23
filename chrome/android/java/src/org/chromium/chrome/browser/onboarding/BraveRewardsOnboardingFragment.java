@@ -36,6 +36,7 @@ import org.chromium.chrome.browser.BraveRewardsNativeWorker;
 import org.chromium.chrome.browser.BraveRewardsPanelPopup;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.util.PackageUtils;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.R;
 
 import static org.chromium.chrome.browser.util.AnimationUtil.fadeInView;
@@ -55,6 +56,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private Button btnSkip, btnNext;
     private boolean isAgree;
+
+    private int onboardingType = OnboardingPrefManager.NEW_USER_ONBOARDING;
 
     public BraveRewardsOnboardingFragment() {
         // Required empty public constructor
@@ -106,9 +109,24 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private void setActions() {
 
-        String braveRewardsText = "<b>" + getResources().getString(R.string.earn_tokens) + "</b> " + getResources().getString(R.string.brave_rewards_onboarding_text);
-        final Spanned textToInsert = Constants.spannedFromHtmlString(braveRewardsText);
-        tvText.setText(textToInsert);
+        Spanned textToInsert;
+
+        if(onboardingType==OnboardingPrefManager.EXISTING_USER_REWARDS_ON_ONBOARDING){
+
+            bgImage.setImageResource(R.drawable.android_br_on);
+
+            tvTitle.setText(getResources().getString(R.string.brave_ads_existing_user_offer_title));
+
+            String braveRewardsText = "<b>" + getResources().getString(R.string.earn_tokens) + "</b> " + getResources().getString(R.string.brave_rewards_onboarding_text2);
+            textToInsert = Constants.spannedFromHtmlString(braveRewardsText);
+            tvText.setText(textToInsert);
+
+            btnNext.setText(getResources().getString(R.string.turn_on));
+        }else{
+            String braveRewardsText = "<b>" + getResources().getString(R.string.earn_tokens) + "</b> " + getResources().getString(R.string.brave_rewards_onboarding_text);
+            textToInsert = Constants.spannedFromHtmlString(braveRewardsText);
+            tvText.setText(textToInsert);
+        }
 
         String termsText = getResources().getString(R.string.terms_text) + "<br/>" + getResources().getString(R.string.terms_of_service)+ ".";
         Spanned textToAgree = Constants.spannedFromHtmlString(termsText);
@@ -150,7 +168,11 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isAgree) {
+
+                if(onboardingType==OnboardingPrefManager.EXISTING_USER_REWARDS_ON_ONBOARDING){
+                    onViewPagerAction.onSkip();
+                }else{
+                    if (isAgree) {
                     fadeOutView(termAndAgreeLayout);
                     fadeOutView(tvTitle);
                     fadeOutView(tvText);
@@ -171,8 +193,9 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
                     isAgree = false;
 
-                } else {
-                    onViewPagerAction.onSkip();
+                    } else {
+                        onViewPagerAction.onSkip();
+                    }
                 }
             }
         });
@@ -180,8 +203,11 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (!isAgree) {
+                if(onboardingType==OnboardingPrefManager.EXISTING_USER_REWARDS_ON_ONBOARDING){
+                    BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
+                    onViewPagerAction.onNext();
+                }else{
+                    if (!isAgree) {
                     fadeOutView(tvTitle);
                     tvText.setVisibility(View.GONE);
 
@@ -202,21 +228,22 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
                     isAgree = true;
 
-                } else {
-                    if (!chkAgreeTerms.isChecked()) {
-                        chkAgreeTerms.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.shake));
                     } else {
-                        if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
-                            OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
-                            getActivity().finish();
+                        if (!chkAgreeTerms.isChecked()) {
+                            chkAgreeTerms.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.shake));
                         } else {
                             BraveRewardsNativeWorker braveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();
                             braveRewardsNativeWorker.GetRewardsMainEnabled();
                             braveRewardsNativeWorker.CreateWallet();
 
-                            // Enable ads
-                            BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
-                            onViewPagerAction.onNext();
+                            if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
+                                OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
+                                getActivity().finish();
+                            } else {
+                                // Enable ads
+                                BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
+                                onViewPagerAction.onNext();
+                            }
                         }
                     }
                 }
@@ -226,5 +253,9 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     public void setOnViewPagerAction(OnViewPagerAction onViewPagerAction) {
         this.onViewPagerAction = onViewPagerAction;
+    }
+
+    public void setOnboardingType(int onboardingType) {
+        this.onboardingType = onboardingType;
     }
 }

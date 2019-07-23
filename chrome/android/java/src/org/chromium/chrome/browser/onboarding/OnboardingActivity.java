@@ -39,7 +39,6 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     @Override
     public void onSkip() {
-        // Toast.makeText(this, "On Skip", Toast.LENGTH_SHORT).show();
         OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         finish();
     }
@@ -51,7 +50,6 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     @Override
     public void onStartBrowsing() {
-        // Toast.makeText(this, "On Start browser", Toast.LENGTH_SHORT).show();
         OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         finish();
     }

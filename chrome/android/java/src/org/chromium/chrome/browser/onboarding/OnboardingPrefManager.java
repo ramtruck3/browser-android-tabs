@@ -8,12 +8,14 @@ import android.app.PendingIntent;
 import java.util.Locale;
 import android.app.AlarmManager;
 import java.lang.System;
+import android.widget.Toast;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.browser.BraveRewardsPanelPopup;
 import org.chromium.chrome.browser.ChromeFeatureList;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.util.PackageUtils;
+import org.chromium.chrome.browser.BraveAdsNativeHelper;
 import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
 
 
@@ -78,6 +80,7 @@ public class OnboardingPrefManager {
           && isAdsAvailable()
           && !PackageUtils.isFirstInstall(context)
           && !BraveRewardsPanelPopup.isBraveRewardsEnabled()
+          && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
           && ChromeFeatureList.isEnabled(ChromeFeatureList.BRAVE_REWARDS);
 
         return shouldShow;
@@ -89,6 +92,7 @@ public class OnboardingPrefManager {
           && isAdsAvailable()
           && !PackageUtils.isFirstInstall(context)
           && BraveRewardsPanelPopup.isBraveRewardsEnabled()
+          && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
           && ChromeFeatureList.isEnabled(ChromeFeatureList.BRAVE_REWARDS);
 
         return shouldShow;
@@ -111,6 +115,12 @@ public class OnboardingPrefManager {
 
         int onboardingType = -1;
 
+        // Toast.makeText(context, "is onboarding enable : "+getPrefOnboardingEnabled(), Toast.LENGTH_LONG).show();
+        // Toast.makeText(context, "isAdsAvailable : "+isAdsAvailable(), Toast.LENGTH_LONG).show();
+        // Toast.makeText(context, "is first install : "+PackageUtils.isFirstInstall(context), Toast.LENGTH_LONG).show();
+        // Toast.makeText(context, "is reward enable : "+BraveRewardsPanelPopup.isBraveRewardsEnabled(), Toast.LENGTH_LONG).show();
+
+
         if(shouldShowNewUserOnboarding(context)){
             onboardingType = NEW_USER_ONBOARDING;
         }else if(shouldShowExistingUserOnboardingIfRewardsIsSwitchedOff(context)){
@@ -119,9 +129,11 @@ public class OnboardingPrefManager {
             onboardingType = EXISTING_USER_REWARDS_ON_ONBOARDING;
         }
 
-        Intent intent = new Intent(context, OnboardingActivity.class);
-        intent.putExtra("onboarding_type",onboardingType);
-        context.startActivity(intent);
+        if(onboardingType>=0){
+          Intent intent = new Intent(context, OnboardingActivity.class);
+          intent.putExtra("onboarding_type",onboardingType);
+          context.startActivity(intent);
+        }
     }
 
     public void onboardingNotification(Context context) {
