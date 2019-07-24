@@ -261,7 +261,6 @@ const service_manager::Manifest& GetChromeContentBrowserOverlayManifest() {
         .PackageService(identity::GetManifest())
         .PackageService(image_annotation::GetManifest())
         .PackageService(prefs::GetManifest())
-        .PackageService(bat_ledger::GetManifest())
 #if defined(OS_CHROMEOS)
         .PackageService(chromeos::device_sync::GetManifest())
         .PackageService(chromeos::multidevice_setup::GetManifest())
