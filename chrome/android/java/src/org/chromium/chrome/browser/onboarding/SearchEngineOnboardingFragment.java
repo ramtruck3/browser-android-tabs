@@ -19,6 +19,7 @@ import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.R;
 
 import org.chromium.chrome.browser.onboarding.SearchEngineEnum;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 import java.util.Locale;
 import java.util.Map;
@@ -123,8 +124,6 @@ public class SearchEngineOnboardingFragment extends Fragment{
     }
 
     private void searchEngineSelected(int position, List<TemplateUrl> templateUrls) {
-        String keyword = templateUrls.get(position).getKeyword();
-        String name = templateUrls.get(position).getShortName();
-        TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
+        OnboardingPrefManager.selectedSearchEngine = templateUrls.get(position);
     }
 }

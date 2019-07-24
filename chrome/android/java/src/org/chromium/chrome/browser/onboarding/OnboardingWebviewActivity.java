@@ -8,6 +8,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.os.Build;
 
 import org.chromium.chrome.R;
 
@@ -36,6 +37,14 @@ public class OnboardingWebviewActivity extends AppCompatActivity {
 
         WebViewClientImpl webViewClient = new WebViewClientImpl();
         webView.setWebViewClient(webViewClient);
+
+        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        if (Build.VERSION.SDK_INT>=19){
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE,null);
+        }else{
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+        }
 
         webView.loadUrl(BRAVE_TERMS_PAGE);
     }

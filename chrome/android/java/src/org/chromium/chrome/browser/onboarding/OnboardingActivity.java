@@ -9,12 +9,15 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Toast;
 import android.content.Intent;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.chromium.chrome.R;
 
 import org.chromium.chrome.browser.onboarding.NonSwipeableViewPager;
 import org.chromium.chrome.browser.onboarding.OnboardingViewPagerAdapter;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
+import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 
 public class OnboardingActivity extends AppCompatActivity implements OnViewPagerAction {
 
@@ -39,7 +42,14 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     @Override
     public void onSkip() {
-        OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
+        // OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
+
+        Calendar calender = Calendar.getInstance();
+        calender.setTime(new Date());
+        calender.add(Calendar.DATE, OnboardingPrefManager.getInstance().getPrefOnboardingSkipCount()==0?60:120);
+
+        OnboardingPrefManager.getInstance().setPrefNextOnboardingDate(calender.getTimeInMillis());
+        OnboardingPrefManager.getInstance().setPrefOnboardingSkipCount();
         finish();
     }
 
@@ -50,6 +60,10 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     @Override
     public void onStartBrowsing() {
+        String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
+        String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
+        TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
+
         OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         finish();
     }
@@ -62,9 +76,9 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
     @Override
     public void onBackPressed() {
 
-        if (Constants.isNotification && viewPager.getCurrentItem() == 3) {
+        // if (Constants.isNotification && viewPager.getCurrentItem() == 3) {
 
-        } else if (viewPager.getCurrentItem() > 0)
-            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+        // } else if (viewPager.getCurrentItem() > 0)
+        //     viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
     }
 }

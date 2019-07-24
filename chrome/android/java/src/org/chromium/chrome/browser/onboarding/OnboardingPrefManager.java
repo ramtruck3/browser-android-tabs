@@ -17,6 +17,8 @@ import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.util.PackageUtils;
 import org.chromium.chrome.browser.BraveAdsNativeHelper;
 import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
+import org.chromium.chrome.browser.search_engines.TemplateUrl;
+import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 
 
 /**
@@ -26,6 +28,8 @@ import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
 public class OnboardingPrefManager {
 
     private static final String PREF_ONBOARDING = "onboarding";
+    private static final String PREF_NEXT_ONBOARDING_DATE = "next_onboarding_date";
+    private static final String PREF_ONBOARDING_SKIP_COUNT = "onboarding_skip_count";
 
     private static OnboardingPrefManager sInstance;
 
@@ -34,6 +38,8 @@ public class OnboardingPrefManager {
     public static final int NEW_USER_ONBOARDING = 0;
     public static final int EXISTING_USER_REWARDS_OFF_ONBOARDING = 1;
     public static final int EXISTING_USER_REWARDS_ON_ONBOARDING = 2;
+
+    public static TemplateUrl selectedSearchEngine = TemplateUrlService.getInstance().getDefaultSearchEngineTemplateUrl();
 
     private OnboardingPrefManager() {
         mSharedPreferences = ContextUtils.getAppSharedPreferences();
@@ -66,9 +72,37 @@ public class OnboardingPrefManager {
         sharedPreferencesEditor.apply();
     }
 
+    public long getPrefNextOnboardingDate() {
+        return mSharedPreferences.getLong(PREF_NEXT_ONBOARDING_DATE, 0);
+    }
+
+    public void setPrefNextOnboardingDate(long nextDate) {
+        SharedPreferences.Editor sharedPreferencesEditor = mSharedPreferences.edit();
+        sharedPreferencesEditor.putLong(PREF_NEXT_ONBOARDING_DATE, nextDate);
+        sharedPreferencesEditor.apply();
+    }
+
+    public int getPrefOnboardingSkipCount() {
+        return mSharedPreferences.getInt(PREF_ONBOARDING_SKIP_COUNT, 0);
+    }
+
+    public void setPrefOnboardingSkipCount() {
+        SharedPreferences.Editor sharedPreferencesEditor = mSharedPreferences.edit();
+        sharedPreferencesEditor.putInt(PREF_ONBOARDING_SKIP_COUNT, getPrefOnboardingSkipCount()+1);
+        sharedPreferencesEditor.apply();
+    }
+
+    public boolean showOnboardingForSkip(){
+      boolean shouldShow = 
+            getPrefNextOnboardingDate()==0 
+            || (getPrefNextOnboardingDate() > 0 && System.currentTimeMillis() > getPrefNextOnboardingDate());
+      return shouldShow;
+    } 
+
     private boolean shouldShowNewUserOnboarding(Context context) {
         boolean shouldShow =
           getPrefOnboardingEnabled()
+          && showOnboardingForSkip()
           && PackageUtils.isFirstInstall(context);
 
         return shouldShow;
@@ -77,7 +111,8 @@ public class OnboardingPrefManager {
     private boolean shouldShowExistingUserOnboardingIfRewardsIsSwitchedOff(Context context) {
         boolean shouldShow =
           getPrefOnboardingEnabled()
-          && isAdsAvailable()
+          && showOnboardingForSkip()
+          && isAdsAvailableNewLocale()
           && !PackageUtils.isFirstInstall(context)
           && !BraveRewardsPanelPopup.isBraveRewardsEnabled()
           && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
@@ -89,7 +124,8 @@ public class OnboardingPrefManager {
     private boolean shouldShowExistingUserOnboardingIfRewardsIsSwitchedOn(Context context) {
         boolean shouldShow =
           getPrefOnboardingEnabled()
-          && isAdsAvailable()
+          && showOnboardingForSkip()
+          && isAdsAvailableNewLocale()
           && !PackageUtils.isFirstInstall(context)
           && BraveRewardsPanelPopup.isBraveRewardsEnabled()
           && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
@@ -109,6 +145,13 @@ public class OnboardingPrefManager {
                 || locale.toString().equals("fr_FR")
                 || locale.toString().equals("en_GB")
                 || locale.toString().equals("de_DE");
+    }
+
+    public boolean isAdsAvailableNewLocale(){
+      Locale locale = Locale.getDefault();
+        return locale.toString().equals("en_NZ")
+                || locale.toString().equals("en_IE")
+                || locale.toString().equals("en_AU");
     }
 
     public void showOnboarding(Context context){

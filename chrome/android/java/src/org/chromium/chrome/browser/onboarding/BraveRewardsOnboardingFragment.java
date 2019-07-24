@@ -36,6 +36,7 @@ import org.chromium.chrome.browser.BraveRewardsNativeWorker;
 import org.chromium.chrome.browser.BraveRewardsPanelPopup;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.util.PackageUtils;
+import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.R;
 
@@ -237,6 +238,10 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                             braveRewardsNativeWorker.CreateWallet();
 
                             if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
+                                String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
+                                String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
+                                TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
+
                                 OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
                                 getActivity().finish();
                             } else {

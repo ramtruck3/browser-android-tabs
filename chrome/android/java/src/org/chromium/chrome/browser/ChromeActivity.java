@@ -1660,6 +1660,9 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
 
     @Override
     public void finishNativeInitialization() {
+
+        OnboardingPrefManager.getInstance().showOnboarding(this);
+        
         mNativeInitialized = true;
         OfflineContentAggregatorNotificationBridgeUiFactory.instance();
         maybeRemoveWindowBackground();
@@ -1714,8 +1717,6 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
                 app.mStatsUpdaterWorker = new StatsUpdaterWorker(app);
             }
         }
-
-        OnboardingPrefManager.getInstance().showOnboarding(this);
     }
 
     /**

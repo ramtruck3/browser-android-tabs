@@ -22,6 +22,7 @@ import org.chromium.chrome.browser.notifications.NotificationBuilderBase;
 import org.chromium.chrome.browser.notifications.NotificationManagerProxyImpl;
 import org.chromium.chrome.browser.notifications.NotificationMetadata;
 import org.chromium.chrome.browser.notifications.NotificationUmaTracker;
+import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 public class BraveOnboardingNotification extends BroadcastReceiver {
@@ -65,6 +66,10 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action != null && action.equals(DEEP_LINK)) {
+
+            String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
+            String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
+            TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
 
             OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
 
