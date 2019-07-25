@@ -31,6 +31,7 @@ import org.chromium.chrome.browser.ChromeFeatureList;
 import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.util.PackageUtils;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 public class BraveAdsSignupDialog {
 
@@ -90,13 +91,15 @@ public class BraveAdsSignupDialog {
     }
 
     private static void enqueueOobeNotification(Context context) {
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, BraveOnboardingNotification.class);
-        am.set(
-            AlarmManager.RTC_WAKEUP,
-            System.currentTimeMillis() + MOMENT_LATER,
-            PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        );
+        if(!OnboardingPrefManager.getInstance().isOnboardingNotificationShown()){
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(context, BraveOnboardingNotification.class);
+            am.set(
+                AlarmManager.RTC_WAKEUP,
+                System.currentTimeMillis() + MOMENT_LATER,
+                PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+            );
+        }
     }
 
     public static void showNewUserDialog(Context context) {
@@ -105,6 +108,9 @@ public class BraveAdsSignupDialog {
         .setPositiveButton(R.string.brave_ads_offer_positive, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+                OnboardingPrefManager.getInstance().setOnboardingNotificationShown(false);
+
                 neverShowOnboardingDialogAgain();
 
                 BraveRewardsNativeWorker braveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();

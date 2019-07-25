@@ -45,6 +45,8 @@ public class OnboardingPrefManager {
 
     public static TemplateUrl selectedSearchEngine = TemplateUrlService.getInstance().getDefaultSearchEngineTemplateUrl();
 
+    private static boolean isOnboardingNotificationShown;
+
     private OnboardingPrefManager() {
         mSharedPreferences = ContextUtils.getAppSharedPreferences();
     }
@@ -94,6 +96,17 @@ public class OnboardingPrefManager {
         SharedPreferences.Editor sharedPreferencesEditor = mSharedPreferences.edit();
         sharedPreferencesEditor.putInt(PREF_ONBOARDING_SKIP_COUNT, getPrefOnboardingSkipCount()+1);
         sharedPreferencesEditor.apply();
+    }
+
+    public boolean isOnboardingNotificationShown() {
+        // if(isOnboardingNotificationShown==null){
+        //   isOnboardingNotificationShown = false;
+        // }
+        return isOnboardingNotificationShown;
+    }
+
+    public void setOnboardingNotificationShown(boolean isShown) {
+        isOnboardingNotificationShown = isShown;
     }
 
     public boolean showOnboardingForSkip(){
@@ -178,13 +191,16 @@ public class OnboardingPrefManager {
     }
 
     public void onboardingNotification(Context context) {
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, BraveOnboardingNotification.class);
-        am.set(
-            AlarmManager.RTC_WAKEUP,
-            System.currentTimeMillis(),
-            PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        );
+      if(!isOnboardingNotificationShown()){
+          AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+          Intent intent = new Intent(context, BraveOnboardingNotification.class);
+          am.set(
+              AlarmManager.RTC_WAKEUP,
+              System.currentTimeMillis(),
+              PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+          );
+          setOnboardingNotificationShown(true);
+      }
     }
 
     public static Map<String,SearchEngineEnum> searchEngineMap = new HashMap<String, SearchEngineEnum>() {{
