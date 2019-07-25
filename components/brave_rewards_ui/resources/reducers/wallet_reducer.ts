@@ -32,7 +32,7 @@ const fetchRewardsInfo = (state: Rewards.State) => {
   chrome.send('brave_rewards.getAdsData')
 
   if (!state.safetyNetFailed) {
-    chrome.send('brave_rewards.getGrants', [])
+    chrome.send('brave_rewards.getGrants', ['', ''])
   }
 }
 
