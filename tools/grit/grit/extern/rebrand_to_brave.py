@@ -112,7 +112,7 @@ def ReplaceIds(folder):
 # both in utf-8 encoding
 #
 def GenerateMessageId(message, meaning=''):
-    fp = FP.FingerPrint(message)
+    fp = FP.FingerPrint(message.decode('utf-8'))
     if meaning:
         # combine the fingerprints of message and meaning
         fp2 = FP.FingerPrint(meaning)
