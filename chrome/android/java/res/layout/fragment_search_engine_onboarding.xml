@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black">
+    android:background="@color/onboarding_black">
 
     <LinearLayout
         android:id="@+id/search_engine_layout"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/brave_onboarding"
             android:layout_gravity="center"
-            android:contentDescription="@string/title_onboarding_activity"/>
+            android:contentDescription="@string/search_engine_onboarding"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
             android:lineSpacingMultiplier="1.2"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:textColor="@color/black"
+            android:textColor="@color/onboarding_black"
             android:textStyle="bold" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_marginTop="4dp"
             android:lineSpacingMultiplier="1.2"
             android:text="@string/select_your_default_search_engine"
-            android:textColor="@color/black"
+            android:textColor="@color/onboarding_black"
             android:textSize="@dimen/onboarding_text_size" />
 
         <ScrollView
@@ -78,7 +78,7 @@
             android:clickable="true"
             android:focusable="true"
             android:text="@string/skip"
-            android:textColor="@color/gray" />
+            android:textColor="@color/onboarding_gray" />
 
         <Button
             android:id="@+id/btn_next"
@@ -91,7 +91,7 @@
             android:focusable="true"
             android:text="@string/next"
             android:drawableEnd="@drawable/chevron_right"
-            android:textColor="@color/orange" />
+            android:textColor="@color/onboarding_orange" />
 
     </FrameLayout>
 

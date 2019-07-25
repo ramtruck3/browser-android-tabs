@@ -201,13 +201,13 @@
     <color name="brave_rewards_theme_color">#392DD1</color>
 
     <!-- Onborading colors -->
-    <color name="orange">#fb542b</color>
-    <color name="gray">#84889c</color>
-    <color name="black">#1e2029</color>
-    <color name="radio_button_active">#f0f1ff</color>
-    <color name="disable_text_color">#ffb8a6</color>
+    <color name="onboarding_orange">#fb542b</color>
+    <color name="onboarding_gray">#84889c</color>
+    <color name="onboarding_black">#1e2029</color>
+    <color name="onboarding_radio_button_active">#f0f1ff</color>
+    <color name="onboarding_disable_text_color">#ffb8a6</color>
 
-    <color name="blue">#4f30ab</color>
-    <color name="progressbar_secondary_bg">#ced4da</color>
+    <color name="onboarding_blue">#4f30ab</color>
+    <color name="onboarding_progressbar_secondary_bg">#ced4da</color>
 
 </resources>

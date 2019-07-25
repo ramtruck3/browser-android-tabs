@@ -30,6 +30,7 @@ public class OnboardingPrefManager {
     private static final String PREF_ONBOARDING = "onboarding";
     private static final String PREF_NEXT_ONBOARDING_DATE = "next_onboarding_date";
     private static final String PREF_ONBOARDING_SKIP_COUNT = "onboarding_skip_count";
+    public static final String ONBOARDING_TYPE = "onboarding_type";
 
     private static OnboardingPrefManager sInstance;
 
@@ -158,12 +159,6 @@ public class OnboardingPrefManager {
 
         int onboardingType = -1;
 
-        // Toast.makeText(context, "is onboarding enable : "+getPrefOnboardingEnabled(), Toast.LENGTH_LONG).show();
-        // Toast.makeText(context, "isAdsAvailable : "+isAdsAvailable(), Toast.LENGTH_LONG).show();
-        // Toast.makeText(context, "is first install : "+PackageUtils.isFirstInstall(context), Toast.LENGTH_LONG).show();
-        // Toast.makeText(context, "is reward enable : "+BraveRewardsPanelPopup.isBraveRewardsEnabled(), Toast.LENGTH_LONG).show();
-
-
         if(shouldShowNewUserOnboarding(context)){
             onboardingType = NEW_USER_ONBOARDING;
         }else if(shouldShowExistingUserOnboardingIfRewardsIsSwitchedOff(context)){
@@ -174,7 +169,7 @@ public class OnboardingPrefManager {
 
         if(onboardingType>=0){
           Intent intent = new Intent(context, OnboardingActivity.class);
-          intent.putExtra("onboarding_type",onboardingType);
+          intent.putExtra(ONBOARDING_TYPE,onboardingType);
           context.startActivity(intent);
         }
     }

@@ -68,7 +68,6 @@ public class BraveAdsOnboardingFragment extends Fragment {
             tvTitle.setVisibility(View.VISIBLE);
             actionLayout.setVisibility(View.GONE);
             start_countdown();
-            Constants.isNotification = true;
         }
     }
 
@@ -134,9 +133,6 @@ public class BraveAdsOnboardingFragment extends Fragment {
                         fadeOutView(countDownLayout);
 
                         fadeInView(actionLayout);
-
-                        Constants.isNotification = false;
-
                     }
                 }, 1000);
             }

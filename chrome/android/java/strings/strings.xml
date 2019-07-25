@@ -275,9 +275,10 @@ content creators you love.</string>
 
     <!-- Onboarding strings -->
 
-    <string name="title_onboarding_activity">OnboardingActivity</string>
-
     <string name="skip">Skip</string>
+
+    <string name="search_engine_onboarding">Search engine onboarding</string>
+    <string name="troubleshooting_onboarding">Search engine onboarding</string>
 
     <string name="welcome_to_brave_browser">Welcome to Brave Browser</string>
     <string name="select_your_default_search_engine">Select your default search engine</string>
@@ -289,12 +290,6 @@ content creators you love.</string>
     <string name="qwant">Qwant</string>
     <string name="bing">Bing!</string>
     <string name="start_page">StartPage</string>
-
-    <!-- <string name="search_google">search_google</string>
-    <string name="search_duckduckgo">search_duckduckgo</string>
-    <string name="search_qwant">search_qwant</string>
-    <string name="search_bing">search_bing</string>
-    <string name="search_start_page">search_start_page</string> -->
 
     <string name="block">Block</string>
     <string name="brave_shields_onboarding_title">Brave Shields</string>

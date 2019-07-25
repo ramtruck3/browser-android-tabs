@@ -4888,9 +4888,10 @@ content creators you love.
 
       <!-- Onboarding strings -->
 
-      <message name="IDS_TITLE_ONBOARDING_ACTIVITY">OnboardingActivity</message>
-
       <message name="IDS_SKIP">Skip</message>
+
+      <message name="IDS_SEARCH_ENGINE_ONBOARDING">Search engine onboarding</message>
+      <message name="IDS_TROUBLESHOOTING_ONBOARDING">Search engine onboarding</message>
 
       <message name="IDS_WELCOME_TO_BRAVE_BROWSER">Welcome to Brave Browser</message>
       <message name="IDS_SELECT_YOUR_DEFAULT_SEARCH_ENGINE">Select your default search engine</message>
@@ -4936,7 +4937,7 @@ content creators you love.
       <message name="IDS_THIS_IS_YOUR_FIRST_AD">This is your first Brave ad. Tap to learn more.</message>
 
       <message name="IDS_TURN_ON">Turn On</message>
-      
+
       <message name="IDS_DO_NOT_AGREE">Do not agree</message>
 
     </messages>

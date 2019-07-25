@@ -30,7 +30,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.chromium.chrome.browser.onboarding.Constants.dpToPx;
+import static org.chromium.chrome.browser.util.ViewUtils.dpToPx;
 
 public class SearchEngineOnboardingFragment extends Fragment{
 
@@ -71,16 +71,16 @@ public class SearchEngineOnboardingFragment extends Fragment{
 
             RadioButton rdBtn = new RadioButton(getActivity());
             rdBtn.setId(searchEngineEnum.getId());
-            RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT, dpToPx(56, getActivity()));
+            RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT, dpToPx(getActivity(),56));
             rdBtn.setLayoutParams(params);
             rdBtn.setTextSize(18);
             rdBtn.setButtonDrawable(null);
-            rdBtn.setPadding(dpToPx(30, getActivity()), 0, 0, 0);
-            rdBtn.setTextColor(getResources().getColor(R.color.black));
+            rdBtn.setPadding(dpToPx(getActivity(), 30), 0, 0, 0);
+            rdBtn.setTextColor(getResources().getColor(R.color.onboarding_black));
             rdBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.radiobutton_background));
             rdBtn.setText(searchEngineEnum.getTitle());
             rdBtn.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(searchEngineEnum.getIcon()), null, null, null);
-            rdBtn.setCompoundDrawablePadding(dpToPx(16, getActivity()));
+            rdBtn.setCompoundDrawablePadding(dpToPx(getActivity(),16));
             radioGroup.addView(rdBtn);
         }
 

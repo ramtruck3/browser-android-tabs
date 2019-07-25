@@ -30,6 +30,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import org.chromium.chrome.browser.onboarding.Constants;
+import org.chromium.chrome.browser.BraveRewardsHelper;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.BraveAdsNativeHelper;
@@ -125,18 +126,18 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
             tvTitle.setText(getResources().getString(R.string.brave_ads_existing_user_offer_title));
 
             String braveRewardsText = "<b>" + getResources().getString(R.string.earn_tokens) + "</b> " + getResources().getString(R.string.brave_rewards_onboarding_text2);
-            textToInsert = Constants.spannedFromHtmlString(braveRewardsText);
+            textToInsert = BraveRewardsHelper.spannedFromHtmlString(braveRewardsText);
             tvText.setText(textToInsert);
 
             btnNext.setText(getResources().getString(R.string.turn_on));
         }else{
             String braveRewardsText = "<b>" + getResources().getString(R.string.earn_tokens) + "</b> " + getResources().getString(R.string.brave_rewards_onboarding_text);
-            textToInsert = Constants.spannedFromHtmlString(braveRewardsText);
+            textToInsert = BraveRewardsHelper.spannedFromHtmlString(braveRewardsText);
             tvText.setText(textToInsert);
         }
 
         String termsText = getResources().getString(R.string.terms_text) + "<br/>" + getResources().getString(R.string.terms_of_service)+ ".";
-        Spanned textToAgree = Constants.spannedFromHtmlString(termsText);
+        Spanned textToAgree = BraveRewardsHelper.spannedFromHtmlString(termsText);
         SpannableString ss = new SpannableString(textToAgree.toString());
 
         ClickableSpan clickableSpan = new ClickableSpan() {
@@ -153,7 +154,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
         ss.setSpan(clickableSpan, 24, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        ForegroundColorSpan foregroundSpan = new ForegroundColorSpan(getResources().getColor(R.color.orange));
+        ForegroundColorSpan foregroundSpan = new ForegroundColorSpan(getResources().getColor(R.color.onboarding_orange));
         ss.setSpan(foregroundSpan, 24, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvAgree.setMovementMethod(LinkMovementMethod.getInstance());
         tvAgree.setText(ss);
@@ -163,10 +164,10 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
                     btnNext.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chevron_right, 0);
-                    btnNext.setTextColor(getResources().getColor(R.color.orange));
+                    btnNext.setTextColor(getResources().getColor(R.color.onboarding_orange));
                 } else {
                     btnNext.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chevron_right_inactive, 0);
-                    btnNext.setTextColor(getResources().getColor(R.color.disable_text_color));
+                    btnNext.setTextColor(getResources().getColor(R.color.onboarding_disable_text_color));
                 }
             }
         });
@@ -188,7 +189,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     btnSkip.setText(getResources().getString(R.string.no_thanks));
                     btnNext.setText(getResources().getString(R.string.join));
                     btnNext.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chevron_right, 0);
-                    btnNext.setTextColor(getResources().getColor(R.color.orange));
+                    btnNext.setTextColor(getResources().getColor(R.color.onboarding_orange));
 
                     tvTitle.setText(getResources().getString(R.string.brave_rewards_onboarding_title));
                     tvText.setText(textToInsert);
@@ -229,7 +230,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
                     if (!chkAgreeTerms.isChecked()) {
                         btnNext.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chevron_right_inactive, 0);
-                        btnNext.setTextColor(getResources().getColor(R.color.disable_text_color));
+                        btnNext.setTextColor(getResources().getColor(R.color.onboarding_disable_text_color));
                     }
 
                     isAgree = true;

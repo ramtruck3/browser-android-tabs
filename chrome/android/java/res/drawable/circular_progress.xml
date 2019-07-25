@@ -6,7 +6,7 @@
             android:shape="ring"
             android:thicknessRatio="80"
             android:useLevel="true">
-            <solid android:color="@color/progressbar_secondary_bg" />
+            <solid android:color="@color/onboarding_progressbar_secondary_bg" />
         </shape>
     </item>
 

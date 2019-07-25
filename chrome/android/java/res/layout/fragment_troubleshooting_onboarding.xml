@@ -4,7 +4,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/onboarding_black">
 
     <ImageView
         android:id="@+id/bg_image"
@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/android_onboarding_4"
         android:layout_marginBottom="100dp"
-        android:contentDescription="@string/title_onboarding_activity"/>
+        android:contentDescription="@string/troubleshooting_onboarding"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -33,7 +33,7 @@
             android:layout_marginBottom="16dp"
             android:text="@string/brave_ads_onboarding_text"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/onboarding_black"
             android:textSize="@dimen/onboarding_text_size" />
 
         <Button

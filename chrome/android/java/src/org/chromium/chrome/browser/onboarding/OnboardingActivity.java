@@ -32,7 +32,7 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
         Intent intent = getIntent();
         if(intent!=null){
-            onboardingType = intent.getIntExtra("onboarding_type",OnboardingPrefManager.NEW_USER_ONBOARDING);
+            onboardingType = intent.getIntExtra(OnboardingPrefManager.ONBOARDING_TYPE,OnboardingPrefManager.NEW_USER_ONBOARDING);
         }
 
         OnboardingViewPagerAdapter onboardingViewPagerAdapter = new OnboardingViewPagerAdapter(getFragmentManager(), this, onboardingType);
@@ -75,10 +75,6 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     @Override
     public void onBackPressed() {
-
-        // if (Constants.isNotification && viewPager.getCurrentItem() == 3) {
-
-        // } else if (viewPager.getCurrentItem() > 0)
-        //     viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+        // kept it blank to disable back button
     }
 }

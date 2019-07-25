@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
+import org.chromium.chrome.browser.BraveRewardsHelper;
 
 import org.chromium.chrome.R;
 
@@ -57,7 +58,7 @@ public class BraveShieldsOnboardingFragment extends Fragment {
 
 
         String braveShieldsText = "<b>"+getResources().getString(R.string.block)+"</b> "+getResources().getString(R.string.brave_shields_onboarding_text);
-        Spanned textToInsert = Constants.spannedFromHtmlString(braveShieldsText);
+        Spanned textToInsert = BraveRewardsHelper.spannedFromHtmlString(braveShieldsText);
         tvText.setText(textToInsert);
 
         btnSkip.setOnClickListener(new View.OnClickListener() {
