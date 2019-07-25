@@ -4936,6 +4936,8 @@ content creators you love.
       <message name="IDS_THIS_IS_YOUR_FIRST_AD">This is your first Brave ad. Tap to learn more.</message>
 
       <message name="IDS_TURN_ON">Turn On</message>
+      
+      <message name="IDS_DO_NOT_AGREE">Do not agree</message>
 
     </messages>
   </release>

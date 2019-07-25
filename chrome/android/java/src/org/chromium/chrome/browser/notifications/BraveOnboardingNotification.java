@@ -31,7 +31,7 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
 
     private static final int BRAVE_ONBOARDING_NOTIFICATION_ID = -2;
     private static String BRAVE_ONBOARDING_NOTIFICATION_TAG = "brave_onboarding_notification_tag";
-    private static String BRAVE_ONBOARDING_ORIGIN = "https://www.brave.com/my-first-ad";
+    private static String BRAVE_ONBOARDING_ORIGIN = "https://www.brave.com/my-first-ad/";
     private static final String DEEP_LINK = "deep_link";
 
     private void showOnboardingNotification(Context context) {
@@ -77,6 +77,18 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
             webIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             webIntent.setPackage(context.getPackageName());
             context.startActivity(webIntent);
+
+            // for (Activity ref : ApplicationStatus.getRunningActivities()) {
+            //     if (!(ref instanceof OnboardingActivity)) continue;
+
+            //     OnboardingActivity onboardingActivity = (OnboardingActivity)ref;
+            //     onboardingActivity.finish();
+            // }
+
+            // ChromeTabbedActivity chromeTabbedActivity = BraveRewardsHelper.getChromeTabbedActivity();
+            // // chromeTabbedActivity.getTabCreator(false).launchUrl(BRAVE_ONBOARDING_ORIGIN, TabLaunchType.FROM_CHROME_UI);
+            // chromeTabbedActivity.openNewOrSelectExistingTab(BRAVE_ONBOARDING_ORIGIN);
+
         } else {
             showOnboardingNotification(context);
         }

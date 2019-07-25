@@ -25,6 +25,7 @@ import android.text.SpannableString;
 import android.text.TextPaint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 
 import android.support.annotation.NonNull;
 
@@ -38,6 +39,7 @@ import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.util.PackageUtils;
 import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
+import org.chromium.chrome.browser.customtabs.CustomTabActivity;
 import org.chromium.chrome.R;
 
 import static org.chromium.chrome.browser.util.AnimationUtil.fadeInView;
@@ -57,6 +59,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private Button btnSkip, btnNext;
     private boolean isAgree;
+
+    private static final String BRAVE_TERMS_PAGE = "https://basicattentiontoken.org/user-terms-of-service/";
 
     private int onboardingType = OnboardingPrefManager.NEW_USER_ONBOARDING;
 
@@ -110,6 +114,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private void setActions() {
 
+        btnSkip.setText(getResources().getString(R.string.no_thanks));
+
         Spanned textToInsert;
 
         if(onboardingType==OnboardingPrefManager.EXISTING_USER_REWARDS_ON_ONBOARDING){
@@ -136,8 +142,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View textView) {
-                Intent webViewIntent = new Intent(getActivity(), OnboardingWebviewActivity.class);
-                startActivity(webViewIntent);
+                CustomTabActivity.showInfoPage(getActivity(), BRAVE_TERMS_PAGE);
             }
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
@@ -180,7 +185,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
                     chkAgreeTerms.setChecked(false);
 
-                    btnSkip.setText(getResources().getString(R.string.skip));
+                    btnSkip.setText(getResources().getString(R.string.no_thanks));
                     btnNext.setText(getResources().getString(R.string.join));
                     btnNext.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.chevron_right, 0);
                     btnNext.setTextColor(getResources().getColor(R.color.orange));
@@ -212,7 +217,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     fadeOutView(tvTitle);
                     tvText.setVisibility(View.GONE);
 
-                    btnSkip.setText(getResources().getString(android.R.string.cancel));
+                    btnSkip.setText(getResources().getString(R.string.do_not_agree));
                     btnNext.setText(getResources().getString(R.string.agree));
 
                     tvTitle.setText(getResources().getString(R.string.terms_title));
