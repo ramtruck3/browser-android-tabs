@@ -57,7 +57,8 @@ export const defaultState: Rewards.State = {
   excluded: [],
   grants: [],
   currentGrant: undefined,
-  rewardsIntervalId: 0
+  rewardsIntervalId: 0,
+  excludedList: []
 }
 
 const cleanData = (state: Rewards.State) => state

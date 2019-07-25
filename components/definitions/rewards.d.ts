@@ -34,6 +34,7 @@ declare namespace Rewards {
     donationAbilityYT: boolean
     donationAbilityTwitter: boolean
     excluded: string[]
+    excludedList: ExcludedPublisher[]
     numExcludedSites: number
     excludedPublishersNumber: number
     walletInfo: WalletProperties
@@ -148,5 +149,14 @@ declare namespace Rewards {
     adsEstimatedPendingRewards: number
     adsNextPaymentDate: string
     adsAdNotificationsReceivedThisMonth: number
+  }
+
+  export interface ExcludedPublisher {
+    id: string
+    verified: boolean
+    url: string
+    name: string
+    provider: string
+    favIcon: string
   }
 }
