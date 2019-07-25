@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.BraveRewardsHelper;
 

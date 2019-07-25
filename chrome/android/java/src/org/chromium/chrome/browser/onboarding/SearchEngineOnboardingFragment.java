@@ -11,7 +11,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.search_engines.TemplateUrl;
 import org.chromium.chrome.browser.search_engines.TemplateUrlService;
@@ -67,7 +66,7 @@ public class SearchEngineOnboardingFragment extends Fragment{
 
         for(TemplateUrl templateUrl : templateUrls){
 
-            SearchEngineEnum searchEngineEnum = Constants.defaultSearchEngineMap.get(templateUrl.getShortName());
+            SearchEngineEnum searchEngineEnum = OnboardingPrefManager.searchEngineMap.get(templateUrl.getShortName());
 
             RadioButton rdBtn = new RadioButton(getActivity());
             rdBtn.setId(searchEngineEnum.getId());
@@ -84,7 +83,7 @@ public class SearchEngineOnboardingFragment extends Fragment{
             radioGroup.addView(rdBtn);
         }
 
-        radioGroup.check(Constants.defaultSearchEngineMap.get(defaultSearchEngineTemplateUrl.getShortName()).getId());
+        radioGroup.check(OnboardingPrefManager.searchEngineMap.get(defaultSearchEngineTemplateUrl.getShortName()).getId());
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

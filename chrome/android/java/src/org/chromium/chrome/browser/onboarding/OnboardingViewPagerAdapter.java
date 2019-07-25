@@ -6,7 +6,6 @@ import android.support.v13.app.FragmentPagerAdapter;
 
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
-import org.chromium.chrome.browser.onboarding.Constants;
 
 public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 

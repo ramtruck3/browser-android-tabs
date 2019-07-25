@@ -29,7 +29,6 @@ import android.net.Uri;
 
 import android.support.annotation.NonNull;
 
-import org.chromium.chrome.browser.onboarding.Constants;
 import org.chromium.chrome.browser.BraveRewardsHelper;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;

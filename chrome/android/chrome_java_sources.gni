@@ -1924,7 +1924,6 @@ chrome_java_sources = [
   "java/src/org/chromium/chrome/browser/notifications/BraveAds.java",
   "java/src/org/chromium/chrome/browser/notifications/BraveOnboardingNotification.java",
   "java/src/org/chromium/chrome/browser/notifications/BraveAdsNotificationBuilder.java",
-  "java/src/org/chromium/chrome/browser/onboarding/Constants.java",
   "java/src/org/chromium/chrome/browser/onboarding/NonSwipeableViewPager.java",
   "java/src/org/chromium/chrome/browser/onboarding/OnboardingActivity.java",
   "java/src/org/chromium/chrome/browser/onboarding/OnboardingViewPagerAdapter.java",

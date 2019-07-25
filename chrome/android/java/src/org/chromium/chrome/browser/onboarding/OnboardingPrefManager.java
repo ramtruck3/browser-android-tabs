@@ -10,6 +10,9 @@ import android.app.AlarmManager;
 import java.lang.System;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.browser.BraveRewardsPanelPopup;
 import org.chromium.chrome.browser.ChromeFeatureList;
@@ -183,4 +186,15 @@ public class OnboardingPrefManager {
             PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         );
     }
+
+    public static Map<String,SearchEngineEnum> searchEngineMap = new HashMap<String, SearchEngineEnum>() {{
+        put("Google", SearchEngineEnum.GOOGLE);
+        put("DuckDuckGo", SearchEngineEnum.DUCKDUCKGO);
+        put("DuckDuckGo Light", SearchEngineEnum.DUCKDUCKGOLIGHT);
+        put("Qwant", SearchEngineEnum.QWANT);
+        put("Bing", SearchEngineEnum.BING);
+        put("StartPage", SearchEngineEnum.STARTPAGE);
+        put("Yandex", SearchEngineEnum.YANDEX);
+    }};
+
 }
