@@ -91,12 +91,13 @@ window.cr.define('brave_rewards', function () {
     getActions().onContributeList(list)
   }
 
-  function numExcludedSites (num: string) {
-    getActions().onNumExcludedSites(num)
+  function excludedList (list: Rewards.ExcludedPublisher[]) {
+    getActions().onExcludedList(list)
   }
 
-  function excludedNumber (num: number) {
-    getActions().onExcludedNumber(num)
+  function excludedSiteChanged () {
+    getActions().getExcludedSites()
+    getActions().getContributeList()
   }
 
   function balanceReports (reports: Record<string, Rewards.Report>) {
@@ -166,8 +167,6 @@ window.cr.define('brave_rewards', function () {
     reconcileStamp,
     addresses,
     contributeList,
-    numExcludedSites,
-    excludedNumber,
     balanceReports,
     walletExists,
     contributionAmount,
@@ -180,7 +179,9 @@ window.cr.define('brave_rewards', function () {
     recurringTipRemoved,
     onPendingContributionSaved,
     transactionHistory,
-    transactionHistoryChanged
+    transactionHistoryChanged,
+    excludedList,
+    excludedSiteChanged
   }
 })
 if (document.readyState === "complete"
