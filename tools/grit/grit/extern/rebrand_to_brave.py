@@ -76,8 +76,8 @@ translations_folder='../../../../chrome/android/java/strings/translations'
 components_folder='../../../../components/strings'
 chromium_strings_folder='../../../../chrome/app/resources'
 brave_brand_string='Brave'
-brave_company='Brave Software'
-google_company='Google'
+brave_company='Brave Software Inc'
+google_company='Google LLC'
 chrome_brand_strings={'Chrome', 'Google Chrome', 'Chromium'}
 brave_ids={}
 
