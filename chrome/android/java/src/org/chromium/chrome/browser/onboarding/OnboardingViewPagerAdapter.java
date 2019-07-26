@@ -11,11 +11,13 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
     private final OnViewPagerAction onViewPagerAction;
     private final int onboardingType;
+    private final boolean fromSettings;
 
-    public OnboardingViewPagerAdapter(FragmentManager fm, OnViewPagerAction onViewPagerAction, int onboardingType) {
+    public OnboardingViewPagerAdapter(FragmentManager fm, OnViewPagerAction onViewPagerAction, int onboardingType, boolean fromSettings) {
         super(fm);
         this.onViewPagerAction = onViewPagerAction;
         this.onboardingType = onboardingType;
+        this.fromSettings=fromSettings;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING){
+        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING && OnboardingPrefManager.getInstance().isAdsAvailable()){
             return 5;
         }else{
             return 3;
@@ -45,6 +47,7 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 SearchEngineOnboardingFragment searchEngineOnboardingFragment = new SearchEngineOnboardingFragment();
+                searchEngineOnboardingFragment.setFromSettings(fromSettings);
                 searchEngineOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
                 return searchEngineOnboardingFragment;
             case 1:
@@ -53,16 +56,39 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
                 return braveShieldsOnboardingFragment;
             case 2:
                 BraveRewardsOnboardingFragment braveRewardsOnboardingFragment = new BraveRewardsOnboardingFragment();
+                braveRewardsOnboardingFragment.setFromSettings(fromSettings);
                 braveRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
                 return braveRewardsOnboardingFragment;
             case 3:
                 BraveAdsOnboardingFragment braveAdsOnboardingFragment = new BraveAdsOnboardingFragment();
+                braveAdsOnboardingFragment.setFromSettings(fromSettings);
                 braveAdsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
                 return braveAdsOnboardingFragment;
             case 4:
                 TroubleshootingOnboardingFragment troubleshootingOnboardingFragment = new TroubleshootingOnboardingFragment();
                 troubleshootingOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
                 return troubleshootingOnboardingFragment;
+            default:
+                return null;
+        }
+    }
+
+    private Fragment newUserOnboardingNoAds(int position){
+        switch (position) {
+            case 0:
+                SearchEngineOnboardingFragment searchEngineOnboardingFragment = new SearchEngineOnboardingFragment();
+                searchEngineOnboardingFragment.setFromSettings(fromSettings);
+                searchEngineOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                return searchEngineOnboardingFragment;
+            case 1:
+                BraveShieldsOnboardingFragment braveShieldsOnboardingFragment = new BraveShieldsOnboardingFragment();
+                braveShieldsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                return braveShieldsOnboardingFragment;
+            case 2:
+                BraveRewardsOnboardingFragment braveRewardsOnboardingFragment = new BraveRewardsOnboardingFragment();
+                braveRewardsOnboardingFragment.setFromSettings(fromSettings);
+                braveRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+                return braveRewardsOnboardingFragment;
             default:
                 return null;
         }

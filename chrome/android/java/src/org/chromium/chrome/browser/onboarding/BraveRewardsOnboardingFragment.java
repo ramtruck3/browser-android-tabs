@@ -64,6 +64,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private int onboardingType = OnboardingPrefManager.NEW_USER_ONBOARDING;
 
+    private boolean fromSettings;
+
     public BraveRewardsOnboardingFragment() {
         // Required empty public constructor
     }
@@ -114,7 +116,16 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private void setActions() {
 
-        btnSkip.setText(getResources().getString(R.string.no_thanks));
+
+        if(fromSettings){
+            if(!OnboardingPrefManager.getInstance().isAdsAvailable())
+                btnNext.setText(getResources().getString(R.string.finish));
+            else
+                btnNext.setText(getResources().getString(R.string.next));
+            btnSkip.setText(getResources().getString(R.string.skip));
+        }else{
+            btnSkip.setText(getResources().getString(R.string.no_thanks));
+        }
 
         Spanned textToInsert;
 
@@ -209,7 +220,13 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(onboardingType==OnboardingPrefManager.EXISTING_USER_REWARDS_ON_ONBOARDING){
+
+                if(fromSettings){
+                    if(!OnboardingPrefManager.getInstance().isAdsAvailable()){
+                        getActivity().finish();
+                    }
+                    onViewPagerAction.onNext();
+                }else if(onboardingType==OnboardingPrefManager.EXISTING_USER_REWARDS_ON_ONBOARDING){
                     BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
                     onViewPagerAction.onNext();
                 }else{
@@ -267,5 +284,9 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     public void setOnboardingType(int onboardingType) {
         this.onboardingType = onboardingType;
+    }
+
+    public void setFromSettings(boolean fromSettings) {
+        this.fromSettings = fromSettings;
     }
 }

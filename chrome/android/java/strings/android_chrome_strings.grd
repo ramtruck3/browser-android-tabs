@@ -709,6 +709,10 @@ CHAR-LIMIT guidelines:
         Search and site suggestions disabled
       </message>
 
+      <message name="IDS_PREFS_WELCOME_TOUR" desc="Title for welcome tour preferences.">
+        Welcome Tour
+      </message>
+
       <!-- Themes preferences -->
       <message name="IDS_PREFS_THEMES" desc="Title for the Themes preferences. [CHAR-LIMIT=32]">
         Themes
@@ -4888,57 +4892,60 @@ content creators you love.
 
       <!-- Onboarding strings -->
 
-      <message name="IDS_SKIP">Skip</message>
+      <message name="IDS_SKIP" desc="Text for skip button in onboarding">Skip</message>
 
-      <message name="IDS_SEARCH_ENGINE_ONBOARDING">Search engine onboarding</message>
-      <message name="IDS_TROUBLESHOOTING_ONBOARDING">Search engine onboarding</message>
+      <message name="IDS_SEARCH_ENGINE_ONBOARDING" desc="Text for search engine page for onboarding">Search engine onboarding</message>
+      <message name="IDS_TROUBLESHOOTING_ONBOARDING" desc="Text for trouble shooting page for onboarding">Troubleshooting onboarding</message>
 
-      <message name="IDS_WELCOME_TO_BRAVE_BROWSER">Welcome to Brave Browser</message>
-      <message name="IDS_SELECT_YOUR_DEFAULT_SEARCH_ENGINE">Select your default search engine</message>
+      <message name="IDS_WELCOME_TO_BRAVE_BROWSER" desc="Title for search engine page for onboarding">Welcome to Brave Browser</message>
+      <message name="IDS_SELECT_YOUR_DEFAULT_SEARCH_ENGINE" desc="Text for search engine page for onboarding">Select your default search engine</message>
       
-      <message name="IDS_DUCKDUCKGO">DuckDuckGo</message>
-      <message name="IDS_DUCKDUCKGO_LIGHT">DuckDuckGo Lite</message>
-      <message name="IDS_YANDEX">Yandex</message>
-      <message name="IDS_GOOGLE">Google</message>
-      <message name="IDS_QWANT">Qwant</message>
-      <message name="IDS_BING">Bing!</message>
-      <message name="IDS_START_PAGE">StartPage</message>
+      <message name="IDS_DUCKDUCKGO" desc="Text for duckduckgo search engine">DuckDuckGo</message>
+      <message name="IDS_DUCKDUCKGO_LITE" desc="Text for duckduckgo lite search engine">DuckDuckGo Lite</message>
+      <message name="IDS_YANDEX" desc="Text for yendex search engine">Yandex</message>
+      <message name="IDS_GOOGLE" desc="Text for google search engine">Google</message>
+      <message name="IDS_QWANT" desc="Text for Qwant search engine">Qwant</message>
+      <message name="IDS_BING" desc="Text for Bing search engine">Bing!</message>
+      <message name="IDS_START_PAGE" desc="Text for StartPage search engine">StartPage</message>
 
-      <message name="IDS_SEARCH_GOOGLE">search_google</message>
-      <message name="IDS_SEARCH_DUCKDUCKGO">search_duckduckgo</message>
-      <message name="IDS_SEARCH_DUCKDUCKGO_LIGHT">search_duckduckgo_light</message>
-      <message name="IDS_SEARCH_YANDEX">search_yandex</message>
-      <message name="IDS_SEARCH_QWANT">search_qwant</message>
-      <message name="IDS_SEARCH_BING">search_bing</message>
-      <message name="IDS_SEARCH_START_PAGE">search_start_page</message>
+      <message name="IDS_SEARCH_GOOGLE" desc="id for google search engine">search_google</message>
+      <message name="IDS_SEARCH_DUCKDUCKGO" desc="id for duckduckgo search engine">search_duckduckgo</message>
+      <message name="IDS_SEARCH_DUCKDUCKGO_LITE" desc="id for duckduckgo lite search engine">search_duckduckgo_lite</message>
+      <message name="IDS_SEARCH_YANDEX" desc="Text for yendex search engine">search_yandex</message>
+      <message name="IDS_SEARCH_QWANT" desc="Text for qwant search engine">search_qwant</message>
+      <message name="IDS_SEARCH_BING" desc="Text for bing search engine">search_bing</message>
+      <message name="IDS_SEARCH_START_PAGE" desc="Text for startpage search engine">search_start_page</message>
 
-      <message name="IDS_BLOCK">Block</message>
-      <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TITLE">Brave Shields</message>
-      <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TEXT">privacy-invading ads and trackers so you can browse without being followed around the web.</message>
+      <message name="IDS_BLOCK" desc="Partial Text for brave shield page">Block</message>
+      <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TITLE" desc="Title for brave shield page">Brave Shields</message>
+      <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TEXT" desc="Text for brave shield page">privacy-invading ads and trackers so you can browse without being followed around the web.</message>
 
-      <message name="IDS_EARN_TOKENS">Earn tokens</message>
-      <message name="IDS_BRAVE_REWARDS_ONBOARDING_TITLE">Brave Rewards</message>
-      <message name="IDS_BRAVE_REWARDS_ONBOARDING_TEXT">for seeing privacy-respecting ads. Use them to support your favorite sites and creators.</message>
-      <message name="IDS_BRAVE_REWARDS_ONBOARDING_TEXT2">for seeing privacy-respecting ads.</message>
+      <message name="IDS_EARN_TOKENS" desc="Partial Text for brave rewards page">Earn tokens</message>
+      <message name="IDS_BRAVE_REWARDS_ONBOARDING_TITLE" desc="Title for brave rewards page">Brave Rewards</message>
+      <message name="IDS_BRAVE_REWARDS_ONBOARDING_TEXT" desc="Text for brave rewards page">for seeing privacy-respecting ads. Use them to support your favorite sites and creators.</message>
+      <message name="IDS_BRAVE_REWARDS_ONBOARDING_TEXT2" desc="Alternate Text for brave rewards page">for seeing privacy-respecting ads.</message>
 
-      <message name="IDS_TERMS_TITLE">Agree to the Terms to use Brave Rewards</message>
-      <message name="IDS_TERMS_TEXT">I agree to Brave Rewards</message>
-      <message name="IDS_TERMS_OF_SERVICE">Terms of Service</message>
+      <message name="IDS_TERMS_TITLE" desc="Title for terms of service page">Agree to the Terms to use Brave Rewards</message>
+      <message name="IDS_TERMS_TEXT" desc="Text for terms of service page">I agree to Brave Rewards</message>
+      <message name="IDS_TERMS_OF_SERVICE" desc="Text for terms of service">Terms of Service</message>
 
-      <message name="IDS_AGREE">Agree</message>
-      <message name="IDS_JOIN">Join</message>
+      <message name="IDS_AGREE" desc="Text for agree button">Agree</message>
+      <message name="IDS_JOIN" desc="Text for join button">Join</message>
 
-      <message name="IDS_START_BROWSING">Start browsing</message>
-      <message name="IDS_I_DIDNT_SEE">I didn&apos;t see an ad</message>
+      <message name="IDS_START_BROWSING" desc="Text for start browsing button">Start browsing</message>
+      <message name="IDS_I_DIDNT_SEE" desc="Text for i didt see it button">I didn&apos;t see an ad</message>
 
-      <message name="IDS_BRAVE_ADS_ONBOARDING_TITLE">Brave will show your first ad in</message>
-      <message name="IDS_BRAVE_ADS_ONBOARDING_TEXT">To see ads from Brave Rewards, make sure Brave is allowed to show you notifications.</message>
+      <message name="IDS_BRAVE_ADS_ONBOARDING_TITLE" desc="Title for brave ads page">Brave will show your first ad in</message>
+      <message name="IDS_BRAVE_ADS_ONBOARDING_TEXT" desc="Text for brave ads page">To see ads from Brave Rewards, make sure Brave is allowed to show you notifications.</message>
 
-      <message name="IDS_THIS_IS_YOUR_FIRST_AD">This is your first Brave ad. Tap to learn more.</message>
+      <message name="IDS_THIS_IS_YOUR_FIRST_AD" desc="Text brave rewards notification.">This is your first Brave ad. Tap to learn more.</message>
 
-      <message name="IDS_TURN_ON">Turn On</message>
+      <message name="IDS_TURN_ON" desc="Text for turn on button">Turn On</message>
 
-      <message name="IDS_DO_NOT_AGREE">Do not agree</message>
+      <message name="IDS_DO_NOT_AGREE" desc="Text for do not agree button">Do not agree</message>
+
+      <message name="IDS_WELCOME_TOUR_DIALOG_TEXT" desc="Text for welcome tour dialog">Relaunching the Welcome Tour will not affect any system settings.</message>
+      <message name="IDS_FINISH" desc="Text for finish button">Finish</message>
 
     </messages>
   </release>

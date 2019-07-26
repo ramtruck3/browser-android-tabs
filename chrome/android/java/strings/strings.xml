@@ -278,13 +278,13 @@ content creators you love.</string>
     <string name="skip">Skip</string>
 
     <string name="search_engine_onboarding">Search engine onboarding</string>
-    <string name="troubleshooting_onboarding">Search engine onboarding</string>
+    <string name="troubleshooting_onboarding">Troubleshooting onboarding</string>
 
     <string name="welcome_to_brave_browser">Welcome to Brave Browser</string>
     <string name="select_your_default_search_engine">Select your default search engine</string>
     
     <string name="duckduckgo">DuckDuckGo</string>
-    <string name="duckduckgo_light">DuckDuckGo Lite</string>
+    <string name="duckduckgo_lite">DuckDuckGo Lite</string>
     <string name="yandex">Yandex</string>
     <string name="google">Google</string>
     <string name="qwant">Qwant</string>
@@ -319,5 +319,8 @@ content creators you love.</string>
 
     <string name="no_thanks">No thanks</string>
     <string name="do_not_agree">Do not agree</string>
+
+    <string name="welcome_tour_dialog_text">Relaunching the Welcome Tour will not affect any system settings.</string>
+    <string name="finish">Finish</string>
 
 </resources>

@@ -23,33 +23,35 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     private NonSwipeableViewPager viewPager;
     private int onboardingType;
+    private boolean fromSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
 
-
         Intent intent = getIntent();
         if(intent!=null){
             onboardingType = intent.getIntExtra(OnboardingPrefManager.ONBOARDING_TYPE,OnboardingPrefManager.NEW_USER_ONBOARDING);
+            fromSettings = intent.getBooleanExtra(OnboardingPrefManager.FROM_SETTINGS, false);
         }
 
-        OnboardingViewPagerAdapter onboardingViewPagerAdapter = new OnboardingViewPagerAdapter(getFragmentManager(), this, onboardingType);
+        OnboardingViewPagerAdapter onboardingViewPagerAdapter = new OnboardingViewPagerAdapter(getFragmentManager(), this, onboardingType, fromSettings);
         viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(onboardingViewPagerAdapter);
     }
 
     @Override
     public void onSkip() {
-        // OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
 
-        Calendar calender = Calendar.getInstance();
-        calender.setTime(new Date());
-        calender.add(Calendar.DATE, OnboardingPrefManager.getInstance().getPrefOnboardingSkipCount()==0?60:120);
+        if(!fromSettings){
+            Calendar calender = Calendar.getInstance();
+            calender.setTime(new Date());
+            calender.add(Calendar.DATE, OnboardingPrefManager.getInstance().getPrefOnboardingSkipCount()==0?60:120);
 
-        OnboardingPrefManager.getInstance().setPrefNextOnboardingDate(calender.getTimeInMillis());
-        OnboardingPrefManager.getInstance().setPrefOnboardingSkipCount();
+            OnboardingPrefManager.getInstance().setPrefNextOnboardingDate(calender.getTimeInMillis());
+            OnboardingPrefManager.getInstance().setPrefOnboardingSkipCount();
+        }
         finish();
     }
 
@@ -60,11 +62,13 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     @Override
     public void onStartBrowsing() {
-        String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
-        String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
-        TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
+        if(!fromSettings){
+            String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
+            String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
+            TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
 
-        OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
+            OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
+        }
         finish();
     }
 

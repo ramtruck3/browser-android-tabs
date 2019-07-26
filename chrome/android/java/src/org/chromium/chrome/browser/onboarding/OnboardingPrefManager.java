@@ -8,7 +8,6 @@ import android.app.PendingIntent;
 import java.util.Locale;
 import android.app.AlarmManager;
 import java.lang.System;
-import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +33,7 @@ public class OnboardingPrefManager {
     private static final String PREF_NEXT_ONBOARDING_DATE = "next_onboarding_date";
     private static final String PREF_ONBOARDING_SKIP_COUNT = "onboarding_skip_count";
     public static final String ONBOARDING_TYPE = "onboarding_type";
+    public static final String FROM_SETTINGS = "from_settings";
 
     private static OnboardingPrefManager sInstance;
 
@@ -171,27 +171,32 @@ public class OnboardingPrefManager {
                 || locale.toString().equals("en_AU");
     }
 
-    public void showOnboarding(Context context){
+    public void showOnboarding(Context context, boolean fromSettings){
 
         int onboardingType = -1;
 
-        if(shouldShowNewUserOnboarding(context)){
-            onboardingType = NEW_USER_ONBOARDING;
-        }else if(shouldShowExistingUserOnboardingIfRewardsIsSwitchedOff(context)){
-            onboardingType = EXISTING_USER_REWARDS_OFF_ONBOARDING;
-        }else if(shouldShowExistingUserOnboardingIfRewardsIsSwitchedOn(context)){
-            onboardingType = EXISTING_USER_REWARDS_ON_ONBOARDING;
+        if(fromSettings){
+          onboardingType = NEW_USER_ONBOARDING;
+        }else{
+          if(shouldShowNewUserOnboarding(context)){
+              onboardingType = NEW_USER_ONBOARDING;
+          }else if(shouldShowExistingUserOnboardingIfRewardsIsSwitchedOff(context)){
+              onboardingType = EXISTING_USER_REWARDS_OFF_ONBOARDING;
+          }else if(shouldShowExistingUserOnboardingIfRewardsIsSwitchedOn(context)){
+              onboardingType = EXISTING_USER_REWARDS_ON_ONBOARDING;
+          }
         }
 
         if(onboardingType>=0){
           Intent intent = new Intent(context, OnboardingActivity.class);
           intent.putExtra(ONBOARDING_TYPE,onboardingType);
+          intent.putExtra(FROM_SETTINGS,fromSettings);
           context.startActivity(intent);
         }
     }
 
-    public void onboardingNotification(Context context) {
-      if(!isOnboardingNotificationShown()){
+    public void onboardingNotification(Context context, boolean fromSettings) {
+      if(!isOnboardingNotificationShown() || fromSettings){
           AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
           Intent intent = new Intent(context, BraveOnboardingNotification.class);
           am.set(
@@ -199,6 +204,7 @@ public class OnboardingPrefManager {
               System.currentTimeMillis(),
               PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
           );
+
           setOnboardingNotificationShown(true);
       }
     }
@@ -206,7 +212,7 @@ public class OnboardingPrefManager {
     public static Map<String,SearchEngineEnum> searchEngineMap = new HashMap<String, SearchEngineEnum>() {{
         put("Google", SearchEngineEnum.GOOGLE);
         put("DuckDuckGo", SearchEngineEnum.DUCKDUCKGO);
-        put("DuckDuckGo Light", SearchEngineEnum.DUCKDUCKGOLIGHT);
+        put("DuckDuckGo Lite", SearchEngineEnum.DUCKDUCKGOLITE);
         put("Qwant", SearchEngineEnum.QWANT);
         put("Bing", SearchEngineEnum.BING);
         put("StartPage", SearchEngineEnum.STARTPAGE);

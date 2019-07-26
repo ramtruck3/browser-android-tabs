@@ -1725,7 +1725,7 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
           }
 
         if(onboardingActivity == null){
-            OnboardingPrefManager.getInstance().showOnboarding(this);
+            OnboardingPrefManager.getInstance().showOnboarding(this, false);
         }
 
     }

@@ -39,6 +39,8 @@ public class SearchEngineOnboardingFragment extends Fragment{
 
     private OnViewPagerAction onViewPagerAction;
 
+    private boolean fromSettings;
+
     public SearchEngineOnboardingFragment() {
         // Required empty public constructor
     }
@@ -80,6 +82,9 @@ public class SearchEngineOnboardingFragment extends Fragment{
             rdBtn.setText(searchEngineEnum.getTitle());
             rdBtn.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(searchEngineEnum.getIcon()), null, null, null);
             rdBtn.setCompoundDrawablePadding(dpToPx(getActivity(),16));
+            if(fromSettings){
+                rdBtn.setClickable(false);
+            }
             radioGroup.addView(rdBtn);
         }
 
@@ -96,6 +101,10 @@ public class SearchEngineOnboardingFragment extends Fragment{
 
     public void setOnViewPagerAction(OnViewPagerAction onViewPagerAction) {
         this.onViewPagerAction = onViewPagerAction;
+    }
+
+    public void setFromSettings(boolean fromSettings) {
+        this.fromSettings = fromSettings;
     }
 
     private void initializeViews(View root) {

@@ -41,6 +41,8 @@ public class BraveAdsOnboardingFragment extends Fragment {
 
     private Button btnStartBrowsing, btnDidntSeeAd;
 
+    private boolean fromSettings;
+
     public BraveAdsOnboardingFragment() {
         // Required empty public constructor
     }
@@ -104,6 +106,10 @@ public class BraveAdsOnboardingFragment extends Fragment {
         this.onViewPagerAction = onViewPagerAction;
     }
 
+    public void setFromSettings(boolean fromSettings) {
+        this.fromSettings = fromSettings;
+    }
+
     private void start_countdown() {
 
         if (countDownTimer != null)
@@ -124,7 +130,7 @@ public class BraveAdsOnboardingFragment extends Fragment {
                 setProgress(progress, endTime);
                 tvTimer.setText("0");
 
-                OnboardingPrefManager.getInstance().onboardingNotification(getActivity());
+                OnboardingPrefManager.getInstance().onboardingNotification(getActivity(), fromSettings);
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

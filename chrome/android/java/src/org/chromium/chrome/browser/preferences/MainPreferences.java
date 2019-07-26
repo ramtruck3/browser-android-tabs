@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.VisibleForTesting;
@@ -30,6 +32,7 @@ import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.browser.signin.SigninManager;
 import org.chromium.chrome.browser.sync.ProfileSyncService;
 import org.chromium.chrome.browser.util.FeatureUtilities;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,6 +54,7 @@ public class MainPreferences extends PreferenceFragment
     public static final String PREF_UI_THEME = "ui_theme";
     //public static final String PREF_DATA_REDUCTION = "data_reduction";
     public static final String PREF_NOTIFICATIONS = "notifications";
+    public static final String PREF_WELCOME_TOUR = "welcome_tour";
     public static final String PREF_LANGUAGES = "languages";
     public static final String PREF_DOWNLOADS = "downloads";
     public static final String PREF_DEVELOPER = "developer";
@@ -181,6 +185,22 @@ public class MainPreferences extends PreferenceFragment
                         AutofillAssistantPreferences.PREF_AUTOFILL_ASSISTANT_SWITCH)) {
             getPreferenceScreen().removePreference(findPreference(PREF_AUTOFILL_ASSISTANT));
         }*/
+
+        Preference welcomeTour = findPreference(PREF_WELCOME_TOUR);
+        welcomeTour.setOnPreferenceClickListener(preference -> {
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity(), R.style.BraveDialogTheme)
+            .setTitle(R.string.welcome_tour_dialog_text)
+            .setPositiveButton(R.string.continue_button, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    OnboardingPrefManager.getInstance().showOnboarding(getActivity(), true);
+                }
+            })
+            .setNegativeButton(android.R.string.cancel, null)
+            .create();
+            alertDialog.show();
+            return true;
+        });
     }
 
     /**
