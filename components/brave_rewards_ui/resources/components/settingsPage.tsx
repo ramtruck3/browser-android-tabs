@@ -91,7 +91,7 @@ class SettingsPage extends React.Component<Props, State> {
       this.props.rewardsData.enabledMain
     ) {
       this.actions.getContributeList()
-      this.actions.getWalletProperties()
+      this.actions.getBalance()
     }
 
     if (
@@ -155,9 +155,9 @@ class SettingsPage extends React.Component<Props, State> {
   }
 
   render () {
-    const { enabledMain } = this.props.rewardsData
-    const { balance, rates } = this.props.rewardsData.walletInfo
-    const convertedBalance = utils.convertBalance((balance || 0).toString(), rates)
+    const { enabledMain, balance } = this.props.rewardsData
+    const { total } = balance
+    const convertedBalance = utils.convertBalance((total || 0).toString(), balance.rates)
 
     return (
       <SettingsPageMobile>
@@ -187,7 +187,7 @@ class SettingsPage extends React.Component<Props, State> {
         }
         <WalletInfoHeader
           onClick={this.onToggleWallet}
-          balance={balance.toString()}
+          balance={total.toString()}
           id={'mobile-wallet'}
           converted={`${convertedBalance} USD`}
         />

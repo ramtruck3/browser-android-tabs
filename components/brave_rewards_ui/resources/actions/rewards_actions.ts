@@ -174,3 +174,10 @@ export const getExcludedSites = () => action(types.GET_EXCLUDED_SITES)
 export const onExcludedList = (list: Rewards.ExcludedPublisher[]) => action(types.ON_EXCLUDED_LIST, {
   list
 })
+
+export const getBalance = () => action(types.GET_BALANCE)
+
+export const onBalance = (status: number, balance: Rewards.Balance) => action(types.ON_BALANCE, {
+  status,
+  balance
+})
