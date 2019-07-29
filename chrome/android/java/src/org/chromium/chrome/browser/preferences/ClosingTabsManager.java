@@ -2,13 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package org.chromium.chrome.browser.partnercustomizations;
+package org.chromium.chrome.browser.preferences;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.browser.ntp.NewTabPage;
+import org.chromium.chrome.browser.partnercustomizations.HomepageManager;
 
 /**
  * Provides information regarding Closing all tabs closes brave enabled states and URI.
@@ -62,7 +63,7 @@ public class ClosingTabsManager {
     }
 
     /**
-     * Sets the user preference for whether the homepage is enabled.
+     * Sets the user preference for whether the Closing all tabs closes brave is enabled.
      */
     public void setPrefClosingAllTabsClosesBraveEnabled(boolean enabled) {
         SharedPreferences.Editor sharedPreferencesEditor = mSharedPreferences.edit();

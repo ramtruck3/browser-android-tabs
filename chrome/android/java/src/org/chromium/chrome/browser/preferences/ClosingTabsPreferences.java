@@ -5,7 +5,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 
-import org.chromium.chrome.browser.partnercustomizations.ClosingTabsManager;
+import org.chromium.chrome.browser.preferences.ClosingTabsManager;
 
 import org.chromium.base.ContextUtils;
 

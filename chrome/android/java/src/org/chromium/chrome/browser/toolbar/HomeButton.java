@@ -154,12 +154,14 @@ public class HomeButton extends ChromeImageButton
         final boolean isHomepageEnabled = HomepageManager.isHomepageEnabled();
 
         if(!isHomepageEnabled) {
+            setContentDescription(context.getResources().getString(R.string.accessibility_toolbar_btn_new_tab));
             setImageDrawable(ContextCompat.getDrawable(context, R.drawable.new_tab_icon));
             mLabel.setText(R.string.accessibility_toolbar_btn_new_tab);
         } else {
             final int homeButtonIcon = FeatureUtilities.isNewTabPageButtonEnabled()
                 ? R.drawable.ic_home
                 : R.drawable.btn_toolbar_home;
+            setContentDescription(context.getResources().getString(R.string.accessibility_toolbar_btn_home));
             setImageDrawable(ContextCompat.getDrawable(context, homeButtonIcon));
             mLabel.setText(R.string.accessibility_toolbar_btn_home);
         }

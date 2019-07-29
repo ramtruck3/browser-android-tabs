@@ -26,6 +26,7 @@ import org.chromium.chrome.browser.preferences.PrefServiceBridge;
 import org.chromium.chrome.browser.preferences.autofill_assistant.AutofillAssistantPreferences;
 import org.chromium.chrome.browser.preferences.datareduction.DataReductionPreferenceFragment;
 import org.chromium.chrome.browser.preferences.developer.DeveloperPreferences;
+import org.chromium.chrome.browser.preferences.ClosingTabsManager;
 import org.chromium.chrome.browser.search_engines.TemplateUrl;
 import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.browser.signin.SigninManager;
@@ -225,9 +226,7 @@ public class MainPreferences extends PreferenceFragment
         }
 
         Preference closingTabsPref = addPreferenceIfAbsent(PREF_CLOSING_TABS);
-
-        SharedPreferences mSharedPreferences = ContextUtils.getAppSharedPreferences();
-        setOnOffSummary(closingTabsPref, mSharedPreferences.getBoolean("closing_tabs_switch", false));
+        setOnOffSummary(closingTabsPref, ClosingTabsManager.isClosingAllTabsClosesBraveEnabled());
 
 
         if (!ChromeFeatureList.isEnabled(ChromeFeatureList.UNIFIED_CONSENT)
