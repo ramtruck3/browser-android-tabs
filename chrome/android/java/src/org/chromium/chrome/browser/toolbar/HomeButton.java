@@ -52,8 +52,12 @@ public class HomeButton extends ChromeImageButton
     /** The wrapper View that contains the home button and the label. */
     private View mWrapper;
 
+    private Context context;
+
     public HomeButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        this.context = context;
 
         final int homeButtonIcon = FeatureUtilities.isNewTabPageButtonEnabled()
                 ? R.drawable.ic_home
@@ -147,11 +151,22 @@ public class HomeButton extends ChromeImageButton
      * somewhere other than the NTP.
      */
     private void updateButtonEnabledState() {
-        // New tab page button takes precedence over homepage.
-        final boolean isHomepageEnabled = !FeatureUtilities.isNewTabPageButtonEnabled()
-                && HomepageManager.isHomepageEnabled();
+        final boolean isHomepageEnabled = HomepageManager.isHomepageEnabled();
+
+        if(!isHomepageEnabled) {
+            setImageDrawable(ContextCompat.getDrawable(context, R.drawable.new_tab_icon));
+            mLabel.setText(R.string.accessibility_toolbar_btn_new_tab);
+        } else {
+            final int homeButtonIcon = FeatureUtilities.isNewTabPageButtonEnabled()
+                ? R.drawable.ic_home
+                : R.drawable.btn_toolbar_home;
+            setImageDrawable(ContextCompat.getDrawable(context, homeButtonIcon));
+            mLabel.setText(R.string.accessibility_toolbar_btn_home);
+        }
+
         final boolean isEnabled = !isActiveTabNTP()
                 || (isHomepageEnabled && !NewTabPage.isNTPUrl(HomepageManager.getHomepageUri()));
+
         setEnabled(isEnabled);
         if (mWrapper != null) mWrapper.setEnabled(isEnabled);
         if (mLabel != null) mLabel.setEnabled(isEnabled);
