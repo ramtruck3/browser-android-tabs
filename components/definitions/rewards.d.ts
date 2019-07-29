@@ -19,6 +19,7 @@ declare namespace Rewards {
   export interface State {
     addresses?: Record<AddressesType, Address>
     adsData: AdsData
+    balance: Balance
     currentGrant?: Grant
     createdTimestamp: number | null
     enabledMain: boolean
@@ -84,11 +85,8 @@ declare namespace Rewards {
   }
 
   export interface WalletProperties {
-    balance: number
     choices: number[]
-    probi: string
     range?: number[]
-    rates?: Record<string, number>
     grants?: Grant[]
   }
 
@@ -158,5 +156,11 @@ declare namespace Rewards {
     name: string
     provider: string
     favIcon: string
+  }
+
+  export interface Balance {
+    total: number
+    rates: Record<string, number>
+    wallets: Record<string, number>
   }
 }

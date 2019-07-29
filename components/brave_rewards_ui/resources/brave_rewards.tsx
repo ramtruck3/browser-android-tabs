@@ -154,6 +154,17 @@ window.cr.define('brave_rewards', function () {
     getActions().onTransactionHistoryChanged()
   }
 
+  function balance (properties: {status: number, balance: Rewards.Balance}) {
+    getActions().onBalance(properties.status, properties.balance)
+  }
+
+  function reconcileComplete (properties: {category: number, result: number}) {
+    chrome.send('brave_rewards.getReconcileStamp')
+    getActions().getContributeList()
+    getActions().getBalance()
+    getActions().getWalletProperties()
+  }
+
   return {
     initialize,
     walletCreated,
@@ -181,7 +192,9 @@ window.cr.define('brave_rewards', function () {
     transactionHistory,
     transactionHistoryChanged,
     excludedList,
-    excludedSiteChanged
+    excludedSiteChanged,
+    balance,
+    reconcileComplete
   }
 })
 if (document.readyState === "complete"

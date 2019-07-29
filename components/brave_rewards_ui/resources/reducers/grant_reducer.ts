@@ -202,6 +202,7 @@ const grantReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State, 
           }
 
           chrome.send('brave_rewards.getWalletProperties', [])
+          chrome.send('brave_rewards.fetchBalance', [])
           break
         case 6:
           newGrant.status = 'wrongPosition'

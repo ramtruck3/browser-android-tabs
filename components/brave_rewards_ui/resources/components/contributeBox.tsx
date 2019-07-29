@@ -190,10 +190,11 @@ class ContributeBox extends React.Component<Props, State> {
       reconcileStamp,
       autoContributeList,
       enabledContribute,
-      excludedList
+      excludedList,
+      balance
     } = this.props.rewardsData
     const prefix = this.state.allSitesShown ? 'Hide all' : 'Show all'
-    const monthlyList: MonthlyChoice[] = utils.generateContributionMonthly(walletInfo.choices, walletInfo.rates)
+    const monthlyList: MonthlyChoice[] = utils.generateContributionMonthly(walletInfo.choices, balance.rates)
     const contributeRows = this.getContributeRows(autoContributeList)
     const shownRows = this.state.allSitesShown ? contributeRows : contributeRows.slice(0, 5)
     const numRows = contributeRows && contributeRows.length

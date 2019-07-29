@@ -46,8 +46,8 @@ class PageWallet extends React.Component<Props, State> {
   }
 
   getConversion = () => {
-    const walletInfo = this.props.rewardsData.walletInfo
-    return utils.convertBalance(walletInfo.balance.toString(), walletInfo.rates)
+    const balance = this.props.rewardsData.balance
+    return utils.convertBalance(balance.total.toString(), balance.rates)
   }
 
   getGrants = () => {
@@ -79,8 +79,7 @@ class PageWallet extends React.Component<Props, State> {
   }
 
   getWalletSummary = () => {
-    const { walletInfo, reports } = this.props.rewardsData
-    const { rates } = walletInfo
+    const { balance, reports } = this.props.rewardsData
 
     let props = {}
 
@@ -95,7 +94,7 @@ class PageWallet extends React.Component<Props, State> {
           const tokens = utils.convertProbiToFixed(item)
           props[key] = {
             tokens,
-            converted: utils.convertBalance(tokens, rates)
+            converted: utils.convertBalance(tokens, balance.rates)
           }
         }
       }
@@ -111,12 +110,12 @@ class PageWallet extends React.Component<Props, State> {
     const {
       enabledMain,
       connectedWallet,
-      walletInfo,
+      balance,
       ui,
       pendingContributionTotal
     } = this.props.rewardsData
     const { emptyWallet } = ui
-    const { balance } = walletInfo
+    const { total } = balance
     const pendingTotal = parseFloat((pendingContributionTotal || 0).toFixed(1))
 
     if (!visible) {
@@ -131,7 +130,7 @@ class PageWallet extends React.Component<Props, State> {
           </StyledWalletClose>
           <StyledWalletWrapper>
             <WalletWrapper
-              balance={balance.toFixed(1)}
+              balance={total.toFixed(1)}
               converted={utils.formatConverted(this.getConversion())}
               actions={[]}
               compact={true}
