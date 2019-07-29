@@ -110,7 +110,7 @@ class AdsBox extends React.Component<Props, {}> {
       boxPropsExtra.alertContent = safetyNetFailed
         ? <>{getLocale('adsNotSupportedDevice')}</>
         : !adsIsSupported
-          ? <>{getLocale('adsNotSupportedRegion')}</>
+          ? <>{getLocale('adsNotSupported')}</>
           : <>This version of Brave does not support Ads.</>
     }
     if (!isDisabled && !boxPropsExtra.checked) {
