@@ -398,7 +398,6 @@ namespace blockers {
         bool cancel;
         bool saved_from_exception;
         std::string redirect;
-        // TODO (samartnik): check if it properly works
         if (adblock_parser_->matches(url, host, tab_host, is_third_party, string_resource_type,
                 &cancel, &saved_from_exception, &redirect)) {
             return true;
