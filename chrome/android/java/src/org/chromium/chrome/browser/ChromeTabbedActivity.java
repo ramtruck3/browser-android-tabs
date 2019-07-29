@@ -158,7 +158,6 @@ import org.chromium.chrome.browser.toolbar.top.ToolbarLayout;
 import org.chromium.chrome.browser.util.AccessibilityUtil;
 import org.chromium.chrome.browser.util.FeatureUtilities;
 import org.chromium.chrome.browser.util.IntentUtils;
-import org.chromium.chrome.browser.util.PackageUtils;
 import org.chromium.chrome.browser.vr.VrModuleProvider;
 import org.chromium.chrome.browser.widget.OverviewListLayout;
 import org.chromium.chrome.browser.widget.emptybackground.EmptyBackgroundViewWrapper;
@@ -1615,7 +1614,6 @@ public class ChromeTabbedActivity
         // and triggers initialization of the native library. At the moment it seems safe to assume
         // that uninitialized native library is an indication of an application start that is
         // followed by navigation immediately without user input.
-
         if (!LibraryLoader.getInstance().isInitialized()) {
             getActivityTabStartupMetricsTracker().trackStartupMetrics(STARTUP_UMA_HISTOGRAM_SUFFIX);
         }

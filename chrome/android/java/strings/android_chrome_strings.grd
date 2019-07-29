@@ -4908,14 +4908,6 @@ content creators you love.
       <message name="IDS_BING" desc="Text for Bing search engine">Bing!</message>
       <message name="IDS_START_PAGE" desc="Text for StartPage search engine">StartPage</message>
 
-      <message name="IDS_SEARCH_GOOGLE" desc="id for google search engine">search_google</message>
-      <message name="IDS_SEARCH_DUCKDUCKGO" desc="id for duckduckgo search engine">search_duckduckgo</message>
-      <message name="IDS_SEARCH_DUCKDUCKGO_LITE" desc="id for duckduckgo lite search engine">search_duckduckgo_lite</message>
-      <message name="IDS_SEARCH_YANDEX" desc="Text for yendex search engine">search_yandex</message>
-      <message name="IDS_SEARCH_QWANT" desc="Text for qwant search engine">search_qwant</message>
-      <message name="IDS_SEARCH_BING" desc="Text for bing search engine">search_bing</message>
-      <message name="IDS_SEARCH_START_PAGE" desc="Text for startpage search engine">search_start_page</message>
-
       <message name="IDS_BLOCK" desc="Partial Text for brave shield page">Block</message>
       <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TITLE" desc="Title for brave shield page">Brave Shields</message>
       <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TEXT" desc="Text for brave shield page">privacy-invading ads and trackers so you can browse without being followed around the web.</message>

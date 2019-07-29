@@ -31,10 +31,10 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
 
     private static final int BRAVE_ONBOARDING_NOTIFICATION_ID = -2;
     private static String BRAVE_ONBOARDING_NOTIFICATION_TAG = "brave_onboarding_notification_tag";
-    private static String BRAVE_ONBOARDING_ORIGIN = "https://www.brave.com/my-first-ad/";
+    private static String BRAVE_ONBOARDING_ORIGIN = "https://brave.com/my-first-ad/";
     private static final String DEEP_LINK = "deep_link";
 
-    private void showOnboardingNotification(Context context) {
+    public static void showOnboardingNotification(Context context) {
         NotificationManagerProxyImpl notificationManager = new NotificationManagerProxyImpl(context);
 
         NotificationBuilderBase notificationBuilder =
@@ -56,7 +56,7 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
         notificationManager.notify(notification);
     }
 
-    private PendingIntentProvider getDeepLinkIntent(Context context) {
+    private static PendingIntentProvider getDeepLinkIntent(Context context) {
         Intent intent = new Intent(context, BraveOnboardingNotification.class);
         intent.setAction(DEEP_LINK);
         return new PendingIntentProvider(PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT), 0);

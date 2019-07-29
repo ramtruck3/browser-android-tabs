@@ -3,6 +3,7 @@ package org.chromium.chrome.browser.onboarding;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.content.Context;
 
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
@@ -13,8 +14,14 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
     private final int onboardingType;
     private final boolean fromSettings;
 
-    public OnboardingViewPagerAdapter(FragmentManager fm, OnViewPagerAction onViewPagerAction, int onboardingType, boolean fromSettings) {
+    private final Context context;
+
+    private static final int ONBOARDING_WITH_5_PAGES = 5;
+    private static final int ONBOARDING_WITH_3_PAGES = 3;
+
+    public OnboardingViewPagerAdapter(Context context,FragmentManager fm, OnViewPagerAction onViewPagerAction, int onboardingType, boolean fromSettings) {
         super(fm);
+        this.context = context;
         this.onViewPagerAction = onViewPagerAction;
         this.onboardingType = onboardingType;
         this.fromSettings=fromSettings;
@@ -36,10 +43,10 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING && OnboardingPrefManager.getInstance().isAdsAvailable()){
-            return 5;
+        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING && OnboardingPrefManager.getInstance().isAdsAvailable(context)){
+            return ONBOARDING_WITH_5_PAGES;
         }else{
-            return 3;
+            return ONBOARDING_WITH_3_PAGES;
         }
     }
 
@@ -133,5 +140,4 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
                 return null;
         }
     }
-
 }

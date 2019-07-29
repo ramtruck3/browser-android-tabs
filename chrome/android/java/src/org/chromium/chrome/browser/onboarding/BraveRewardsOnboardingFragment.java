@@ -40,10 +40,8 @@ import org.chromium.chrome.browser.util.PackageUtils;
 import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.customtabs.CustomTabActivity;
+import org.chromium.chrome.browser.BraveRewardsHelper;
 import org.chromium.chrome.R;
-
-import static org.chromium.chrome.browser.util.AnimationUtil.fadeInView;
-import static org.chromium.chrome.browser.util.AnimationUtil.fadeOutView;
 
 public class BraveRewardsOnboardingFragment extends Fragment implements View.OnTouchListener {
 
@@ -66,6 +64,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private boolean fromSettings;
 
+    private final int SPAN_START_INDEX = 24;
+
     public BraveRewardsOnboardingFragment() {
         // Required empty public constructor
     }
@@ -76,7 +76,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                              Bundle savedInstanceState) {
 
         isAgree=false;
-
+ 
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_brave_rewards_onboarding, container, false);
 
@@ -118,7 +118,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
 
         if(fromSettings){
-            if(!OnboardingPrefManager.getInstance().isAdsAvailable())
+            if(!OnboardingPrefManager.getInstance().isAdsAvailable(getActivity()))
                 btnNext.setText(getResources().getString(R.string.finish));
             else
                 btnNext.setText(getResources().getString(R.string.next));
@@ -140,7 +140,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
             tvText.setText(textToInsert);
 
             btnNext.setText(getResources().getString(R.string.turn_on));
-        }else{
+        } else {
             String braveRewardsText = "<b>" + getResources().getString(R.string.earn_tokens) + "</b> " + getResources().getString(R.string.brave_rewards_onboarding_text);
             textToInsert = BraveRewardsHelper.spannedFromHtmlString(braveRewardsText);
             tvText.setText(textToInsert);
@@ -162,10 +162,10 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
             }
         };
 
-        ss.setSpan(clickableSpan, 24, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan, SPAN_START_INDEX, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         ForegroundColorSpan foregroundSpan = new ForegroundColorSpan(getResources().getColor(R.color.onboarding_orange));
-        ss.setSpan(foregroundSpan, 24, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(foregroundSpan, SPAN_START_INDEX, ss.length()-1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvAgree.setMovementMethod(LinkMovementMethod.getInstance());
         tvAgree.setText(ss);
 
@@ -190,9 +190,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     onViewPagerAction.onSkip();
                 }else{
                     if (isAgree) {
-                    fadeOutView(termAndAgreeLayout);
-                    fadeOutView(tvTitle);
-                    fadeOutView(tvText);
+                    termAndAgreeLayout.setVisibility(View.GONE);
 
                     chkAgreeTerms.setChecked(false);
 
@@ -203,8 +201,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
                     tvTitle.setText(getResources().getString(R.string.brave_rewards_onboarding_title));
                     tvText.setText(textToInsert);
-                    fadeInView(tvTitle);
-                    fadeInView(tvText);
+                    tvText.setVisibility(View.VISIBLE);
 
                     bgImage.setVisibility(View.VISIBLE);
 
@@ -220,9 +217,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if(fromSettings){
-                    if(!OnboardingPrefManager.getInstance().isAdsAvailable()){
+                    if(!OnboardingPrefManager.getInstance().isAdsAvailable(getActivity())){
                         getActivity().finish();
                     }
                     onViewPagerAction.onNext();
@@ -231,15 +227,15 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                     onViewPagerAction.onNext();
                 }else{
                     if (!isAgree) {
-                    fadeOutView(tvTitle);
                     tvText.setVisibility(View.GONE);
 
                     btnSkip.setText(getResources().getString(R.string.do_not_agree));
                     btnNext.setText(getResources().getString(R.string.agree));
 
+                    BraveRewardsHelper.crossfade(null, tvTitle, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
+                    BraveRewardsHelper.crossfade(null, termAndAgreeLayout, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
+
                     tvTitle.setText(getResources().getString(R.string.terms_title));
-                    fadeInView(tvTitle);
-                    fadeInView(termAndAgreeLayout);
 
                     bgImage.setVisibility(View.VISIBLE);
                     termAndAgreeLayout.setVisibility(View.VISIBLE);
@@ -256,10 +252,13 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                             chkAgreeTerms.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.shake));
                         } else {
                             BraveRewardsNativeWorker braveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();
+                            // braveRewardsNativeWorker.SetRewardsMainEnabled(true);
+                            // braveRewardsNativeWorker.CreateWallet();
                             braveRewardsNativeWorker.GetRewardsMainEnabled();
                             braveRewardsNativeWorker.CreateWallet();
+                            BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
 
-                            if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
+                            if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable(getActivity())) {
                                 String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
                                 String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
                                 TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);

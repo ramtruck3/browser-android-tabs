@@ -25,6 +25,9 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
     private int onboardingType;
     private boolean fromSettings;
 
+    private static final int DAYS_60 = 60;
+    private static final int DAYS_120 = 120;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
             fromSettings = intent.getBooleanExtra(OnboardingPrefManager.FROM_SETTINGS, false);
         }
 
-        OnboardingViewPagerAdapter onboardingViewPagerAdapter = new OnboardingViewPagerAdapter(getFragmentManager(), this, onboardingType, fromSettings);
+        OnboardingViewPagerAdapter onboardingViewPagerAdapter = new OnboardingViewPagerAdapter(this, getFragmentManager(), this, onboardingType, fromSettings);
         viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(onboardingViewPagerAdapter);
     }
@@ -47,7 +50,7 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
         if(!fromSettings){
             Calendar calender = Calendar.getInstance();
             calender.setTime(new Date());
-            calender.add(Calendar.DATE, OnboardingPrefManager.getInstance().getPrefOnboardingSkipCount()==0?60:120);
+            calender.add(Calendar.DATE, OnboardingPrefManager.getInstance().getPrefOnboardingSkipCount()==0?DAYS_60:DAYS_120);
 
             OnboardingPrefManager.getInstance().setPrefNextOnboardingDate(calender.getTimeInMillis());
             OnboardingPrefManager.getInstance().setPrefOnboardingSkipCount();

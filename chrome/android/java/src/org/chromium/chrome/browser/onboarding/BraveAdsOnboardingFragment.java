@@ -19,11 +19,8 @@ import android.widget.TextView;
 
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
-import org.chromium.chrome.browser.ChromeTabbedActivity;
+import org.chromium.chrome.browser.BraveRewardsHelper;
 import org.chromium.chrome.R;
-
-import static org.chromium.chrome.browser.util.AnimationUtil.fadeInView;
-import static org.chromium.chrome.browser.util.AnimationUtil.fadeOutView;
 
 public class BraveAdsOnboardingFragment extends Fragment {
 
@@ -68,7 +65,7 @@ public class BraveAdsOnboardingFragment extends Fragment {
             countDownLayout.setVisibility(View.VISIBLE);
             tvTitle.setVisibility(View.VISIBLE);
             actionLayout.setVisibility(View.GONE);
-            start_countdown();
+            startCountdown();
         }
     }
 
@@ -110,7 +107,7 @@ public class BraveAdsOnboardingFragment extends Fragment {
         this.fromSettings = fromSettings;
     }
 
-    private void start_countdown() {
+    private void startCountdown() {
 
         if (countDownTimer != null)
             countDownTimer.cancel();
@@ -135,9 +132,8 @@ public class BraveAdsOnboardingFragment extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        fadeOutView(countDownLayout);
-
-                        fadeInView(actionLayout);
+                        BraveRewardsHelper.crossfade(countDownLayout, null, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
+                        BraveRewardsHelper.crossfade(null, actionLayout, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
                     }
                 }, 1000);
             }

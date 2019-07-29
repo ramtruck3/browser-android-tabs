@@ -11,6 +11,8 @@ import java.lang.System;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.Arrays;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.browser.BraveRewardsPanelPopup;
@@ -46,6 +48,18 @@ public class OnboardingPrefManager {
     public static TemplateUrl selectedSearchEngine = TemplateUrlService.getInstance().getDefaultSearchEngineTemplateUrl();
 
     private static boolean isOnboardingNotificationShown;
+
+    private static final List<String> adsAvailableRegions = Arrays.asList("en_US","en_CA","en_NZ","en_IE","en_AU","fr_CA","fr_FR","en_GB","de_DE");
+
+    private static final List<String> newAdsAvailableRegions = Arrays.asList("en_NZ","en_IE","en_AU");
+
+    private static final String GOOGLE = "Google";
+    private static final String DUCKDUCKGO = "DuckDuckGo";
+    private static final String DUCKDUCKGOLITE = "DuckDuckGo Lite";
+    private static final String QWANT = "Qwant";
+    private static final String BING = "Bing";
+    private static final String STARTPAGE = "StartPage";
+    private static final String YANDEX = "Yandex";
 
     private OnboardingPrefManager() {
         mSharedPreferences = ContextUtils.getAppSharedPreferences();
@@ -129,7 +143,7 @@ public class OnboardingPrefManager {
         boolean shouldShow =
           getPrefOnboardingEnabled()
           && showOnboardingForSkip()
-          && isAdsAvailableNewLocale()
+          && isAdsAvailableNewLocale(context)
           && !PackageUtils.isFirstInstall(context)
           && !BraveRewardsPanelPopup.isBraveRewardsEnabled()
           && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
@@ -142,7 +156,7 @@ public class OnboardingPrefManager {
         boolean shouldShow =
           getPrefOnboardingEnabled()
           && showOnboardingForSkip()
-          && isAdsAvailableNewLocale()
+          && isAdsAvailableNewLocale(context)
           && !PackageUtils.isFirstInstall(context)
           && BraveRewardsPanelPopup.isBraveRewardsEnabled()
           && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
@@ -151,27 +165,17 @@ public class OnboardingPrefManager {
         return shouldShow;
     }
 
-    public boolean isAdsAvailable() {
-        Locale locale = Locale.getDefault();
-        return locale.toString().equals("en_US")
-                || locale.toString().equals("en_CA")
-                || locale.toString().equals("en_NZ")
-                || locale.toString().equals("en_IE")
-                || locale.toString().equals("en_AU")
-                || locale.toString().equals("fr_CA")
-                || locale.toString().equals("fr_FR")
-                || locale.toString().equals("en_GB")
-                || locale.toString().equals("de_DE");
+    public boolean isAdsAvailable(Context context) {
+        Locale locale = context.getResources().getConfiguration().locale;
+      return adsAvailableRegions.contains(locale.toString());
     }
 
-    public boolean isAdsAvailableNewLocale(){
-      Locale locale = Locale.getDefault();
-        return locale.toString().equals("en_NZ")
-                || locale.toString().equals("en_IE")
-                || locale.toString().equals("en_AU");
+    public boolean isAdsAvailableNewLocale(Context context){
+      Locale locale = context.getResources().getConfiguration().locale;
+      return newAdsAvailableRegions.contains(locale.toString());
     }
 
-    public void showOnboarding(Context context, boolean fromSettings){
+    public void showOnboarding(Context context, boolean fromSettings) {
 
         int onboardingType = -1;
 
@@ -197,26 +201,20 @@ public class OnboardingPrefManager {
 
     public void onboardingNotification(Context context, boolean fromSettings) {
       if(!isOnboardingNotificationShown() || fromSettings){
-          AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-          Intent intent = new Intent(context, BraveOnboardingNotification.class);
-          am.set(
-              AlarmManager.RTC_WAKEUP,
-              System.currentTimeMillis(),
-              PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-          );
+          BraveOnboardingNotification.showOnboardingNotification(context);
 
           setOnboardingNotificationShown(true);
       }
     }
 
     public static Map<String,SearchEngineEnum> searchEngineMap = new HashMap<String, SearchEngineEnum>() {{
-        put("Google", SearchEngineEnum.GOOGLE);
-        put("DuckDuckGo", SearchEngineEnum.DUCKDUCKGO);
-        put("DuckDuckGo Lite", SearchEngineEnum.DUCKDUCKGOLITE);
-        put("Qwant", SearchEngineEnum.QWANT);
-        put("Bing", SearchEngineEnum.BING);
-        put("StartPage", SearchEngineEnum.STARTPAGE);
-        put("Yandex", SearchEngineEnum.YANDEX);
+        put(GOOGLE, SearchEngineEnum.GOOGLE);
+        put(DUCKDUCKGO, SearchEngineEnum.DUCKDUCKGO);
+        put(DUCKDUCKGOLITE, SearchEngineEnum.DUCKDUCKGOLITE);
+        put(QWANT, SearchEngineEnum.QWANT);
+        put(BING, SearchEngineEnum.BING);
+        put(STARTPAGE, SearchEngineEnum.STARTPAGE);
+        put(YANDEX, SearchEngineEnum.YANDEX);
     }};
 
 }

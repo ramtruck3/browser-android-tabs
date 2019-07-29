@@ -3,13 +3,13 @@ package org.chromium.chrome.browser.onboarding;
 import org.chromium.chrome.R;
 
 public enum SearchEngineEnum {
-    GOOGLE(R.drawable.search_engine_google,R.string.google, R.string.search_google),
-    DUCKDUCKGO(R.drawable.search_engine_duckduckgo,R.string.duckduckgo, R.string.search_duckduckgo),
-    DUCKDUCKGOLITE(R.drawable.search_engine_duckduckgo_lite,R.string.duckduckgo_lite, R.string.search_duckduckgo_lite),
-    QWANT(R.drawable.search_engine_qwant,R.string.qwant, R.string.search_qwant),
-    BING(R.drawable.search_engine_bing,R.string.bing, R.string.search_bing),
-    STARTPAGE(R.drawable.search_engine_startpage,R.string.start_page, R.string.search_start_page),
-    YANDEX(R.drawable.search_engine_yandex,R.string.yandex, R.string.search_yandex);
+    GOOGLE(R.drawable.search_engine_google,R.string.google, SearchEngineEnumConstants.SEARCH_GOOGLE_ID),
+    DUCKDUCKGO(R.drawable.search_engine_duckduckgo,R.string.duckduckgo, SearchEngineEnumConstants.SEARCH_DUCKDUCKGO_ID),
+    DUCKDUCKGOLITE(R.drawable.search_engine_duckduckgo_lite,R.string.duckduckgo_lite, SearchEngineEnumConstants.SEARCH_DUCKDUCKGO_LITE_ID),
+    QWANT(R.drawable.search_engine_qwant,R.string.qwant, SearchEngineEnumConstants.SEARCH_QWANT_ID),
+    BING(R.drawable.search_engine_bing,R.string.bing, SearchEngineEnumConstants.SEARCH_BING_ID),
+    STARTPAGE(R.drawable.search_engine_startpage,R.string.start_page, SearchEngineEnumConstants.SEARCH_STARTPAGE_ID),
+    YANDEX(R.drawable.search_engine_yandex,R.string.yandex, SearchEngineEnumConstants.SEARCH_YANDEX_ID);
 
     private int icon;
     private int title;
@@ -31,5 +31,15 @@ public enum SearchEngineEnum {
 
     public int getId(){
         return id;
+    }
+
+    interface SearchEngineEnumConstants {
+        static final int SEARCH_GOOGLE_ID = 0;
+        static final int SEARCH_DUCKDUCKGO_ID = 1;
+        static final int SEARCH_DUCKDUCKGO_LITE_ID = 2;
+        static final int SEARCH_QWANT_ID = 3;
+        static final int SEARCH_BING_ID = 4;
+        static final int SEARCH_STARTPAGE_ID = 5;
+        static final int SEARCH_YANDEX_ID = 6;
     }
 }

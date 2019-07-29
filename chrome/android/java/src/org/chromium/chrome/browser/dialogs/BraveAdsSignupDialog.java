@@ -91,7 +91,7 @@ public class BraveAdsSignupDialog {
     }
 
     private static void enqueueOobeNotification(Context context) {
-        if(!OnboardingPrefManager.getInstance().isOnboardingNotificationShown()){
+        if(!OnboardingPrefManager.getInstance().isOnboardingNotificationShown()) {
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             Intent intent = new Intent(context, BraveOnboardingNotification.class);
             am.set(

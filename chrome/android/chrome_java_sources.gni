@@ -1691,7 +1691,6 @@ chrome_java_sources = [
   "java/src/org/chromium/chrome/browser/ui/system/StatusBarColorController.java",
   "java/src/org/chromium/chrome/browser/ui/system/SystemUiCoordinator.java",
   "java/src/org/chromium/chrome/browser/util/AccessibilityUtil.java",
-  "java/src/org/chromium/chrome/browser/util/AnimationUtil.java",
   "java/src/org/chromium/chrome/browser/util/ChromeContextUtil.java",
   "java/src/org/chromium/chrome/browser/util/ChromeFileProvider.java",
   "java/src/org/chromium/chrome/browser/util/ColorUtils.java",
