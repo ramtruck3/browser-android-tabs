@@ -38,12 +38,12 @@ public class ADBlockUtils {
     public static final String TRACKING_PROTECTION_LOCALFILENAME_DOWNLOADED = "TrackingProtectionDownloaded.dat";
     public static final String ETAG_PREPEND_TP = "tp";
 
-    public static final String ADBLOCK_URL = "https://adblock-data.s3.brave.com/rs-ABPFilterParserData.dat";
+    public static final String ADBLOCK_URL = "https://adblock-data.s3.brave.com/4/rs-ABPFilterParserData.dat";
     public static final String ADBLOCK_LOCALFILENAME = "ABPFilterParserData.dat";
     public static final String ADBLOCK_LOCALFILENAME_DOWNLOADED = "ABPFilterParserDataDownloaded.dat";
     public static final String ETAG_PREPEND_ADBLOCK = "abp";
 
-    public static final String ADBLOCK_REGIONAL_URL = "https://adblock-data.s3.brave.com/";
+    public static final String ADBLOCK_REGIONAL_URL = "https://adblock-data.s3.brave.com/4/";
     public static final String REGIONAL_BLOCKERS_LIST_FILE = "regions.json";
     public static final String ADBLOCK_REGIONAL_LOCALFILENAME_DOWNLOADED = "ABPRegionalDataDownloaded.dat";
     public static final String ETAG_PREPEND_REGIONAL_ADBLOCK = "abp_r";
