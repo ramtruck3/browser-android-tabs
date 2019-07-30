@@ -289,7 +289,6 @@ public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveReward
                     mBraveRewardsNativeWorker.CreateWallet();
                     mWalletCreateInProcess = true;
                     startJoinRewardsAnimation();
-                    BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
                 }
             }
           }));
@@ -985,10 +984,11 @@ public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveReward
 
     @Override
     public void OnWalletInitialized(int error_code) {
-        if (error_code == 12) {   // Wallet created code
+        if (BraveRewardsNativeWorker.WALLET_CREATED == error_code) {
             walletInitialized = true;
+            BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
             ShowWebSiteView(false);
-        } else if (error_code == 20) { // ledger::Result::SAFETYNET_ATTESTATION_FAILED
+        } else if (BraveRewardsNativeWorker.SAFETYNET_ATTESTATION_FAILED == error_code) {
             dismiss();
         } else {
             Button btJoinRewards = (Button)BraveRewardsPanelPopup.this.root.findViewById(R.id.join_rewards_id);
@@ -1011,7 +1011,7 @@ public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveReward
     @Override
     public void OnWalletProperties(int error_code) {
       boolean  former_walletDetailsReceived = walletDetailsReceived;
-      if (error_code == 0) {
+      if (BraveRewardsNativeWorker.LEDGER_OK == error_code) {
         DismissNotification(REWARDS_NOTIFICATION_NO_INTERNET_ID);
         if (mBraveRewardsNativeWorker != null) {
           double balance = mBraveRewardsNativeWorker.GetWalletBalance();
@@ -1057,7 +1057,7 @@ public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveReward
           }
         }
         walletDetailsReceived = true;
-      } else if (error_code == 1) {   // No Internet connection
+      } else if (BraveRewardsNativeWorker.LEDGER_ERROR == error_code) {   // No Internet connection
         String args[] = {};
         ShowNotification(REWARDS_NOTIFICATION_NO_INTERNET_ID, REWARDS_NOTIFICATION_NO_INTERNET, 0, args);
       } else {

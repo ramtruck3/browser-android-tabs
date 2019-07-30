@@ -26,6 +26,12 @@ public class BraveRewardsNativeWorker {
     public static final int REWARDS_NOTIFICATION_IMPENDING_CONTRIBUTION = 5;
     public static final int REWARDS_NOTIFICATION_INSUFFICIENT_FUNDS = 6;
     public static final int REWARDS_NOTIFICATION_BACKUP_WALLET = 7;
+
+    public static final int LEDGER_OK = 0;
+    public static final int LEDGER_ERROR = 1;
+    public static final int WALLET_CREATED = 12;
+    public static final int SAFETYNET_ATTESTATION_FAILED = 20;
+
     
     private List<BraveRewardsObserver> observers_;
     private long mNativeBraveRewardsNativeWorker;

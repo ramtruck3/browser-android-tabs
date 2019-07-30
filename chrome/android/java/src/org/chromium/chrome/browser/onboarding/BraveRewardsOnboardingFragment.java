@@ -2,6 +2,7 @@ package org.chromium.chrome.browser.onboarding;
 
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.SpannableString;
@@ -26,10 +28,10 @@ import android.text.TextPaint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
-
 import android.support.annotation.NonNull;
 
 import org.chromium.chrome.browser.BraveRewardsHelper;
+import org.chromium.chrome.browser.BraveRewardsObserver;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.BraveAdsNativeHelper;
@@ -43,7 +45,7 @@ import org.chromium.chrome.browser.customtabs.CustomTabActivity;
 import org.chromium.chrome.browser.BraveRewardsHelper;
 import org.chromium.chrome.R;
 
-public class BraveRewardsOnboardingFragment extends Fragment implements View.OnTouchListener {
+public class BraveRewardsOnboardingFragment extends Fragment implements View.OnTouchListener, BraveRewardsObserver {
 
     private OnViewPagerAction onViewPagerAction;
 
@@ -64,10 +66,23 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private boolean fromSettings;
 
+    private BraveRewardsNativeWorker mBraveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();
     private final int SPAN_START_INDEX = 24;
 
     public BraveRewardsOnboardingFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach (Context context){
+        super.onAttach(context);
+        mBraveRewardsNativeWorker.AddObserver(this);
+    }
+
+    @Override
+    public void onDetach (){
+        super.onDetach();
+        mBraveRewardsNativeWorker.RemoveObserver(this);
     }
 
 
@@ -251,25 +266,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                         if (!chkAgreeTerms.isChecked()) {
                             chkAgreeTerms.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.shake));
                         } else {
-                            BraveRewardsNativeWorker braveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();
-                            // braveRewardsNativeWorker.SetRewardsMainEnabled(true);
-                            // braveRewardsNativeWorker.CreateWallet();
-                            braveRewardsNativeWorker.GetRewardsMainEnabled();
-                            braveRewardsNativeWorker.CreateWallet();
-                            BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
-
-                            if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable(getActivity())) {
-                                String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
-                                String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
-                                TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
-
-                                OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
-                                getActivity().finish();
-                            } else {
-                                // Enable ads
-                                BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
-                                onViewPagerAction.onNext();
-                            }
+                            mBraveRewardsNativeWorker.CreateWallet();
+                            //TODO: insert UI saying that wallet is being initialized
                         }
                     }
                 }
@@ -288,4 +286,74 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
     public void setFromSettings(boolean fromSettings) {
         this.fromSettings = fromSettings;
     }
+
+
+    //interface BraveRewardsObserver
+    @Override
+    public void OnWalletInitialized(int error_code){
+        if (BraveRewardsNativeWorker.WALLET_CREATED == error_code){
+            if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
+                String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
+                String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
+                TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
+
+                OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
+                getActivity().finish();
+            } else {
+                // Enable ads
+                BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedProfile());
+                onViewPagerAction.onNext();
+            }
+        }
+        else {
+            //TODO: handle wallet creation problem
+        }
+    };
+
+
+    @Override
+    public void OnWalletProperties(int error_code){};
+
+    @Override
+    public void OnPublisherInfo(int tabId){};
+
+    @Override
+    public void OnGetCurrentBalanceReport(String[] report){};
+
+    @Override
+    public void OnNotificationAdded(String id, int type, long timestamp, String[] args){};
+
+    @Override
+    public void OnNotificationsCount(int count){};
+
+    @Override
+    public void OnGetLatestNotification(String id, int type, long timestamp,
+                                        String[] args){};
+
+    @Override
+    public void OnNotificationDeleted(String id){};
+
+    @Override
+    public void OnIsWalletCreated(boolean created){};
+
+    @Override
+    public void OnGetPendingContributionsTotal(double amount){};
+
+    @Override
+    public void OnGetRewardsMainEnabled(boolean enabled){};
+
+    @Override
+    public void OnGetAutoContributeProps(){};
+
+    @Override
+    public void OnGetReconcileStamp(long timestamp){};
+
+    @Override
+    public void OnRecurringDonationUpdated(){};
+
+    @Override
+    public void OnResetTheWholeState(boolean success){};
+
+    @Override
+    public void OnRewardsMainEnabled(boolean enabled){};
 }
