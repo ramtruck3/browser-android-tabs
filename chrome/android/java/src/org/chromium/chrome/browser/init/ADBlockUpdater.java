@@ -37,7 +37,8 @@ public class ADBlockUpdater {
             }
             try {
               mReceivedAnUpdate = false;
-              DownloadTrackingProtectionData(context);
+              ADBlockUtils.removeOldVersionFiles(context, ADBlockUtils.TRACKING_PROTECTION_LOCALFILENAME);
+              ADBlockUtils.removeOldVersionFiles(context, ADBlockUtils.TRACKING_PROTECTION_LOCALFILENAME_DOWNLOADED);
               DownloadAdBlockData(context);
               DownloadAdBlockRegionalData(context);
               DownloadHTTPSData(context);
@@ -51,21 +52,6 @@ public class ADBlockUpdater {
                 mAvailable.release();
             }
         } catch (InterruptedException exc) {
-        }
-    }
-
-    // Tracking protection data download
-    private static void DownloadTrackingProtectionData(Context context) {
-        String verNumber = ADBlockUtils.getDataVerNumber(
-            ADBlockUtils.TRACKING_PROTECTION_URL, false);
-        if (ADBlockUtils.readData(context,
-            ADBlockUtils.TRACKING_PROTECTION_LOCALFILENAME,
-            ADBlockUtils.TRACKING_PROTECTION_URL,
-            ADBlockUtils.ETAG_PREPEND_TP, verNumber,
-            ADBlockUtils.TRACKING_PROTECTION_LOCALFILENAME_DOWNLOADED, false)) {
-          ADBlockUtils.CreateDownloadedFile(context, ADBlockUtils.TRACKING_PROTECTION_LOCALFILENAME,
-              verNumber, ADBlockUtils.TRACKING_PROTECTION_LOCALFILENAME_DOWNLOADED, false);
-          mReceivedAnUpdate = true;
         }
     }
 

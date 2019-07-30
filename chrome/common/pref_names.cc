@@ -397,9 +397,6 @@ const char kFingerprintingProtectionEnabled[] = "fingerprintingprotection.enable
 // Boolean that is true when HTTPSE is enabled.
 const char kHTTPSEEnabled[] = "httpse.enabled";
 
-// Boolean that is true when TrackingProtection is enabled.
-const char kTrackingProtectionEnabled[] = "trackingprotection.enabled";
-
 // Boolean that is true when AdBlocking is enabled.
 const char kAdBlockEnabled[] = "adblock.enabled";
 

@@ -280,14 +280,12 @@ struct OnBeforeURLRequestContext
   bool isGlobalBlockEnabled = true;
   bool blockAdsAndTracking = true;
   bool isAdBlockRegionalEnabled = true;
-  bool isTPEnabled = true;
   bool isHTTPSEEnabled = true;
   bool isBlock3rdPartyCookies = true;
 
   bool shieldsSetExplicitly = false;
 
   bool needPerformAdBlock = false;
-  bool needPerformTPBlock = false;
   bool needPerformHTTPSE = false;
 
   bool block = false;
@@ -310,7 +308,6 @@ ChromeNetworkDelegate::ChromeNetworkDelegate(
     : extensions_delegate_(
           ChromeExtensionsNetworkDelegate::Create(event_router)),
       enable_httpse_(nullptr),
-      enable_tracking_protection_(nullptr),
       enable_ad_block_(nullptr),
       enable_ad_block_regional_(nullptr),
       experimental_web_platform_features_enabled_(
@@ -350,7 +347,6 @@ void ChromeNetworkDelegate::set_incognito(const bool &incognito) {
 // static
 void ChromeNetworkDelegate::InitializePrefsOnUIThread(
     BooleanPrefMember* enable_httpse,
-    BooleanPrefMember* enable_tracking_protection,
     BooleanPrefMember* enable_ad_block,
     BooleanPrefMember* enable_ad_block_regional,
     PrefService* pref_service) {
@@ -358,11 +354,6 @@ void ChromeNetworkDelegate::InitializePrefsOnUIThread(
   if (enable_httpse) {
     enable_httpse->Init(prefs::kHTTPSEEnabled, pref_service);
     enable_httpse->MoveToThread(
-        base::CreateSingleThreadTaskRunnerWithTraits({BrowserThread::IO}));
-  }
-  if (enable_tracking_protection) {
-    enable_tracking_protection->Init(prefs::kTrackingProtectionEnabled, pref_service);
-    enable_tracking_protection->MoveToThread(
         base::CreateSingleThreadTaskRunnerWithTraits({BrowserThread::IO}));
   }
   if (enable_ad_block) {
@@ -460,12 +451,7 @@ int ChromeNetworkDelegate::OnBeforeURLRequest_PreBlockersWork(
            }
        }
    }
-   ctx->isTPEnabled = true;
    ctx->block = false;
-   if (enable_tracking_protection_ && !ctx->shieldsSetExplicitly) {
-     ctx->isTPEnabled = enable_tracking_protection_->GetValue();
-   }
-
   ctx->adsBlocked = 0;
   ctx->trackersBlocked = 0;
   ctx->httpsUpgrades = 0;
@@ -482,7 +468,7 @@ int ChromeNetworkDelegate::OnBeforeURLRequest_PreBlockersWork(
     ctx->pendingAtLeastOnce = true;
     pending_requests_->Insert(request->identifier());
   } else {
-    rv = OnBeforeURLRequest_TpBlockPreFileWork(request, std::move(callback), new_url, ctx);
+    rv = OnBeforeURLRequest_AdBlockPreFileWork(request, std::move(callback), new_url, ctx);
     // Check do we need to reload adblocker. We will do that on next call
     base::PostTaskWithTraits(FROM_HERE, {BrowserThread::IO},
       base::Bind(base::IgnoreResult(&ChromeNetworkDelegate::CheckAdBlockerReload),
@@ -549,72 +535,9 @@ void ChromeNetworkDelegate::ResetBlocker(IOThread* io_thread, net::URLRequest* r
   blockers_worker_ = io_thread->ResetBlockersWorker();
 
   base::PostTaskWithTraits(FROM_HERE, {BrowserThread::IO},
-    base::Bind(base::IgnoreResult(&ChromeNetworkDelegate::OnBeforeURLRequest_TpBlockPostFileWork),
+    base::Bind(base::IgnoreResult(&ChromeNetworkDelegate::OnBeforeURLRequest_AdBlockPostFileWork),
         base::Unretained(this), base::Unretained(request), base::Passed(&callback), new_url, ctx)
       );
-}
-
-int ChromeNetworkDelegate::OnBeforeURLRequest_TpBlockPreFileWork(
-  net::URLRequest* request,
-  net::CompletionOnceCallback callback,
-  GURL* new_url,
-  std::shared_ptr<OnBeforeURLRequestContext> ctx)
-{
-  DCHECK_CURRENTLY_ON(content::BrowserThread::IO);
-  ctx->needPerformTPBlock = false;
-  if (request
-      //&& !firstPartyUrl
-      && ctx->isValidUrl
-      && ctx->isGlobalBlockEnabled
-      && ctx->blockAdsAndTracking
-      && ctx->isTPEnabled) {
-
-      ctx->needPerformTPBlock = true;
-      if (!blockers_worker_->isTPInitialized() ) {
-        scoped_refptr<base::SequencedTaskRunner> task_runner =
-          base::CreateSequencedTaskRunnerWithTraits({base::MayBlock(), base::TaskShutdownBehavior::SKIP_ON_SHUTDOWN});
-        task_runner->PostTaskAndReply(FROM_HERE,
-          base::Bind(&ChromeNetworkDelegate::OnBeforeURLRequest_TpBlockFileWork,
-              base::Unretained(this)),
-          base::Bind(base::IgnoreResult(&ChromeNetworkDelegate::OnBeforeURLRequest_TpBlockPostFileWork),
-              base::Unretained(this), base::Unretained(request), base::Passed(&callback), new_url, ctx));
-        ctx->pendingAtLeastOnce = true;
-        pending_requests_->Insert(request->identifier());
-        return net::ERR_IO_PENDING;
-      }
-  }
-
-  int rv = OnBeforeURLRequest_TpBlockPostFileWork(request, std::move(callback), new_url, ctx);
-  return rv;
-}
-
-void ChromeNetworkDelegate::OnBeforeURLRequest_TpBlockFileWork() {
-  base::internal::AssertBlockingAllowed();
-  blockers_worker_->InitTP();
-}
-
-int ChromeNetworkDelegate::OnBeforeURLRequest_TpBlockPostFileWork(
-  net::URLRequest* request,
-  net::CompletionOnceCallback callback,
-  GURL* new_url,
-  std::shared_ptr<OnBeforeURLRequestContext> ctx) {
-  DCHECK_CURRENTLY_ON(content::BrowserThread::IO);
-
-  if (PendedRequestIsDestroyedOrCancelled(ctx.get(), request)) {
-    return net::OK;
-  }
-
-  if (ctx->needPerformTPBlock){
-    if (blockers_worker_->shouldTPBlockUrl(
-        ctx->firstparty_host,
-        request->url().host())) {
-      ctx->block = true;
-      ctx->trackersBlocked++;
-    }
-  }
-
-  int rv = OnBeforeURLRequest_AdBlockPreFileWork(request, std::move(callback), new_url, ctx);
-  return rv;
 }
 
 int ChromeNetworkDelegate::OnBeforeURLRequest_AdBlockPreFileWork(

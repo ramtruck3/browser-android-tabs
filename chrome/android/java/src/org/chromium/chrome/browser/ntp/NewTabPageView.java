@@ -293,11 +293,9 @@ public class NewTabPageView extends HistoryNavigationLayout {
         long adsBlockedCount = mSharedPreferences.getLong(PREF_ADS_BLOCKED_COUNT, 0);
         long httpsUpgradesCount = mSharedPreferences.getLong(PREF_HTTPS_UPGRADES_COUNT, 0);
         long estimatedMillisecondsSaved = (trackersBlockedCount + adsBlockedCount) * MILLISECONDS_PER_ITEM;
-        TextView trackersBlockedCountTextView = (TextView) mBraveStatsView.findViewById(R.id.brave_stats_text_trackers_count);
         TextView adsBlockedCountTextView = (TextView) mBraveStatsView.findViewById(R.id.brave_stats_text_ads_count);
         TextView httpsUpgradesCountTextView = (TextView) mBraveStatsView.findViewById(R.id.brave_stats_text_https_count);
         TextView estTimeSavedTextView = (TextView) mBraveStatsView.findViewById(R.id.brave_stats_text_time_count);
-        trackersBlockedCountTextView.setText(getBraveStatsStringFormNumber(trackersBlockedCount));
         adsBlockedCountTextView.setText(getBraveStatsStringFormNumber(adsBlockedCount));
         httpsUpgradesCountTextView.setText(getBraveStatsStringFormNumber(httpsUpgradesCount));
         estTimeSavedTextView.setText(getBraveStatsStringFromTime(estimatedMillisecondsSaved / 1000));

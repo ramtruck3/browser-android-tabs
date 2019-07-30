@@ -539,17 +539,6 @@ static jboolean JNI_PrefServiceBridge_GetAdBlockRegionalEnabled(JNIEnv* env,
   return GetPrefService()->GetBoolean(prefs::kAdBlockRegionalEnabled);
 }
 
-static void JNI_PrefServiceBridge_SetTrackingProtectionEnabled(JNIEnv* env,
-                                   const JavaParamRef<jobject>& obj,
-                                   jboolean enabled) {
-   GetPrefService()->SetBoolean(prefs::kTrackingProtectionEnabled, enabled);
-}
-
-static jboolean JNI_PrefServiceBridge_GetTrackingProtectionEnabled(JNIEnv* env,
-                                       const JavaParamRef<jobject>& obj) {
-  return GetPrefService()->GetBoolean(prefs::kTrackingProtectionEnabled);
-}
-
 static jboolean JNI_PrefServiceBridge_GetSafeBrowsingManaged(JNIEnv* env,
                                        const JavaParamRef<jobject>& obj) {
   return GetPrefService()->IsManagedPreference(prefs::kSafeBrowsingEnabled);

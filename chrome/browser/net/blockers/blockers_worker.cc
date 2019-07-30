@@ -15,17 +15,14 @@
 #include "../../../../third_party/leveldatabase/src/include/leveldb/db.h"
 #include "../../../../third_party/re2/src/re2/re2.h"
 #include "../../../../url/gurl.h"
-#include "brave/vendor/tracking-protection/TPParser.h"
 #include "brave/vendor/adblock_rust_ffi/src/wrapper.hpp"
+#include "brave/components/brave_shields/common/brave_shield_constants.h"
 #include "base/strings/pattern.h"
 #include "net/base/registry_controlled_domains/registry_controlled_domain.h"
 
-#define TP_DATA_FILE                        "TrackingProtectionDownloaded.dat"
 #define ADBLOCK_DATA_FILE                   "ABPFilterParserDataDownloaded.dat"
 #define ADBLOCK_REGIONAL_DATA_FILE          "ABPRegionalDataDownloaded.dat"
 #define HTTPSE_DATA_FILE_NEW                "httpse.leveldbDownloaded.zip"
-#define TP_THIRD_PARTY_HOSTS_QUEUE          20
-#define TP_VERSION                          "1"
 #define HTTPSE_URLS_REDIRECTS_COUNT_QUEUE   1
 #define HTTPSE_URL_MAX_REDIRECTS_COUNT      5
 #define HTTPSE_VERSION                      "6.0"
@@ -157,17 +154,12 @@ namespace blockers {
 
     BlockersWorker::BlockersWorker() :
         level_db_(nullptr),
-        tp_parser_(nullptr),
         adblock_parser_(nullptr),
-        tp_initialized_(false),
         adblock_initialized_(false),
         adblock_regional_initialized_(false) {
     }
 
     BlockersWorker::~BlockersWorker() {
-        if (nullptr != tp_parser_) {
-            delete tp_parser_;
-        }
         if (nullptr != adblock_parser_) {
             delete adblock_parser_;
         }
@@ -200,7 +192,8 @@ namespace blockers {
 
             return false;
         }
-
+        adblock_parser_->addTag(brave_shields::kFacebookEmbeds);
+        adblock_parser_->addTag(brave_shields::kTwitterEmbeds);
         set_adblock_initialized();
         return true;
     }
@@ -244,42 +237,6 @@ namespace blockers {
         }
 
         set_adblock_regional_initialized();
-        return true;
-    }
-
-    bool BlockersWorker::InitTP() {
-        base::internal::AssertBlockingAllowed();
-        std::lock_guard<std::mutex> guard(tp_init_mutex_);
-
-        if (tp_parser_) {
-            return true;
-        }
-
-        if (!GetData(TP_VERSION, TP_DATA_FILE, tp_buffer_)) {
-            return false;
-        }
-
-        tp_parser_ = new CTPParser();
-        if (!tp_parser_->deserialize((char*)&tp_buffer_.front())) {
-            delete tp_parser_;
-            tp_parser_ = nullptr;
-            LOG(ERROR) << "tp deserialize failed";
-
-            return false;
-        }
-
-        tp_white_list_.push_back("connect.facebook.net");
-        tp_white_list_.push_back("connect.facebook.com");
-        tp_white_list_.push_back("staticxx.facebook.com");
-        tp_white_list_.push_back("www.facebook.com");
-        tp_white_list_.push_back("scontent.xx.fbcdn.net");
-        tp_white_list_.push_back("pbs.twimg.com");
-        tp_white_list_.push_back("scontent-sjc2-1.xx.fbcdn.net");
-        tp_white_list_.push_back("platform.twitter.com");
-        tp_white_list_.push_back("syndication.twitter.com");
-        tp_white_list_.push_back("cdn.syndication.twimg.com");
-
-        set_tp_initialized();
         return true;
     }
 
@@ -416,86 +373,6 @@ namespace blockers {
         //
 
         return false;
-    }
-
-    std::vector<std::string> BlockersWorker::getTPThirdPartyHosts(const std::string& base_host) {
-        {
-            std::lock_guard<std::mutex> guard(tp_get_third_party_hosts_mutex_);
-            std::map<std::string, std::vector<std::string>>::const_iterator iter = tp_third_party_hosts_.find(base_host);
-            if (tp_third_party_hosts_.end() != iter) {
-                if (tp_third_party_base_hosts_.size() != 0
-                      && tp_third_party_base_hosts_[tp_third_party_hosts_.size() - 1] != base_host) {
-                    for (size_t i = 0; i < tp_third_party_base_hosts_.size(); i++) {
-                        if (tp_third_party_base_hosts_[i] == base_host) {
-                            tp_third_party_base_hosts_.erase(tp_third_party_base_hosts_.begin() + i);
-                            tp_third_party_base_hosts_.push_back(base_host);
-                            break;
-                        }
-                    }
-                }
-                return iter->second;
-            }
-        }
-        char* thirdPartyHosts = tp_parser_->findFirstPartyHosts(base_host.c_str());
-        std::vector<std::string> hosts;
-        if (nullptr != thirdPartyHosts) {
-             std::string strThirdPartyHosts = thirdPartyHosts;
-             size_t iPos = strThirdPartyHosts.find(",");
-             while (iPos != std::string::npos) {
-                 std::string thirdParty = strThirdPartyHosts.substr(0, iPos);
-                 strThirdPartyHosts = strThirdPartyHosts.substr(iPos + 1);
-                 iPos = strThirdPartyHosts.find(",");
-                 hosts.push_back(thirdParty);
-            }
-            if (0 != strThirdPartyHosts.length()) {
-              hosts.push_back(strThirdPartyHosts);
-            }
-            delete []thirdPartyHosts;
-        }
-        {
-            std::lock_guard<std::mutex> guard(tp_get_third_party_hosts_mutex_);
-            if (tp_third_party_hosts_.size() == TP_THIRD_PARTY_HOSTS_QUEUE
-                  && tp_third_party_base_hosts_.size() == TP_THIRD_PARTY_HOSTS_QUEUE) {
-                tp_third_party_hosts_.erase(tp_third_party_base_hosts_[0]);
-                tp_third_party_base_hosts_.erase(tp_third_party_base_hosts_.begin());
-            }
-            tp_third_party_base_hosts_.push_back(base_host);
-            tp_third_party_hosts_.insert(std::pair<std::string, std::vector<std::string>>(base_host, hosts));
-        }
-
-        return hosts;
-    }
-
-    bool BlockersWorker::shouldTPBlockUrl(const std::string& base_host, const std::string& host) {
-        if (!isTPInitialized()) {
-            return false;
-        }
-
-        if (!tp_parser_->matchesTracker(base_host.c_str(), host.c_str())) {
-            return false;
-        }
-
-        std::vector<std::string> hosts(getTPThirdPartyHosts(base_host));
-        for (size_t i = 0; i < hosts.size(); i++) {
-            if (host == hosts[i] || host.find((std::string)"." + hosts[i]) != std::string::npos) {
-               return false;
-            }
-            size_t iPos = host.find((std::string)"." + hosts[i]);
-            if (iPos == std::string::npos) {
-                continue;
-            }
-            if (hosts[i].length() + ((std::string)".").length() + iPos == host.length()) {
-                return false;
-            }
-        }
-
-        for (size_t i = 0; i < tp_white_list_.size(); i++) {
-            if (tp_white_list_[i] == host) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     std::string BlockersWorker::getHTTPSURLFromCacheOnly(const GURL* url, const uint64_t &request_identifier) {
@@ -706,11 +583,6 @@ namespace blockers {
         return correctedto;
     }
 
-    bool BlockersWorker::isTPInitialized() {
-      std::lock_guard<std::mutex> guard(tp_initialized_mutex_);
-      return tp_initialized_;
-    }
-
     bool BlockersWorker::isAdBlockerInitialized() {
       std::lock_guard<std::mutex> guard(adblock_initialized_mutex_);
       return adblock_initialized_;
@@ -719,11 +591,6 @@ namespace blockers {
     bool BlockersWorker::isAdBlockerRegionalInitialized() {
       std::lock_guard<std::mutex> guard(adblock_regional_initialized_mutex_);
       return adblock_regional_initialized_;
-    }
-
-    void BlockersWorker::set_tp_initialized() {
-      std::lock_guard<std::mutex> guard(tp_initialized_mutex_);
-      tp_initialized_ = true;
     }
 
     void BlockersWorker::set_adblock_initialized() {
