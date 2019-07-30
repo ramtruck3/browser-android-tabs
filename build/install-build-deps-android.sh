@@ -20,6 +20,8 @@ set -e
 
 lsb_release=$(lsb_release --codename --short)
 
+sudo apt-get -y install python-requests
+
 # Install first the default Linux build deps.
 "$(dirname "${BASH_SOURCE[0]}")/install-build-deps.sh" \
   --no-syms --lib32 --no-arm --no-chromeos-fonts --no-nacl --no-prompt "${args}"
@@ -28,7 +30,7 @@ lsb_release=$(lsb_release --codename --short)
 sudo apt-get -f install
 
 # common
-sudo apt-get -y install lib32z1 lighttpd python-pexpect python-requests xvfb x11-utils
+sudo apt-get -y install lib32z1 lighttpd python-pexpect xvfb x11-utils
 
 # Some binaries in the Android SDK require 32-bit libraries on the host.
 # See https://developer.android.com/sdk/installing/index.html?pkg=tools
