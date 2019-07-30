@@ -122,8 +122,6 @@ const PrefMappingEntry kPrefMapping[] = {
      APIPermission::kPrivacy, APIPermission::kPrivacy},
     {"HTTPSEEnabled", prefs::kHTTPSEEnabled,
      APIPermission::kPrivacy, APIPermission::kPrivacy},
-    {"trackingProtectionEnabled", prefs::kTrackingProtectionEnabled,
-     APIPermission::kPrivacy, APIPermission::kPrivacy},
     {"adBlockEnabled", prefs::kAdBlockEnabled,
      APIPermission::kPrivacy, APIPermission::kPrivacy},
     {"adBlockRegionalEnabled", prefs::kAdBlockRegionalEnabled,

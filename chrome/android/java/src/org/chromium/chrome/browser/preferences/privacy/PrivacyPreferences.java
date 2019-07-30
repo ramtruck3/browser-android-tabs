@@ -49,7 +49,6 @@ public class PrivacyPreferences extends PreferenceFragment
     private static final String PREF_CAN_MAKE_PAYMENT = "can_make_payment";
     private static final String PREF_FINGERPRINTING_PROTECTION = "fingerprinting_protection";
     private static final String PREF_HTTPSE = "httpse";
-    private static final String PREF_TRACKING_PROTECTION = "tracking_protection";
     private static final String PREF_AD_BLOCK = "ad_block";
     private static final String PREF_AD_BLOCK_REGIONAL = "ad_block_regional";
     private static final String PREF_CONTEXTUAL_SEARCH = "contextual_search";
@@ -160,11 +159,6 @@ public class PrivacyPreferences extends PreferenceFragment
         httpsePref.setOnPreferenceChangeListener(this);
         httpsePref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
 
-        ChromeBaseCheckBoxPreference trackingProtectionPref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_TRACKING_PROTECTION);
-        trackingProtectionPref.setOnPreferenceChangeListener(this);
-        trackingProtectionPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
-
         ChromeBaseCheckBoxPreference adBlockPref =
                 (ChromeBaseCheckBoxPreference) findPreference(PREF_AD_BLOCK);
         adBlockPref.setOnPreferenceChangeListener(this);
@@ -201,9 +195,6 @@ public class PrivacyPreferences extends PreferenceFragment
         } else if (PREF_HTTPSE.equals(key)) {
             PrefServiceBridge.getInstance().setHTTPSEEnabled((boolean) newValue);
             //MixPanelWorker.SendEvent("HTTPS Everywhere Option Changed", "HTTPS Everywhere", newValue);
-        } else if (PREF_TRACKING_PROTECTION.equals(key)) {
-            PrefServiceBridge.getInstance().setTrackingProtectionEnabled((boolean) newValue);
-            //MixPanelWorker.SendEvent("Tracking Protection Mode Option Changed", "Tracking Protection Mode", newValue);
         } else if (PREF_AD_BLOCK.equals(key)) {
             PrefServiceBridge.getInstance().setAdBlockEnabled((boolean) newValue);
             //MixPanelWorker.SendEvent("Ad Block Option Changed", "Ad Block", newValue);

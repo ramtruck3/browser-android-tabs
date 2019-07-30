@@ -159,9 +159,6 @@ void Profile::RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
       prefs::kHTTPSEEnabled,
       true);
   registry->RegisterBooleanPref(
-      prefs::kTrackingProtectionEnabled,
-      true);
-  registry->RegisterBooleanPref(
       prefs::kAdBlockEnabled,
       true);
   registry->RegisterBooleanPref(

@@ -95,10 +95,6 @@ class ChromeNetworkDelegate : public net::NetworkDelegateImpl {
     enable_httpse_ = enable_httpse;
   }
 
-  void set_enable_tracking_protection(BooleanPrefMember* enable_tracking_protection) {
-    enable_tracking_protection_ = enable_tracking_protection;
-  }
-
   void set_enable_ad_block(BooleanPrefMember* enable_ad_block) {
     enable_ad_block_ = enable_ad_block;
   }
@@ -127,7 +123,6 @@ class ChromeNetworkDelegate : public net::NetworkDelegateImpl {
   // thread.
   static void InitializePrefsOnUIThread(
       BooleanPrefMember* enable_httpse,
-      BooleanPrefMember* enable_tracking_protection,
       BooleanPrefMember* enable_ad_block,
       BooleanPrefMember* enable_ad_block_regional,
       PrefService* pref_service);
@@ -210,17 +205,6 @@ class ChromeNetworkDelegate : public net::NetworkDelegateImpl {
             net::CompletionOnceCallback callback,
             GURL* new_url,
             std::shared_ptr<OnBeforeURLRequestContext> ctx);
-  int OnBeforeURLRequest_TpBlockPreFileWork(
-            net::URLRequest* request,
-            net::CompletionOnceCallback callback,
-            GURL* new_url,
-            std::shared_ptr<OnBeforeURLRequestContext> ctx);
-  void OnBeforeURLRequest_TpBlockFileWork();
-  int OnBeforeURLRequest_TpBlockPostFileWork(
-            net::URLRequest* request,
-            net::CompletionOnceCallback callback,
-            GURL* new_url,
-            std::shared_ptr<OnBeforeURLRequestContext> ctx);
   int OnBeforeURLRequest_AdBlockPreFileWork(
             net::URLRequest* request,
             net::CompletionOnceCallback callback,
@@ -267,7 +251,6 @@ class ChromeNetworkDelegate : public net::NetworkDelegateImpl {
   // Weak, owned by our owner.
   BooleanPrefMember* force_google_safe_search_ = nullptr;
   BooleanPrefMember* enable_httpse_;
-  BooleanPrefMember* enable_tracking_protection_;
   BooleanPrefMember* enable_ad_block_;
   BooleanPrefMember* enable_ad_block_regional_;
 

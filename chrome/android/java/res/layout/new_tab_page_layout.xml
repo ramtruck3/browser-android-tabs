@@ -28,7 +28,7 @@
         android:baselineAligned="false" >
         <LinearLayout
             android:id="@+id/brave_stats_ads"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:baselineAligned="false"
@@ -50,31 +50,8 @@
                 android:text="@string/brave_stats_text_ads" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/brave_stats_trackers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:baselineAligned="false"
-            android:layout_weight="1" >
-            <TextView
-                android:id="@+id/brave_stats_text_trackers_count"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#8236B9"
-                android:textStyle="bold"
-                android:textSize="24sp" />
-            <TextView
-                android:id="@+id/brave_stats_text_trackers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:text="@string/brave_stats_text_trackers" />
-        </LinearLayout>
-        <LinearLayout
             android:id="@+id/brave_stats_https"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:baselineAligned="false"
@@ -97,7 +74,7 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/brave_stats_time"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:baselineAligned="false"

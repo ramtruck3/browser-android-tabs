@@ -33,10 +33,8 @@ public class ADBlockUtils {
 
     public static final String PRIVATE_DATA_DIRECTORY_SUFFIX = "chrome";
 
-    public static final String TRACKING_PROTECTION_URL = "https://s3.amazonaws.com/tracking-protection-data/1/TrackingProtection.dat";
     public static final String TRACKING_PROTECTION_LOCALFILENAME = "TrackingProtection.dat";
     public static final String TRACKING_PROTECTION_LOCALFILENAME_DOWNLOADED = "TrackingProtectionDownloaded.dat";
-    public static final String ETAG_PREPEND_TP = "tp";
 
     public static final String ADBLOCK_URL = "https://adblock-data.s3.brave.com/4/rs-ABPFilterParserData.dat";
     public static final String ADBLOCK_LOCALFILENAME = "ABPFilterParserData.dat";
