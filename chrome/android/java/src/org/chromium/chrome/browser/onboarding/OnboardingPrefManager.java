@@ -49,9 +49,9 @@ public class OnboardingPrefManager {
 
     private static boolean isOnboardingNotificationShown;
 
-    private static final List<String> adsAvailableRegions = Arrays.asList("en_US","en_CA","en_NZ","en_IE","en_AU","fr_CA","fr_FR","en_GB","de_DE");
+    private static final List<String> adsAvailableRegions = Arrays.asList("US","CA","NZ","IE","AU","CA","FR","GB","DE");
 
-    private static final List<String> newAdsAvailableRegions = Arrays.asList("en_NZ","en_IE","en_AU");
+    private static final List<String> newAdsAvailableRegions = Arrays.asList("NZ","IE","AU");
 
     private static final String GOOGLE = "Google";
     private static final String DUCKDUCKGO = "DuckDuckGo";
@@ -113,9 +113,6 @@ public class OnboardingPrefManager {
     }
 
     public boolean isOnboardingNotificationShown() {
-        // if(isOnboardingNotificationShown==null){
-        //   isOnboardingNotificationShown = false;
-        // }
         return isOnboardingNotificationShown;
     }
 
@@ -143,7 +140,7 @@ public class OnboardingPrefManager {
         boolean shouldShow =
           getPrefOnboardingEnabled()
           && showOnboardingForSkip()
-          && isAdsAvailableNewLocale(context)
+          && isAdsAvailableNewLocale()
           && !PackageUtils.isFirstInstall(context)
           && !BraveRewardsPanelPopup.isBraveRewardsEnabled()
           && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
@@ -156,7 +153,7 @@ public class OnboardingPrefManager {
         boolean shouldShow =
           getPrefOnboardingEnabled()
           && showOnboardingForSkip()
-          && isAdsAvailableNewLocale(context)
+          && isAdsAvailableNewLocale()
           && !PackageUtils.isFirstInstall(context)
           && BraveRewardsPanelPopup.isBraveRewardsEnabled()
           && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedProfile())
@@ -165,14 +162,16 @@ public class OnboardingPrefManager {
         return shouldShow;
     }
 
-    public boolean isAdsAvailable(Context context) {
-        Locale locale = context.getResources().getConfiguration().locale;
-      return adsAvailableRegions.contains(locale.toString());
+    public boolean isAdsAvailable() {
+      String locale = BraveAdsNativeHelper.nativeGetLocale();
+      String countryCode = BraveAdsNativeHelper.nativeGetCountryCode(locale);
+      return adsAvailableRegions.contains(countryCode);
     }
 
-    public boolean isAdsAvailableNewLocale(Context context){
-      Locale locale = context.getResources().getConfiguration().locale;
-      return newAdsAvailableRegions.contains(locale.toString());
+    public boolean isAdsAvailableNewLocale(){
+      String locale = BraveAdsNativeHelper.nativeGetLocale();
+      String countryCode = BraveAdsNativeHelper.nativeGetCountryCode(locale);
+      return newAdsAvailableRegions.contains(countryCode);
     }
 
     public void showOnboarding(Context context, boolean fromSettings) {

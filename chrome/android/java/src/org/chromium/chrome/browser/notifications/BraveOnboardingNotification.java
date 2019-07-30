@@ -16,6 +16,7 @@ import android.net.Uri;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.BraveRewardsHelper;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
+import org.chromium.chrome.browser.BraveAdsNativeHelper;
 import org.chromium.chrome.browser.notifications.BraveAdsNotificationBuilder;
 import org.chromium.chrome.browser.notifications.ChromeNotification;
 import org.chromium.chrome.browser.notifications.NotificationBuilderBase;
@@ -31,8 +32,14 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
 
     private static final int BRAVE_ONBOARDING_NOTIFICATION_ID = -2;
     private static String BRAVE_ONBOARDING_NOTIFICATION_TAG = "brave_onboarding_notification_tag";
-    private static String BRAVE_ONBOARDING_ORIGIN = "https://brave.com/my-first-ad/";
+    private static String BRAVE_ONBOARDING_ORIGIN_EN = "https://brave.com/my-first-ad/";
+    private static String BRAVE_ONBOARDING_ORIGIN_DE = "https://brave.com/my-first-ad-de/";
+    private static String BRAVE_ONBOARDING_ORIGIN_FR = "https://brave.com/my-first-ad-fr/";
     private static final String DEEP_LINK = "deep_link";
+
+    private static final String COUNTRY_CODE_DE = "DE";
+    private static final String COUNTRY_CODE_FR = "FR";
+
 
     public static void showOnboardingNotification(Context context) {
         NotificationManagerProxyImpl notificationManager = new NotificationManagerProxyImpl(context);
@@ -44,7 +51,7 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
               .setSmallIconId(R.drawable.ic_chrome)
               .setPriority(Notification.PRIORITY_HIGH)
               .setContentIntent(getDeepLinkIntent(context))
-              .setOrigin(BRAVE_ONBOARDING_ORIGIN);
+              .setOrigin(getNotificationUrl());
 
         ChromeNotification notification = notificationBuilder.build(
             new NotificationMetadata(
@@ -73,12 +80,25 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
 
             OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
 
-            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRAVE_ONBOARDING_ORIGIN));
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getNotificationUrl()));
             webIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             webIntent.setPackage(context.getPackageName());
             context.startActivity(webIntent);
         } else {
             showOnboardingNotification(context);
         }
+    }
+
+    private static String getNotificationUrl(){
+      String locale = BraveAdsNativeHelper.nativeGetLocale();
+      String countryCode = BraveAdsNativeHelper.nativeGetCountryCode(locale);
+      switch (countryCode){
+          case COUNTRY_CODE_DE :
+            return BRAVE_ONBOARDING_ORIGIN_DE;
+          case COUNTRY_CODE_FR :
+            return BRAVE_ONBOARDING_ORIGIN_FR;
+          default :
+            return BRAVE_ONBOARDING_ORIGIN_EN;
+      }
     }
 }

@@ -43,7 +43,7 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING && OnboardingPrefManager.getInstance().isAdsAvailable(context)){
+        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING && OnboardingPrefManager.getInstance().isAdsAvailable()){
             return ONBOARDING_WITH_5_PAGES;
         }else{
             return ONBOARDING_WITH_3_PAGES;

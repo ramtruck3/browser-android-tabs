@@ -3,6 +3,7 @@
 #include "chrome/browser/profiles/profile_android.h"
 #include "brave/components/brave_ads/browser/ads_service.h"
 #include "brave/components/brave_ads/browser/ads_service_factory.h"
+#include "brave/components/brave_ads/browser/locale_helper_android.h"
 #include "chrome/browser/profiles/profile.h"
 #include "jni/BraveAdsNativeHelper_jni.h"
 
@@ -49,6 +50,23 @@ void JNI_BraveAdsNativeHelper_SetAdsEnabled(
   }
 
   ads_service_->SetAdsEnabled(true);
+}
+
+base::android::ScopedJavaLocalRef<jstring> JNI_BraveAdsNativeHelper_GetCountryCode(
+  JNIEnv* env,
+  const base::android::JavaParamRef<jstring>& jlocale){
+
+  std::string locale = base::android::ConvertJavaStringToUTF8(env, jlocale);
+  std::string country_code = brave_ads::LocaleHelperAndroid::GetCountryCode(locale);
+  return base::android::ConvertUTF8ToJavaString(env, country_code);
+}
+
+base::android::ScopedJavaLocalRef<jstring> JNI_BraveAdsNativeHelper_GetLocale(
+  JNIEnv* env){
+
+  brave_ads::LocaleHelper* locale_helper = brave_ads::LocaleHelper::GetInstance();
+  std::string locale = locale_helper->GetLocale();
+  return base::android::ConvertUTF8ToJavaString(env, locale);
 }
 
 }  // namespace android

@@ -133,7 +133,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
 
         if(fromSettings){
-            if(!OnboardingPrefManager.getInstance().isAdsAvailable(getActivity()))
+            if(!OnboardingPrefManager.getInstance().isAdsAvailable())
                 btnNext.setText(getResources().getString(R.string.finish));
             else
                 btnNext.setText(getResources().getString(R.string.next));
@@ -233,7 +233,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
             @Override
             public void onClick(View view) {
                 if(fromSettings){
-                    if(!OnboardingPrefManager.getInstance().isAdsAvailable(getActivity())){
+                    if(!OnboardingPrefManager.getInstance().isAdsAvailable()){
                         getActivity().finish();
                     }
                     onViewPagerAction.onNext();

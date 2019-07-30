@@ -17,4 +17,6 @@ public class BraveAdsNativeHelper {
     public static native boolean nativeIsBraveAdsEnabled(Profile profile);
     public static native boolean nativeIsLocaleValid(Profile profile);
     public static native void nativeSetAdsEnabled(Profile profile);
+    public static native String nativeGetCountryCode(String locale);
+    public static native String nativeGetLocale();
 }
