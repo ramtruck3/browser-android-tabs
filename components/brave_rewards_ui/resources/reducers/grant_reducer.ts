@@ -33,7 +33,7 @@ const grantTypeMap = {
 const grantReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State, action) => {
   switch (action.type) {
     case types.GET_GRANTS:
-      chrome.send('brave_rewards.getGrants', [])
+      chrome.send('brave_rewards.getGrants', ['', ''])
       break
     case types.ON_GRANT:
       state = { ...state }
@@ -202,6 +202,7 @@ const grantReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State, 
           }
 
           chrome.send('brave_rewards.getWalletProperties', [])
+          chrome.send('brave_rewards.fetchBalance', [])
           break
         case 6:
           newGrant.status = 'wrongPosition'

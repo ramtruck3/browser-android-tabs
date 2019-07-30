@@ -41,7 +41,7 @@ class DonationBox extends React.Component<Props, {}> {
   }
 
   getDonationRows = () => {
-    const { walletInfo, recurringList, tipsList } = this.props.rewardsData
+    const { balance, recurringList, tipsList } = this.props.rewardsData
 
     let recurring: DetailRow[] = []
     if (recurringList) {
@@ -60,7 +60,7 @@ class DonationBox extends React.Component<Props, {}> {
           },
           contribute: {
             tokens: item.percentage.toFixed(1),
-            converted: utils.convertBalance(item.percentage.toString(), walletInfo.rates)
+            converted: utils.convertBalance(item.percentage.toString(), balance.rates)
           },
           url: item.url,
           type: 'recurring' as any,
@@ -88,7 +88,7 @@ class DonationBox extends React.Component<Props, {}> {
           },
           contribute: {
             tokens: token,
-            converted: utils.convertBalance(token, walletInfo.rates)
+            converted: utils.convertBalance(token, balance.rates)
           },
           url: item.url,
           text: item.tipDate ? new Date(item.tipDate * 1000).toLocaleDateString() : undefined,
@@ -103,7 +103,7 @@ class DonationBox extends React.Component<Props, {}> {
 
   render () {
     const {
-      walletInfo,
+      balance,
       enabledMain,
       recurringList,
       reconcileStamp
@@ -112,7 +112,7 @@ class DonationBox extends React.Component<Props, {}> {
     const numRows = donationRows.length
     const allSites = !(numRows > 5)
     const total = this.getTotal()
-    const converted = utils.convertBalance(total, walletInfo.rates)
+    const converted = utils.convertBalance(total, balance.rates)
 
     return (
       <BoxMobile

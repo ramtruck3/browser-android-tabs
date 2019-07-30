@@ -14,47 +14,13 @@ const publishersReducer: Reducer<Rewards.State | undefined> = (state: Rewards.St
       state.firstLoad = false
       state.autoContributeList = action.payload.list
       break
-    case types.ON_NUM_EXCLUDED_SITES:
-      state = { ...state }
-
-      if (action.payload.excludedSitesInfo != null) {
-        const previousNum = state.numExcludedSites
-        const newNum = action.payload.excludedSitesInfo.num
-        const publisherKey = action.payload.excludedSitesInfo.publisherKey
-
-        state.numExcludedSites = parseInt(newNum, 10)
-
-        if (publisherKey.length > 0) {
-          if (previousNum < newNum) {
-            // On a new excluded publisher, add to excluded state
-            if (!state.excluded.includes(publisherKey)) {
-              state.excluded.push(publisherKey)
-            }
-          } else {
-            // Remove the publisher from excluded if it has been re-included
-            if (state.excluded.includes(publisherKey)) {
-              state.excluded = state.excluded.filter((key: string) => key !== publisherKey)
-            }
-          }
-        }
-
-        state = {
-          ...state,
-          excluded: state.excluded
-        }
+    case types.ON_EXCLUDED_LIST:
+      if (!action.payload.list) {
+        break
       }
 
-      break
-    case types.ON_EXCLUDED_PUBLISHERS_NUMBER:
       state = { ...state }
-      let num = parseInt(action.payload.num, 10)
-
-      if (isNaN(num)) {
-        num = 0
-      }
-
-      state.excludedPublishersNumber = num
-
+      state.excludedList = action.payload.list
       break
     case types.ON_EXCLUDE_PUBLISHER:
       if (!action.payload.publisherKey) {
@@ -92,8 +58,8 @@ const publishersReducer: Reducer<Rewards.State | undefined> = (state: Rewards.St
       }
       chrome.send('brave_rewards.removeRecurringTip', [action.payload.publisherKey])
       break
-    case types.GET_EXCLUDED_PUBLISHERS_NUMBER:
-      chrome.send('brave_rewards.getExcludedPublishersNumber')
+    case types.GET_EXCLUDED_SITES:
+      chrome.send('brave_rewards.getExcludedSites')
       break
     case types.ON_RECURRING_TIP_REMOVED:
       chrome.send('brave_rewards.getRecurringTips')

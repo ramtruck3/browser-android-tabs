@@ -32,7 +32,8 @@ export class App extends React.Component<Props, State> {
   componentDidMount () {
     this.actions.checkWalletExistence()
     this.actions.getRewardsEnabled()
-    this.actions.getExcludedPublishersNumber()
+    this.actions.getExcludedSites()
+    this.actions.getBalance()
   }
 
   componentDidUpdate (prevProps: Props, prevState: State) {
