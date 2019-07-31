@@ -173,6 +173,9 @@ by a child template that "extends" this file.
         <receiver android:name="org.chromium.chrome.browser.notifications.BraveOnboardingNotification"
             android:exported="false">
         </receiver>
+        <receiver android:name="org.chromium.chrome.browser.onboarding.BraveRewardsServiceReceiver"
+            android:exported="false">
+        </receiver>
 
         <!-- MixPanel proxy server -->
         <!--<meta-data android:name="com.mixpanel.android.MPConfig.EventsEndpoint"
@@ -595,6 +598,10 @@ by a child template that "extends" this file.
             android:name="org.chromium.chrome.browser.onboarding.OnboardingActivity"
             android:theme="@style/Theme.Chromium.Activity.Fullscreen"
             android:screenOrientation="sensorPortrait"/>
+
+        <service android:name="org.chromium.chrome.browser.onboarding.BraveRewardsService"
+            android:exported="false">
+        </service>
 
         <!-- TODO(crbug.com/780674): retarget .Main back to CTA for non-modern APK -->
         <activity-alias android:name="com.google.android.apps.chrome.Main"

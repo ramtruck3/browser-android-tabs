@@ -4899,14 +4899,6 @@ content creators you love.
 
       <message name="IDS_WELCOME_TO_BRAVE_BROWSER" desc="Title for search engine page for onboarding">Welcome to Brave Browser</message>
       <message name="IDS_SELECT_YOUR_DEFAULT_SEARCH_ENGINE" desc="Text for search engine page for onboarding">Select your default search engine</message>
-      
-      <message name="IDS_DUCKDUCKGO" desc="Text for duckduckgo search engine">DuckDuckGo</message>
-      <message name="IDS_DUCKDUCKGO_LITE" desc="Text for duckduckgo lite search engine">DuckDuckGo Lite</message>
-      <message name="IDS_YANDEX" desc="Text for yendex search engine">Yandex</message>
-      <message name="IDS_GOOGLE" desc="Text for google search engine">Google</message>
-      <message name="IDS_QWANT" desc="Text for Qwant search engine">Qwant</message>
-      <message name="IDS_BING" desc="Text for Bing search engine">Bing!</message>
-      <message name="IDS_START_PAGE" desc="Text for StartPage search engine">StartPage</message>
 
       <message name="IDS_BLOCK" desc="Partial Text for brave shield page">Block</message>
       <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TITLE" desc="Title for brave shield page">Brave Shields</message>

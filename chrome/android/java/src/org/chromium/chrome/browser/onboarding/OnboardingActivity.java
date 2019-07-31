@@ -14,6 +14,7 @@ import java.util.Date;
 
 import org.chromium.chrome.R;
 
+import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.browser.onboarding.NonSwipeableViewPager;
 import org.chromium.chrome.browser.onboarding.OnboardingViewPagerAdapter;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
@@ -72,7 +73,9 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
             OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         }
-        finish();
+        Intent intent = new Intent(this, ChromeTabbedActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
     }
 
     @Override

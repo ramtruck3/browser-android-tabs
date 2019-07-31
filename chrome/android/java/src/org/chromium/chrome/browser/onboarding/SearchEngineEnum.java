@@ -3,30 +3,24 @@ package org.chromium.chrome.browser.onboarding;
 import org.chromium.chrome.R;
 
 public enum SearchEngineEnum {
-    GOOGLE(R.drawable.search_engine_google,R.string.google, SearchEngineEnumConstants.SEARCH_GOOGLE_ID),
-    DUCKDUCKGO(R.drawable.search_engine_duckduckgo,R.string.duckduckgo, SearchEngineEnumConstants.SEARCH_DUCKDUCKGO_ID),
-    DUCKDUCKGOLITE(R.drawable.search_engine_duckduckgo_lite,R.string.duckduckgo_lite, SearchEngineEnumConstants.SEARCH_DUCKDUCKGO_LITE_ID),
-    QWANT(R.drawable.search_engine_qwant,R.string.qwant, SearchEngineEnumConstants.SEARCH_QWANT_ID),
-    BING(R.drawable.search_engine_bing,R.string.bing, SearchEngineEnumConstants.SEARCH_BING_ID),
-    STARTPAGE(R.drawable.search_engine_startpage,R.string.start_page, SearchEngineEnumConstants.SEARCH_STARTPAGE_ID),
-    YANDEX(R.drawable.search_engine_yandex,R.string.yandex, SearchEngineEnumConstants.SEARCH_YANDEX_ID);
+    GOOGLE(R.drawable.search_engine_google, SearchEngineEnumConstants.SEARCH_GOOGLE_ID),
+    DUCKDUCKGO(R.drawable.search_engine_duckduckgo, SearchEngineEnumConstants.SEARCH_DUCKDUCKGO_ID),
+    DUCKDUCKGOLITE(R.drawable.search_engine_duckduckgo_lite, SearchEngineEnumConstants.SEARCH_DUCKDUCKGO_LITE_ID),
+    QWANT(R.drawable.search_engine_qwant, SearchEngineEnumConstants.SEARCH_QWANT_ID),
+    BING(R.drawable.search_engine_bing, SearchEngineEnumConstants.SEARCH_BING_ID),
+    STARTPAGE(R.drawable.search_engine_startpage, SearchEngineEnumConstants.SEARCH_STARTPAGE_ID),
+    YANDEX(R.drawable.search_engine_yandex, SearchEngineEnumConstants.SEARCH_YANDEX_ID);
 
     private int icon;
-    private int title;
     private int id;
 
-    SearchEngineEnum(int icon, int title,int id) {
+    SearchEngineEnum(int icon, int id) {
         this.icon = icon;
-        this.title = title;
         this.id = id;
     }
 
     public int getIcon() {
         return icon;
-    }
-
-    public int getTitle() {
-        return title;
     }
 
     public int getId(){

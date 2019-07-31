@@ -1933,5 +1933,7 @@ chrome_java_sources = [
   "java/src/org/chromium/chrome/browser/onboarding/BraveRewardsOnboardingFragment.java",
   "java/src/org/chromium/chrome/browser/onboarding/BraveAdsOnboardingFragment.java",
   "java/src/org/chromium/chrome/browser/onboarding/TroubleshootingOnboardingFragment.java",
-  "java/src/org/chromium/chrome/browser/onboarding/OnboardingPrefManager.java"
+  "java/src/org/chromium/chrome/browser/onboarding/OnboardingPrefManager.java",
+  "java/src/org/chromium/chrome/browser/onboarding/BraveRewardsService.java",
+  "java/src/org/chromium/chrome/browser/onboarding/BraveRewardsServiceReceiver.java"
 ]
