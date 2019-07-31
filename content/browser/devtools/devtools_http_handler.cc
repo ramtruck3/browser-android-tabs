@@ -510,7 +510,7 @@ std::string DevToolsHttpHandler::GetFrontendURLInternal(
                      type == DevToolsAgentHost::kTypeSharedWorker;
     frontend_url = base::StringPrintf(
         "http://chrome-devtools-frontend.appspot.com/serve_rev/%s/%s.html",
-        GetWebKitRevision().c_str(), is_worker ? "worker_app" : "inspector");
+        "@875a9f7de5d3a7aff4cb5c5ffec2849622368289", is_worker ? "worker_app" : "inspector");
   }
   return base::StringPrintf("%s?ws=%s%s%s", frontend_url.c_str(), host.c_str(),
                             kPageUrlPrefix, id.c_str());
