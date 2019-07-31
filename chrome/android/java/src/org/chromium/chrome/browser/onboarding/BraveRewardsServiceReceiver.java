@@ -8,7 +8,7 @@ public class BraveRewardsServiceReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Intent background = new Intent(context, BraveRewardsService.class);
-        context.startService(background);
+        Intent mBraveRewardsServiceIntent = new Intent(context, BraveRewardsService.class);
+        context.startService(mBraveRewardsServiceIntent);
     }
 }
