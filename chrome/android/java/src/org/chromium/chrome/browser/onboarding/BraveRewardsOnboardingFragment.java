@@ -68,6 +68,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
     private final int SPAN_START_INDEX = 24;
 
+    private boolean isAdsAvailable;
+
     public BraveRewardsOnboardingFragment() {
         // Required empty public constructor
     }
@@ -75,6 +77,8 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        isAdsAvailable = OnboardingPrefManager.getInstance().isAdsAvailable();
 
         isAgree=false;
  
@@ -119,7 +123,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
 
 
         if(fromSettings){
-            if(!OnboardingPrefManager.getInstance().isAdsAvailable())
+            if(!isAdsAvailable)
                 btnNext.setText(getResources().getString(R.string.finish));
             else
                 btnNext.setText(getResources().getString(R.string.next));
@@ -219,7 +223,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
             @Override
             public void onClick(View view) {
                 if(fromSettings){
-                    if(!OnboardingPrefManager.getInstance().isAdsAvailable()){
+                    if(!isAdsAvailable){
                         getActivity().finish();
                     }
                     onViewPagerAction.onNext();
@@ -257,7 +261,7 @@ public class BraveRewardsOnboardingFragment extends Fragment implements View.OnT
                             PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0,  broadcast_intent, 0);
                             alarmManager.set(AlarmManager.RTC_WAKEUP, 0, pendingIntent);
 
-                            if (PackageUtils.isFirstInstall(getActivity()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
+                            if (PackageUtils.isFirstInstall(getActivity()) && !isAdsAvailable) {
 
                                 String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
                                 String name = OnboardingPrefManager.selectedSearchEngine.getShortName();

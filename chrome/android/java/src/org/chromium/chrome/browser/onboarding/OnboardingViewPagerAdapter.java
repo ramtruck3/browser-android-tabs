@@ -16,6 +16,8 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
     private final Context context;
 
+    private final boolean isAdsAvailable;
+
     private static final int ONBOARDING_WITH_5_PAGES = 5;
     private static final int ONBOARDING_WITH_3_PAGES = 3;
 
@@ -25,6 +27,7 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
         this.onViewPagerAction = onViewPagerAction;
         this.onboardingType = onboardingType;
         this.fromSettings=fromSettings;
+        isAdsAvailable = OnboardingPrefManager.getInstance().isAdsAvailable();
     }
 
     @Override
@@ -43,7 +46,7 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING && OnboardingPrefManager.getInstance().isAdsAvailable()){
+        if(onboardingType==OnboardingPrefManager.NEW_USER_ONBOARDING && isAdsAvailable){
             return ONBOARDING_WITH_5_PAGES;
         }else{
             return ONBOARDING_WITH_3_PAGES;
