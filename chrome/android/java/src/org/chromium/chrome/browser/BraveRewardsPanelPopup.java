@@ -78,6 +78,10 @@ import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.os.Environment;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveRewardsHelper.LargeIconReadyCallback{
     private static final String TAG = "BraveRewards";
@@ -506,6 +510,43 @@ public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveReward
                 pre_grant.setVisibility(View.VISIBLE);
             }
         }
+
+        //Restore///////////////////////////////////////////////////////////////
+        Button restoreBtn = (Button)root.findViewById(R.id.restote_btn);
+        restoreBtn.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View v) {
+                                              String restore_key = ReadPassPhrase();
+                                              if (!restore_key.isEmpty()) {
+                                                  mBraveRewardsNativeWorker.RecoverWallet(restore_key);
+                                              }
+                                              else{
+                                                  Context context = ContextUtils.getApplicationContext();
+                                                  Toast toast = Toast.makeText(context, "Failed to read /data/local/tmp/phrase", Toast.LENGTH_SHORT);
+                                                  toast.show();
+                                              }
+                                          }
+                                      }
+        );
+    }
+
+    private String ReadPassPhrase(){
+        String line = "";
+        String path = String.format("%s/phrase", "/data/local/tmp");
+        File file = new File(path);
+        if (!file.exists()) {
+            return line;
+        }
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            line = br.readLine();
+            br.close();
+        }
+        catch (IOException e) {
+            Log.i("ReadPassPhrase failed", e.getMessage());
+        }
+        return line;        
     }
 
     private void startJoinRewardsAnimation(){

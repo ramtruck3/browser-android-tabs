@@ -192,6 +192,15 @@ public:
     void OnRewardsMainEnabled(brave_rewards::RewardsService* rewards_service, 
         bool rewards_main_enabled) override;
 
+    void RecoverWallet(JNIEnv* env, const base::android::JavaParamRef<jobject>& obj,
+            const base::android::JavaParamRef<jstring>& passPhrase);
+
+    void OnRecoverWallet(
+          brave_rewards::RewardsService* rewards_service,
+          unsigned int result,
+          double balance,
+          std::vector<brave_rewards::Grant> grants) override;
+
 private:
     void OnGetAddresses(const std::map<std::string, std::string>& addresses);
     void OnBalance(int32_t result, std::unique_ptr<::brave_rewards::Balance> balance);

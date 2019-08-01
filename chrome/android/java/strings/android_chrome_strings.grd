@@ -4865,6 +4865,9 @@ content creators you love.
       <message name="IDS_NOTIFICATION_CATEGORY_GROUP_BRAVE_ADS" desc="Subheading for 'Brave Ads' section of a list of notification categories. [CHAR-LIMIT=32]">
         Brave Ads
       </message>
+      <message name="IDS_BRAVE_ADS_TEST_RESTORE_WALLET" desc='Restore wallet'>
+        RECOVER WALLET
+      </message>
     </messages>
   </release>
 </grit>

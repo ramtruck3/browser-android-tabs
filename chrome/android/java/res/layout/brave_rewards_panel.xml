@@ -587,6 +587,17 @@
                     android:background="@drawable/bat_rewards_summary_gradient"
                     android:orientation="vertical" >
 
+                    <!-- Test restore################################ -->
+
+
+                    <Button android:layout_height="40dp"
+                        android:layout_width="match_parent"
+                        android:id="@+id/restote_btn"
+                        android:background="@drawable/bat_panel_gradient"
+                        android:text="@string/brave_ads_test_restore_wallet"
+                        android:padding="5dp"/>
+                    <!-- ################################################# -->
+
                     <TextView
                         android:id="@+id/br_no_activities_yet"
                         android:layout_height="100dp"

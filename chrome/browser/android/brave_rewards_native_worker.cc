@@ -624,5 +624,23 @@ base::android::ScopedJavaLocalRef<jstring> BraveRewardsNativeWorker::GetAddress(
   return res;
 }
 
+void BraveRewardsNativeWorker::RecoverWallet(JNIEnv* env, const base::android::JavaParamRef<jobject>& obj,
+    const base::android::JavaParamRef<jstring>& passPhrase){
+  if (brave_rewards_service_) {
+      brave_rewards_service_->RecoverWallet(base::android::ConvertJavaStringToUTF8(env, passPhrase));
+  }
+}
+
+
+void BraveRewardsNativeWorker::OnRecoverWallet(
+          brave_rewards::RewardsService* rewards_service,
+          unsigned int result,
+          double balance,
+          std::vector<brave_rewards::Grant> grants){
+  JNIEnv* env = base::android::AttachCurrentThread();
+  Java_BraveRewardsNativeWorker_OnRecoverWallet(env, 
+        weak_java_brave_rewards_native_worker_.get(env), result );
+}
+
 }
 }

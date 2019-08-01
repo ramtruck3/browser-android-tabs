@@ -14,6 +14,10 @@ import org.chromium.chrome.browser.BraveRewardsObserver;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.widget.Toast;
+import org.chromium.base.ContextUtils;
+
 @JNINamespace("chrome::android")
 public class BraveRewardsNativeWorker {
     // Rewards notifications
@@ -315,6 +319,19 @@ public class BraveRewardsNativeWorker {
         }
     }
 
+    public void RecoverWallet(String passPhrase){
+        synchronized(lock) {
+            nativeRecoverWallet(mNativeBraveRewardsNativeWorker,passPhrase);
+        }
+    }
+
+    @CalledByNative
+    public void OnRecoverWallet(int error_code) {
+        Context context = ContextUtils.getApplicationContext();
+        Toast toast = Toast.makeText(context, (0 == error_code) ? "Success" : "Recovery failed", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
     @CalledByNative
     public void OnGetRewardsMainEnabled(boolean enabled) {
         for(BraveRewardsObserver observer : observers_) {
@@ -481,6 +498,7 @@ public class BraveRewardsNativeWorker {
     private native void nativeRemoveRecurring(long nativeBraveRewardsNativeWorker, String publisher);
     private native void nativeResetTheWholeState(long nativeBraveRewardsNativeWorker);
     private native void nativeFetchGrants(long nativeBraveRewardsNativeWorker);
+    private native void nativeRecoverWallet(long nativeBraveRewardsNativeWorker, String passPhrase);
     private native void nativeGetAddresses(long nativeBraveRewardsNativeWorker);
     private native String nativeGetAddress(long nativeBraveRewardsNativeWorker, String addressName);
 }
