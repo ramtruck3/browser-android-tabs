@@ -76,6 +76,36 @@ public class PrivacyPreferences extends PreferenceFragment
 
         mManagedPreferenceDelegate = createManagedPreferenceDelegate();
 
+        ChromeBaseCheckBoxPreference fingerprintingProtectionPref =
+                (ChromeBaseCheckBoxPreference) findPreference(PREF_FINGERPRINTING_PROTECTION);
+        fingerprintingProtectionPref.setOnPreferenceChangeListener(this);
+        fingerprintingProtectionPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
+
+        ChromeBaseCheckBoxPreference httpsePref =
+                (ChromeBaseCheckBoxPreference) findPreference(PREF_HTTPSE);
+        httpsePref.setOnPreferenceChangeListener(this);
+        httpsePref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
+
+        ChromeBaseCheckBoxPreference adBlockPref =
+                (ChromeBaseCheckBoxPreference) findPreference(PREF_AD_BLOCK);
+        adBlockPref.setOnPreferenceChangeListener(this);
+        adBlockPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
+
+        ChromeBaseCheckBoxPreference adBlockRegionalPref =
+                (ChromeBaseCheckBoxPreference) findPreference(PREF_AD_BLOCK_REGIONAL);
+        adBlockRegionalPref.setOnPreferenceChangeListener(this);
+        adBlockRegionalPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
+
+        /*ChromeBaseCheckBoxPreference sendMetricsPref =
+                (ChromeBaseCheckBoxPreference) findPreference(PREF_SEND_METRICS);
+        sendMetricsPref.setOnPreferenceChangeListener(this);
+        sendMetricsPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);*/
+
+        ChromeBaseCheckBoxPreference closeTabsOnExitPref =
+                (ChromeBaseCheckBoxPreference) findPreference(PREF_CLOSE_TABS_ON_EXIT);
+        closeTabsOnExitPref.setOnPreferenceChangeListener(this);
+        closeTabsOnExitPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
+
         ChromeBaseCheckBoxPreference canMakePaymentPref =
                 (ChromeBaseCheckBoxPreference) findPreference(PREF_CAN_MAKE_PAYMENT);
         canMakePaymentPref.setOnPreferenceChangeListener(this);
@@ -148,36 +178,6 @@ public class PrivacyPreferences extends PreferenceFragment
         //         (ChromeBaseCheckBoxPreference) findPreference(PREF_SAFE_BROWSING);
         // safeBrowsingPref.setOnPreferenceChangeListener(this);
         // safeBrowsingPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
-
-        ChromeBaseCheckBoxPreference fingerprintingProtectionPref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_FINGERPRINTING_PROTECTION);
-        fingerprintingProtectionPref.setOnPreferenceChangeListener(this);
-        fingerprintingProtectionPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
-
-        ChromeBaseCheckBoxPreference httpsePref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_HTTPSE);
-        httpsePref.setOnPreferenceChangeListener(this);
-        httpsePref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
-
-        ChromeBaseCheckBoxPreference adBlockPref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_AD_BLOCK);
-        adBlockPref.setOnPreferenceChangeListener(this);
-        adBlockPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
-
-        ChromeBaseCheckBoxPreference adBlockRegionalPref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_AD_BLOCK_REGIONAL);
-        adBlockRegionalPref.setOnPreferenceChangeListener(this);
-        adBlockRegionalPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
-
-        /*ChromeBaseCheckBoxPreference sendMetricsPref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_SEND_METRICS);
-        sendMetricsPref.setOnPreferenceChangeListener(this);
-        sendMetricsPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);*/
-
-        ChromeBaseCheckBoxPreference closeTabsOnExitPref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_CLOSE_TABS_ON_EXIT);
-        closeTabsOnExitPref.setOnPreferenceChangeListener(this);
-        closeTabsOnExitPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
 
         updateSummaries();
     }
