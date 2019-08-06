@@ -174,6 +174,7 @@ const char kRewardsJS[] = "brave_rewards.js";
 const char kChromeUIExploreSitesInternalsHost[] = "explore-sites-internals";
 const char kBraveRewardsURL[] = "chrome://rewards/";
 const char kBraveRewardsHost[] = "rewards";
+const char kRewardsInternalsHost[] = "rewards-internals";
 const char kChromeUIJavaCrashURL[] = "chrome://java-crash/";
 const char kChromeUINativeBookmarksURL[] = "chrome-native://bookmarks/";
 const char kChromeUINativeExploreURL[] = "chrome-native://explore";

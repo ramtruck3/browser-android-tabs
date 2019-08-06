@@ -1,0 +1,37 @@
+import("//components/common/typescript.gni")
+
+transpile_web_ui("transpile_settings") {
+  # TODO: move this target local to the settings UI
+  inputs = [
+    "actions/rewards_actions.ts",
+    "brave_rewards.html",
+    "brave_rewards.tsx",
+    "components/adsBox.tsx",
+    "components/adsOnboarding.tsx",
+    "components/app.tsx",
+    "components/contributeBox.tsx",
+    "components/donationsBox.tsx",
+    "components/grant.tsx",
+    "components/pageWallet.tsx",
+    "components/settingsPage.tsx",
+    "components/style.ts",
+    "constants/rewards_types.ts",
+    "reducers/index.ts",
+    "reducers/grant_reducer.ts",
+    "reducers/publishers_reducer.ts",
+    "reducers/rewards_reducer.ts",
+    "reducers/wallet_reducer.ts",
+    "storage.ts",
+    "store.ts",
+    "utils.ts",
+  ]
+
+  # what is the output bundle called and what is the entry point file
+  entry_points = [
+    ["brave_rewards_settings", rebase_path("brave_rewards.tsx")],  
+  ]
+
+  # what is the directory / pack name
+  resource_name = "brave_rewards_settings"  
+}
+

@@ -2,4 +2,5 @@
 <grit-part>
   <include name="IDR_BRAVE_REWARDS_FAVICON" file="../brave_rewards_ui/resources/img/favicon.ico" type="BINDATA" />
   <include name="IDR_BRAVE_REWARDS_HTML" file="../brave_rewards_ui/resources/brave_rewards.html" type="BINDATA" />
+  <include name="IDR_BRAVE_REWARDS_INTERNALS_HTML" file="../../brave/components/brave_rewards/resources/ui/internals/brave_rewards_internals.html" type="BINDATA" />
 </grit-part>
