@@ -39,9 +39,9 @@ import java.util.Map;
 public class MainPreferences extends PreferenceFragment
         implements TemplateUrlService.LoadListener, ProfileSyncService.SyncStateChangedListener,
                    SigninManager.SignInStateObserver {
-    public static final String PREF_ACCOUNT_SECTION = "account_section";
-    //public static final String PREF_SIGN_IN = "sign_in";
-    public static final String PREF_SYNC_AND_SERVICES = "sync_and_services";
+    // public static final String PREF_ACCOUNT_SECTION = "account_section";
+    // public static final String PREF_SIGN_IN = "sign_in";
+    // public static final String PREF_SYNC_AND_SERVICES = "sync_and_services";
     public static final String PREF_STANDARD_SEARCH_ENGINE = "standard_search_engine";
     public static final String PREF_PRIVATE_SEARCH_ENGINE = "private_search_engine";
     public static final String PREF_SAVED_PASSWORDS = "saved_passwords";
@@ -117,12 +117,12 @@ public class MainPreferences extends PreferenceFragment
         PreferenceUtils.addPreferencesFromResource(this, R.xml.main_preferences);
         cachePreferences();
 
-        if (ChromeFeatureList.isEnabled(ChromeFeatureList.UNIFIED_CONSENT)) {
-            //mSignInPreference.setOnStateChangedCallback(this::onSignInPreferenceStateChanged);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(PREF_ACCOUNT_SECTION));
-            getPreferenceScreen().removePreference(findPreference(PREF_SYNC_AND_SERVICES));
-        }
+        // if (ChromeFeatureList.isEnabled(ChromeFeatureList.UNIFIED_CONSENT)) {
+        //     mSignInPreference.setOnStateChangedCallback(this::onSignInPreferenceStateChanged);
+        // } else {
+        //     getPreferenceScreen().removePreference(findPreference(PREF_ACCOUNT_SECTION));
+        //     getPreferenceScreen().removePreference(findPreference(PREF_SYNC_AND_SERVICES));
+        // }
 
         updatePasswordsPreference();
         setManagedPreferenceDelegateForPreference(PREF_STANDARD_SEARCH_ENGINE);
