@@ -12,6 +12,7 @@
 #include "base/memory/ptr_util.h"
 #include "base/threading/thread_task_runner_handle.h"
 #include "brave/browser/ui/webui/brave_rewards_ui.h"
+#include "brave/browser/ui/webui/brave_rewards_internals_ui.h"
 #include "build/build_config.h"
 #include "chrome/browser/about_flags.h"
 #include "chrome/browser/accessibility/accessibility_ui.h"
@@ -261,6 +262,14 @@ WebUIController* NewWebUI<BraveRewardsUI>(WebUI* web_ui, const GURL& url) {
   return new BraveRewardsUI(web_ui, url.host());
 }
 
+
+// Special case for BraveRewardsInternalsUI
+template<>
+WebUIController* NewWebUI<BraveRewardsInternalsUI>(WebUI* web_ui, const GURL& url) {
+  return new BraveRewardsInternalsUI(web_ui, url.host());
+}
+
+
 #if !defined(OS_ANDROID)
 template <>
 WebUIController* NewWebUI<PageNotAvailableForGuestUI>(WebUI* web_ui,
@@ -372,6 +381,8 @@ WebUIFactoryFunction GetWebUIFactoryFunction(WebUI* web_ui,
     }
     return &NewWebUI<BraveRewardsUI>;
   }
+  if (url.host_piece() == chrome::kRewardsInternalsHost)
+    return &NewWebUI<BraveRewardsInternalsUI>;
   if (url.host_piece() == chrome::kChromeUIAccessibilityHost)
     return &NewWebUI<AccessibilityUI>;
   if (url.host_piece() == chrome::kChromeUIAutofillInternalsHost)

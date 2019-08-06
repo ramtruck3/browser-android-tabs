@@ -9,5 +9,8 @@
   },
   "<(ROOT_GEN_DIR)/android-brave/web-ui-brave_rewards_donate/brave_rewards_donate.grd": {
     "includes": [32200],
+  },
+  "<(ROOT_GEN_DIR)/android-brave/web-ui-brave_rewards_internals/brave_rewards_internals.grd": {
+    "includes": [32300],
   }
 }
