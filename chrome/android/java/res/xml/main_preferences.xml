@@ -6,20 +6,20 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:orderingFromXml="false">
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="account_section"
         android:order="0"
         android:title="@string/prefs_section_account"/>
-    <!--<org.chromium.chrome.browser.preferences.SignInPreference
+    <org.chromium.chrome.browser.preferences.SignInPreference
         android:key="sign_in"
         android:order="1"
-        android:title="@string/sign_in_to_chrome"/> -->
+        android:title="@string/sign_in_to_chrome"/>
     <org.chromium.chrome.browser.preferences.ChromeBasePreference
         android:key="sync_and_services"
         android:order="2"
         android:layout="@layout/account_management_account_row"
         android:title="@string/prefs_sync_and_services"
-        android:fragment="org.chromium.chrome.browser.preferences.SyncAndServicesPreferences"/>
+        android:fragment="org.chromium.chrome.browser.preferences.SyncAndServicesPreferences"/>-->
 
     <PreferenceCategory
         android:key="search_engine_section"

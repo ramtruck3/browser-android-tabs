@@ -54,9 +54,9 @@ public class PrivacyPreferences extends PreferenceFragment
     private static final String PREF_CONTEXTUAL_SEARCH = "contextual_search";
     private static final String PREF_NETWORK_PREDICTIONS = "network_predictions";
     private static final String PREF_CLEAR_BROWSING_DATA = "clear_browsing_data";
-    private static final String PREF_SYNC_AND_SERVICES_LINK_DIVIDER =
-            "sync_and_services_link_divider";
-    private static final String PREF_SYNC_AND_SERVICES_LINK = "sync_and_services_link";
+    // private static final String PREF_SYNC_AND_SERVICES_LINK_DIVIDER =
+    //         "sync_and_services_link_divider";
+    // private static final String PREF_SYNC_AND_SERVICES_LINK = "sync_and_services_link";
     private static final String PREF_USAGE_STATS = "usage_stats_reporting";
     //private static final String PREF_SEND_METRICS = "send_metrics";
     private static final String PREF_CLOSE_TABS_ON_EXIT = "close_tabs_on_exit";
@@ -116,14 +116,19 @@ public class PrivacyPreferences extends PreferenceFragment
         networkPredictionPref.setOnPreferenceChangeListener(this);
         networkPredictionPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
 
+        ChromeBaseCheckBoxPreference searchSuggestionsPref =
+                (ChromeBaseCheckBoxPreference) findPreference(PREF_SEARCH_SUGGESTIONS);
+        searchSuggestionsPref.setOnPreferenceChangeListener(this);
+        searchSuggestionsPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
+
         if (ChromeFeatureList.isEnabled(ChromeFeatureList.UNIFIED_CONSENT)) {
             // Remove preferences that were migrated to SyncAndServicesPreferences.
             preferenceScreen.removePreference(findPreference(PREF_NAVIGATION_ERROR));
-            preferenceScreen.removePreference(findPreference(PREF_SEARCH_SUGGESTIONS));
-            //preferenceScreen.removePreference(findPreference(PREF_SAFE_BROWSING_SCOUT_REPORTING));
-            //preferenceScreen.removePreference(findPreference(PREF_SAFE_BROWSING));
-            preferenceScreen.removePreference(findPreference(PREF_CONTEXTUAL_SEARCH));
-            //preferenceScreen.removePreference(findPreference(PREF_USAGE_AND_CRASH_REPORTING));
+            // preferenceScreen.removePreference(findPreference(PREF_SEARCH_SUGGESTIONS));
+            // preferenceScreen.removePreference(findPreference(PREF_SAFE_BROWSING_SCOUT_REPORTING));
+            // preferenceScreen.removePreference(findPreference(PREF_SAFE_BROWSING));
+            // preferenceScreen.removePreference(findPreference(PREF_CONTEXTUAL_SEARCH));
+            // preferenceScreen.removePreference(findPreference(PREF_USAGE_AND_CRASH_REPORTING));
 
             // TODO(https://crbug.com/846376): Update strings in XML after UNIFIED_CONSENT launch.
             networkPredictionPref.setTitle(R.string.preload_pages_title);
@@ -137,32 +142,27 @@ public class PrivacyPreferences extends PreferenceFragment
             networkPredictionPref.setOrder(canMakePaymentPref.getOrder());
             preferenceScreen.addPreference(networkPredictionPref);
 
-            Preference syncAndServicesLink = findPreference(PREF_SYNC_AND_SERVICES_LINK);
-            NoUnderlineClickableSpan linkSpan =
-                    new NoUnderlineClickableSpan(getResources(), view -> {
-                        PreferencesLauncher.launchSettingsPage(getActivity(),
-                                SyncAndServicesPreferences.class,
-                                SyncAndServicesPreferences.createArguments(false));
-                    });
-            syncAndServicesLink.setSummary(
-                    SpanApplier.applySpans(getString(R.string.privacy_sync_and_services_link),
-                            new SpanApplier.SpanInfo("<link>", "</link>", linkSpan)));
+            // Preference syncAndServicesLink = findPreference(PREF_SYNC_AND_SERVICES_LINK);
+            // NoUnderlineClickableSpan linkSpan =
+            //         new NoUnderlineClickableSpan(getResources(), view -> {
+            //             PreferencesLauncher.launchSettingsPage(getActivity(),
+            //                     SyncAndServicesPreferences.class,
+            //                     SyncAndServicesPreferences.createArguments(false));
+            //         });
+            // syncAndServicesLink.setSummary(
+            //         SpanApplier.applySpans(getString(R.string.privacy_sync_and_services_link),
+            //                 new SpanApplier.SpanInfo("<link>", "</link>", linkSpan)));
 
             updateSummaries();
             return;
         }
-        preferenceScreen.removePreference(findPreference(PREF_SYNC_AND_SERVICES_LINK_DIVIDER));
-        preferenceScreen.removePreference(findPreference(PREF_SYNC_AND_SERVICES_LINK));
+        // preferenceScreen.removePreference(findPreference(PREF_SYNC_AND_SERVICES_LINK_DIVIDER));
+        // preferenceScreen.removePreference(findPreference(PREF_SYNC_AND_SERVICES_LINK));
 
         ChromeBaseCheckBoxPreference navigationErrorPref =
                 (ChromeBaseCheckBoxPreference) findPreference(PREF_NAVIGATION_ERROR);
         navigationErrorPref.setOnPreferenceChangeListener(this);
         navigationErrorPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
-
-        ChromeBaseCheckBoxPreference searchSuggestionsPref =
-                (ChromeBaseCheckBoxPreference) findPreference(PREF_SEARCH_SUGGESTIONS);
-        searchSuggestionsPref.setOnPreferenceChangeListener(this);
-        searchSuggestionsPref.setManagedPreferenceDelegate(mManagedPreferenceDelegate);
 
         if (!ContextualSearchFieldTrial.isEnabled()) {
             preferenceScreen.removePreference(findPreference(PREF_CONTEXTUAL_SEARCH));
