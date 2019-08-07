@@ -17,6 +17,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.Gravity;
@@ -174,6 +175,10 @@ public class BraveRewardsPanelPopup implements BraveRewardsObserver, BraveReward
         this.window = new PopupWindow(anchor.getContext());
         this.window.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         this.window.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        this.window.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            this.window.setElevation(20);
+        }
         thisObject = this;
         mIconFetcher = new BraveRewardsHelper();
 
