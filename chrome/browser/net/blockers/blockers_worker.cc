@@ -180,20 +180,23 @@ namespace blockers {
             return true;
         }
 
-        if (!GetData("", ADBLOCK_DATA_FILE, adblock_buffer_)) {
+        std::vector<char> adblock_buffer;
+        if (!GetData("", ADBLOCK_DATA_FILE, adblock_buffer)) {
             return false;
         }
 
         adblock_parser_ = new adblock::Engine();
-        if (!adblock_parser_->deserialize((char*)&adblock_buffer_.front(), adblock_buffer_.size())) {
+        adblock_parser_->addTag(brave_shields::kFacebookEmbeds);
+        adblock_parser_->addTag(brave_shields::kTwitterEmbeds);
+
+        if (!adblock_parser_->deserialize((char*)&adblock_buffer.front(), adblock_buffer.size())) {
             delete adblock_parser_;
             adblock_parser_ = nullptr;
             LOG(ERROR) << "adblock deserialize failed";
 
             return false;
         }
-        adblock_parser_->addTag(brave_shields::kFacebookEmbeds);
-        adblock_parser_->addTag(brave_shields::kTwitterEmbeds);
+
         set_adblock_initialized();
         return true;
     }
@@ -206,30 +209,33 @@ namespace blockers {
             return true;
         }
 
-        std::vector<unsigned char> db_file_name;
+        std::vector<char> db_file_name;
         if (!GetData("", ADBLOCK_REGIONAL_DATA_FILE, db_file_name, true)) {
             return false;
         }
+        std::vector<std::vector<char>> adblock_regional_buffer;
         std::vector<std::string> files = split((char*)&db_file_name.front(), ';');
         for (size_t i = 0; i < files.size(); i++) {
-            adblock_regional_buffer_.push_back(std::vector<unsigned char>());
-            if (!adblock_regional_buffer_.size()) {
+            adblock_regional_buffer.push_back(std::vector<char>());
+            if (!adblock_regional_buffer.size()) {
                 continue;
             }
-            if (!GetBufferData("", files[i].c_str(), adblock_regional_buffer_[adblock_regional_buffer_.size() - 1])) {
-                adblock_regional_buffer_.erase(adblock_regional_buffer_.begin() + adblock_regional_buffer_.size() - 1);
+            if (!GetBufferData("", files[i].c_str(), adblock_regional_buffer[adblock_regional_buffer.size() - 1])) {
+                adblock_regional_buffer.erase(adblock_regional_buffer.begin() + adblock_regional_buffer.size() - 1);
                 continue;
             }
 
             adblock::Engine* parser = new adblock::Engine();
+            parser->addTag(brave_shields::kFacebookEmbeds);
+            parser->addTag(brave_shields::kTwitterEmbeds);
             if (!parser) {
-                adblock_regional_buffer_.erase(adblock_regional_buffer_.begin() + adblock_regional_buffer_.size() - 1);
+                adblock_regional_buffer.erase(adblock_regional_buffer.begin() + adblock_regional_buffer.size() - 1);
                 continue;
             }
-            if (!parser->deserialize((char*)&adblock_regional_buffer_[adblock_regional_buffer_.size() - 1].front(),
-                    adblock_regional_buffer_[adblock_regional_buffer_.size() - 1].size())) {
+            if (!parser->deserialize((char*)&adblock_regional_buffer[adblock_regional_buffer.size() - 1].front(),
+                    adblock_regional_buffer[adblock_regional_buffer.size() - 1].size())) {
                 delete parser;
-                adblock_regional_buffer_.erase(adblock_regional_buffer_.begin() + adblock_regional_buffer_.size() - 1);
+                adblock_regional_buffer.erase(adblock_regional_buffer.begin() + adblock_regional_buffer.size() - 1);
                 LOG(ERROR) << "adblock_regional deserialize failed";
                 continue;
             }
@@ -249,7 +255,7 @@ namespace blockers {
         }
 
         // Init level database
-        std::vector<unsigned char> db_file_name;
+        std::vector<char> db_file_name;
         if (!GetData(HTTPSE_VERSION, HTTPSE_DATA_FILE_NEW, db_file_name, true)) {
             return false;
         }
@@ -280,7 +286,7 @@ namespace blockers {
         return true;
     }
 
-    bool BlockersWorker::GetData(const std::string& version, const std::string& fileName, std::vector<unsigned char>& buffer, bool only_file_name) {
+    bool BlockersWorker::GetData(const std::string& version, const std::string& fileName, std::vector<char>& buffer, bool only_file_name) {
         base::FilePath app_data_path;
         base::PathService::Get(base::DIR_ANDROID_APP_DATA, &app_data_path);
 
@@ -308,7 +314,7 @@ namespace blockers {
         return GetBufferData(version, &data.front(), buffer);
     }
 
-    bool BlockersWorker::GetBufferData(const std::string& version, const std::string& fileName, std::vector<unsigned char>& buffer) {
+    bool BlockersWorker::GetBufferData(const std::string& version, const std::string& fileName, std::vector<char>& buffer) {
         if (version.length() && fileName.find(version) != 0) {
             LOG(ERROR) << "BlockersWorker::GetBufferData: incorrect version for " << fileName;
             // Don't read data from file of other version
@@ -327,6 +333,7 @@ namespace blockers {
 
             return false;
         }
+
         buffer.resize(size);
         if (size != base::ReadFile(dataFilePath, (char*)&buffer.front(), size)) {
             LOG(ERROR) << "BlockersWorker::GetData: cannot read dat file " << fileName;
@@ -350,7 +357,9 @@ namespace blockers {
 
         std::string host = GURL(url).host();
         std::string tab_host = GURL(tab_url).host();
-        bool is_third_party = !base::StringPiece(host).ends_with(tab_host);
+        bool is_third_party = !net::registry_controlled_domains::SameDomainOrHost(GURL(url),
+            url::Origin::CreateFromNormalizedTuple("https", tab_host.c_str(), 80),
+            net::registry_controlled_domains::INCLUDE_PRIVATE_REGISTRIES);
         std::string string_resource_type = ResourceTypeToString((content::ResourceType)resource_type);
         bool cancel;
         bool saved_from_exception;
@@ -359,6 +368,7 @@ namespace blockers {
                 &cancel, &saved_from_exception, &redirect)) {
             return true;
         }
+        if (saved_from_exception) return false;
 
         // Check regional ad block
         if (!isAdBlockRegionalEnabled || !isAdBlockerRegionalInitialized()) {
@@ -369,6 +379,7 @@ namespace blockers {
                     &cancel, &saved_from_exception, &redirect)) {
                 return true;
             }
+            if (saved_from_exception) return false;
         }
         //
 
