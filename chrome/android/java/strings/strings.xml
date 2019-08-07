@@ -312,7 +312,7 @@ content creators you love.</string>
     <string name="no_thanks">No thanks</string>
     <string name="do_not_agree">Do not agree</string>
 
-    <string name="welcome_tour_dialog_text">Relaunching the Welcome Tour will not affect any system settings.</string>
+    <string name="welcome_tour_dialog_text">Relaunching Welcome Tour will not affect any existing settings.</string>
     <string name="finish">Finish</string>
 
 </resources>

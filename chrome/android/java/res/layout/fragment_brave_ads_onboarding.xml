@@ -98,7 +98,8 @@
             android:text="@string/i_didnt_see"
             android:textAllCaps="false"
             android:textSize="@dimen/onboarding_text_size"
-            android:textColor="@color/onboarding_black"/>
+            android:textColor="@color/onboarding_black"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

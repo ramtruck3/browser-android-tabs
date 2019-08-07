@@ -58,6 +58,7 @@ import org.chromium.chrome.browser.util.AccessibilityUtil;
 import org.chromium.chrome.browser.util.ColorUtils;
 import org.chromium.chrome.browser.util.PackageUtils;
 import org.chromium.chrome.browser.util.FeatureUtilities;
+import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.ui.UiUtils;
 import org.chromium.ui.base.DeviceFormFactor;
 
@@ -595,7 +596,9 @@ public class ToolbarTablet extends ToolbarLayout
         }
 
         updateNotificationBadgeForNewInstall(rewardsEnabled);
-        // mayShowBraveAdsOobeDialog();
+        if (!PackageUtils.isFirstInstall(getContext()) && !OnboardingPrefManager.getInstance().isAdsAvailable()) {
+            mayShowBraveAdsOobeDialog();
+        }
     }
 
     private void updateNotificationBadgeForNewInstall(boolean rewardsEnabled) {

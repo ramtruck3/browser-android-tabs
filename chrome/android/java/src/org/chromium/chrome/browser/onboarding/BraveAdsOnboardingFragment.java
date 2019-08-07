@@ -134,6 +134,12 @@ public class BraveAdsOnboardingFragment extends Fragment {
                     public void run() {
                         BraveRewardsHelper.crossfade(countDownLayout, null, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
                         BraveRewardsHelper.crossfade(null, actionLayout, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                BraveRewardsHelper.crossfade(null, btnDidntSeeAd, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
+                            }
+                        }, 2000);
                     }
                 }, 1000);
             }

@@ -18,7 +18,7 @@ import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.browser.onboarding.NonSwipeableViewPager;
 import org.chromium.chrome.browser.onboarding.OnboardingViewPagerAdapter;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
-import org.chromium.chrome.browser.search_engines.TemplateUrlService;
+import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
 
 public class OnboardingActivity extends AppCompatActivity implements OnViewPagerAction {
 
@@ -33,6 +33,8 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
+
+        BraveOnboardingNotification.cancelOnboardingNotification(this);
 
         Intent intent = getIntent();
         if(intent!=null){
@@ -67,10 +69,6 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
     @Override
     public void onStartBrowsing() {
         if(!fromSettings){
-            String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
-            String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
-            TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
-
             OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
         }
         Intent intent = new Intent(this, ChromeTabbedActivity.class);

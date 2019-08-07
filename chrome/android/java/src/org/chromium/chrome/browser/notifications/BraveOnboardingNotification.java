@@ -7,6 +7,7 @@
 package org.chromium.chrome.browser.notifications;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -23,7 +24,6 @@ import org.chromium.chrome.browser.notifications.NotificationBuilderBase;
 import org.chromium.chrome.browser.notifications.NotificationManagerProxyImpl;
 import org.chromium.chrome.browser.notifications.NotificationMetadata;
 import org.chromium.chrome.browser.notifications.NotificationUmaTracker;
-import org.chromium.chrome.browser.search_engines.TemplateUrlService;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 public class BraveOnboardingNotification extends BroadcastReceiver {
@@ -73,11 +73,6 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action != null && action.equals(DEEP_LINK)) {
-
-            String keyword = OnboardingPrefManager.selectedSearchEngine.getKeyword();
-            String name = OnboardingPrefManager.selectedSearchEngine.getShortName();
-            TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
-
             OnboardingPrefManager.getInstance().setPrefOnboardingEnabled(false);
 
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getNotificationUrl()));
@@ -89,7 +84,7 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
         }
     }
 
-    private static String getNotificationUrl(){
+    private static String getNotificationUrl() {
       String locale = BraveAdsNativeHelper.nativeGetLocale();
       String countryCode = BraveAdsNativeHelper.nativeGetCountryCode(locale);
       switch (countryCode){
@@ -100,5 +95,10 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
           default :
             return BRAVE_ONBOARDING_ORIGIN_EN;
       }
+    }
+
+    public static void cancelOnboardingNotification(Context context) {
+        NotificationManagerProxyImpl notificationManager = new NotificationManagerProxyImpl(context);
+        notificationManager.cancel(BRAVE_ONBOARDING_NOTIFICATION_TAG, BRAVE_ONBOARDING_NOTIFICATION_ID);
     }
 }

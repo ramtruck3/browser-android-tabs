@@ -41,6 +41,8 @@ public class SearchEngineOnboardingFragment extends Fragment{
 
     private boolean fromSettings;
 
+    private TemplateUrl selectedSearchEngine = TemplateUrlService.getInstance().getDefaultSearchEngineTemplateUrl();
+
     public SearchEngineOnboardingFragment() {
         // Required empty public constructor
     }
@@ -126,12 +128,18 @@ public class SearchEngineOnboardingFragment extends Fragment{
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String keyword = selectedSearchEngine.getKeyword();
+                String name = selectedSearchEngine.getShortName();
+                TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
+                TemplateUrlService.getInstance().setSearchEngine(name, keyword, true);
+
                 onViewPagerAction.onNext();
             }
         });
     }
 
     private void searchEngineSelected(int position, List<TemplateUrl> templateUrls) {
-        OnboardingPrefManager.selectedSearchEngine = templateUrls.get(position);
+        selectedSearchEngine = templateUrls.get(position);
     }
 }

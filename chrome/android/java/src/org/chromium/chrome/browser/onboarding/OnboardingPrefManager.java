@@ -45,8 +45,6 @@ public class OnboardingPrefManager {
     public static final int EXISTING_USER_REWARDS_OFF_ONBOARDING = 1;
     public static final int EXISTING_USER_REWARDS_ON_ONBOARDING = 2;
 
-    public static TemplateUrl selectedSearchEngine = TemplateUrlService.getInstance().getDefaultSearchEngineTemplateUrl();
-
     private static boolean isOnboardingNotificationShown;
 
     private static final List<String> adsAvailableRegions = Arrays.asList("US","CA","NZ","IE","AU","CA","FR","GB","DE");
@@ -131,7 +129,8 @@ public class OnboardingPrefManager {
         boolean shouldShow =
           getPrefOnboardingEnabled()
           && showOnboardingForSkip()
-          && PackageUtils.isFirstInstall(context);
+          && PackageUtils.isFirstInstall(context)
+          && ChromeFeatureList.isEnabled(ChromeFeatureList.BRAVE_REWARDS);
 
         return shouldShow;
     }
@@ -187,6 +186,8 @@ public class OnboardingPrefManager {
               onboardingType = EXISTING_USER_REWARDS_OFF_ONBOARDING;
           }else if(shouldShowExistingUserOnboardingIfRewardsIsSwitchedOn(context)){
               onboardingType = EXISTING_USER_REWARDS_ON_ONBOARDING;
+          } else {
+
           }
         }
 

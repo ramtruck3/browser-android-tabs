@@ -13,6 +13,10 @@ import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.widget.TextView;
+import android.graphics.Typeface;
+import android.util.TypedValue;
+import android.view.Gravity;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.base.VisibleForTesting;
@@ -33,6 +37,8 @@ import org.chromium.chrome.browser.signin.SigninManager;
 import org.chromium.chrome.browser.sync.ProfileSyncService;
 import org.chromium.chrome.browser.util.FeatureUtilities;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
+import org.chromium.chrome.browser.ChromeFeatureList;
+import org.chromium.chrome.browser.BraveRewardsHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -188,8 +194,17 @@ public class MainPreferences extends PreferenceFragment
 
         Preference welcomeTour = findPreference(PREF_WELCOME_TOUR);
         welcomeTour.setOnPreferenceClickListener(preference -> {
+
+            final TextView titleTextView = new TextView (getActivity());
+            titleTextView.setText(getActivity().getResources().getString(R.string.welcome_tour_dialog_text));
+            int padding = BraveRewardsHelper.dp2px(20);
+            titleTextView.setPadding(padding,padding,padding,padding);
+            titleTextView.setTextSize(18); 
+            titleTextView.setTextColor(getActivity().getResources().getColor(android.R.color.black));
+            titleTextView.setTypeface(null, Typeface.BOLD);
+
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity(), R.style.BraveDialogTheme)
-            .setTitle(R.string.welcome_tour_dialog_text)
+            .setView(titleTextView)
             .setPositiveButton(R.string.continue_button, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -201,6 +216,10 @@ public class MainPreferences extends PreferenceFragment
             alertDialog.show();
             return true;
         });
+
+        if (!ChromeFeatureList.isEnabled(ChromeFeatureList.BRAVE_REWARDS)) {
+            getPreferenceScreen().removePreference(welcomeTour);
+        }
     }
 
     /**
