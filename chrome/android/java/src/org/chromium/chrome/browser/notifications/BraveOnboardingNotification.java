@@ -50,6 +50,7 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
               .setBody(context.getString(R.string.this_is_your_first_ad))
               .setSmallIconId(R.drawable.ic_chrome)
               .setPriority(Notification.PRIORITY_HIGH)
+              .setDefaults(Notification.DEFAULT_ALL)
               .setContentIntent(getDeepLinkIntent(context))
               .setOrigin(getNotificationUrl());
 
