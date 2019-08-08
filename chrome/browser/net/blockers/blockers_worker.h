@@ -63,8 +63,8 @@ private:
     std::string applyHTTPSRule(const std::string& originalUrl, const std::string& rule);
     std::vector<std::string> getTPThirdPartyHosts(const std::string& base_host);
 
-    bool GetData(const std::string& version, const std::string& fileName, std::vector<unsigned char>& buffer, bool only_file_name = false);
-    bool GetBufferData(const std::string& version, const std::string& fileName, std::vector<unsigned char>& buffer);
+    bool GetData(const std::string& version, const std::string& fileName, std::vector<char>& buffer, bool only_file_name = false);
+    bool GetBufferData(const std::string& version, const std::string& fileName, std::vector<char>& buffer);
 
     std::string correcttoRuleToRE2Engine(const std::string& to);
 
@@ -77,8 +77,6 @@ private:
     bool GetRecentlyUsedCacheValue(const std::string& key, std::string& value);
     void SetRecentlyUsedCacheValue(const std::string& key, const std::string& value);
 
-    std::vector<unsigned char> adblock_buffer_;
-    std::vector<std::vector<unsigned char>> adblock_regional_buffer_;
     leveldb::DB* level_db_;
     // We use that to cache httpse requests (do not use it directly, only covered with httpse_recently_used_cache_mutex_)
     RecentlyUsedCache<std::string> recently_used_cache_;
