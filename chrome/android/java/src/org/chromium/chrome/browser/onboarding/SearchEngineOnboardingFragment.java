@@ -129,10 +129,12 @@ public class SearchEngineOnboardingFragment extends Fragment{
             @Override
             public void onClick(View view) {
 
-                String keyword = selectedSearchEngine.getKeyword();
-                String name = selectedSearchEngine.getShortName();
-                TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
-                TemplateUrlService.getInstance().setSearchEngine(name, keyword, true);
+                if(!fromSettings) {
+                    String keyword = selectedSearchEngine.getKeyword();
+                    String name = selectedSearchEngine.getShortName();
+                    TemplateUrlService.getInstance().setSearchEngine(name, keyword, false);
+                    TemplateUrlService.getInstance().setSearchEngine(name, keyword, true);
+                }
 
                 onViewPagerAction.onNext();
             }
