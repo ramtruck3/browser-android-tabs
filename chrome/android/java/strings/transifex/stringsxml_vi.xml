@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Chặn cookies của bên thứ ba</string>
 
     <string name="httpse_summary">Mở các trang được hỗ trợ bằng cách sử dụng HTTPS thay vì HTTP khi có thể</string>
-    <string name="tracking_protection_title">Chế độ Bảo vệ Theo dõi</string>
-    <string name="tracking_protection_summary">Ngăn chặn việc tải các nguồn theo dõi bạn</string>
     <string name="ad_block_title">Chặn Quảng cáo</string>
     <string name="ad_block_summary">Ngăn chặn tải quảng cáo</string>
 
@@ -39,10 +37,8 @@
     <string name="sync_device_failure">Không thể thiết lập đồng bộ</string>
     <string name="sync_requires_correct_time">Giờ hoặc múi giờ của đồng hồ máy tính bạn có thể bị sai. Hãy kiểm tra cài đặt đồng hồ của bạn</string>
 
-    <string name="brave_stats_text_trackers">Trình theo dõi
-Đã chặn</string>
-    <string name="brave_stats_text_ads">Quảng cáo
-Đã chặn</string>
+    <string name="brave_stats_text_ads">Quảng cáo &amp; Công cụ Theo dõi
+Đã bị Chặn</string>
     <string name="brave_stats_text_https">Nâng cấp
 HTTPS</string>
     <string name="brave_stats_text_time">Thời gian ước tính

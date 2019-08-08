@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">مسدود کردن کوکی‌های شخص ثالث</string>
 
     <string name="httpse_summary">سایت‌های پشتیبانی شده را در صورت امکان با استفاده از HTTPS به جای HTTP باز می‌کند</string>
-    <string name="tracking_protection_title">حالت محافظت در برابر ردیابی</string>
-    <string name="tracking_protection_summary">بارگیری منابعی را مسدود می‌کند که شما را ردیابی می‌کنند</string>
     <string name="ad_block_title">مسدود کردن تبلیغات</string>
     <string name="ad_block_summary">مسدود کردن بارگیری تبلیغات</string>
 
@@ -36,10 +34,6 @@
     <string name="enter_code_words_sync">کلمات کد را وارد کنید</string>
     <string name="sync_device">دستگاه را همگام سازی کنید</string>
     <string name="sync_device_failure">همگام سازی تنظیم نشد</string>
-    <string name="brave_stats_text_trackers">ردیاب‌ها
-مسدود شدند</string>
-    <string name="brave_stats_text_ads">آگهی‌ها
-مسدود شدند</string>
     <string name="brave_stats_text_https">ارتقاهای
 HTTPS</string>
     <string name="brave_stats_text_time">زمان تقریبی

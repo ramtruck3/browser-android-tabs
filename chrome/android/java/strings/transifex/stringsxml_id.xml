@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokir kuki pihak ke-3</string>
 
     <string name="httpse_summary">Buka situs yang didukung menggunakan HTTPS daripada HTTP jika memungkinkan</string>
-    <string name="tracking_protection_title">Mode Perlindungan Pelacakan</string>
-    <string name="tracking_protection_summary">Cegah proses memuat sumber-sumber yang melacak Anda</string>
     <string name="ad_block_title">Blokir Iklan</string>
     <string name="ad_block_summary">Mencegah iklan-iklan dari proses memuat</string>
 
@@ -40,9 +38,7 @@
     <string name="sync_device_failure">Sinkronisasi tidak dapat disiapkan</string>
     <string name="sync_requires_correct_time">Jam komputer Anda mungkin diatur ke waktu atau zona waktu yang salah. Periksa pengaturan jam Anda.</string>
 
-    <string name="brave_stats_text_trackers">Pelacak
-Diblokir</string>
-    <string name="brave_stats_text_ads">Iklan
+    <string name="brave_stats_text_ads">Iklan dan Pelacak
 Diblokir</string>
     <string name="brave_stats_text_https">Peningkatan
 HTTPS</string>

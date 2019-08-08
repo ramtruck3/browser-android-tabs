@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Блокиране на бисквитки на трети страни</string>
 
     <string name="httpse_summary">Отваря сайтове за поддръжка като използва HTTPS вместо of HTTP когато е възможно</string>
-    <string name="tracking_protection_title">Режим защита от проследяване</string>
-    <string name="tracking_protection_summary">Предотвратява зареждане на ресурси, които ви проследяват</string>
     <string name="ad_block_title">Блокиране на реклами</string>
     <string name="ad_block_summary">Предотвратява зареждане на реклами</string>
 
@@ -38,10 +36,6 @@
     <string name="enter_code_words_sync">Въведете кодовите думи</string>
     <string name="sync_device">Синхронизиране на устройство</string>
     <string name="sync_device_failure">Синхронизирането не може да се настрои</string>
-    <string name="brave_stats_text_trackers">Проследяването
-Блокирано</string>
-    <string name="brave_stats_text_ads">Реклами
-Блокирани</string>
     <string name="brave_stats_text_https">HTTPS
 Актуализации</string>
     <string name="brave_stats_text_time">Прибл. време

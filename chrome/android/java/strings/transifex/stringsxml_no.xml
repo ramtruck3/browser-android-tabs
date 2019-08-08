@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokker informasjonskapsler fra tredjeparter</string>
 
     <string name="httpse_summary">Åpner støttede nettsteder ved å bruke HTTPS i stedet for HTTP når mulig</string>
-    <string name="tracking_protection_title">Sporingsbeskyttelsesmodus</string>
-    <string name="tracking_protection_summary">Forhindrer ressurser som sporer deg fra å starte</string>
     <string name="ad_block_title">Blokker annonse</string>
     <string name="ad_block_summary">Forhindrer annonser å starte</string>
 
@@ -38,10 +36,6 @@
     <string name="sync_device_failure">Synk kunne ikke settes opp</string>
     <string name="sync_requires_correct_time">Datamaskinklokken din kan være satt feil, eller </string>
 
-    <string name="brave_stats_text_trackers">Sporing
-blokkert</string>
-    <string name="brave_stats_text_ads">Annonser
-blokkert</string>
     <string name="brave_stats_text_https">HTTPS-
 oppgraderinger</string>
     <string name="brave_stats_text_time">Beregnet tid

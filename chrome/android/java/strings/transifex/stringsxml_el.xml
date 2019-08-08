@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Αποκλεισμός στα cookies τρίτων</string>
 
     <string name="httpse_summary">Ανοίγει υποστηριζόμενες ιστοσελίδες που χρησιμοποιούν HTTPS αντί για HTTP όταν είναι δυνατόν</string>
-    <string name="tracking_protection_title">Λειτουργία προστασίας από εντοπισμό</string>
-    <string name="tracking_protection_summary">Αποτρέπει τη φόρτωση πόρων που σας παρακολουθούν</string>
     <string name="ad_block_title">Παρεμπόδιση διαφημίσεων</string>
     <string name="ad_block_summary">Αποτρέπει τη φόρτωση διαφημίσεων</string>
 
@@ -39,9 +37,7 @@
     <string name="sync_device_failure">Δεν ήταν δυνατή η ρύθμιση του συγχρονισμού</string>
     <string name="sync_requires_correct_time">Το ρολόι του υπολογιστή σας μπορεί να έχει ρυθμιστεί σε λάθος ώρα ή σε λάθος ζώνη ώρας. Ελέγξτε τις ρυθμίσεις ρολογιού σας</string>
 
-    <string name="brave_stats_text_trackers">Ιχνηλάτες που
-Αποκλείστηκαν</string>
-    <string name="brave_stats_text_ads">Διαφημίσεις που
+    <string name="brave_stats_text_ads">Οι Διαφημίσεις και οι Ανιχνευτές 
 Αποκλείστηκαν</string>
     <string name="brave_stats_text_https">Αναβαθμίσεις
 HTTPS</string>

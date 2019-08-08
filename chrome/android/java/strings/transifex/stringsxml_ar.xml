@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">حجب ملفات تعريف الارتباط لطرف ثالث</string>
 
     <string name="httpse_summary">يفتح المواقع المدعمة باستخدام HTTPS بدلا من HTTP إن أمكن</string>
-    <string name="tracking_protection_title">تتبع وضع الحماية</string>
-    <string name="tracking_protection_summary">يمنع الموارد التي تتبعها من التحميل</string>
     <string name="ad_block_title">حجب الإعلانات</string>
     <string name="ad_block_summary">يمنع تحميل الإعلانات</string>
 
@@ -39,11 +37,7 @@
     <string name="sync_device_failure">تعذر إعداد المزامنة</string>
     <string name="sync_requires_correct_time">قد تكون ساعة الكمبيوتر الخاص بك مضبوطة على الوقت الخطأ، أو على المنطقة الزمنية الخطأ. تحققْ من إعدادات الساعة الخاصة بك</string>
 
-    <string name="brave_stats_text_trackers">تم حظر
-المتتبعات
-</string>
-    <string name="brave_stats_text_ads">تم حظر
-الإعلانات</string>
+    <string name="brave_stats_text_ads">تم حجب الإعلانات وبرامج التتبع</string>
     <string name="brave_stats_text_https">ترقيات 
 HTTPS</string>
     <string name="brave_stats_text_time">حُفِظ

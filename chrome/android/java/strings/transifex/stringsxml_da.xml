@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Bloker 3. parts cookies</string>
 
     <string name="httpse_summary">Åbner understøttede sider ved at bruge HTTPS i stedet for HTTP når det er muligt</string>
-    <string name="tracking_protection_title">Sporingsbeskyttelse</string>
-    <string name="tracking_protection_summary">Forhindrer indlæsning af ressourcer der sporer dig</string>
     <string name="ad_block_title">Reklameblokering</string>
     <string name="ad_block_summary">Forhindrer indlæsning af reklamer</string>
 
@@ -38,10 +36,7 @@
     <string name="sync_device_failure">Synkronisering kunne ikke opsættes</string>
     <string name="sync_requires_correct_time">Din computers ur kan være indstillet til det forkerte klokkeslæt eller den forkerte tidszone. Tjek dine ur-indstillinger</string>
 
-    <string name="brave_stats_text_trackers">Sporere er
-blokeret</string>
-    <string name="brave_stats_text_ads">Reklamer er
-blokeret</string>
+    <string name="brave_stats_text_ads">Reklamer og Trackere Blokeret </string>
     <string name="brave_stats_text_https">HTTPS
 Opgraderinger</string>
     <string name="brave_stats_text_time">Anslået tids-

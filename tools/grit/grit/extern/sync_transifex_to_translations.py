@@ -230,7 +230,9 @@ def SyncTransifexToTranslations():
                                 translations.append(new_translation_tag)
                                 translations_file_was_changed = True
                         else:
-                            sys.exit('String name "' + string_name + '" not found in base strings')
+                            # not critical, just skip this string
+                            print('String name "' + string_name + '" not found in base strings')
+                            continue
                     # write changes
                     if translations_file_was_changed:
                         translations_file_name = translations_folder + '/' + filename

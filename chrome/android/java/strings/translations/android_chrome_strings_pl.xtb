@@ -1163,7 +1163,7 @@ Witryna NIE uzyskuje dostępu do kamery. Tylko Ty widzisz rejestrowany obraz.</t
 <translation id="3209146299287804856">Ustawienia tarczy Brave dla strony</translation>
 <translation id="622484624075952240">Wyłączone</translation>
 <translation id="2706462751667573066">Włączone</translation>
-<translation id="4339730410920731698">Zablokowane reklamy i oprogramowanie śledzące</translation>
+<translation id="4339730410920731698">Zablokowane reklamy i skrypty śledzące</translation>
 <translation id="2313532038420432247">Aktualizacje HTTPS</translation>
 <translation id="7461425058443653485">Zablokowane skrypty</translation>
 <translation id="7835726359440951858">Blokuj reklamy i śledzenie</translation>
@@ -1210,7 +1210,7 @@ zaoszczędzony czas</translation>
 <translation id="1713450908129883784">Kontrolery indywidualne</translation>
 <translation id="6303294677342628402">Tarcze</translation>
 <translation id="252011129655042182">Reklamy i skrypty śledzące</translation>
-<translation id="6754976710186182237">Metody odcisku palca</translation>
+<translation id="6754976710186182237">Metody odcisków palców</translation>
 <translation id="8585880402319729023">Zablokuj phishing</translation>
 <translation id="5965081608816406060">Odtwarzanie wideo w tle</translation>
 <translation id="59174027418879706">Włączone</translation>
@@ -1232,14 +1232,14 @@ zaoszczędzony czas</translation>
 <translation id="5628466560184522265">Dowiedz się więcej o prywatnym wyszukiwaniu za pomocą DuckDuckGo</translation>
 <translation id="1468415711258933398">Standardowa karta</translation>
 <translation id="6199596294742117349">To jest karta prywatna</translation>
-<translation id="5858455511731621847">Pomimo że strony, które odwiedzasz w karcie prywatnej nie są zapisywane lokalnie, nie czyni cię to ani anonimowym ani niewidocznym względem dostawcy usług internetowych, twojego pracodawcy lub stron, które odwiedzasz.</translation>
+<translation id="5858455511731621847">Pomimo że strony odwiedzane przez karty prywatne nie są zapisywane lokalnie, nie czynią Cię anonimowym, ani niewidocznym dla usługodawcy internetowego, pracodawcy lub odwiedzanej strony.</translation>
 <translation id="2339273275658335597">Aktualizacja przeglądarki Brave</translation>
 <translation id="8395234238259738935">Nowa przeglądarka Brave działa o 22% szybciej</translation>
 <translation id="391177677159359824">Synchronizacja (beta)</translation>
 <translation id="5302936549181470775">To Twoja pierwsza reklama Brave</translation>
 <translation id="2962368420497022811">Dotknij, aby dowiedzieć się więcej</translation>
 <translation id="8038539967102225446">Reklamy Brave są dostępne!</translation>
-<translation id="8050847734948770789">Włącz Nagrody Brave</translation>
+<translation id="8050847734948770789">Włącz nagrody Brave</translation>
 <translation id="2980493584149453310">Zarób token BAT za oglądanie reklam chroniących prywatność w nagrodach Brave.</translation>
 <translation id="9187185473011056079">Wchodzę w to!</translation>
 <translation id="3680755684186855422">Synchronizacja Brave pozwala na prywatną synchronizację danych zakładek w Twoich przeglądarkach Brave na różnych urządzeniach.</translation>
@@ -1376,13 +1376,13 @@ twórcom treści, które lubisz.</translation>
 <translation id="4162066325465825185">Przepraszamy. Wygląda na to, że Nagrody Brave nie są dostępne na Twoim urządzeniu</translation>
 <translation id="4150201353443180367">Wyświetlanie</translation>
 <translation id="2645380101799517405">Elementy kontrolne</translation>
-<translation id="2804710924397009224">Ukryj ikonę Brave Rewards</translation>
-<translation id="7358991116457217836">Ukrywa ikonę Brave Rewards, kiedy nie są one włączone.</translation>
+<translation id="2804710924397009224">Ukryj ikonę nagród Brave</translation>
+<translation id="7358991116457217836">Ukrywa ikonę nagród Brave, kiedy nie są one włączone.</translation>
 <translation id="7618184561660805696">Zajrzyj niedługo ponownie, aby otrzymać bezpłatny token.</translation>
-<translation id="3349204812119681938">Zresetuj Brave Rewards</translation>
-<translation id="8782039523249932839">Spowoduje to usunięcie portfela Brave i zresetowanie wszystkich Twoich danych o Brave Rewards.</translation>
+<translation id="3349204812119681938">Zresetuj nagrody Brave</translation>
+<translation id="8782039523249932839">Spowoduje to usunięcie portfela Brave i zresetowanie wszystkich Twoich danych o nagrodach Brave.</translation>
 <translation id="5321518976657560663">Błąd resetowania</translation>
-<translation id="7071576788062714665">Podczas resetowania Brave Rewards wystąpił błąd. Uruchom Brave ponownie i spróbuj jeszcze raz.</translation>
+<translation id="7071576788062714665">Podczas resetowania nagród Brave wystąpił błąd. Uruchom Brave ponownie i spróbuj jeszcze raz.</translation>
 <translation id="6707003343517029414">Na docelowym komputerze przejdź do synchronizacji Brave w ustawieniach i kliknij przycisk "Mam kod synchronizacji"\nWpisz słowa kodu łańcucha synchronizacji pokazane poniżej.</translation>
 <translation id="3149880132460839085">Synchronizacja Brave</translation>
 <translation id="6764016175302339802">Potraktuj ten kod jako hasło. Jeśli ktoś uzyska do niego dostęp, będzie móc odczytywać i modyfikować Twoje zsynchronizowane dane.</translation>
@@ -1391,4 +1391,6 @@ twórcom treści, które lubisz.</translation>
 <translation id="7091885296442320770">Brave jest błyskawiczną przeglądarką</translation>
 <translation id="2171928016777725844">Ustaw Brave jako domyślną przeglądarkę!</translation>
 <translation id="7136694880210472378">Ustaw jako domyślną</translation>
+<translation id="292729886516327029">Zablokowane reklamy
+i skrypty śledzące</translation>
 </translationbundle>

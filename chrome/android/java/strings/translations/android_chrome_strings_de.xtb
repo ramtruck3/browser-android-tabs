@@ -1389,7 +1389,7 @@ um Ihre Lieblingsersteller zu unterstützen.</translation>
 <translation id="2980493584149453310">Verdienen Sie Basic Attention Token für das Ansehen datenschutzwahrender Anzeigen in Brave Rewards.</translation>
 <translation id="9187185473011056079">Ich bin dabei!</translation>
 <translation id="6417420737057016607">Brave Anzeigen</translation>
-<translation id="8689997599821157251">Sie haben (translator's note: monetary amount goes here) verdient</translation>
+<translation id="8689997599821157251">Sie haben verdient</translation>
 <translation id="7091885296442320770">Brave ist blitzschnell</translation>
 <translation id="2171928016777725844">Machen Sie Brave zu Ihrem Standardbrowser!</translation>
 <translation id="7136694880210472378">Als Standard festlegen</translation>
@@ -1398,4 +1398,8 @@ um Ihre Lieblingsersteller zu unterstützen.</translation>
 <translation id="2645380101799517405">Steuerung</translation>
 <translation id="6707003343517029414">Gehen Sie bei Ihrem Zielcomputer in den Einstellungen auf Brave Sync. Klicken Sie auf die Schaltfläche "Ich habe einen Synchronisationscode".\nGeben Sie die Codewörter der Synchronisationskette ein, die unten angezeigt werden.</translation>
 <translation id="6764016175302339802">Behandeln Sie diesen Code wie ein Passwort. Wenn jemand an diesen Code gelangt, kann er Ihre synchronisierten Daten auslesen und verändern.</translation>
+<translation id="292729886516327029">Anzeigen und Tracker
+Blockiert</translation>
+<translation id="8508856434435157945">Auf Ihrem mobile Gerät navigieren Sie zum Punkt "Synchronisieren" in den Einstellungen und klicken Sie den Button "Synchonisierungscode scannen oder eingeben". Nutzen Sie dann die Kamera um den QR Code zu scannen.</translation>
+<translation id="7997676409547731821">Ihre geplante monatliche Zahlung für Auto-Contribute und monatliche Trinkgelder konnte aufgrund unzureichender Mittel nicht ausgeführt werden. Wir werden es in 30 Tagen noch einmal versuchen.</translation>
 </translationbundle>

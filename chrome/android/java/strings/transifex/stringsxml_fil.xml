@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">I-block ang cookies ng 3rd party</string>
 
     <string name="httpse_summary">Binubuksan ang mga sinusuportahang site gamit ang HTTPS sa halip na HTTP hangga\'t maaari</string>
-    <string name="tracking_protection_title">Tracking Protection Mode</string>
-    <string name="tracking_protection_summary">Pinipigilan ang pag-load ng mga resource na nagta-track sa iyo</string>
     <string name="ad_block_title">Pag-block ng Ad</string>
     <string name="ad_block_summary">Pinipigilan ang pag-load ng mga ad</string>
 
@@ -36,10 +34,6 @@
     <string name="enter_code_words_sync">Maglagay ng mga code na salita</string>
     <string name="sync_device">I-sync ang device</string>
     <string name="sync_device_failure">Hindi ma-set up ang pag-sync</string>
-    <string name="brave_stats_text_trackers">Na-block ang
-Mga Tracker</string>
-    <string name="brave_stats_text_ads">Na-block ang
-Mga Ad</string>
     <string name="brave_stats_text_https">Mga Pag-upgrade sa
 HTTPS</string>
     <string name="brave_stats_text_time">Tinatayang Oras

@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Zuia vidakuzi vya mhusika mwengine</string>
 
     <string name="httpse_summary">Hufungua tovuti zinazoauniwa kwa kutumia HTTPS badala ya HTTP ikiwezekana</string>
-    <string name="tracking_protection_title">Kufuatilia Modi ya Ulinzi</string>
-    <string name="tracking_protection_summary">Huzuia rasilimali zinazokufuatilia kupakia</string>
     <string name="ad_block_title">Kizuiaji cha Tangazo</string>
     <string name="ad_block_summary">Huzuia matangazo kupakia</string>
 
@@ -36,10 +34,6 @@
     <string name="enter_code_words_sync">Ingiza maneno ya msimbo</string>
     <string name="sync_device">Landanisha kifaa</string>
     <string name="sync_device_failure">Ulandanishaji usingesanidiwa</string>
-    <string name="brave_stats_text_trackers">Vifuatiliaji
-Vimezuiwa</string>
-    <string name="brave_stats_text_ads">Matangazo
-Vimezuiwa</string>
     <string name="brave_stats_text_https">Uboreshaji
 wa HTTPS</string>
     <string name="brave_stats_text_time">Muda Kadiriwa

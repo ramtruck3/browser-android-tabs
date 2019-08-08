@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blocare fișiere cookie terțe</string>
 
     <string name="httpse_summary">Deschide site-uri compatibile utilizând HTTPS în loc de HTTP atunci când este posibil</string>
-    <string name="tracking_protection_title">Mod Protecție anti-monitorizare</string>
-    <string name="tracking_protection_summary">Împiedică încărcarea resurselor care vă monitorizează</string>
     <string name="ad_block_title">Blocare reclame</string>
     <string name="ad_block_summary">Împiedică încărcarea reclamelor</string>
 
@@ -38,10 +36,8 @@
     <string name="sync_device_failure">Sincronizarea nu poate fi realizată</string>
     <string name="sync_requires_correct_time">Este posibil ca ora sau fusul orar al ceasului computerului dvs. să fie configurate incorect. Verificați setările ceasului dvs.</string>
 
-    <string name="brave_stats_text_trackers">Urmărire
-blocate</string>
-    <string name="brave_stats_text_ads">Reclame
-blocate</string>
+    <string name="brave_stats_text_ads">Anunțuri și urmăritori
+Blocat</string>
     <string name="brave_stats_text_https">Actualizări
 HTTPS</string>
     <string name="brave_stats_text_time">Timp est.

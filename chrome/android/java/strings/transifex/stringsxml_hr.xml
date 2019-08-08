@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokirati kolačiće 3. strana</string>
 
     <string name="httpse_summary">Otvara podržane sajtove uz pomoć HTTPS umjesto HTTP kad je to mogućno</string>
-    <string name="tracking_protection_title">Režim zaštite slijeđenja</string>
-    <string name="tracking_protection_summary">Sprječava resurse koji vas slijede kod učitavanja</string>
     <string name="ad_block_title">Bloker oglasa</string>
     <string name="ad_block_summary">Sprječava učitavanje oglasa</string>
 
@@ -36,10 +34,6 @@
     <string name="enter_code_words_sync">Unesi kodne riječi</string>
     <string name="sync_device">Sinkroniziraj uređaj</string>
     <string name="sync_device_failure">Postavljanje sinkronizacije nije uspjelo</string>
-    <string name="brave_stats_text_trackers">Obilježivači
-blokirani</string>
-    <string name="brave_stats_text_ads">Oglasi
-blokirani</string>
     <string name="brave_stats_text_https">HTTPS
 Unaprjeđenja</string>
     <string name="brave_stats_text_time">Est. Vrijeme

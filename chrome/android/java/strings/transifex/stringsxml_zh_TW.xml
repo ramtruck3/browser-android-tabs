@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">封鎖第三方 Cookie</string>
 
     <string name="httpse_summary">盡可能使用 HTTPS 而非 HTTP 開啟支援網站</string>
-    <string name="tracking_protection_title">追蹤保護模式</string>
-    <string name="tracking_protection_summary">防止可用來追蹤您的資源載入</string>
     <string name="ad_block_title">廣告阻擋</string>
     <string name="ad_block_summary">防止廣告載入</string>
 
@@ -39,10 +37,8 @@
     <string name="sync_device_failure">無法建立同步</string>
     <string name="sync_requires_correct_time">您的電腦時鐘可能時間設定不正確，或是被設定成不正確時區。請檢查您的時間設定</string>
 
-    <string name="brave_stats_text_trackers">追蹤器
-已阻擋</string>
-    <string name="brave_stats_text_ads">廣告
-已阻擋</string>
+    <string name="brave_stats_text_ads">廣告與追蹤器
+已封鎖</string>
     <string name="brave_stats_text_https">HTTPS
 升级</string>
     <string name="brave_stats_text_time">估計時間

@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">3ನೇ ಪಾರ್ಟಿ ಕುಕೀಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ</string>
 
     <string name="httpse_summary">ಸಾಧ್ಯವಾದಾಗಲೆಲ್ಲಾ HTTP ಬದಲಿಗೆ HTTPS ಬಳಸಿಕೊಂಡು ಬೆಂಬಲಿತ ಸೈಟ್‌ಗಳನ್ನು ತೆರೆಯುತ್ತದೆ</string>
-    <string name="tracking_protection_title">ಟ್ರ್ಯಾಕಿಂಗ್ ರಕ್ಷಣೆ ಮೋಡ್</string>
-    <string name="tracking_protection_summary">ಲೋಡ್ ಮಾಡದಂತೆ ನಿಮ್ಮನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುವ ಸಂಪನ್ಮೂಲಗಳನ್ನು ತಡೆಗಟ್ಟುತ್ತದೆ</string>
     <string name="ad_block_title">ಜಾಹೀರಾತು ನಿರ್ಬಂಧ</string>
     <string name="ad_block_summary">ಜಾಹೀರಾತುಗಳು ಲೋಡ್ ಆಗುವುದನ್ನು ತಡೆಗಟ್ಟುತ್ತದೆ</string>
 
@@ -40,10 +38,6 @@
     <string name="sync_device_failure">ಸಿಂಕ್ ಅನ್ನು ಹೊಂದಿಸಲಾಗಲಿಲ್ಲ</string>
     <string name="sync_requires_correct_time">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನ ಗಡಿಯಾರವನ್ನು ತಪ್ಪಾದ ಸಮಯಕ್ಕೆ ಅಥವಾ ತಪ್ಪಾದ ಸಮಯ ವಲಯಕ್ಕೆ ಹೊಂದಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಗಡಿಯಾರ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ</string>
 
-    <string name="brave_stats_text_trackers">ಟ್ರ್ಯಾಕರ್‌ಗಳನ್ನು
-ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
-    <string name="brave_stats_text_ads">ಜಾಹೀರಾತುಗಳನ್ನು
-ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
     <string name="brave_stats_text_https">HTTPS
 ಅಪ್‌ಗ್ರೇಡ್‌ಗಳು</string>
     <string name="brave_stats_text_time">ಅಂದಾಜು ಸಮಯ

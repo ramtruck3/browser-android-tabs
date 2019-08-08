@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokiranje piškotkov tretjih strani</string>
 
     <string name="httpse_summary">Odpre podprta spletna mesta z uporabo protokola HTTPS, namesto z uporabo protokola HTTP, kjerkoli je mogoče</string>
-    <string name="tracking_protection_title">Način zaščite pred sledenjem</string>
-    <string name="tracking_protection_summary">Preprečevanje nalaganja sledilnih virov</string>
     <string name="ad_block_title">Blok za oglase</string>
     <string name="ad_block_summary">Prepreči nalaganje oglasov</string>
 
@@ -40,10 +38,6 @@
     <string name="sync_device_failure">Sinhronizacije ni bilo mogoče nastaviti</string>
     <string name="sync_requires_correct_time">Ura vašega računalnika je morda napačno nastavljena ali pa v napačnem časovnem pasu. Preverite nastavitve svoje ure.</string>
 
-    <string name="brave_stats_text_trackers">Sledilniki
-so blokirani</string>
-    <string name="brave_stats_text_ads">Oglasi
-so blokirani</string>
     <string name="brave_stats_text_https">HTTPS
 nadgradnje</string>
     <string name="brave_stats_text_time">Ocenj. Čas
@@ -103,6 +97,7 @@ Shranjeno</string>
     <string name="brave_ads_oobe_education_notification_body">Tapni tukaj, da izveste več</string>
     <string name="brave_ads_existing_user_offer_title">Oglasi Brave so tu!</string>
     <string name="brave_ads_new_user_offer_title">Omogoči nagrade Brave</string>
+    <string name="brave_ads_offer_text">Prislužite si osnovni žeton pozornosti za ogledovanje oglasov z varovanjem zasebnosti v nagradah Brave Rewards.</string>
     <string name="brave_ads_offer_positive">Sem zraven!</string>
     <string name="brave_sync_description_page_1_part_1">Brave Sync vam omogoča zasebno sinhronizacijo podatkov o zaznamkih med brskalniki Brave na vaših različnih napravah.</string>
     <string name="brave_sync_description_page_1_part_2">Enostavno skenirajte kodo vaše sinhronizacijske verige, ki ste jo ustvarili na drugi napravi ali pa ustvarite novo sinhronizacijsko verigo.</string>
@@ -114,6 +109,7 @@ Shranjeno</string>
     <string name="brave_sync_btn_laptop">Dodaj računalnik</string>
     <string name="brave_sync_scan_sync_code">Skeniraj to kodo za sinhronizacijo</string>
     <string name="brave_sync_add_mobile_device_text_part_1">Na drugem telefonu ali tabličnem računalniku izberite Nastavitve Brave > Sinhronizacija > Skeniranje.</string>
+    <string name="brave_sync_add_mobile_device_text_part_2">Na vaši mobilni napravi krmilite to Usklajevanja Brave v nadzorni plošči in kliknite gumb Preglej kodo usklajevanja. Uporabite kamero, da skenirate spodnjo kodo QR.</string>
     <string name="brave_sync_btn_done">Končano</string>
     <string name="brave_sync_tabs_text">Zavihki</string>
     <string name="brave_sync_history_text">Zgodovina</string>
@@ -247,6 +243,7 @@ ustvarjalcem vsebin, ki so vam všeč.</string>
     <string name="brave_rewards_not_available">Žal Nagrade Brave niso na voljo na vaši napravi.</string>
 
     <string name="prefs_section_display">Prikaz</string>
+    <string name="prefs_section_controls">Kontrolniki</string>
     <string name="prefs_appearance">Videz</string>
     <string name="hide_brave_rewards_icon_title">Skrij ikono Nagrade Brave</string>
     <string name="hide_brave_rewards_icon_description">Skrije ikono Nagrade Brave, ko Nagrade Brave niso omogočene.</string>
@@ -258,12 +255,17 @@ ustvarjalcem vsebin, ki so vam všeč.</string>
     <string name="reset_brave_rewards_error_title">Napaka ponastavljanja</string>
     <string name="reset_brave_rewards_error_description">Pri ponastavljanju Nagrad Brave je prišlo do napake. Ponovno zaženite Brave in poskusite znova.</string>
 
+    <string name="brave_sync_add_laptop_text_part_2_new">Na svojem ciljnem računalniku krmilite do Usklajevanja Brave v nastavitvah in kliknite gumb Imam kodo za usklajevanje.\nVnesite besede kodne verige usklajevanja, prikazane spodaj.</string>
+
     <string name="brave_sync_official">Usklajevanje Brave</string>
     <string name="prefs_sync_official">Uskladi</string>
+
+    <string name="brave_sync_code_warning">Obravnavajte to kodo kot geslo. Če se do nje dokoplje tretja stran, lahko bere in spreminja vaše usklajene podatke.</string>
 
     <string name="notification_category_group_brave_ads">Oglasi Brave</string>
     <string name="brave_ads_you_earned">Zaslužili ste</string>
 
     <string name="brave_default_browser_title">Brave je svetlobno hiter</string>
+    <string name="brave_default_browser_body">Nastavite Brave za svoj privzeti brskalnik!</string>
     <string name="brave_make_default_text">Naredi privzeto</string>
 </resources>

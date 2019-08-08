@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Bloquear 3rd party cookies</string>
 
     <string name="httpse_summary">Abre sites suportados utilizando HTTPS em vez de HTTP quando possível</string>
-    <string name="tracking_protection_title">Modo de Proteção de Rastreamento</string>
-    <string name="tracking_protection_summary">Impede os recursos que rastreiam o seu carregamento</string>
     <string name="ad_block_title">Bloqueia Publicidade</string>
     <string name="ad_block_summary">Impede publicidades de carregar</string>
 
@@ -40,10 +38,8 @@
     <string name="sync_device_failure">A sincronização não pôde ser configurada</string>
     <string name="sync_requires_correct_time">O relógio do seu computador pode estar configurado com a hora errada ou o fuso horário errado. Verifique as configurações do relógio</string>
 
-    <string name="brave_stats_text_trackers">Rastreadores
-Bloqueados</string>
-    <string name="brave_stats_text_ads">Anúncios
-Bloqueados</string>
+    <string name="brave_stats_text_ads">Anúncios e Rastreadores
+Bloqueado</string>
     <string name="brave_stats_text_https">HTTPS
 Atualizados</string>
     <string name="brave_stats_text_time">Tempo Estimado

@@ -1,91 +1,89 @@
 <resources>
 
-    <string name="brave_settings_title">Brave サイトシールドの設定 対象:</string>
-    <string name="brave_shields_down">下へ</string>
-    <string name="brave_shields_up">上ヘ</string>
-    <string name="brave_shields_ads_trackers">広告と追跡トラッカーはブロックされました</string>
+    <string name="brave_settings_title">Brave Shieldのサイト別設定</string>
+    <string name="brave_shields_down">無効</string>
+    <string name="brave_shields_up">有効</string>
+    <string name="brave_shields_ads_trackers">広告と追跡トラッカーをブロック</string>
     <string name="brave_shields_https_upgrades">HTTPS アップグレード</string>
-    <string name="brave_shields_scripts_blocked">スクリプトはブロックされました</string>
+    <string name="brave_shields_scripts_blocked">スクリプトをブロック</string>
     <string name="brave_shields_ads_tracking_switch">広告と追跡トラッカーをブロック</string>
-    <string name="brave_shields_https_everywhere_switch">HTTPSをどこでも</string>
+    <string name="brave_shields_https_everywhere_switch">HTTPS Everywhere</string>
     <string name="brave_shields_blocks_scripts_switch">スクリプトをブロック</string>
-    <string name="accessibility_toolbar_btn_brave_shields">Braveシールドを有効化/無効化</string>
+    <string name="accessibility_toolbar_btn_brave_shields">Brave Shieldを有効化/無効化</string>
+    <string name="accessibility_toolbar_btn_brave_rewards">Brave Rewardsの管理</string>
     <string name="brave_shields_block_3rd_party_cookies_switch">サードパーティクッキーをブロック</string>
 
-    <string name="httpse_summary">HTTPの代わりにHTTPSの利用が可能であれば、HTTPSでサポートされたサイトを開</string>
-    <string name="tracking_protection_title">追跡保護モード</string>
-    <string name="tracking_protection_summary">読み込む事であなたを追跡するリソースを防ぐ</string>
+    <string name="httpse_summary">HTTPの代わりにHTTPSが利用できれば、HTTPSで開く</string>
     <string name="ad_block_title">広告ブロック</string>
-    <string name="ad_block_summary">広告の読み込みを防ぐ</string>
+    <string name="ad_block_summary">広告を読み込まない</string>
 
-    <string name="fingerprinting_protection_title">フィンガープリント保護</string>
-    <string name="fingerprinting_protection_summary">ブラウザーがフィンガープリントされるのを防ぐ。</string>
-    <string name="brave_shields_fingerprints_blocked">フィンガープリント法をブロック</string>
-    <string name="brave_shields_block_fingerprints_switch">フィンガープリント保護</string>
+    <string name="fingerprinting_protection_title">フィンガープリントを防止</string>
+    <string name="fingerprinting_protection_summary">端末のフィンガープリントを防止</string>
+    <string name="brave_shields_fingerprints_blocked">フィンガープリントをブロック</string>
+    <string name="brave_shields_block_fingerprints_switch">フィンガープリント防止</string>
 
-    <string name="ad_block_regional_title">地域の広告ブロック</string>
-    <string name="ad_block_regional_summary">地域広告が読み込まれるのを防ぐ。</string>
+    <string name="ad_block_regional_title">地域広告ブロック</string>
+    <string name="ad_block_regional_summary">地域広告を読み込まない</string>
 
     <string name="ad_block_regional_summary_no_list">お住まいの地域では追加リストがご利用になれません。</string>
 
-    <string name="menu_exit">出口</string>
+    <string name="menu_exit">閉じる</string>
 
+    <string name="brave_sync">Brave Sync (beta)</string>
     <string name="sync_settings_add_device_name_title">端末名を追加</string>
     <string name="sync_settings_add_device_name_label">この端末のオプション名を入力</string>
     <string name="sync_example_device_name">Android 端末</string>
-    <string name="enter_code_words_sync">コードの単語を入力</string>
-    <string name="sync_device">Sync 端末</string>
+    <string name="enter_code_words_sync">同期コードを入力</string>
+    <string name="sync_device">同期する端末</string>
     <string name="sync_device_failure">同期をセットアップできませでした</string>
-    <string name="sync_requires_correct_time">お使いのコンピューターの時計が誤った時間または誤ったタイムゾーンに設定されている可能性があります。時計の設定をご確認ください。</string>
+    <string name="sync_requires_correct_time">お使いの端末の時計が誤った時間、または誤ったタイムゾーンに設定されている可能性があります。時計の設定をご確認ください。</string>
 
-    <string name="brave_stats_text_trackers">トラッカー
-ブロックされました</string>
-    <string name="brave_stats_text_ads">広告
-ブロックされました</string>
+    <string name="brave_stats_text_ads">ブロック済みの
+広告とトラッカー</string>
     <string name="brave_stats_text_https">HTTPS
 アップグレード</string>
-    <string name="brave_stats_text_time">東部標準時間
-セーブされました</string>
+    <string name="brave_stats_text_time">節約された
+時間(推定)</string>
 
     <string name="send_metrics_title">メトリクスを送信する</string>
 
     <string name="desktop_mode_title">デスクトップモード</string>
-    <string name="website_settings_category_desktop_view_enabled_summary">サイトのデスクトップバージョンを選択</string>
-    <string name="website_settings_category_desktop_view_disabled_summary">サイトの携帯バージョンを選択</string>
-    <string name="website_settings_category_desktop_view_enabled">新しいタブでデスクトップビューを可能にする</string>
-    <string name="website_settings_category_desktop_view_disabled">新しいタブでサイトの携帯バーションをお使いください（奨励）</string>
+    <string name="website_settings_category_desktop_view_enabled_summary">デスクトップページを表示</string>
+    <string name="website_settings_category_desktop_view_disabled_summary">モバイルページを表示</string>
+    <string name="website_settings_category_desktop_view_enabled">新しいタブをデスクトップビューで開く</string>
+    <string name="website_settings_category_desktop_view_disabled">新しいタブをモバイルページを開く（奨励）</string>
 
     <string name="brave_shields_first_group_title">監視をブロック</string>
     <string name="brave_shields_second_group_title">個別の制御</string>
-    <string name="brave_shields">シールド</string>
+    <string name="brave_shields">Shields (保護機能)</string>
     <string name="brave_shields_ads_and_trackers">広告とトラッカー</string>
-    <string name="brave_shields_fingerprint_methods">指紋による方法</string>
+    <string name="brave_shields_fingerprint_methods">フィンガープリント</string>
     <string name="brave_shields_block_phishing_switch">フィッシングをブロック</string>
 
-    <string name="play_video_in_background_title">背景動画の再生</string>
+    <string name="play_video_in_background_title">動画のバックグラウンド再生</string>
     <string name="website_settings_category_play_video_in_background_enabled_summary">有効</string>
     <string name="website_settings_category_play_video_in_background_disabled_summary">無効</string>
-    <string name="website_settings_category_play_video_in_background_enabled">試験的機能です。タブが無効またはデバイスの画面がオフの際のバックグラウンドの動画からのオーディオ再生を有効化します。この機能が動作しない場合には、デスクトップモードに切り替えてみてください。</string>
-    <string name="settings_require_relaunch_notice">変更は次回の Brave 再起動後に有効となります</string>
+    <string name="website_settings_category_play_video_in_background_enabled">試験的機能です。タブが無効またはデバイスの画面がオフの際も、再生されている動画のオーディオを再生します。この機能が動作しない場合には、デスクトップモードに切り替えてみてください。</string>
+    <string name="settings_require_relaunch_notice">変更は再起動後に有効となります</string>
     <string name="settings_require_relaunch_now">今すぐ再起動する</string>
     <string name="settings_require_relaunch_later">後で</string>
 
     <string name="play_yt_video_in_browser_title">Braveでの動画再生</string>
-    <string name="website_settings_category_play_yt_video_in_browser_enabled_summary">有効になっています</string>
-    <string name="website_settings_category_play_yt_video_in_browser_disabled_summary">無効になっています</string>
+    <string name="website_settings_category_play_yt_video_in_browser_enabled_summary">有効</string>
+    <string name="website_settings_category_play_yt_video_in_browser_disabled_summary">無効</string>
     <string name="website_settings_category_play_yt_video_in_browser_enabled">有効になっているときは、対応するアプリの代わりにBraveで動画が再生されます</string>
 
-    <string name="close_tabs_on_exit_title">出口にあるタブを閉じてください</string>
-    <string name="close_tabs_on_exit_summary">ブラウズの間はタブをそのままにしないでください。</string>
+    <string name="close_tabs_on_exit_title">アプリ終了時にタブを全て閉じる</string>
+    <string name="close_tabs_on_exit_summary">ブラウジング中にタブのセッションを維持しない</string>
 
-    <string name="open_pages_in_custom_tabs_title">カスタムタブ内のタブを開く</string>
+    <string name="open_pages_in_custom_tabs_title">カスタムタブ内でタブを開く</string>
     <string name="open_pages_in_custom_tabs_summary">カスタムタブ内のタブを開くよう提案する</string>
 
     <string name="ddg_offer_title"> DuckDuckGoでプライベート検索しますか？</string>
-    <string name="ddg_offer_text">プライベート検索では、BraveがDuckDuckGoを使って、このプライベートタブ内であなたの検索リクエストに応えます。DuckDuckGoは、検索履歴を追跡しない検索エンジンなので、プライベートな検索を行うことができます。</string>
+    <string name="ddg_offer_text">プライベート検索では、DuckDuckGoを使って検索します。DuckDuckGoは検索履歴を追跡しない検索エンジンなので、プライベートな検索を行うことができます。</string>
     <string name="ddg_offer_positive">はい</string>
     <string name="ddg_offer_negative">いいえ</string>
-    <string name="ddg_offer_link">DuckDuckGoを使ったプライベート検索について学ぶ</string>
+    <string name="ddg_offer_link">DuckDuckGoを使ったプライベート検索について詳しく知る</string>
     <string name="prefs_standard_search_engine">標準タブ</string>
     <string name="prefs_private_search_engine">プライベートタブ</string>
 
@@ -93,15 +91,15 @@
     <string name="brave_close_all_private_tabs">プライベートタブを閉じる</string>
     <string name="brave_new_private_tab">新しいプライベートタブ</string>
     <string name="brave_new_tab_private_header">これはプライベートタブです</string>
-    <string name="brave_new_tab_private_message">プライベートタブで訪れたサイトはローカルに保存されませんが、ISPや雇用主、又は訪れたサイトに対して、あなたを匿名に保ったり、身元が分からない状態にはしません。</string>
-    <string name="update_notification_title">Braveアプデート</string>
-    <string name="update_notification_text">新しく生まれ変わったBraveブラウザは、22%の高速化を達成しました</string>
+    <string name="brave_new_tab_private_message">プライベートタブで訪れたサイトはローカルに保存されませんが、ISPや雇用主、又は訪れたサイトにあなたのアクティビティが知られる可能性はあります。</string>
+    <string name="update_notification_title">Braveアップデート</string>
+    <string name="update_notification_text">新しく生まれ変わったBraveブラウザは、22%高速化しました</string>
     <string name="prefs_sync">Sync (beta版)</string>
-    <string name="brave_ads_oobe_education_notification_title">これはあなたの最初のBrave広告です</string>
+    <string name="brave_ads_oobe_education_notification_title">これはあなたの初めてのBrave広告です</string>
     <string name="brave_ads_oobe_education_notification_body">詳しく知るにはここをタップします</string>
     <string name="brave_ads_existing_user_offer_title">Brave Adsのご紹介です！</string>
     <string name="brave_ads_new_user_offer_title">Brave Rewardsを有効にしましょう</string>
-    <string name="brave_ads_offer_text">Brave Rewardsでプライバシー保護広告を見てベーシックアテンショントークンをもらいましょう。</string>
+    <string name="brave_ads_offer_text">Brave Rewardsでプライバシー重視型の広告を見てBasic Attention Token(BAT)をもらいましょう。</string>
     <string name="brave_ads_offer_positive">参加します！</string>
     <string name="brave_sync_description_page_1_part_1">Brave Sync は、さまざまな端末上の Brave ブラウザ間でのブックマークデータの同期を可能にします。</string>
     <string name="brave_sync_description_page_1_part_2">別の端末で作成した同期チェーンからコードをスキャンするだけ。または新しい同期チェーンを開始します。</string>
@@ -113,6 +111,7 @@
     <string name="brave_sync_btn_laptop">コンピュータを追加</string>
     <string name="brave_sync_scan_sync_code">この同期コードをスキャンします</string>
     <string name="brave_sync_add_mobile_device_text_part_1">2 つ目の電話またはタブレットを使用して、[Brave 設定] > [同期] > {スキャン} に移動します。</string>
+    <string name="brave_sync_add_mobile_device_text_part_2">もう一台の端末でBraveを開き、設定 > Sync と移動しし、同期コードをスキャンする をクリックし、下のQRコードをスキャンしてください。</string>
     <string name="brave_sync_btn_done">完了</string>
     <string name="brave_sync_tabs_text">タブ</string>
     <string name="brave_sync_history_text">履歴</string>
@@ -146,8 +145,8 @@
 設定されています。</string>
     <string name="brave_default_browser_go_to_settings">すでにデフォルトのブラウザーが設定されています。
 アプリの設定で変更が可能です。</string>
-    <string name="brave_default_browser_notification_body">電池を節約しながら、ウェブサイトの読み込みスピードを上げましょう。Braveをデフォルトのブラウザに設定しましょう。Braveのメニューから「デフォルトのブラウザに設定」をタップし選択してください</string>
-    <string name="brave_set_default_browser">デフォルトのブラウザとして設定する</string>
+    <string name="brave_default_browser_notification_body">電池を節約しながら、ウェブサイトの読み込みスピードを上げましょう。Braveをデフォルトのブラウザに設定しましょう。Braveのメニューから「デフォルトのブラウザとして設定」をタップし選択してください</string>
+    <string name="brave_set_default_browser">デフォルトのブラウザとして設定</string>
     <string name="brave_set_default_browser_dialog_text">リストからBraveを選び、「常に」をタップします</string>
     <string name="brave_default_browser_existing_notification_body">Braveをデフォルトのウェブブラウザにしましょう
 バッテリーを節約し、Webページの表示速度を上げましょう</string>
@@ -156,7 +155,7 @@
 体験しましょう。</string>
     <string name="brave_ui_welcome_desc_two">プライバシーに配慮した広告を見ると
 トークンを獲得できます。</string>
-    <string name="brave_ui_welcome_button_text_two">リワードに参加</string>
+    <string name="brave_ui_welcome_button_text_two">Rewardsに参加</string>
     <string name="brave_ui_welcome_footer_text_two">詳細</string>
     <string name="brave_ui_rewards_creating_text">ウォレットを作成</string>
     <string name="brave_ui_your_wallet">ウォレット</string>
@@ -164,7 +163,7 @@
     <string name="brave_ui_usd"><ph name=\"VALUE\">%1$s<ex>0.0</ex></ph>米ドル</string>
     <string name="brave_rewards_local_panel_add_funds">資金を追加</string>
     <string name="brave_ui_settings">設定</string>
-    <string name="brave_ui_rewards_summary">リワードサマリー</string>
+    <string name="brave_ui_rewards_summary">Rewardsのサマリ</string>
     <string name="brave_ui_site_banner_welcome">ご利用ありがとうございます！</string>
     <string name="brave_ui_rewards_banner_text1">素晴らしいコンテンツの制作者に感謝の意としてチップを送信し、このサイトをサポートできます。このチップは、認証済みコンテンツクリエイターに毎月第1週に支払われます。</string>
     <string name="brave_ui_rewards_banner_text2">チップの送信をマンスリーに設定して、このサイトを継続的にサポートすることも可能です。</string>
@@ -174,7 +173,8 @@
     <string name="brave_ui_send_tip">チップを送信</string>
     <string name="brave_ui_do_monthly">マンスリーチップを設定</string>
     <string name="brave_ui_not_enough_tokens">トークンが不足しています</string>
-    <string name="brave_ui_site_banner_notice_text">注: このクリエイターは、まだBraveユーザーからの寄付を受諾する手続きを行っていません。クリエイターが確認するまで、または90日間が経過するまで、寄付の送信を継続します。</string>
+    <string name="brave_ui_site_banner_notice_text">注: このクリエイターは、まだBraveユーザーからの支援を受諾する手続きを行っていません。クリエイターが確認するまで、または90日間が経過するまで、支援の送信を継続します。</string>
+    <string name="brave_ui_please">お願いします</string>
     <string name="brave_ui_add_funds">資金を追加</string>
     <string name="brave_ui_thank_you">ありがとうございます！</string>
     <string name="brave_ui_error_init_wallet">後ほどもう一度お試しください。</string>
@@ -192,28 +192,29 @@
     <string name="brave_ui_month_dec">12月</string>
     <string name="brave_ui_month_year"><ph name=\"MONTH\">%1$s<ex>12月</ex></ph> <ph name=\"YEAR\">%2$s<ex>2018年</ex></ph></string>
     <string name="brave_ui_rewards_contribute_attention">注意</string>
-    <string name="brave_ui_include_in_auto">自動寄付に含める</string>
+    <string name="brave_ui_include_in_auto">自動支援に含める</string>
     <string name="brave_ui_donate_now">チップを送信...</string>
     <string name="brave_ui_no_activity">今月はまだアクティビティが
 ありません...</string>
     <string name="brave_ui_token_grant_claimed">トークン付与を請求しました</string>
     <string name="brave_ui_earnings_ads">広告収入</string>
-    <string name="brave_ui_rewards_contribute">自動寄付</string>
-    <string name="brave_ui_rewards_contribute_description"><ph name=\"BAT_VALUE\">%1$s<ex>50</ex></ph>BATを寄付しました。</string>
+    <string name="brave_ui_rewards_contribute">自動支援</string>
+    <string name="brave_ui_rewards_contribute_description"><ph name=\"BAT_VALUE\">%1$s<ex>50</ex></ph>BATを支援しました。</string>
     <string name="brave_ui_one_time_donation">チップ</string>
     <string name="brave_ui_recurring_donation">マンスリーチップ</string>
     <string name="brave_ui_verified_publisher">Brave認証済みパブリッシャー</string>
     <string name="brave_ui_not_verified_publisher">未認証</string>
-    <string name="brave_ui_not_verified_publisher_description">このクリエイターは、まだBraveユーザーからの寄付を受諾する手続きを行っていません。クリエイターの認証確認が終了するまで、送信されたチップはウォレット内に維持されます。</string>
+    <string name="brave_ui_not_verified_publisher_description">このクリエイターは、まだBraveユーザーからの支援を受諾する手続きを行っていません。クリエイターの認証確認が終了するまで、送信されたチップはウォレット内に維持されます。</string>
     <string name="brave_ui_on_youtube">YouTube</string>
     <string name="brave_ui_on_twitch">Twitch</string>
     <string name="brave_ui_new_grant">無料でトークンをご利用いただけます。</string>
     <string name="brave_ui_new_token_grant">無料トークン付与</string>
     <string name="brave_ui_claim">請求</string>
-    <string name="brave_ui_reserved_amount_text">寄付の受諾手続きを行なっていないクリエイターに<ph name=\"BAT_VALUE\">%1$s<ex>50</ex></ph>BATを
-設定しました。クリエイターが確認するまで、または90日間が経過するまで、ブラウザーにより寄付の送信が継続されます。</string>
+    <string name="brave_ui_reserved_amount_text">支援の受諾手続きを行なっていないクリエイターに<ph name=\"BAT_VALUE\">%1$s<ex>50</ex></ph>BATを
+設定しました。クリエイターが確認するまで、または90日間が経過するまで、ブラウザーにより支援の送信が継続されます。</string>
+    <string name="brave_ui_notification_desc_no_funds">資金が不十分なため、予定されていたサイトへの自動支援と設定されている毎月支払いチップの支払いを完了できませんでした。30日後に再試行します。</string>
     <string name="brave_ui_notification_desc_tip_error">チップの処理中にエラーが発生しました。もう一度お試しください。</string>
-    <string name="brave_ui_notification_desc_contr_error">寄付の処理中にエラーが発生しました。</string>
+    <string name="brave_ui_notification_desc_contr_error">支援の処理中にエラーが発生しました。</string>
     <string name="brave_rewards_local_uh_oh">エラー！</string>
     <string name="brave_rewards_local_server_not_responding">Braveリワードサーバーが応答していません。修復作業が終了するまで少々お待ちください。</string>
     <string name="brave_ui_grants">付与</string>
@@ -230,9 +231,9 @@
 クリエイターをサポートしましょう。</string>
     <string name="brave_welcome_page_rewards_title">BRAVEリワードを有効化</string>
     <string name="brave_ui_first_tip_text">あなたの毎月のチップの初回は　に送付されます</string>
-    <string name="brave_ui_tip_text">へ、今あなたはチップを送りました</string>
-    <string name="brave_ui_auto_tip_text">あなたは　へ自動的にチップを送ろうとしています</string>
-    <string name="brave_ui_monthly_text">月ごとの</string>
+    <string name="brave_ui_tip_text">チップを送りました 宛先: </string>
+    <string name="brave_ui_auto_tip_text">あなたは自動的にチップを送ろうとしています 宛先:</string>
+    <string name="brave_ui_monthly_text">毎月の</string>
     <string name="bottom_toolbar_enable">画面下のツールバーを有効にする</string>
     <string name="bottom_toolbar_disable">画面下のツールバーを無効にする</string>
     <string name="search_or_url">検索またはURLを入力します</string>
@@ -244,27 +245,27 @@
     <string name="prefs_section_display">表示</string>
     <string name="prefs_section_controls">コントロール</string>
     <string name="prefs_appearance">見た目</string>
-    <string name="hide_brave_rewards_icon_title">Braveリワードアイコンを隠す</string>
-    <string name="hide_brave_rewards_icon_description">Braveリワードが有効でない場合にBraveリワードアイコンを隠す</string>
+    <string name="hide_brave_rewards_icon_title">Brave Rewardsのアイコンを隠す</string>
+    <string name="hide_brave_rewards_icon_description">Brave Rewardsが有効でない場合にBrave Rewardsのアイコンを隠す</string>
 
     <string name="brave_ui_pre_grant_message">またすぐにチェックして無料のトークンを受け取りましょう</string>
 
-    <string name="reset_brave_rewards_option">Braveリワードをリセット</string>
-    <string name="reset_brave_rewards_option_description">Braveウォレットが削除され、すべてのBraveリワードデータがリセットされます</string>
+    <string name="reset_brave_rewards_option">Brave Rewardsをリセット</string>
+    <string name="reset_brave_rewards_option_description">Brave Walletが削除され、すべてのBrave Rewardsのデータがリセットされます</string>
     <string name="reset_brave_rewards_error_title">エラーをリセット</string>
-    <string name="reset_brave_rewards_error_description">Braveリワードのリセット中にエラーが発生しました。Braveを再開して、再度お試しください。</string>
+    <string name="reset_brave_rewards_error_description">Brave Rewardsのリセット中にエラーが発生しました。Braveを再開して、再度お試しください。</string>
 
-    <string name="brave_sync_add_laptop_text_part_2_new">あなたのターゲットコンピューター上で、設定の[Brave同期]に移動し、[同期コードを持っています]ボタンをクリックします。\n以下に示す同期チェーンコードワードを入力してください。</string>
+    <string name="brave_sync_add_laptop_text_part_2_new">データを同期したい端末で、 設定 > Sync と移動し、同期コードを持っています ボタンをクリックし、以下の同期コードを入力してください。</string>
 
     <string name="brave_sync_official">Brave Sync</string>
     <string name="prefs_sync_official">同期</string>
 
-    <string name="brave_sync_code_warning">このコードをパスワードのように扱ってください。何者かがコードを手に入れた場合、コードを入手した者はあなたの同期化されたデータを読んだり、変更を加えたりすることができます。</string>
+    <string name="brave_sync_code_warning">このコードをパスワードのように扱ってください。何者かがコードを手に入れた場合、コードを入手した者はあなたが同期したデータを読んだり、変更を加えたりすることができます。</string>
 
     <string name="notification_category_group_brave_ads">Brave Ads</string>
     <string name="brave_ads_you_earned">獲得しました</string>
 
-    <string name="brave_default_browser_title">Braveは光のように速い</string>
+    <string name="brave_default_browser_title">Braveは動作が高速です</string>
     <string name="brave_default_browser_body">Braveをあなたのデフォルトブラウザーにしましょう！</string>
-    <string name="brave_make_default_text">デフォルトにしましょう</string>
+    <string name="brave_make_default_text">デフォルトにする</string>
 </resources>

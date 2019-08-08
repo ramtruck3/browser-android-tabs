@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">3য় পক্ষের কুকিগুলি অবরুদ্ধ করুন</string>
 
     <string name="httpse_summary">যখন সম্ভব তখন HTTP এর পরিবর্তে HTTPS ব্যবহার করে সমর্থিত সাইটগুলি খোলে</string>
-    <string name="tracking_protection_title">সুরক্ষার মোড ট্র্যাক করছে</string>
-    <string name="tracking_protection_summary">লোডিং থেকে আপনাকে ট্র্যাক করে এমন সংস্থানগুলিকে আটকায়</string>
     <string name="ad_block_title">বিজ্ঞাপন অবরুদ্ধ করা</string>
     <string name="ad_block_summary">বিজ্ঞাপনগুলিকে লোড করা থেকে আটকায়</string>
 
@@ -37,10 +35,6 @@
     <string name="enter_code_words_sync">কোড ওয়ার্ডগুলি লিখুন</string>
     <string name="sync_device">ডিভাইস সিঙ্ক করুন</string>
     <string name="sync_device_failure">সিঙ্ক সেট আপ করা গেল না</string>
-    <string name="brave_stats_text_trackers">ট্র্যাকারগুলি
-অবরুদ্ধ করা হয়েছে</string>
-    <string name="brave_stats_text_ads">বিজ্ঞাপনগুলি
-অবরুদ্ধ করা হয়েছে</string>
     <string name="brave_stats_text_https">HTTPS
 আপগ্রেডসমূহ</string>
     <string name="brave_stats_text_time">আনুমানিক সাশ্রিত

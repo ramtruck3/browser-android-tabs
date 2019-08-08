@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">제삼자 쿠키 차단</string>
 
     <string name="httpse_summary">가능 시 HTTP 대신 HTTPS를 사용하는 지원되는 사이트 열기</string>
-    <string name="tracking_protection_title">추적 보호 모드</string>
-    <string name="tracking_protection_summary">로딩부터 당신을 추적하는 리소스 방지</string>
     <string name="ad_block_title">광고 차단</string>
     <string name="ad_block_summary">로딩부터 광고 차단</string>
 
@@ -38,9 +36,7 @@
     <string name="sync_device_failure">싱크를 설정할 수 없습니다</string>
     <string name="sync_requires_correct_time">이 컴퓨터의 시간 또는 시간대가 잘못 설정되어 있을 가능성이 있습니다. 시간 설정을 확인해주세요</string>
 
-    <string name="brave_stats_text_trackers">추적기
-차단됨</string>
-    <string name="brave_stats_text_ads">광고
+    <string name="brave_stats_text_ads">광고 및 트래커
 차단됨</string>
     <string name="brave_stats_text_https">HTTPS
 업그레이드</string>

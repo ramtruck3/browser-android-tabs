@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">ปิดกั้นคุกกี้จากบุคคลภายนอก</string>
 
     <string name="httpse_summary">เปิดเว็บที่รองรับโดยใช้ HTTPS แทน HTTP หากเป็นไปได้</string>
-    <string name="tracking_protection_title">โหมดป้องกันการติดตาม</string>
-    <string name="tracking_protection_summary">ป้องกันการโหลดทรัพยากรที่จะติดตามคุณ</string>
     <string name="ad_block_title">บล็อกโฆษณา</string>
     <string name="ad_block_summary">ป้องกันการโหลดโฆษณา</string>
 
@@ -38,10 +36,8 @@
     <string name="sync_device_failure">ไม่สามารถตั้งค่าการซิงค์ได้</string>
     <string name="sync_requires_correct_time">นาฬิกาบนคอมพิวเตอร์ของคุณอาจตั้งเวลาไว้ไม่ถูกต้องหรือตั้งเขตเวลาไว้ไม่ถูกต้อง โปรดตรวจสอบการตั้งค่านาฬิกาของคุณ</string>
 
-    <string name="brave_stats_text_trackers">บล็อก
-ตัวติดตามแล้ว</string>
-    <string name="brave_stats_text_ads">บล็อก
-โฆษณาแล้ว</string>
+    <string name="brave_stats_text_ads">โฆษณาและตัวติดตาม
+บล็อกแล้ว</string>
     <string name="brave_stats_text_https">อัพเกรด
 HTTPS</string>
     <string name="brave_stats_text_time">บันทึกเวลา

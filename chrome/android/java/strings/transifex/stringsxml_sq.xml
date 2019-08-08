@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blloko cookies palësh të treta</string>
 
     <string name="httpse_summary">Sajtet që e mbulojnë këtë akt, i hap duke përdorur HTTPS, në vend se HTTP, kur kjo është e mundur</string>
-    <string name="tracking_protection_title">Mënyra Mbrojtje Nga Gjurmimi</string>
-    <string name="tracking_protection_summary">Pengon ngarkimin e burimeve që ju ndjekin</string>
     <string name="ad_block_title">Bllokim Reklamash</string>
     <string name="ad_block_summary">Pengon ngarkim reklamash</string>
 
@@ -40,10 +38,6 @@
     <string name="sync_device_failure">S\’u rregullua dot njëkohësim</string>
     <string name="sync_requires_correct_time">Ora e kompjuterit tuaj, ose zona kohore për të, mund të jetë caktuar gabim. Ju lutemi, kontrolloni rregullimet tuaja për orën.</string>
 
-    <string name="brave_stats_text_trackers">U bllokuan
-Gjurmues</string>
-    <string name="brave_stats_text_ads">U bllokuan
-Reklama</string>
     <string name="brave_stats_text_https">Përmirësime
 HTTPS-je</string>
     <string name="brave_stats_text_time">Kohë e Kursyes

@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokovat cookies třetí strany</string>
 
     <string name="httpse_summary">Otevře podporované stránky pomocí HTTPS místo HTTP, pokud je to možné</string>
-    <string name="tracking_protection_title">Mód ochrany proti sledování</string>
-    <string name="tracking_protection_summary">Zabraňuje prostředkům, které vás sledují, aby se načetly</string>
     <string name="ad_block_title">Blokace reklam</string>
     <string name="ad_block_summary">Zabraňuje reklamám, aby se načetly</string>
 
@@ -38,10 +36,8 @@
     <string name="sync_device_failure">Synchronizace nemohla být nastavena</string>
     <string name="sync_requires_correct_time">Hodiny vašeho počítače mohou být nastaveny na nesprávný čas nebo na nesprávnou časovou zónu. Zkontrolujte nastavení hodin</string>
 
-    <string name="brave_stats_text_trackers">Trackery
-Zablokovány</string>
-    <string name="brave_stats_text_ads">Reklamy
-Zablokovány</string>
+    <string name="brave_stats_text_ads">Reklamy a nástroje na sledování
+Blokováno</string>
     <string name="brave_stats_text_https">HTTPS
 Rozšíření</string>
     <string name="brave_stats_text_time">Odhadovaný čas

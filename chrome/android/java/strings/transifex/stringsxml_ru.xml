@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Блокировать сторонние cookie</string>
 
     <string name="httpse_summary">Открытие поддерживаемых сайтов с использованием HTTPS вместо HTTP, когда это возможно.</string>
-    <string name="tracking_protection_title">Режим защиты от трекинга</string>
-    <string name="tracking_protection_summary">Блокирует трекинг-ресурсы</string>
     <string name="ad_block_title">Блокировка рекламы</string>
     <string name="ad_block_summary">Блокирует загрузку рекламы</string>
 
@@ -40,10 +38,8 @@
     <string name="sync_device_failure">Не удалось настроить синхронизацию</string>
     <string name="sync_requires_correct_time">В часах вашего компьютера может быть установлено неправильное время или неправильный часовой пояс. Проверьте настройки часов</string>
 
-    <string name="brave_stats_text_trackers">Трекеров
-заблокировано</string>
-    <string name="brave_stats_text_ads">Рекламы
-заблокировано</string>
+    <string name="brave_stats_text_ads">Реклама и трекеры
+Блокировано</string>
     <string name="brave_stats_text_https">HTTPS-пере-
 направлений</string>
     <string name="brave_stats_text_time">Сохранено
@@ -115,6 +111,7 @@
     <string name="brave_sync_btn_laptop">Добавить компьютер</string>
     <string name="brave_sync_scan_sync_code">Отсканируйте этот код синхронизации</string>
     <string name="brave_sync_add_mobile_device_text_part_1">В настройках Brave на втором телефоне или планшете выберите «Синхронизация» > «Сканировать».</string>
+    <string name="brave_sync_add_mobile_device_text_part_2">На вашем мобильном устройстве перейдите к Brave Sync в настройках и нажмите кнопку \'Сканировать код синхронизации\'. С помощью камеры отсканируйте QR-код.</string>
     <string name="brave_sync_btn_done">Готово</string>
     <string name="brave_sync_tabs_text">Вкладки</string>
     <string name="brave_sync_history_text">История</string>

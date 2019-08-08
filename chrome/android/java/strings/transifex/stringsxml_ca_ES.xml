@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Bloca les galetes de 3rs</string>
 
     <string name="httpse_summary">Obre els llocs compatibles amb HTTPS enlloc de HTTP, si és possible</string>
-    <string name="tracking_protection_title">Mode de protecció contra el seguiment</string>
-    <string name="tracking_protection_summary">Evita que es carreguin els recursos encarregats del seguiment</string>
     <string name="ad_block_title">Bloqueig d'anuncis</string>
     <string name="ad_block_summary">Evita que es carreguin anuncis</string>
 
@@ -36,10 +34,6 @@
     <string name="enter_code_words_sync">Introduïu les paraules del codi</string>
     <string name="sync_device">Sincronitza el dispositiu</string>
     <string name="sync_device_failure">No s'ha pogut configurar la sincronització</string>
-    <string name="brave_stats_text_trackers">Seguiments
-blocats</string>
-    <string name="brave_stats_text_ads">Anuncis
-blocats</string>
     <string name="brave_stats_text_https">Actualitzacions
 del HTTPS</string>
     <string name="brave_stats_text_time">Est. Temps

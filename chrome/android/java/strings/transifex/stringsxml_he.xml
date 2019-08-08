@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">לחסום עוגיות צד שלישי</string>
 
     <string name="httpse_summary">פתיחת אתרים נתמכים באמצעות HTTPS במקום HTTP כשאפשר</string>
-    <string name="tracking_protection_title">מצב הגנה מפני מעקב</string>
-    <string name="tracking_protection_summary">מניעת טעינה של משאבים שעוקבים אחריך</string>
     <string name="ad_block_title">לחסום פרסומות</string>
     <string name="ad_block_summary">מניעת טעינה של פרסומות</string>
 
@@ -38,10 +36,8 @@
     <string name="sync_device_failure">לא ניתן להגדיר את הסנכרון</string>
     <string name="sync_requires_correct_time">ייתכן ששעון המחשב שלך מוגדר לשעה שגויה או לאזור זמן שגוי. נא לבדוק את הגדרות השעון</string>
 
-    <string name="brave_stats_text_trackers">כלי מעקב
-שנחסמו</string>
-    <string name="brave_stats_text_ads">פרסומות
-שנחסמו</string>
+    <string name="brave_stats_text_ads">פרסומות ומעקבים
+חסומים</string>
     <string name="brave_stats_text_https">שדרוגי
 HTTPS</string>
     <string name="brave_stats_text_time">הזמן המשוער

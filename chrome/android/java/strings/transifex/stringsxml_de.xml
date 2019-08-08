@@ -14,8 +14,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Drittanbieter-Cookies blocken</string>
 
     <string name="httpse_summary">Falls möglich werden unterstützte Websites via HTTPS anstatt via HTTP geladen</string>
-    <string name="tracking_protection_title">Tracking-Schutzmodus</string>
-    <string name="tracking_protection_summary">Verhindert das Laden von Seitenelementen, die zum Verfolgen Ihrer Internetnutzung dienen</string>
     <string name="ad_block_title">Werbeblocker</string>
     <string name="ad_block_summary">Verhindert das Laden von Werbung</string>
 
@@ -40,10 +38,8 @@
     <string name="sync_device_failure">Synchronisierung konnte nicht eingerichtet werden</string>
     <string name="sync_requires_correct_time">Die Uhr Ihres Computers zeigt evtl. die falsche Zeit an oder ist auf die falsche Zeitzone eingestellt. Überprüfen Sie Ihre Einstellungen für die Uhr.</string>
 
-    <string name="brave_stats_text_trackers">Tracker
-geblockt</string>
-    <string name="brave_stats_text_ads">Werbungen
-geblockt</string>
+    <string name="brave_stats_text_ads">Anzeigen und Tracker
+Blockiert</string>
     <string name="brave_stats_text_https">HTTPS-
 Aufwertungen</string>
     <string name="brave_stats_text_time">Zeit
@@ -115,6 +111,7 @@ gespart</string>
     <string name="brave_sync_btn_laptop">Computer hinzufügen</string>
     <string name="brave_sync_scan_sync_code">Synchronisierungscode scannen</string>
     <string name="brave_sync_add_mobile_device_text_part_1">Navigieren Sie mit einem zweiten Telefon oder Tablet zu den Brave-Einstellungen > Synchronisierung > Scannen.</string>
+    <string name="brave_sync_add_mobile_device_text_part_2">Auf Ihrem mobile Gerät navigieren Sie zum Punkt \"Synchronisieren\" in den Einstellungen und klicken Sie den Button \"Synchonisierungscode scannen oder eingeben\". Nutzen Sie dann die Kamera um den QR Code zu scannen.</string>
     <string name="brave_sync_btn_done">Fertig</string>
     <string name="brave_sync_tabs_text">Tabs</string>
     <string name="brave_sync_history_text">Verlauf</string>
@@ -217,6 +214,7 @@ in diesem Monat …</string>
     <string name="brave_ui_reserved_amount_text">Sie haben <ph name=\"BAT_VALUE\">%1$s<ex>50</ex></ph> BAT für Ersteller festgelegt, die sich noch nicht
 noch angemeldet haben, um Beiträge zu erhalten. Ihr Browser wird weiterhin versuchen, einen Beitrag
 zu übermitteln, bis sich der Ersteller verifiziert hat, oder bis 90 Tage vergangen sind.</string>
+    <string name="brave_ui_notification_desc_no_funds">Ihre geplante monatliche Zahlung für Auto-Contribute und monatliche Trinkgelder konnte aufgrund unzureichender Mittel nicht ausgeführt werden. Wir werden es in 30 Tagen noch einmal versuchen.</string>
     <string name="brave_ui_notification_desc_tip_error">Bei der Verarbeitung Ihres Trinkgelds ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.</string>
     <string name="brave_ui_notification_desc_contr_error">Bei der Verarbeitung Ihres Beitrags ist ein Problem aufgetreten.</string>
     <string name="brave_rewards_local_uh_oh">Hoppla!</string>
@@ -267,7 +265,7 @@ um Ihre Lieblingsersteller zu unterstützen.</string>
     <string name="brave_sync_code_warning">Behandeln Sie diesen Code wie ein Passwort. Wenn jemand an diesen Code gelangt, kann er Ihre synchronisierten Daten auslesen und verändern.</string>
 
     <string name="notification_category_group_brave_ads">Brave Anzeigen</string>
-    <string name="brave_ads_you_earned">Sie haben (translator\'s note: monetary amount goes here) verdient</string>
+    <string name="brave_ads_you_earned">Sie haben verdient</string>
 
     <string name="brave_default_browser_title">Brave ist blitzschnell</string>
     <string name="brave_default_browser_body">Machen Sie Brave zu Ihrem Standardbrowser!</string>

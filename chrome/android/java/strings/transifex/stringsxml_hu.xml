@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">3. fél sütijeinek blokkolása</string>
 
     <string name="httpse_summary">A támogatott oldalakat lehetőség szerint HTTP helyett HTTPS protokollal nyitja meg</string>
-    <string name="tracking_protection_title">Nyomkövetés elleni védelmi mód</string>
-    <string name="tracking_protection_summary">Megakadályozza a nyomkövető programok betöltődését</string>
     <string name="ad_block_title">Reklám blokkolás</string>
     <string name="ad_block_summary">Megakadályozza a reklám betöltődését</string>
 
@@ -38,10 +36,8 @@
     <string name="sync_device_failure">A szinkronizálást nem lehetett beállítani</string>
     <string name="sync_requires_correct_time">Lehet, hogy számítógéped órája rosszul van beállítva, vagy más időzónát mutat. Ellenőrizd az óra beállításait.</string>
 
-    <string name="brave_stats_text_trackers">Követések
-blokkolva</string>
-    <string name="brave_stats_text_ads">Reklámok
-blokkolva</string>
+    <string name="brave_stats_text_ads">Reklámok és nyomkövetők 
+Blokkolva</string>
     <string name="brave_stats_text_https">HTTPS
 használata</string>
     <string name="brave_stats_text_time">Becsült megspórolt

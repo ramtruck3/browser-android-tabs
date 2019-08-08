@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blockera cookies från 3:e part</string>
 
     <string name="httpse_summary">Öppnar webbplatser som använder HTTPS i stället för HTTP när det är möjligt</string>
-    <string name="tracking_protection_title">Spårningsskyddsläge</string>
-    <string name="tracking_protection_summary">Förhindrar resurser som spårar dig från att laddas</string>
     <string name="ad_block_title">Blockera annonser</string>
     <string name="ad_block_summary">Förhindrar annonser från att laddas</string>
 
@@ -38,10 +36,7 @@
     <string name="sync_device_failure">Sync kunde inte ställas in</string>
     <string name="sync_requires_correct_time">Klockan på din dator kan vara inställd på fel tid, eller fel tidszon. Kolla inställningarna. </string>
 
-    <string name="brave_stats_text_trackers">Blockerade
-spårare</string>
-    <string name="brave_stats_text_ads">Blockerad
-reklam</string>
+    <string name="brave_stats_text_ads">Reklam och spårning blockerade</string>
     <string name="brave_stats_text_https">HTTPS
 uppgraderingar</string>
     <string name="brave_stats_text_time">Sparad

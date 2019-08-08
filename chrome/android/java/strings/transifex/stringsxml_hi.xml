@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">3सरे दल बन को अवस्र्द्ध करें </string>
 
     <string name="httpse_summary">जहां संभव हो, HTTP के स्थान पर HTTPS का प्रयोग करते हुये समर्थित साइटें खोलता है</string>
-    <string name="tracking_protection_title">ट्रैकिंग सुरक्षा प्रणाली</string>
-    <string name="tracking_protection_summary">आपको लोड करने पर नज़र रखने वाले स्रोतों को रोकता है</string>
     <string name="ad_block_title">विज्ञापन ब्लॉक</string>
     <string name="ad_block_summary">विज्ञापनों को लोड होने से रोकता है</string>
 
@@ -39,10 +37,8 @@
     <string name="sync_device_failure">सिंक सैट-अप नहीं किया जा सका </string>
     <string name="sync_requires_correct_time">आपके कंप्यूटर की घड़ी गलत समय या गलत टाइम ज़ोन पर सेट हो सकती है। अपनी घड़ी की सेटिंग की जाँच करें</string>
 
-    <string name="brave_stats_text_trackers">ट्रैकर 
-ब्लॉक किया गया  </string>
-    <string name="brave_stats_text_ads">विज्ञापन 
-ब्लॉक किया गया  </string>
+    <string name="brave_stats_text_ads">विज्ञापन और ट्रैकर
+ब्लॉक कर दिया गया</string>
     <string name="brave_stats_text_https">एचटीटीपीएस 
 अपग्रेड </string>
     <string name="brave_stats_text_time">स्थापित   समय 

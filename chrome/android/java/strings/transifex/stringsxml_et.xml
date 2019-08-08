@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokeerige 3. osapoole küpsised</string>
 
     <string name="httpse_summary">Võimalusel avab ühilduvaid lehti HTPPS-i kaudu HTTP asemel</string>
-    <string name="tracking_protection_title">Jälitamisvastane režiim</string>
-    <string name="tracking_protection_summary">Takistab laadimisel jälitavaid ressursse</string>
     <string name="ad_block_title">Reklaami blokeerimine</string>
     <string name="ad_block_summary">Takistab reklaamide laadimist</string>
 
@@ -37,10 +35,6 @@
     <string name="enter_code_words_sync">Sisesta salasõnad</string>
     <string name="sync_device">Sünk seade</string>
     <string name="sync_device_failure">Sünki seadistamine nurjus</string>
-    <string name="brave_stats_text_trackers">Jälitajad
-Blokeeritud</string>
-    <string name="brave_stats_text_ads">Reklaamid
-Blokeeritud</string>
     <string name="brave_stats_text_https">HTTPS
 Uuendused</string>
     <string name="brave_stats_text_time">Hin. aeg

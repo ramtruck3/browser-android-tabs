@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokiraj kolačiće treće strane</string>
 
     <string name="httpse_summary">Otvara podržavane veb lokacije koristeći HTTPS umesto HTTP kada je to moguće</string>
-    <string name="tracking_protection_title">Modul zaštite od praćenja</string>
-    <string name="tracking_protection_summary">Sprečava učitavanje izvora koji vas prate</string>
     <string name="ad_block_title">Blokiranje reklama</string>
     <string name="ad_block_summary">Sprečava učitavanje reklama</string>
 
@@ -38,10 +36,7 @@
     <string name="sync_device_failure">Sinhronizacija se ne može instalirati</string>
     <string name="sync_requires_correct_time">Sat na vašem računaru je možda podešen na pogrešno vreme ili na pogrešnu vremensku zonu. Proverite podešavanja sata.</string>
 
-    <string name="brave_stats_text_trackers">Trekeri
-blokirani</string>
-    <string name="brave_stats_text_ads">Reklame
-blokirani</string>
+    <string name="brave_stats_text_ads">Oglasi i praćenja su blokirani</string>
     <string name="brave_stats_text_https">HTTPS
 nadogradnje</string>
     <string name="brave_stats_text_time">Predv. vreme

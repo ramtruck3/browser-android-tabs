@@ -3,7 +3,7 @@
     <string name="brave_settings_title">Ustawienia tarczy Brave dla strony</string>
     <string name="brave_shields_down">Wyłączone</string>
     <string name="brave_shields_up">Włączone</string>
-    <string name="brave_shields_ads_trackers">Zablokowane reklamy i oprogramowanie śledzące</string>
+    <string name="brave_shields_ads_trackers">Zablokowane reklamy i skrypty śledzące</string>
     <string name="brave_shields_https_upgrades">Aktualizacje HTTPS</string>
     <string name="brave_shields_scripts_blocked">Zablokowane skrypty</string>
     <string name="brave_shields_ads_tracking_switch">Blokuj reklamy i śledzenie</string>
@@ -14,12 +14,10 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Blokuj pliki cookie stron trzecich</string>
 
     <string name="httpse_summary">Wymusza użycie HTTPS, jeśli jest to możliwe</string>
-    <string name="tracking_protection_title">Ochrona przed śledzeniem</string>
-    <string name="tracking_protection_summary">Blokuje elementy śledzące podczas wczytywania strony</string>
     <string name="ad_block_title">Blokowanie reklam</string>
     <string name="ad_block_summary">Zapobiega ładowaniu reklam</string>
 
-    <string name="fingerprinting_protection_title">Zapobieganie zbieraniu odcisków palców</string>
+    <string name="fingerprinting_protection_title">Ochrona przed zabieraniem odcisków palców</string>
     <string name="fingerprinting_protection_summary">Uniemożliwia przeglądarce zbieranie odcisków palców</string>
     <string name="brave_shields_fingerprints_blocked">Zablokowane metody zbierania odcisków palców</string>
     <string name="brave_shields_block_fingerprints_switch">Ochrona przed zabieraniem odcisków palców</string>
@@ -40,10 +38,8 @@
     <string name="sync_device_failure">Nie można skonfigurować synchronizacji</string>
     <string name="sync_requires_correct_time">Zegar komputera może być ustawiony na nieprawidłową godzinę lub strefę czasową. Sprawdź ustawienia zegara</string>
 
-    <string name="brave_stats_text_trackers">Zablokowane
-oprogramowanie śledzące</string>
-    <string name="brave_stats_text_ads">Zablokowane
-reklamy</string>
+    <string name="brave_stats_text_ads">Zablokowane reklamy
+i skrypty śledzące</string>
     <string name="brave_stats_text_https">Aktualizacje
 HTTPS</string>
     <string name="brave_stats_text_time">Szacunkowy
@@ -61,7 +57,7 @@ zaoszczędzony czas</string>
     <string name="brave_shields_second_group_title">Kontrolery indywidualne</string>
     <string name="brave_shields">Tarcze</string>
     <string name="brave_shields_ads_and_trackers">Reklamy i skrypty śledzące</string>
-    <string name="brave_shields_fingerprint_methods">Metody odcisku palca</string>
+    <string name="brave_shields_fingerprint_methods">Metody odcisków palców</string>
     <string name="brave_shields_block_phishing_switch">Zablokuj phishing</string>
 
     <string name="play_video_in_background_title">Odtwarzanie wideo w tle</string>
@@ -95,14 +91,14 @@ zaoszczędzony czas</string>
     <string name="brave_close_all_private_tabs">Zamknij karty prywatne</string>
     <string name="brave_new_private_tab">Nowa karta prywatna</string>
     <string name="brave_new_tab_private_header">To jest karta prywatna</string>
-    <string name="brave_new_tab_private_message">Pomimo że strony, które odwiedzasz w karcie prywatnej nie są zapisywane lokalnie, nie czyni cię to ani anonimowym ani niewidocznym względem dostawcy usług internetowych, twojego pracodawcy lub stron, które odwiedzasz.</string>
+    <string name="brave_new_tab_private_message">Pomimo że strony odwiedzane przez karty prywatne nie są zapisywane lokalnie, nie czynią Cię anonimowym, ani niewidocznym dla usługodawcy internetowego, pracodawcy lub odwiedzanej strony.</string>
     <string name="update_notification_title">Aktualizacja przeglądarki Brave</string>
     <string name="update_notification_text">Nowa przeglądarka Brave działa o 22% szybciej</string>
     <string name="prefs_sync">Synchronizacja (beta)</string>
     <string name="brave_ads_oobe_education_notification_title">To Twoja pierwsza reklama Brave</string>
     <string name="brave_ads_oobe_education_notification_body">Dotknij, aby dowiedzieć się więcej</string>
     <string name="brave_ads_existing_user_offer_title">Reklamy Brave są dostępne!</string>
-    <string name="brave_ads_new_user_offer_title">Włącz Nagrody Brave</string>
+    <string name="brave_ads_new_user_offer_title">Włącz nagrody Brave</string>
     <string name="brave_ads_offer_text">Zarób token BAT za oglądanie reklam chroniących prywatność w nagrodach Brave.</string>
     <string name="brave_ads_offer_positive">Wchodzę w to!</string>
     <string name="brave_sync_description_page_1_part_1">Synchronizacja Brave pozwala na prywatną synchronizację danych zakładek w Twoich przeglądarkach Brave na różnych urządzeniach.</string>
@@ -250,15 +246,15 @@ twórcom treści, które lubisz.</string>
     <string name="prefs_section_display">Wyświetlanie</string>
     <string name="prefs_section_controls">Elementy kontrolne</string>
     <string name="prefs_appearance">Wygląd</string>
-    <string name="hide_brave_rewards_icon_title">Ukryj ikonę Brave Rewards</string>
-    <string name="hide_brave_rewards_icon_description">Ukrywa ikonę Brave Rewards, kiedy nie są one włączone.</string>
+    <string name="hide_brave_rewards_icon_title">Ukryj ikonę nagród Brave</string>
+    <string name="hide_brave_rewards_icon_description">Ukrywa ikonę nagród Brave, kiedy nie są one włączone.</string>
 
     <string name="brave_ui_pre_grant_message">Zajrzyj niedługo ponownie, aby otrzymać bezpłatny token.</string>
 
-    <string name="reset_brave_rewards_option">Zresetuj Brave Rewards</string>
-    <string name="reset_brave_rewards_option_description">Spowoduje to usunięcie portfela Brave i zresetowanie wszystkich Twoich danych o Brave Rewards.</string>
+    <string name="reset_brave_rewards_option">Zresetuj nagrody Brave</string>
+    <string name="reset_brave_rewards_option_description">Spowoduje to usunięcie portfela Brave i zresetowanie wszystkich Twoich danych o nagrodach Brave.</string>
     <string name="reset_brave_rewards_error_title">Błąd resetowania</string>
-    <string name="reset_brave_rewards_error_description">Podczas resetowania Brave Rewards wystąpił błąd. Uruchom Brave ponownie i spróbuj jeszcze raz.</string>
+    <string name="reset_brave_rewards_error_description">Podczas resetowania nagród Brave wystąpił błąd. Uruchom Brave ponownie i spróbuj jeszcze raz.</string>
 
     <string name="brave_sync_add_laptop_text_part_2_new">Na docelowym komputerze przejdź do synchronizacji Brave w ustawieniach i kliknij przycisk \"Mam kod synchronizacji\"\nWpisz słowa kodu łańcucha synchronizacji pokazane poniżej.</string>
 

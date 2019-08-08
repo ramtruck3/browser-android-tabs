@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Sekat kuki pihak ke-3</string>
 
     <string name="httpse_summary">Buka laman disokong dengan menggunakan HTTPS dan bukan HTTP jika mungkin</string>
-    <string name="tracking_protection_title">Mod Perlindungan Penjejakan</string>
-    <string name="tracking_protection_summary">Mengelakkan pemuatan sumber yang mengikuti anda</string>
     <string name="ad_block_title">Sekatan Iklan</string>
     <string name="ad_block_summary">Mengelakkan ikan dimuatkan</string>
 
@@ -39,10 +37,7 @@
     <string name="sync_device_failure">Penyegerakan tidak boleh ditetapkan</string>
     <string name="sync_requires_correct_time">Jam komputer anda mungkin ditetapkan</string>
 
-    <string name="brave_stats_text_trackers">Penjejak
-Disekat</string>
-    <string name="brave_stats_text_ads">Iklan
-Disekat</string>
+    <string name="brave_stats_text_ads">Iklan dan Penjejak Disekat</string>
     <string name="brave_stats_text_https">HTTPS
 Naik Taraf</string>
     <string name="brave_stats_text_time">Masa Jangkaan

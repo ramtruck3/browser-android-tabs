@@ -12,8 +12,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Bloquear cookies de terceiros</string>
 
     <string name="httpse_summary">Sempre que sexa posíbel, abrir os sitios compatíbeis empregando HTTPS no canto do HTTP</string>
-    <string name="tracking_protection_title">Modo de protección contra o rastrexo</string>
-    <string name="tracking_protection_summary">Empecer que se carguen os recursos de rastrexo</string>
     <string name="ad_block_title">Bloqueo de anuncios</string>
     <string name="ad_block_summary">Empecer que se carguen anuncios</string>
 
@@ -36,10 +34,6 @@
     <string name="enter_code_words_sync">Insire as palabras clave</string>
     <string name="sync_device">Sincronizar dispositivo</string>
     <string name="sync_device_failure">Non se puido configurar a sincronización</string>
-    <string name="brave_stats_text_trackers">Rastrexadores
-bloqueados</string>
-    <string name="brave_stats_text_ads">Anuncios
-bloqueados</string>
     <string name="brave_stats_text_https">Actualizacións
 HTTPS</string>
     <string name="brave_stats_text_time">Tempo avaliado

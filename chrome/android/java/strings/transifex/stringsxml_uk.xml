@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Сторонні куки</string>
 
     <string name="httpse_summary">Відкривати підтримувані сайти з використанням протоколу HTTPS замість HTTP</string>
-    <string name="tracking_protection_title">Режим захисту від стеження</string>
-    <string name="tracking_protection_summary">Блокувати завантаження елементів стеження</string>
     <string name="ad_block_title">Блокувати рекламу</string>
     <string name="ad_block_summary">Блокувати завантаження реклами</string>
 
@@ -38,10 +36,8 @@
     <string name="sync_device_failure">Синхронізація не може бути встановлена</string>
     <string name="sync_requires_correct_time">Можливо, годинник вашого комп\'ютера йде за невірним часом чи часовим поясом. Перевірте налаштування свого годинника</string>
 
-    <string name="brave_stats_text_trackers">Заблоковано
-стеження</string>
-    <string name="brave_stats_text_ads">Заблоковано
-реклами</string>
+    <string name="brave_stats_text_ads">Реклама та відстежувачі
+заблоковані</string>
     <string name="brave_stats_text_https">HTTPS
 перенаправлень</string>
     <string name="brave_stats_text_time">Заощаджено

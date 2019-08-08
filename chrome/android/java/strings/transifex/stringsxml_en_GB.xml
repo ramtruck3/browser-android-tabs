@@ -13,8 +13,6 @@
     <string name="brave_shields_block_3rd_party_cookies_switch">Block 3rd party cookies</string>
 
     <string name="httpse_summary">Opens supported sites using HTTPS instead of HTTP when possible</string>
-    <string name="tracking_protection_title">Tracking Protection Mode</string>
-    <string name="tracking_protection_summary">Prevents resources that track you from loading</string>
     <string name="ad_block_title">Ad Block</string>
     <string name="ad_block_summary">Prevents ads from loading</string>
 
@@ -36,10 +34,6 @@
     <string name="enter_code_words_sync">Enter code words</string>
     <string name="sync_device">Sync device</string>
     <string name="sync_device_failure">Sync could not be setup</string>
-    <string name="brave_stats_text_trackers">Trackers
-Blocked</string>
-    <string name="brave_stats_text_ads">Ads
-Blocked</string>
     <string name="brave_stats_text_https">HTTPS
 Upgrades</string>
     <string name="brave_stats_text_time">Est. Time
