@@ -217,9 +217,6 @@ namespace blockers {
         std::vector<std::string> files = split((char*)&db_file_name.front(), ';');
         for (size_t i = 0; i < files.size(); i++) {
             adblock_regional_buffer.push_back(std::vector<char>());
-            if (!adblock_regional_buffer.size()) {
-                continue;
-            }
             if (!GetBufferData("", files[i].c_str(), adblock_regional_buffer[adblock_regional_buffer.size() - 1])) {
                 adblock_regional_buffer.erase(adblock_regional_buffer.begin() + adblock_regional_buffer.size() - 1);
                 continue;
