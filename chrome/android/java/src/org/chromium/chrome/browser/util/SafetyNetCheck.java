@@ -102,10 +102,15 @@ public class SafetyNetCheck {
                         }
                     });
                 res = true;
+            } else {
+                clientAttestationResult(false, "Google Play Services are not available");
+                // This result just indicates that callback with the actual result was called
+                res = true;
             }
         } catch (Exception e) {
             Log.e(TAG, "SafetyNetCheck error: " + e);
         }
+
         return res;
     }
 
